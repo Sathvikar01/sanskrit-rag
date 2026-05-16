@@ -1,11 +1,11 @@
-"""Query processor using Gemini API for IAST conversion and concept extraction."""
+"""Query processor using MiMo v2.5 for IAST conversion and concept extraction."""
 
 import json
 import re
 from dataclasses import dataclass, field
 from typing import Optional
 
-import google.generativeai as genai
+from openai import OpenAI
 
 from src.preprocessing.concept_extractor import ConceptExtractor
 from src.preprocessing.iast_devanagari import get_converter
@@ -29,56 +29,68 @@ QUERY_PROCESSING_PROMPT = """You are a Sanskrit language expert. Your task is to
 
 Given the user query: "{query}"
 
-Please provide the following in JSON format:
-1. "query_iast": The query converted to IAST transliteration (if the query contains Sanskrit/Devanagari text). If the query is in English, provide the key Sanskrit terms in IAST.
-2. "concepts": A list of philosophical concepts from the Bhagavad Gita that are relevant to this query. Choose from these concepts: dharma, karma, bhakti, jnana, yoga, atman, brahman, ishvara, prakriti, moksha, samsara, gunas, kshetra, ahimsa, tyaga, samkhya, yajna, dhyana, sharira, sukha, duhkha, maya, nishkamakarma, prapatti, sthitaprajna, vishada
-3. "language_detected": The language of the original query (e.g., "english", "sanskrit_iast", "sanskrit_devanagari", "mixed")
+Please provide the following in JSON format ONLY, no markdown, no explanations:
+1. "query_iast": If the query is in English, translate the key Sanskrit terms to IAST transliteration. If the query already contains Sanskrit (IAST or Devanagari), normalize it to IAST.
+2. "concepts": A list of philosophical concepts from the Bhagavad Gita relevant to this query. Choose from: dharma, karma, bhakti, jnana, yoga, atman, brahman, ishvara, prakriti, moksha, samsara, gunas, kshetra, ahimsa, tyaga, samkhya, yajna, dhyana, sharira, sukha, duhkha, maya, nishkamakarma, prapatti, sthitaprajna, vishada
+3. "language_detected": The language of the original query (e.g., "english", "sanskrit_iast", "sanskrit_devanagari", "hindi", "mixed")
 4. "confidence": Your confidence in the extraction (0.0 to 1.0)
-
-Respond ONLY with valid JSON. Do not include any markdown formatting or explanations.
 
 Example response:
 {{"query_iast": "dharma ki hai bhagavad gītā mein", "concepts": ["dharma", "karma"], "language_detected": "hindi_english_mixed", "confidence": 0.85}}"""
 
 
 class QueryProcessor:
-    """Process user queries using Gemini API."""
+    """Process user queries using MiMo API."""
 
     def __init__(self, config: Config = None):
         if config is None:
             config = Config()
 
-        self.api_key = config.gemini_api_key
-        genai.configure(api_key=self.api_key)
+        api_base = config.get("generation.mimo.api_base", "https://api.xiaomimimo.com/v1")
+        model = config.get("generation.mimo.model", "mimo-v2.5")
 
-        self.model = genai.GenerativeModel(
-            config.get("query_processing.gemini_model", "gemini-2.0-flash")
+        self.client = OpenAI(
+            api_key=config.mimo_api_key,
+            base_url=api_base,
         )
+        self.model = model
         self.converter = get_converter()
         self.concept_extractor = ConceptExtractor()
 
-        logger.info("QueryProcessor initialized with Gemini API")
+        logger.info(f"QueryProcessor initialized with MiMo ({self.model})")
 
-    def _call_gemini(self, prompt: str) -> str:
-        """Call Gemini API with a prompt."""
+    def _call_mimo(self, prompt: str) -> str:
+        """Call MiMo API with a prompt."""
         try:
-            response = self.model.generate_content(prompt)
-            return response.text
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": "You are a Sanskrit language expert. Respond ONLY with valid JSON."},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0.1,
+                max_tokens=1024,
+            )
+            content = response.choices[0].message.content
+            if content:
+                logger.debug(f"MiMo response: {content[:200]}")
+            else:
+                logger.warning("MiMo returned empty content")
+            return content or ""
         except Exception as e:
-            logger.error(f"Gemini API error: {e}")
+            logger.error(f"MiMo API error: {e}")
             return ""
 
     def _parse_response(self, response: str) -> dict:
-        """Parse Gemini's JSON response."""
+        """Parse MiMo's JSON response."""
         response = response.strip()
-
         response = re.sub(r"```json\s*", "", response)
         response = re.sub(r"```\s*$", "", response)
 
         try:
             return json.loads(response)
         except json.JSONDecodeError:
-            logger.warning(f"Failed to parse Gemini response as JSON: {response[:200]}")
+            logger.warning(f"Failed to parse MiMo response as JSON: {response[:200]}")
             return {}
 
     def detect_language(self, query: str) -> str:
@@ -108,7 +120,7 @@ class QueryProcessor:
         language = self.detect_language(query)
 
         prompt = QUERY_PROCESSING_PROMPT.format(query=query)
-        response = self._call_gemini(prompt)
+        response = self._call_mimo(prompt)
         parsed = self._parse_response(response)
 
         query_iast = parsed.get("query_iast", query)
@@ -138,7 +150,7 @@ class QueryProcessor:
         return result
 
     def process_query_local(self, query: str) -> ProcessedQuery:
-        """Process query locally without Gemini API (fallback).
+        """Process query locally without API (fallback).
 
         Args:
             query: User's question.

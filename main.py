@@ -8,6 +8,10 @@ import json
 import sys
 from pathlib import Path
 
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 from src.generation.generator import AnswerGenerator
 from src.generation.query_processor import QueryProcessor
 from src.preprocessing.chunker import Chunk, create_all_chunks, load_chunks, save_chunks
@@ -114,7 +118,7 @@ class SRAGPipeline:
             self.vector_store.load(faiss_path, metadata_path)
         else:
             logger.info("Building FAISS index...")
-            self.vector_store.build_index(self.chunks, use_devanagari=use_devanagari)
+            self.vector_store.build_index(self.chunks, use_devanagari=use_devanagari, verse_only=False)
             self.vector_store.save(faiss_path, metadata_path)
 
         logger.info("Building BM25 index...")
@@ -154,18 +158,18 @@ class SRAGPipeline:
     def query(
         self,
         user_query: str,
-        use_gemini: bool = True,
+        use_api: bool = True,
     ) -> dict:
         """Process a user query end-to-end.
 
         Args:
             user_query: The user's question.
-            use_gemini: Whether to use Gemini for query processing.
+            use_api: Whether to use MiMo API for query processing.
 
         Returns:
             Complete response dictionary.
         """
-        if use_gemini:
+        if use_api:
             processed = self.query_processor.process_query(user_query)
         else:
             processed = self.query_processor.process_query_local(user_query)
@@ -250,9 +254,9 @@ def main():
         help="Force reprocessing",
     )
     parser.add_argument(
-        "--no-gemini",
+        "--local",
         action="store_true",
-        help="Skip Gemini query processing (use local fallback)",
+        help="Use local fallback for query processing (no API calls)",
     )
 
     args = parser.parse_args()
@@ -285,7 +289,7 @@ def main():
             except Exception as e:
                 logger.warning(f"Graph connection failed: {e}. Continuing without graph.")
 
-            result = pipeline.query(args.query, use_gemini=not args.no_gemini)
+            result = pipeline.query(args.query, use_api=not args.local)
 
             print("\n" + "=" * 80)
             print(f"QUERY: {result['query']}")

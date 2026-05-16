@@ -39,3 +39,8 @@ neo4j_logs/
 # Large binary
 *.faiss
 *.vhdx
+
+# Web
+web/node_modules/
+web/dist/
+web/.vite/

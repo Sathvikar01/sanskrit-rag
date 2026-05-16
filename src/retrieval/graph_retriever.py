@@ -49,7 +49,7 @@ class GraphRetriever:
             List of dicts with chunk_id, score, rank.
         """
         cypher_query = """
-        CALL db.index.fulltext.queryNodes('verse_text_ft', $query)
+        CALL db.index.fulltext.queryNodes('verse_text_ft', $search_text)
         YIELD node, score
         RETURN node.ref AS ref, node.text_iast AS text, score
         ORDER BY score DESC
@@ -57,7 +57,7 @@ class GraphRetriever:
         """
 
         with self.driver.session() as session:
-            result = session.run(cypher_query, query=query, top_k=top_k)
+            result = session.run(cypher_query, search_text=query, top_k=top_k)
             results = []
             for rank, record in enumerate(result, 1):
                 results.append(
@@ -91,8 +91,9 @@ class GraphRetriever:
         MATCH (v:Verse)-[r:MENTIONS_CONCEPT]->(c:Concept)
         WHERE c.name_iast IN $concepts
         WITH v, count(c) AS concept_overlap,
-             sum(r.confidence) AS total_confidence,
-             size((v)--()) AS degree_centrality
+             sum(r.confidence) AS total_confidence
+        OPTIONAL MATCH (v)--(other)
+        WITH v, concept_overlap, total_confidence, count(other) AS degree_centrality
         RETURN v.ref AS ref, v.text_iast AS text,
                concept_overlap, total_confidence, degree_centrality,
                (concept_overlap * 0.4 + total_confidence * 0.4 + degree_centrality * 0.002) AS score

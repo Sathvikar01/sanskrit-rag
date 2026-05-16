@@ -22,7 +22,8 @@ class VectorStore:
 
         self.model_name = config.embedding_model
         self.device = config.embedding_device
-        self.batch_size = config.get("embedding.batch_size", 32)
+        self.batch_size = config.get("embedding.batch_size", 4)
+        self.max_length = config.get("embedding.max_length", 512)
         self.normalize = config.get("embedding.normalize", True)
 
         self.model: Optional[SentenceTransformer] = None
@@ -33,8 +34,13 @@ class VectorStore:
     def load_model(self):
         """Load the embedding model."""
         logger.info(f"Loading embedding model: {self.model_name}")
-        self.model = SentenceTransformer(self.model_name, device=self.device)
-        logger.info(f"Model loaded on device: {self.device}")
+        self.model = SentenceTransformer(
+            self.model_name,
+            device=self.device,
+            trust_remote_code=True,
+        )
+        self.model.max_seq_length = self.max_length
+        logger.info(f"Model loaded on device: {self.device}, max_seq_length: {self.max_length}")
 
     def encode_texts(self, texts: list[str]) -> np.ndarray:
         """Encode texts into embeddings.
@@ -53,16 +59,21 @@ class VectorStore:
             batch_size=self.batch_size,
             show_progress_bar=True,
             normalize_embeddings=self.normalize,
+            convert_to_numpy=True,
         )
         return np.array(embeddings, dtype=np.float32)
 
-    def build_index(self, chunks: list[Chunk], use_devanagari: bool = True):
+    def build_index(self, chunks: list[Chunk], use_devanagari: bool = True, verse_only: bool = False):
         """Build FAISS index from chunks.
 
         Args:
             chunks: List of Chunk objects to index.
             use_devanagari: Whether to use Devanagari text (True) or IAST (False).
+            verse_only: Whether to index only verse chunks (faster) or all chunks.
         """
+        if verse_only:
+            chunks = [c for c in chunks if c.chunk_type == "verse"]
+
         logger.info(f"Building FAISS index from {len(chunks)} chunks")
 
         if use_devanagari:

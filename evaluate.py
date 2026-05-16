@@ -1,89 +1,270 @@
-"""Evaluation script for SRAG system."""
+"""SRAG Evaluation Pipeline - Compare with ground truth datasets."""
 
-import argparse
 import sys
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8")
+
+import json
+import time
+import re
 from pathlib import Path
-
-from src.evaluation.benchmark import (
-    Benchmark,
-    create_sample_test_queries,
-    load_test_queries,
-)
+from sentence_transformers import SentenceTransformer, util
+from main import SRAGPipeline
 from src.utils.config import Config
-from src.utils.logger import logger
 
 
-def main():
-    """Run SRAG evaluation."""
-    parser = argparse.ArgumentParser(description="SRAG Evaluation")
+def load_gita_guidance_qa(path: str) -> list[dict]:
+    """Load Gita Guidance QA dataset (modern life questions with Gita answers)."""
+    pairs = []
+    with open(path, 'r', encoding='utf-8') as f:
+        for line in f:
+            d = json.loads(line)
+            msgs = d.get('messages', [])
+            if len(msgs) >= 2:
+                user_msg = msgs[0].get('content', '')
+                assistant_msg = msgs[1].get('content', '')
+                if user_msg and assistant_msg:
+                    pairs.append({
+                        'question': user_msg,
+                        'ground_truth': assistant_msg,
+                        'source': 'gita_guidance_qa',
+                    })
+    return pairs
 
-    parser.add_argument(
-        "--config",
-        default="configs/config.yaml",
-        help="Path to config file",
-    )
-    parser.add_argument(
-        "--mode",
-        choices=["benchmark", "ablation", "create-sample"],
-        default="benchmark",
-        help="Evaluation mode",
-    )
-    parser.add_argument(
-        "--test-queries",
-        type=str,
-        help="Path to test queries JSON file",
-    )
-    parser.add_argument(
-        "--output",
-        type=str,
-        default="benchmark_results.json",
-        help="Output filename for results",
-    )
 
-    args = parser.parse_args()
-    config = Config(args.config)
+def load_edwin_arnold_qa(path: str) -> list[dict]:
+    """Load Edwin Arnold QA dataset."""
+    pairs = []
+    with open(path, 'r', encoding='utf-8') as f:
+        for line in f:
+            d = json.loads(line)
+            q = d.get('question', '')
+            a = d.get('answer', '')
+            if q and a:
+                pairs.append({
+                    'question': q,
+                    'ground_truth': a,
+                    'source': 'edwin_arnold_qa',
+                })
+    return pairs
 
-    if args.mode == "create-sample":
-        output_path = args.test_queries or "data/evaluation/test_queries.json"
-        create_sample_test_queries(output_path)
-        print(f"Created sample test queries at {output_path}")
+
+def extract_verse_refs(text: str) -> set[str]:
+    """Extract verse references like BhG 2.47, BG 2.47, Chapter 2 Verse 47."""
+    patterns = [
+        r'BhG\s+(\d+\.\d+)',
+        r'BG\s+(\d+\.\d+)',
+        r'Chapter\s+(\d+)[,\s]+Verse\s+(\d+)',
+        r'(\d+)\.(\d+)',
+        r'verse\s+(\d+\.\d+)',
+    ]
+    refs = set()
+    for pattern in patterns:
+        for match in re.finditer(pattern, text, re.IGNORECASE):
+            if len(match.groups()) == 1:
+                refs.add(match.group(1))
+            elif len(match.groups()) == 2:
+                refs.add(f"{match.group(1)}.{match.group(2)}")
+    return refs
+
+
+def compute_metrics(srag_answer: str, ground_truth: str, model) -> dict:
+    """Compute semantic similarity and text overlap metrics."""
+    emb1 = model.encode(srag_answer, convert_to_tensor=True)
+    emb2 = model.encode(ground_truth, convert_to_tensor=True)
+    semantic_sim = float(util.cos_sim(emb1, emb2).item())
+
+    srag_lower = srag_answer.lower()
+    gt_lower = ground_truth.lower()
+
+    srag_words = set(srag_lower.split())
+    gt_words = set(gt_lower.split())
+    word_overlap = len(srag_words & gt_words) / max(len(gt_words), 1)
+
+    srag_verses = extract_verse_refs(srag_answer)
+    gt_verses = extract_verse_refs(ground_truth)
+    verse_recall = len(srag_verses & gt_verses) / max(len(gt_verses), 1) if gt_verses else None
+
+    return {
+        'semantic_similarity': round(semantic_sim, 4),
+        'word_overlap': round(word_overlap, 4),
+        'verse_recall': round(verse_recall, 4) if verse_recall is not None else None,
+        'srag_verses': sorted(srag_verses),
+        'gt_verses': sorted(gt_verses),
+        'srag_length': len(srag_answer),
+        'gt_length': len(ground_truth),
+    }
+
+
+def run_evaluation():
+    """Run full evaluation pipeline."""
+    print("=" * 70)
+    print("SRAG EVALUATION PIPELINE")
+    print("Comparing SRAG answers with ground truth datasets")
+    print("=" * 70)
+
+    eval_dir = Path("data/evaluation/external")
+    guidance_path = eval_dir / "gita_guidance_qa.jsonl"
+    arnold_path = eval_dir / "edwin_arnold_qa.jsonl"
+
+    qa_pairs = []
+    if guidance_path.exists():
+        qa_pairs.extend(load_gita_guidance_qa(str(guidance_path)))
+    if arnold_path.exists():
+        qa_pairs.extend(load_edwin_arnold_qa(str(arnold_path)))
+
+    if not qa_pairs:
+        print("No QA datasets found. Run download first.")
         return
 
-    from main import SRAGPipeline
+    print(f"\nLoaded {len(qa_pairs)} QA pairs:")
+    sources = {}
+    for p in qa_pairs:
+        sources[p['source']] = sources.get(p['source'], 0) + 1
+    for src, count in sources.items():
+        print(f"  - {src}: {count}")
 
-    test_queries_path = args.test_queries or config.get(
-        "evaluation.test_queries_file", "data/evaluation/test_queries.json"
-    )
-    test_queries = load_test_queries(test_queries_path)
+    print("\nLoading sentence transformer for semantic comparison...")
+    sim_model = SentenceTransformer('all-MiniLM-L6-v2')
 
-    if not test_queries:
-        print("No test queries found. Run with --mode create-sample first.")
-        sys.exit(1)
-
+    print("Initializing SRAG pipeline...")
+    config = Config()
     pipeline = SRAGPipeline(config)
-
+    pipeline.preprocess()
+    pipeline.build_indices()
     try:
-        pipeline.preprocess()
-        pipeline.build_indices()
+        pipeline._get_graph_retriever()
+    except Exception as e:
+        print(f"Graph connection failed: {e}")
+
+    sample_size = min(30, len(qa_pairs))
+    import random
+    random.seed(42)
+    sample = random.sample(qa_pairs, sample_size)
+
+    print(f"\nRunning evaluation on {sample_size} samples...")
+    results = []
+    total_time = 0
+
+    for i, qa in enumerate(sample):
+        question = qa['question']
+        ground_truth = qa['ground_truth']
+
+        print(f"\n[{i+1}/{sample_size}] {question[:80]}...")
 
         try:
-            pipeline._get_graph_retriever()
+            start = time.time()
+            result = pipeline.query(question, use_api=True)
+            elapsed = time.time() - start
+            total_time += elapsed
+
+            srag_answer = result.get('answer', '')
+            srag_concepts = result.get('concepts_extracted', [])
+            srag_verses = result.get('verses_cited', [])
+            confidence = result.get('pipeline_confidence', {})
+
+            metrics = compute_metrics(srag_answer, ground_truth, sim_model)
+
+            entry = {
+                'question': question,
+                'ground_truth': ground_truth[:500],
+                'srag_answer': srag_answer[:500],
+                'source': qa['source'],
+                'concepts': srag_concepts,
+                'verses_cited': srag_verses,
+                'confidence': confidence,
+                'time_seconds': round(elapsed, 2),
+                **metrics,
+            }
+            results.append(entry)
+
+            print(f"  Semantic: {metrics['semantic_similarity']:.3f} | "
+                  f"Word overlap: {metrics['word_overlap']:.3f} | "
+                  f"Time: {elapsed:.1f}s")
+            if metrics['verse_recall'] is not None:
+                print(f"  Verse recall: {metrics['verse_recall']:.3f}")
+
         except Exception as e:
-            logger.warning(f"Graph connection failed: {e}")
+            print(f"  ERROR: {e}")
+            results.append({
+                'question': question,
+                'source': qa['source'],
+                'error': str(e),
+            })
 
-        benchmark = Benchmark(config)
+    successful = [r for r in results if 'error' not in r]
+    if successful:
+        avg_semantic = sum(r['semantic_similarity'] for r in successful) / len(successful)
+        avg_word_overlap = sum(r['word_overlap'] for r in successful) / len(successful)
+        avg_time = total_time / len(successful)
 
-        if args.mode == "benchmark":
-            results = [benchmark.run_benchmark(pipeline, test_queries)]
-        elif args.mode == "ablation":
-            results = benchmark.run_ablation(pipeline, test_queries)
+        verse_results = [r for r in successful if r.get('verse_recall') is not None]
+        avg_verse_recall = (sum(r['verse_recall'] for r in verse_results) / len(verse_results)) if verse_results else 0
 
-        benchmark.print_results(results)
-        benchmark.save_results(results, args.output)
+        high_sim = sum(1 for r in successful if r['semantic_similarity'] >= 0.5)
+        med_sim = sum(1 for r in successful if 0.3 <= r['semantic_similarity'] < 0.5)
+        low_sim = sum(1 for r in successful if r['semantic_similarity'] < 0.3)
 
-    finally:
-        pipeline.close()
+        by_source = {}
+        for r in successful:
+            src = r['source']
+            if src not in by_source:
+                by_source[src] = []
+            by_source[src].append(r)
+
+        report = {
+            'summary': {
+                'total_evaluated': len(successful),
+                'total_errors': len(results) - len(successful),
+                'avg_semantic_similarity': round(avg_semantic, 4),
+                'avg_word_overlap': round(avg_word_overlap, 4),
+                'avg_verse_recall': round(avg_verse_recall, 4),
+                'avg_response_time_seconds': round(avg_time, 2),
+                'high_similarity_count': high_sim,
+                'medium_similarity_count': med_sim,
+                'low_similarity_count': low_sim,
+            },
+            'by_source': {},
+            'detailed_results': results,
+        }
+
+        for src, src_results in by_source.items():
+            report['by_source'][src] = {
+                'count': len(src_results),
+                'avg_semantic_similarity': round(sum(r['semantic_similarity'] for r in src_results) / len(src_results), 4),
+                'avg_word_overlap': round(sum(r['word_overlap'] for r in src_results) / len(src_results), 4),
+            }
+
+        output_path = Path("data/evaluation/srag_evaluation_report.json")
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(report, f, indent=2, ensure_ascii=False)
+
+        print("\n" + "=" * 70)
+        print("EVALUATION RESULTS")
+        print("=" * 70)
+        print(f"\nTotal evaluated: {len(successful)}")
+        print(f"Errors: {len(results) - len(successful)}")
+        print(f"\n--- Semantic Similarity ---")
+        print(f"  Average: {avg_semantic:.4f}")
+        print(f"  High (>=0.5): {high_sim} ({100*high_sim/len(successful):.0f}%)")
+        print(f"  Medium (0.3-0.5): {med_sim} ({100*med_sim/len(successful):.0f}%)")
+        print(f"  Low (<0.3): {low_sim} ({100*low_sim/len(successful):.0f}%)")
+        print(f"\n--- Word Overlap ---")
+        print(f"  Average: {avg_word_overlap:.4f}")
+        print(f"\n--- Verse Citation Recall ---")
+        print(f"  Average: {avg_verse_recall:.4f}")
+        print(f"\n--- Response Time ---")
+        print(f"  Average: {avg_time:.1f}s")
+        print(f"\n--- By Dataset Source ---")
+        for src, stats in report['by_source'].items():
+            print(f"  {src}: {stats['count']} samples, "
+                  f"semantic={stats['avg_semantic_similarity']:.4f}, "
+                  f"word_overlap={stats['avg_word_overlap']:.4f}")
+
+        print(f"\nFull report saved to: {output_path}")
+    else:
+        print("\nNo successful results to report.")
 
 
 if __name__ == "__main__":
-    main()
+    run_evaluation()
