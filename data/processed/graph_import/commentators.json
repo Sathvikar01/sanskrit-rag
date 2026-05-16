@@ -1,0 +1,26 @@
+[
+  {
+    "id": "sridhara",
+    "name_iast": "śrīdhara-svāmin",
+    "name_devanagari": "श्रीधरस्वामिन्",
+    "name_english": "Sridhara Swamin",
+    "tradition": "advaita",
+    "commentary_name": "gītā-subodhinī"
+  },
+  {
+    "id": "visvanatha",
+    "name_iast": "viśvanātha-cakravartin",
+    "name_devanagari": "विश्वनाथचक्रवर्तिन्",
+    "name_english": "Visvanatha Chakravarti",
+    "tradition": "acintya-bhedabheda",
+    "commentary_name": ""
+  },
+  {
+    "id": "baladeva",
+    "name_iast": "baladeva-vidyābhūṣaṇa",
+    "name_devanagari": "बलदेवविद्याभूषण",
+    "name_english": "Baladeva Vidyabhushana",
+    "tradition": "acintya-bhedabheda",
+    "commentary_name": "gītā-bhūṣaṇa"
+  }
+]

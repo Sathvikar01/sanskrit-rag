@@ -1,0 +1,110 @@
+[
+  {
+    "number": 1,
+    "name_iast": "arjuna-viṣāda-yoga",
+    "name_devanagari": "अर्जुनविषादयोगः",
+    "name_english": "The Yoga of Arjuna's Dejection"
+  },
+  {
+    "number": 2,
+    "name_iast": "sāṅkhya-yoga",
+    "name_devanagari": "सांख्ययोगः",
+    "name_english": "The Yoga of Knowledge"
+  },
+  {
+    "number": 3,
+    "name_iast": "karma-yoga",
+    "name_devanagari": "कर्मयोगः",
+    "name_english": "The Yoga of Action"
+  },
+  {
+    "number": 4,
+    "name_iast": "jñāna-karma-sannyāsa-yoga",
+    "name_devanagari": "ज्ञानकर्मसंन्यासयोगः",
+    "name_english": "The Yoga of Knowledge and Renunciation"
+  },
+  {
+    "number": 5,
+    "name_iast": "karma-sannyāsa-yoga",
+    "name_devanagari": "कर्मसंन्यासयोगः",
+    "name_english": "The Yoga of Renunciation"
+  },
+  {
+    "number": 6,
+    "name_iast": "dhyāna-yoga",
+    "name_devanagari": "ध्यानयोगः",
+    "name_english": "The Yoga of Meditation"
+  },
+  {
+    "number": 7,
+    "name_iast": "jñāna-vijñāna-yoga",
+    "name_devanagari": "ज्ञानविज्ञानयोगः",
+    "name_english": "The Yoga of Knowledge and Wisdom"
+  },
+  {
+    "number": 8,
+    "name_iast": "akṣara-brahma-yoga",
+    "name_devanagari": "अक्षरब्रह्मयोगः",
+    "name_english": "The Yoga of the Imperishable Absolute"
+  },
+  {
+    "number": 9,
+    "name_iast": "rāja-vidyā-rāja-guhya-yoga",
+    "name_devanagari": "राजविद्याराजगुह्ययोगः",
+    "name_english": "The Yoga of Royal Knowledge"
+  },
+  {
+    "number": 10,
+    "name_iast": "vibhūti-yoga",
+    "name_devanagari": "विभूतियोगः",
+    "name_english": "The Yoga of Divine Glories"
+  },
+  {
+    "number": 11,
+    "name_iast": "viśvarūpa-darśana-yoga",
+    "name_devanagari": "विश्वरूपदर्शनयोगः",
+    "name_english": "The Yoga of the Universal Form"
+  },
+  {
+    "number": 12,
+    "name_iast": "bhakti-yoga",
+    "name_devanagari": "भक्तियोगः",
+    "name_english": "The Yoga of Devotion"
+  },
+  {
+    "number": 13,
+    "name_iast": "kṣetra-kṣetrajña-vibhāga-yoga",
+    "name_devanagari": "क्षेत्रक्षेत्रज्ञविभागयोगः",
+    "name_english": "The Yoga of the Field and the Knower"
+  },
+  {
+    "number": 14,
+    "name_iast": "guṇatraya-vibhāga-yoga",
+    "name_devanagari": "गुणत्रयविभागयोगः",
+    "name_english": "The Yoga of the Three Gunas"
+  },
+  {
+    "number": 15,
+    "name_iast": "puruṣottama-yoga",
+    "name_devanagari": "पुरुषोत्तमयोगः",
+    "name_english": "The Yoga of the Supreme Person"
+  },
+  {
+    "number": 16,
+    "name_iast": "daivāsura-sampad-vibhāga-yoga",
+    "name_devanagari": "दैवासुरसम्पद्विभागयोगः",
+    "name_english": "The Yoga of Divine and Demoniac Natures"
+  },
+  {
+    "number": 17,
+    "name_iast": "śraddhātraya-vibhāga-yoga",
+    "name_devanagari": "श्रद्धात्रयविभागयोगः",
+    "name_english": "The Yoga of the Threefold Faith"
+  },
+  {
+    "number": 18,
+    "name_iast": "mokṣa-sannyāsa-yoga",
+    "name_devanagari": "मोक्षसंन्यासयोगः",
+    "name_english": "The Yoga of Liberation and Renunciation"
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "name_iast": "dharma",
+    "name_devanagari": "धर्म",
+    "name_english": "duty/righteousness",
+    "description": "Fundamental concept of cosmic order, duty, and righteous conduct"
+  },
+  {
+    "name_iast": "karma",
+    "name_devanagari": "कर्म",
+    "name_english": "action",
+    "description": "Action or deed; the law of cause and effect"
+  },
+  {
+    "name_iast": "bhakti",
+    "name_devanagari": "भक्ति",
+    "name_english": "devotion",
+    "description": "Loving devotion to the Supreme; one of the three main yogas"
+  },
+  {
+    "name_iast": "jnana",
+    "name_devanagari": "ज्ञान",
+    "name_english": "knowledge",
+    "description": "Spiritual knowledge or wisdom; discriminative knowledge of Self"
+  },
+  {
+    "name_iast": "yoga",
+    "name_devanagari": "योग",
+    "name_english": "union/discipline",
+    "description": "Union with the divine; spiritual discipline and practice"
+  },
+  {
+    "name_iast": "atman",
+    "name_devanagari": "आत्मन्",
+    "name_english": "self/soul",
+    "description": "The eternal, unchanging Self; the individual soul"
+  },
+  {
+    "name_iast": "brahman",
+    "name_devanagari": "ब्रह्मन्",
+    "name_english": "absolute",
+    "description": "The ultimate reality; the Supreme Absolute"
+  },
+  {
+    "name_iast": "ishvara",
+    "name_devanagari": "ईश्वर",
+    "name_english": "lord/god",
+    "description": "The Supreme Lord; the personal aspect of God"
+  },
+  {
+    "name_iast": "prakriti",
+    "name_devanagari": "प्रकृति",
+    "name_english": "nature/matter",
+    "description": "Material nature; the three gunas; the manifest world"
+  },
+  {
+    "name_iast": "moksha",
+    "name_devanagari": "मोक्ष",
+    "name_english": "liberation",
+    "description": "Liberation from the cycle of birth and death; final emancipation"
+  },
+  {
+    "name_iast": "samsara",
+    "name_devanagari": "संसार",
+    "name_english": "cycle of existence",
+    "description": "The cycle of birth, death, and rebirth"
+  },
+  {
+    "name_iast": "gunas",
+    "name_devanagari": "गुण",
+    "name_english": "qualities",
+    "description": "The three qualities of material nature: sattva, rajas, tamas"
+  },
+  {
+    "name_iast": "kshetra",
+    "name_devanagari": "क्षेत्र",
+    "name_english": "field",
+    "description": "The body as the field of action; the material field"
+  },
+  {
+    "name_iast": "ahimsa",
+    "name_devanagari": "अहिंसा",
+    "name_english": "non-violence",
+    "description": "Non-violence in thought, word, and deed"
+  },
+  {
+    "name_iast": "tyaga",
+    "name_devanagari": "त्याग",
+    "name_english": "renunciation",
+    "description": "Renunciation of the fruits of action; letting go"
+  },
+  {
+    "name_iast": "samkhya",
+    "name_devanagari": "सांख्य",
+    "name_english": "knowledge/discrimination",
+    "description": "Discriminative knowledge between Self and non-Self"
+  },
+  {
+    "name_iast": "yajna",
+    "name_devanagari": "यज्ञ",
+    "name_english": "sacrifice/offering",
+    "description": "Sacrifice or offering; selfless action as worship"
+  },
+  {
+    "name_iast": "dhyana",
+    "name_devanagari": "ध्यान",
+    "name_english": "meditation",
+    "description": "Meditation; focused contemplation on the divine"
+  },
+  {
+    "name_iast": "sharira",
+    "name_devanagari": "शरीर",
+    "name_english": "body",
+    "description": "The physical body; the three bodies (sthula, sukshma, karana)"
+  },
+  {
+    "name_iast": "sukha",
+    "name_devanagari": "सुख",
+    "name_english": "happiness",
+    "description": "Happiness; pleasure; the nature of the Self is bliss"
+  },
+  {
+    "name_iast": "duhkha",
+    "name_devanagari": "दुःख",
+    "name_english": "suffering",
+    "description": "Suffering; pain; the inherent unsatisfactoriness of worldly existence"
+  },
+  {
+    "name_iast": "maya",
+    "name_devanagari": "माया",
+    "name_english": "illusion",
+    "description": "The cosmic illusion; the power that conceals the true nature of reality"
+  },
+  {
+    "name_iast": "nishkamakarma",
+    "name_devanagari": "निष्कामकर्म",
+    "name_english": "desireless action",
+    "description": "Action without attachment to results; selfless action"
+  },
+  {
+    "name_iast": "prapatti",
+    "name_devanagari": "प्रपत्ति",
+    "name_english": "surrender",
+    "description": "Complete surrender to the divine; sharanagati"
+  },
+  {
+    "name_iast": "sthitaprajna",
+    "name_devanagari": "स्थितप्रज्ञ",
+    "name_english": "steadfast wisdom",
+    "description": "One who is established in wisdom; the ideal sage"
+  },
+  {
+    "name_iast": "vishada",
+    "name_devanagari": "विषाद",
+    "name_english": "dejection/despair",
+    "description": "Moral crisis or despondency; the starting point of the Gita"
+  }
+]

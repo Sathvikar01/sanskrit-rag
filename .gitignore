@@ -1,0 +1,41 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Data
+data/processed/embeddings/
+data/processed/chunks.jsonl
+
+# Neo4j
+docker/neo4j/data/
+docker/neo4j/logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Docker volumes
+neo4j_data/
+neo4j_logs/
+
+# Large binary
+*.faiss
+*.vhdx
