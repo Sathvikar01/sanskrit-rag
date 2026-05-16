@@ -4,7 +4,10 @@ import sys
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
 
-import json, time, re, random
+import json
+import time
+import re
+import random
 from pathlib import Path
 from sentence_transformers import SentenceTransformer, util
 
@@ -288,15 +291,15 @@ def run_comprehensive_evaluation(sample_size: int = 50, use_langgraph: bool = Tr
         print(f"\nPipeline: {'LangGraph' if use_langgraph else 'Standard'}")
         print(f"Total evaluated: {len(successful)}")
         print(f"Errors: {len(all_results) - len(successful)}")
-        print(f"\n--- Semantic Similarity ---")
+        print("\n--- Semantic Similarity ---")
         print(f"  Average: {avg_semantic:.4f}")
         print(f"  High (>=0.5): {high_sim} ({100*high_sim/len(successful):.0f}%)")
         print(f"  Medium (0.3-0.5): {med_sim} ({100*med_sim/len(successful):.0f}%)")
         print(f"  Low (<0.3): {low_sim} ({100*low_sim/len(successful):.0f}%)")
-        print(f"\n--- By Dataset Source ---")
+        print("\n--- By Dataset Source ---")
         for src, stats in report['by_source'].items():
             print(f"  {src}: {stats['count']} samples, semantic={stats['avg_semantic_similarity']:.4f}")
-        print(f"\n--- By Query Type ---")
+        print("\n--- By Query Type ---")
         for qt, stats in report['by_query_type'].items():
             print(f"  {qt}: {stats['count']} samples, semantic={stats['avg_semantic_similarity']:.4f}")
         print(f"\nFull report saved to: {output_path}")
