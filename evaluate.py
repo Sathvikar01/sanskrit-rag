@@ -137,7 +137,7 @@ def run_evaluation():
     except Exception as e:
         print(f"Graph connection failed: {e}")
 
-    sample_size = min(30, len(qa_pairs))
+    sample_size = min(15, len(qa_pairs))
     import random
     random.seed(42)
     sample = random.sample(qa_pairs, sample_size)
