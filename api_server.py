@@ -5,6 +5,7 @@ if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
     sys.stderr.reconfigure(encoding="utf-8")
 
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -12,10 +13,42 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from pathlib import Path
 
-from main import SRAGPipeline
 from src.utils.config import Config
+from src.utils.logger import logger
 
-app = FastAPI(title="SRAG API", version="0.1.0")
+pipeline = None
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    global pipeline
+    config = Config()
+
+    use_langgraph = config.get("langgraph.enabled", True)
+
+    if use_langgraph:
+        from src.langchain_components.graph import SRAGGraphPipeline
+        pipeline = SRAGGraphPipeline(config)
+        logger.info("Using LangGraph pipeline")
+    else:
+        from main import SRAGPipeline
+        pipeline = SRAGPipeline(config)
+        logger.info("Using standard pipeline")
+
+    pipeline.preprocess()
+    pipeline.build_indices()
+    try:
+        if hasattr(pipeline, '_get_graph_retriever'):
+            pipeline._get_graph_retriever()
+    except Exception:
+        pass
+
+    logger.info("SRAG pipeline ready")
+    yield
+    pipeline.close()
+
+
+app = FastAPI(title="SRAG API", version="0.2.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -24,8 +57,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-pipeline = None
 
 
 class QueryRequest(BaseModel):
@@ -41,19 +72,7 @@ class QueryResponse(BaseModel):
     verses_cited: list[str]
     top_verses: list[dict]
     pipeline_confidence: dict
-
-
-@app.on_event("startup")
-def startup():
-    global pipeline
-    config = Config()
-    pipeline = SRAGPipeline(config)
-    pipeline.preprocess()
-    pipeline.build_indices()
-    try:
-        pipeline._get_graph_retriever()
-    except Exception:
-        pass
+    query_type: str = ""
 
 
 @app.post("/api/query", response_model=QueryResponse)
@@ -68,12 +87,17 @@ def query_endpoint(req: QueryRequest):
         verses_cited=result["verses_cited"],
         top_verses=result["top_verses"],
         pipeline_confidence=result["pipeline_confidence"],
+        query_type=result.get("query_type", ""),
     )
 
 
 @app.get("/api/health")
 def health():
-    return {"status": "ok", "chunks": len(pipeline.chunks) if pipeline else 0}
+    return {
+        "status": "ok",
+        "chunks": len(pipeline.chunks) if pipeline else 0,
+        "pipeline_type": "langgraph" if hasattr(pipeline, 'graph') else "standard",
+    }
 
 
 dist_dir = Path(__file__).parent / "web" / "dist"

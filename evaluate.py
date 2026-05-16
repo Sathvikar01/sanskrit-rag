@@ -7,14 +7,12 @@ if sys.platform == "win32":
 import json
 import time
 import re
+import random
 from pathlib import Path
 from sentence_transformers import SentenceTransformer, util
-from main import SRAGPipeline
-from src.utils.config import Config
 
 
 def load_gita_guidance_qa(path: str) -> list[dict]:
-    """Load Gita Guidance QA dataset (modern life questions with Gita answers)."""
     pairs = []
     with open(path, 'r', encoding='utf-8') as f:
         for line in f:
@@ -33,7 +31,6 @@ def load_gita_guidance_qa(path: str) -> list[dict]:
 
 
 def load_edwin_arnold_qa(path: str) -> list[dict]:
-    """Load Edwin Arnold QA dataset."""
     pairs = []
     with open(path, 'r', encoding='utf-8') as f:
         for line in f:
@@ -50,13 +47,10 @@ def load_edwin_arnold_qa(path: str) -> list[dict]:
 
 
 def extract_verse_refs(text: str) -> set[str]:
-    """Extract verse references like BhG 2.47, BG 2.47, Chapter 2 Verse 47."""
     patterns = [
         r'BhG\s+(\d+\.\d+)',
         r'BG\s+(\d+\.\d+)',
         r'Chapter\s+(\d+)[,\s]+Verse\s+(\d+)',
-        r'(\d+)\.(\d+)',
-        r'verse\s+(\d+\.\d+)',
     ]
     refs = set()
     for pattern in patterns:
@@ -69,16 +63,12 @@ def extract_verse_refs(text: str) -> set[str]:
 
 
 def compute_metrics(srag_answer: str, ground_truth: str, model) -> dict:
-    """Compute semantic similarity and text overlap metrics."""
     emb1 = model.encode(srag_answer, convert_to_tensor=True)
     emb2 = model.encode(ground_truth, convert_to_tensor=True)
     semantic_sim = float(util.cos_sim(emb1, emb2).item())
 
-    srag_lower = srag_answer.lower()
-    gt_lower = ground_truth.lower()
-
-    srag_words = set(srag_lower.split())
-    gt_words = set(gt_lower.split())
+    srag_words = set(srag_answer.lower().split())
+    gt_words = set(ground_truth.lower().split())
     word_overlap = len(srag_words & gt_words) / max(len(gt_words), 1)
 
     srag_verses = extract_verse_refs(srag_answer)
@@ -96,25 +86,25 @@ def compute_metrics(srag_answer: str, ground_truth: str, model) -> dict:
     }
 
 
-def run_evaluation():
-    """Run full evaluation pipeline."""
+def run_evaluation(sample_size: int = 100, use_langgraph: bool = False):
     print("=" * 70)
     print("SRAG EVALUATION PIPELINE")
-    print("Comparing SRAG answers with ground truth datasets")
+    print(f"Sample size: {sample_size}, Pipeline: {'LangGraph' if use_langgraph else 'Standard'}")
     print("=" * 70)
 
     eval_dir = Path("data/evaluation/external")
+    qa_pairs = []
+
     guidance_path = eval_dir / "gita_guidance_qa.jsonl"
     arnold_path = eval_dir / "edwin_arnold_qa.jsonl"
 
-    qa_pairs = []
     if guidance_path.exists():
         qa_pairs.extend(load_gita_guidance_qa(str(guidance_path)))
     if arnold_path.exists():
         qa_pairs.extend(load_edwin_arnold_qa(str(arnold_path)))
 
     if not qa_pairs:
-        print("No QA datasets found. Run download first.")
+        print("No QA datasets found.")
         return
 
     print(f"\nLoaded {len(qa_pairs)} QA pairs:")
@@ -129,20 +119,27 @@ def run_evaluation():
 
     print("Initializing SRAG pipeline...")
     config = Config()
-    pipeline = SRAGPipeline(config)
+
+    if use_langgraph:
+        from src.langchain_components.graph import SRAGGraphPipeline
+        pipeline = SRAGGraphPipeline(config)
+    else:
+        from main import SRAGPipeline
+        pipeline = SRAGPipeline(config)
+
     pipeline.preprocess()
     pipeline.build_indices()
     try:
-        pipeline._get_graph_retriever()
+        if hasattr(pipeline, '_get_graph_retriever'):
+            pipeline._get_graph_retriever()
     except Exception as e:
         print(f"Graph connection failed: {e}")
 
-    sample_size = min(15, len(qa_pairs))
-    import random
+    actual_size = min(sample_size, len(qa_pairs))
     random.seed(42)
-    sample = random.sample(qa_pairs, sample_size)
+    sample = random.sample(qa_pairs, actual_size)
 
-    print(f"\nRunning evaluation on {sample_size} samples...")
+    print(f"\nRunning evaluation on {actual_size} samples...")
     results = []
     total_time = 0
 
@@ -150,7 +147,7 @@ def run_evaluation():
         question = qa['question']
         ground_truth = qa['ground_truth']
 
-        print(f"\n[{i+1}/{sample_size}] {question[:80]}...")
+        print(f"\n[{i+1}/{actual_size}] {question[:80]}...")
 
         try:
             start = time.time()
@@ -162,6 +159,7 @@ def run_evaluation():
             srag_concepts = result.get('concepts_extracted', [])
             srag_verses = result.get('verses_cited', [])
             confidence = result.get('pipeline_confidence', {})
+            query_type = result.get('query_type', '')
 
             metrics = compute_metrics(srag_answer, ground_truth, sim_model)
 
@@ -173,6 +171,7 @@ def run_evaluation():
                 'concepts': srag_concepts,
                 'verses_cited': srag_verses,
                 'confidence': confidence,
+                'query_type': query_type,
                 'time_seconds': round(elapsed, 2),
                 **metrics,
             }
@@ -180,7 +179,7 @@ def run_evaluation():
 
             print(f"  Semantic: {metrics['semantic_similarity']:.3f} | "
                   f"Word overlap: {metrics['word_overlap']:.3f} | "
-                  f"Time: {elapsed:.1f}s")
+                  f"Type: {query_type} | Time: {elapsed:.1f}s")
             if metrics['verse_recall'] is not None:
                 print(f"  Verse recall: {metrics['verse_recall']:.3f}")
 
@@ -212,10 +211,18 @@ def run_evaluation():
                 by_source[src] = []
             by_source[src].append(r)
 
+        by_query_type = {}
+        for r in successful:
+            qt = r.get('query_type', 'unknown')
+            if qt not in by_query_type:
+                by_query_type[qt] = []
+            by_query_type[qt].append(r)
+
         report = {
             'summary': {
                 'total_evaluated': len(successful),
                 'total_errors': len(results) - len(successful),
+                'pipeline_type': 'langgraph' if use_langgraph else 'standard',
                 'avg_semantic_similarity': round(avg_semantic, 4),
                 'avg_word_overlap': round(avg_word_overlap, 4),
                 'avg_verse_recall': round(avg_verse_recall, 4),
@@ -225,6 +232,7 @@ def run_evaluation():
                 'low_similarity_count': low_sim,
             },
             'by_source': {},
+            'by_query_type': {},
             'detailed_results': results,
         }
 
@@ -235,6 +243,13 @@ def run_evaluation():
                 'avg_word_overlap': round(sum(r['word_overlap'] for r in src_results) / len(src_results), 4),
             }
 
+        for qt, qt_results in by_query_type.items():
+            report['by_query_type'][qt] = {
+                'count': len(qt_results),
+                'avg_semantic_similarity': round(sum(r['semantic_similarity'] for r in qt_results) / len(qt_results), 4),
+                'avg_word_overlap': round(sum(r['word_overlap'] for r in qt_results) / len(qt_results), 4),
+            }
+
         output_path = Path("data/evaluation/srag_evaluation_report.json")
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(report, f, indent=2, ensure_ascii=False)
@@ -242,7 +257,8 @@ def run_evaluation():
         print("\n" + "=" * 70)
         print("EVALUATION RESULTS")
         print("=" * 70)
-        print(f"\nTotal evaluated: {len(successful)}")
+        print(f"\nPipeline: {'LangGraph' if use_langgraph else 'Standard'}")
+        print(f"Total evaluated: {len(successful)}")
         print(f"Errors: {len(results) - len(successful)}")
         print(f"\n--- Semantic Similarity ---")
         print(f"  Average: {avg_semantic:.4f}")
@@ -258,8 +274,11 @@ def run_evaluation():
         print(f"\n--- By Dataset Source ---")
         for src, stats in report['by_source'].items():
             print(f"  {src}: {stats['count']} samples, "
-                  f"semantic={stats['avg_semantic_similarity']:.4f}, "
-                  f"word_overlap={stats['avg_word_overlap']:.4f}")
+                  f"semantic={stats['avg_semantic_similarity']:.4f}")
+        print(f"\n--- By Query Type ---")
+        for qt, stats in report['by_query_type'].items():
+            print(f"  {qt}: {stats['count']} samples, "
+                  f"semantic={stats['avg_semantic_similarity']:.4f}")
 
         print(f"\nFull report saved to: {output_path}")
     else:
@@ -267,4 +286,12 @@ def run_evaluation():
 
 
 if __name__ == "__main__":
-    run_evaluation()
+    from src.utils.config import Config
+
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--samples", type=int, default=100)
+    parser.add_argument("--langgraph", action="store_true")
+    args = parser.parse_args()
+
+    run_evaluation(sample_size=args.samples, use_langgraph=args.langgraph)

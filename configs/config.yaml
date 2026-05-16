@@ -4,7 +4,7 @@
 project:
   name: SRAG
   description: "Sanskrit RAG with Graph-Enhanced Linguistic Re-ranking"
-  version: "0.1.0"
+  version: "0.2.0"
 
 # Data paths
 data:
@@ -22,7 +22,7 @@ data:
 
 # Preprocessing
 preprocessing:
-  chunk_strategy: "verse_commentary"  # verse_commentary | verse_only | sliding_window
+  chunk_strategy: "verse_commentary"
   include_lemmas: true
   include_morpho: true
   iast_to_devanagari: true
@@ -30,11 +30,11 @@ preprocessing:
 # Embedding model
 embedding:
   model_name: "sanganaka/bge-m3-sanskritFT"
-  device: "cpu"  # cpu | cuda
+  device: "cpu"
   batch_size: 8
   max_length: 256
   normalize: true
-  query_prefix: ""  # BGE models sometimes need query prefix
+  query_prefix: ""
 
 # Neo4j
 neo4j:
@@ -48,27 +48,67 @@ retrieval:
   vector_top_k: 50
   graph_top_k: 50
   bm25_top_k: 50
-  fusion_method: "rrf"  # rrf | weighted
+  fusion_method: "rrf"
   rrf_k: 60
+  adaptive_weights: true
 
 # Re-ranking
 reranking:
   top_n: 5
-  method: "weighted"  # weighted | lambdamart
+  method: "weighted"
+  adaptive: true
   weights:
-    score_vector: 0.20
-    score_graph: 0.15
+    score_vector: 0.40
+    score_graph: 0.20
     score_bm25: 0.10
-    score_lemma: 0.15
-    score_morph: 0.15
-    score_compound: 0.05
-    score_commentary: 0.10
-    score_concept: 0.05
-    score_graph_centrality: 0.05
+    score_lemma: 0.12
+    score_morph: 0.08
+    score_compound: 0.03
+    score_commentary: 0.04
+    score_concept: 0.02
+    score_graph_centrality: 0.01
+
+# Adaptive weight profiles by query type
+adaptive_profiles:
+  concept_short:
+    description: "Short definitional queries like 'What is dharma?'"
+    retrieval: [0.50, 0.30, 0.20]
+    reranking:
+      score_vector: 0.45
+      score_graph: 0.20
+      score_bm25: 0.05
+  factual_short:
+    description: "Short factual queries"
+    retrieval: [0.35, 0.40, 0.25]
+    reranking:
+      score_vector: 0.35
+      score_graph: 0.30
+      score_bm25: 0.08
+  complex_long:
+    description: "Long complex queries"
+    retrieval: [0.40, 0.20, 0.40]
+    reranking:
+      score_vector: 0.35
+      score_graph: 0.15
+      score_bm25: 0.20
+  concept_medium:
+    description: "Medium concept queries"
+    retrieval: [0.45, 0.30, 0.25]
+    reranking:
+      score_vector: 0.40
+      score_graph: 0.22
+      score_bm25: 0.08
+  general_medium:
+    description: "General medium queries"
+    retrieval: [0.45, 0.25, 0.30]
+    reranking:
+      score_vector: 0.40
+      score_graph: 0.18
+      score_bm25: 0.12
 
 # Generation
 generation:
-  provider: "mimo"  # mimo | gemini
+  provider: "mimo"
   mimo:
     api_base: "https://api.xiaomimimo.com/v1"
     model: "mimo-v2.5"
@@ -85,14 +125,22 @@ query_processing:
   extract_concepts: true
   convert_to_iast: true
 
+# LangGraph
+langgraph:
+  enabled: true
+  max_iterations: 2
+  confidence_threshold: 0.3
+  expand_query_on_low_confidence: true
+
 # Evaluation
 evaluation:
   metrics: ["mrr", "ndcg@5", "ndcg@10", "recall@5", "recall@10"]
   test_queries_file: "data/evaluation/test_queries.json"
+  sample_size: 100
 
 # Confidence
 confidence:
-  enable_platt_scaling: false  # Enable after collecting calibration data
+  enable_platt_scaling: false
   sigmoid_temperature: 1.0
   pipeline_weights:
     retrieval: 0.3

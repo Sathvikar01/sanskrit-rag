@@ -9,6 +9,11 @@ from src.preprocessing.morpho_extractor import (
     MorphologicalProfile,
     build_morphological_profile,
 )
+from src.reranking.adaptive_reranker import (
+    detect_query_type,
+    get_adaptive_weights,
+    describe_query_type,
+)
 from src.reranking.confidence import PipelineConfidence, sigmoid_normalize
 from src.reranking.feature_extractors import (
     ReRankingFeatures,
@@ -38,30 +43,70 @@ class LinguisticReranker:
     7. Commentary consensus (multi-commentary agreement)
     8. Concept overlap from knowledge graph
     9. Graph centrality (verse connectivity)
+
+    Supports adaptive weighting based on query type.
     """
 
     def __init__(self, config: Config = None):
         if config is None:
             config = Config()
 
-        weights = config.get("reranking.weights", {})
-        self.weights = {
-            "score_vector": weights.get("score_vector", 0.20),
-            "score_graph": weights.get("score_graph", 0.15),
-            "score_bm25": weights.get("score_bm25", 0.10),
-            "score_lemma": weights.get("score_lemma", 0.15),
-            "score_morph": weights.get("score_morph", 0.15),
-            "score_compound": weights.get("score_compound", 0.05),
-            "score_commentary": weights.get("score_commentary", 0.10),
-            "score_concept": weights.get("score_concept", 0.05),
-            "score_graph_centrality": weights.get("score_graph_centrality", 0.05),
-        }
-
+        self.config_weights = config.get("reranking.weights", {})
         self.top_n = config.get("reranking.top_n", 5)
+        self.use_adaptive = config.get("reranking.adaptive", True)
         self.confidence = PipelineConfidence()
         self.concept_extractor = ConceptExtractor()
 
-        logger.info(f"LinguisticReranker initialized with weights: {self.weights}")
+        self.default_weights = {
+            "score_vector": self.config_weights.get("score_vector", 0.20),
+            "score_graph": self.config_weights.get("score_graph", 0.15),
+            "score_bm25": self.config_weights.get("score_bm25", 0.10),
+            "score_lemma": self.config_weights.get("score_lemma", 0.15),
+            "score_morph": self.config_weights.get("score_morph", 0.15),
+            "score_compound": self.config_weights.get("score_compound", 0.05),
+            "score_commentary": self.config_weights.get("score_commentary", 0.10),
+            "score_concept": self.config_weights.get("score_concept", 0.05),
+            "score_graph_centrality": self.config_weights.get("score_graph_centrality", 0.05),
+        }
+
+        logger.info(
+            f"LinguisticReranker initialized (adaptive={self.use_adaptive}, "
+            f"default weights: {self.default_weights})"
+        )
+
+    def _get_sanskrit_morpho_hint(self, token: str) -> str:
+        """Guess morphological case from Sanskrit suffix patterns.
+
+        This is a heuristic - not a full morphological analyzer.
+        """
+        token = token.lower()
+
+        if token.endswith("aḥ") or token.endswith("āḥ"):
+            return "Nom"
+        elif token.endswith("am") or token.endswith("aṃ"):
+            return "Acc"
+        elif token.endswith("ena") or token.endswith("eṇa"):
+            return "Ins"
+        elif token.endswith("āya"):
+            return "Dat"
+        elif token.endswith("āt") or token.endswith("asmāt"):
+            return "Abl"
+        elif token.endswith("asya") or token.endswith("sya"):
+            return "Gen"
+        elif token.endswith("e") or token.endswith("asi"):
+            return "Loc"
+        elif token.endswith("au") or token.endswith("āḥ"):
+            return "Nom"
+        elif token.endswith("aiḥ") or token.endswith("ebhiḥ"):
+            return "Ins"
+        elif token.endswith("ebhyaḥ"):
+            return "Dat"
+        elif token.endswith("ānām"):
+            return "Gen"
+        elif token.endswith("eṣu"):
+            return "Loc"
+        else:
+            return "Nom"
 
     def _extract_query_features(
         self,
@@ -82,7 +127,8 @@ class LinguisticReranker:
         morpho_lines = []
 
         for token in tokens:
-            morpho_lines.append(f"{token}_Case=Nom")
+            case_hint = self._get_sanskrit_morpho_hint(token)
+            morpho_lines.append(f"{token}_Case={case_hint}")
 
         query_morpho = build_morphological_profile(morpho_lines) if morpho_lines else MorphologicalProfile()
 
@@ -115,7 +161,7 @@ class LinguisticReranker:
         """
         features = ReRankingFeatures()
 
-        features.score_vector = retrieval_result.get("score", 0.0)
+        features.score_vector = retrieval_result.get("vector_score", retrieval_result.get("score", 0.0))
         features.score_graph = retrieval_result.get("graph_score", 0.0)
         features.score_bm25 = retrieval_result.get("bm25_score", 0.0)
 
@@ -151,18 +197,23 @@ class LinguisticReranker:
 
         return features
 
-    def compute_final_score(self, features: ReRankingFeatures) -> float:
+    def compute_final_score(
+        self,
+        features: ReRankingFeatures,
+        weights: dict[str, float],
+    ) -> float:
         """Compute weighted final score from features.
 
         Args:
             features: Computed re-ranking features.
+            weights: Feature weights to use.
 
         Returns:
             Final weighted score.
         """
         feature_dict = features.to_dict()
         score = sum(
-            self.weights.get(key, 0) * value
+            weights.get(key, 0) * value
             for key, value in feature_dict.items()
         )
         return score
@@ -187,6 +238,21 @@ class LinguisticReranker:
         Returns:
             Re-ranked results with features and confidence.
         """
+        query_type = detect_query_type(query_iast, concepts)
+
+        if self.use_adaptive:
+            weights = get_adaptive_weights(query_type)
+        else:
+            weights = self.default_weights
+
+        logger.info(
+            f"Re-ranking: query_type={query_type} "
+            f"({describe_query_type(query_type)}), "
+            f"vector_weight={weights.get('score_vector', 0):.2f}, "
+            f"graph_weight={weights.get('score_graph', 0):.2f}, "
+            f"bm25_weight={weights.get('score_bm25', 0):.2f}"
+        )
+
         query_features = self._extract_query_features(query_iast, concepts)
 
         reranked = []
@@ -202,7 +268,7 @@ class LinguisticReranker:
                 query_features, chunk, candidate, all_chunks, chunk_map
             )
 
-            final_score = self.compute_final_score(features)
+            final_score = self.compute_final_score(features, weights)
 
             retrieval_conf = self.confidence.compute_retrieval_confidence(
                 candidate.get("rrf_score", 0),
@@ -224,6 +290,7 @@ class LinguisticReranker:
                 "features": features.to_dict(),
                 "confidence": pipeline_conf,
                 "sources": candidate.get("sources", []),
+                "query_type": query_type,
             }
             reranked.append(result)
 
@@ -232,9 +299,12 @@ class LinguisticReranker:
         for i, r in enumerate(reranked):
             r["rank"] = i + 1
 
-        logger.info(
-            f"Re-ranked {len(reranked)} candidates, "
-            f"top score: {reranked[0]['final_score']:.4f}" if reranked else "No results"
-        )
+        if reranked:
+            logger.info(
+                f"Re-ranked {len(reranked)} candidates, "
+                f"top score: {reranked[0]['final_score']:.4f}"
+            )
+        else:
+            logger.warning("No results after re-ranking")
 
         return reranked[:self.top_n]

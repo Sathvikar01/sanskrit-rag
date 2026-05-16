@@ -1,5 +1,6 @@
 """BM25 retriever for Sanskrit text using lemma-normalized content."""
 
+import re
 from typing import Optional
 
 import numpy as np
@@ -18,6 +19,7 @@ class BM25Retriever:
         self.bm25: Optional[BM25Okapi] = None
         self.chunk_ids: list[str] = []
         self.tokenized_corpus: list[list[str]] = []
+        self._use_lemmas = True
 
     def _tokenize(self, text: str) -> list[str]:
         """Tokenize text for BM25.
@@ -26,8 +28,64 @@ class BM25Retriever:
         """
         text = text.lower()
         text = text.replace("।", " ").replace("||", " ")
+        text = re.sub(r'[।॥,;:!?.\-—\(\)\[\]]', ' ', text)
         tokens = text.split()
         return [t for t in tokens if len(t) > 1]
+
+    def _lemmatize_token(self, token: str) -> list[str]:
+        """Extract possible lemma forms from a Sanskrit token.
+
+        Returns the token itself plus any inferred lemma forms.
+        """
+        token = token.lower()
+        lemmas = [token]
+
+        suffix_map = {
+            "aḥ": 1,
+            "am": 2,
+            "āḥ": 2,
+            "aiḥ": 3,
+            "ebhyaḥ": 6,
+            "asya": 4,
+            "ānām": 4,
+            "eṣu": 3,
+            "āt": 2,
+            "au": 2,
+            "oḥ": 2,
+            "os": 2,
+            "an": 2,
+            "ina": 3,
+            "ena": 3,
+            "āya": 3,
+            "eṇa": 3,
+            "ataḥ": 4,
+            "itaḥ": 4,
+        }
+
+        for suffix, strip_len in suffix_map.items():
+            if token.endswith(suffix) and len(token) > strip_len + 1:
+                lemma = token[:-strip_len]
+                if lemma not in lemmas:
+                    lemmas.append(lemma)
+                if not lemma.endswith("a"):
+                    lemma_a = lemma + "a"
+                    if lemma_a not in lemmas:
+                        lemmas.append(lemma_a)
+
+        return lemmas
+
+    def _tokenize_with_lemmas(self, text: str) -> list[str]:
+        """Tokenize query text and expand with lemma forms.
+
+        This fixes the tokenization mismatch where documents are indexed
+        with lemmas but queries were tokenized with raw text.
+        """
+        tokens = self._tokenize(text)
+        all_tokens = []
+        for token in tokens:
+            expanded = self._lemmatize_token(token)
+            all_tokens.extend(expanded)
+        return list(set(all_tokens))
 
     def _get_lemma_tokens(self, chunk: Chunk) -> list[str]:
         """Get lemma-based tokens from a chunk.
@@ -48,6 +106,7 @@ class BM25Retriever:
         logger.info(f"Building BM25 index from {len(chunks)} chunks")
 
         self.chunk_ids = [c.chunk_id for c in chunks]
+        self._use_lemmas = use_lemmas
 
         if use_lemmas:
             self.tokenized_corpus = [self._get_lemma_tokens(c) for c in chunks]
@@ -65,6 +124,8 @@ class BM25Retriever:
     def search(self, query: str, top_k: int = 50) -> list[dict]:
         """Search for relevant chunks using BM25.
 
+        Uses lemma-aware tokenization when the index was built with lemmas.
+
         Args:
             query: Query text to search for.
             top_k: Number of results to return.
@@ -75,7 +136,11 @@ class BM25Retriever:
         if self.bm25 is None:
             raise ValueError("Index not built. Call build_index first.")
 
-        query_tokens = self._tokenize(query)
+        if self._use_lemmas:
+            query_tokens = self._tokenize_with_lemmas(query)
+        else:
+            query_tokens = self._tokenize(query)
+
         if not query_tokens:
             logger.warning(f"No tokens extracted from query: {query}")
             return []
@@ -117,7 +182,7 @@ class BM25Retriever:
         if self.bm25 is None:
             raise ValueError("Index not built. Call build_index first.")
 
-        query_tokens = self._tokenize(query)
+        query_tokens = self._tokenize_with_lemmas(query)
         expanded_tokens = [l.lower() for l in expanded_lemmas]
         all_tokens = list(set(query_tokens + expanded_tokens))
 

@@ -59,11 +59,7 @@ class SRAGPipeline:
         return self._graph_retriever
 
     def preprocess(self, force: bool = False):
-        """Run the preprocessing pipeline.
-
-        Args:
-            force: Whether to force reprocessing even if chunks exist.
-        """
+        """Run the preprocessing pipeline."""
         chunks_path = Path(self.config.get("data.chunks_file", "data/processed/chunks.jsonl"))
         graph_dir = Path(self.config.get("data.graph_import_dir", "data/processed/graph_import"))
 
@@ -72,41 +68,29 @@ class SRAGPipeline:
             self.chunks = load_chunks(chunks_path)
         else:
             logger.info("Running preprocessing pipeline...")
-
             parser = XMLParser(
                 main_xml=self.config.get("data.xml_main"),
                 morpho_xml=self.config.get("data.xml_morpho"),
                 segmentation_xml=self.config.get("data.xml_segmentation"),
             )
             verses, morpho, segmentation = parser.parse_all()
-
             self.chunks = create_all_chunks(verses, morpho, segmentation)
             save_chunks(self.chunks, chunks_path)
-
             save_graph_import_data(graph_dir, verses, self.chunks)
             logger.info("Preprocessing complete!")
 
         self.chunk_map = {c.chunk_id: c for c in self.chunks}
 
     def build_graph(self, clear: bool = True):
-        """Build the Neo4j knowledge graph.
-
-        Args:
-            clear: Whether to clear existing graph first.
-        """
+        """Build the Neo4j knowledge graph."""
         import_dir = Path(self.config.get("data.graph_import_dir", "data/processed/graph_import"))
-
         with GraphBuilder(self.config) as builder:
             builder.build_from_files(import_dir, clear=clear)
             stats = builder.get_stats()
             logger.info(f"Graph stats: {stats}")
 
     def build_indices(self, use_devanagari: bool = True):
-        """Build vector and BM25 indices.
-
-        Args:
-            use_devanagari: Whether to use Devanagari for vector embeddings.
-        """
+        """Build vector and BM25 indices."""
         if not self.chunks:
             raise ValueError("No chunks loaded. Run preprocess() first.")
 
@@ -130,18 +114,9 @@ class SRAGPipeline:
         query_devanagari: str,
         concepts: list[str],
         top_k: int = 50,
+        query_type: str = "general_medium",
     ) -> list[dict]:
-        """Retrieve candidates using hybrid retrieval.
-
-        Args:
-            query_iast: Query in IAST.
-            query_devanagari: Query in Devanagari.
-            concepts: Extracted concept names.
-            top_k: Number of candidates per method.
-
-        Returns:
-            Fused retrieval results.
-        """
+        """Retrieve candidates using hybrid retrieval."""
         vector_results = self.vector_store.search(query_devanagari, top_k=top_k)
 
         graph_retriever = self._get_graph_retriever()
@@ -150,7 +125,8 @@ class SRAGPipeline:
         bm25_results = self.bm25_retriever.search(query_iast, top_k=top_k)
 
         fused = self.hybrid_retriever.fuse_results(
-            vector_results, graph_results, bm25_results, top_k=top_k
+            vector_results, graph_results, bm25_results, top_k=top_k,
+            query_type=query_type,
         )
 
         return fused
@@ -160,29 +136,25 @@ class SRAGPipeline:
         user_query: str,
         use_api: bool = True,
     ) -> dict:
-        """Process a user query end-to-end.
-
-        Args:
-            user_query: The user's question.
-            use_api: Whether to use MiMo API for query processing.
-
-        Returns:
-            Complete response dictionary.
-        """
+        """Process a user query end-to-end."""
         if use_api:
             processed = self.query_processor.process_query(user_query)
         else:
             processed = self.query_processor.process_query_local(user_query)
 
+        from src.reranking.adaptive_reranker import detect_query_type
+        query_type = detect_query_type(processed.query_iast, processed.concepts)
+
         logger.info(
             f"Query processed: iast='{processed.query_iast[:50]}...', "
-            f"concepts={processed.concepts}"
+            f"concepts={processed.concepts}, type={query_type}"
         )
 
         candidates = self.retrieve(
             processed.query_iast,
             processed.query_devanagari,
             processed.concepts,
+            query_type=query_type,
         )
 
         reranked = self.reranker.rerank(
@@ -204,6 +176,7 @@ class SRAGPipeline:
             "query_iast": processed.query_iast,
             "query_devanagari": processed.query_devanagari,
             "concepts_extracted": processed.concepts,
+            "query_type": query_type,
             "answer": result.answer,
             "verses_cited": result.verses_cited,
             "top_verses": [
@@ -258,11 +231,21 @@ def main():
         action="store_true",
         help="Use local fallback for query processing (no API calls)",
     )
+    parser.add_argument(
+        "--langgraph",
+        action="store_true",
+        help="Use LangGraph pipeline instead of standard pipeline",
+    )
 
     args = parser.parse_args()
 
     config = Config(args.config)
-    pipeline = SRAGPipeline(config)
+
+    if args.langgraph and args.command == "query":
+        from src.langchain_components.graph import SRAGGraphPipeline
+        pipeline = SRAGGraphPipeline(config)
+    else:
+        pipeline = SRAGPipeline(config)
 
     try:
         if args.command == "preprocess":
@@ -285,7 +268,8 @@ def main():
             pipeline.build_indices()
 
             try:
-                pipeline._get_graph_retriever()
+                if hasattr(pipeline, '_get_graph_retriever'):
+                    pipeline._get_graph_retriever()
             except Exception as e:
                 logger.warning(f"Graph connection failed: {e}. Continuing without graph.")
 
@@ -295,6 +279,8 @@ def main():
             print(f"QUERY: {result['query']}")
             print(f"IAST: {result['query_iast']}")
             print(f"CONCEPTS: {', '.join(result['concepts_extracted'])}")
+            if 'query_type' in result:
+                print(f"QUERY TYPE: {result['query_type']}")
             print("=" * 80)
             print(f"\nANSWER:\n{result['answer']}")
             print(f"\nVERSES CITED: {', '.join(result['verses_cited'])}")
