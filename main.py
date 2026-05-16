@@ -4,7 +4,6 @@ End-to-end pipeline for querying the Bhagavad Gita.
 """
 
 import argparse
-import json
 import sys
 from pathlib import Path
 
@@ -17,7 +16,6 @@ from src.generation.query_processor import QueryProcessor
 from src.preprocessing.chunker import Chunk, create_all_chunks, load_chunks, save_chunks
 from src.preprocessing.graph_builder import GraphBuilder
 from src.preprocessing.graph_import import save_graph_import_data
-from src.preprocessing.iast_devanagari import get_converter
 from src.preprocessing.xml_parser import XMLParser
 from src.reranking.linguistic_reranker import LinguisticReranker
 from src.retrieval.bm25_retriever import BM25Retriever
@@ -284,7 +282,7 @@ def main():
             print("=" * 80)
             print(f"\nANSWER:\n{result['answer']}")
             print(f"\nVERSES CITED: {', '.join(result['verses_cited'])}")
-            print(f"\nTOP VERSES:")
+            print("\nTOP VERSES:")
             for v in result["top_verses"]:
                 print(f"  {v['ref']} (confidence: {v['confidence']:.2f})")
             print(f"\nPIPELINE CONFIDENCE: {result['pipeline_confidence']}")

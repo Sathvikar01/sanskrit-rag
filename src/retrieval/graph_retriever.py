@@ -1,6 +1,5 @@
 """Graph retriever using Neo4j for knowledge graph traversal."""
 
-from typing import Optional
 
 from neo4j import GraphDatabase
 

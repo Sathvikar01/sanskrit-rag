@@ -1,6 +1,5 @@
 """Tests for SRAG generation modules."""
 
-import pytest
 
 from src.generation.prompt_templates import (
     format_verse_context,
@@ -19,6 +18,7 @@ class TestPromptTemplates:
                 "text_iast": "karmaṇy evādhikāras te mā phaleṣu kadācana",
                 "text_devanagari": "कर्मण्येवाधिकारस्ते मा फलेषु कदाचन",
                 "commentator": "sridhara",
+                "chunk_type": "verse",
                 "confidence": {"overall_confidence": 0.92},
             },
             {
@@ -26,6 +26,7 @@ class TestPromptTemplates:
                 "text_iast": "yogasthaḥ kuru karmāṇi",
                 "text_devanagari": "योगस्थः कुरु कर्माणि",
                 "commentator": None,
+                "chunk_type": "verse",
                 "confidence": {"overall_confidence": 0.85},
             },
         ]

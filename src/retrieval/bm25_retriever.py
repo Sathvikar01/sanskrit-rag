@@ -93,7 +93,7 @@ class BM25Retriever:
         Uses the lemmatized forms for better matching.
         """
         if chunk.lemmas:
-            return [l.lower() for l in chunk.lemmas if l]
+            return [tok.lower() for tok in chunk.lemmas if tok]
         return self._tokenize(chunk.text_iast)
 
     def build_index(self, chunks: list[Chunk], use_lemmas: bool = True):
@@ -183,7 +183,7 @@ class BM25Retriever:
             raise ValueError("Index not built. Call build_index first.")
 
         query_tokens = self._tokenize_with_lemmas(query)
-        expanded_tokens = [l.lower() for l in expanded_lemmas]
+        expanded_tokens = [tok.lower() for tok in expanded_lemmas]
         all_tokens = list(set(query_tokens + expanded_tokens))
 
         if not all_tokens:

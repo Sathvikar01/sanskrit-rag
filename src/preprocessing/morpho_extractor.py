@@ -1,10 +1,8 @@
 """Morphological feature extraction from annotated Sanskrit text."""
 
-import re
 from collections import Counter
 from dataclasses import dataclass, field
 
-from src.utils.logger import logger
 
 
 @dataclass

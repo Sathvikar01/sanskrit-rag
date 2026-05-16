@@ -1,7 +1,6 @@
 """Adaptive re-ranker with dynamic weight profiles based on query type."""
 
 import re
-from src.utils.logger import logger
 
 
 def detect_query_type(query_iast: str, concepts: list[str]) -> str:

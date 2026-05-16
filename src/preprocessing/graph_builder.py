@@ -190,14 +190,6 @@ class GraphBuilder:
         with open(relationships_file, "r", encoding="utf-8") as f:
             relationships = json.load(f)
 
-        label_map = {
-            "Chapter": "Chapter",
-            "Verse": "Verse",
-            "Commentary": "Commentary",
-            "Commentator": "Commentator",
-            "Concept": "Concept",
-        }
-
         by_type = {}
         for rel in relationships:
             rel_type = rel["rel_type"]

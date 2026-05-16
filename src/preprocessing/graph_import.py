@@ -7,7 +7,7 @@ from pathlib import Path
 from src.preprocessing.chunker import Chunk
 from src.preprocessing.concept_extractor import Concept, ConceptExtractor, SEED_CONCEPTS
 from src.preprocessing.iast_devanagari import get_converter
-from src.preprocessing.xml_parser import VerseData, MorphoData, SegmentationData
+from src.preprocessing.xml_parser import VerseData
 from src.utils.logger import logger
 
 

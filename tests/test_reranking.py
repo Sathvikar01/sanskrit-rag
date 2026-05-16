@@ -1,6 +1,5 @@
 """Tests for SRAG re-ranking modules."""
 
-import pytest
 
 from src.reranking.feature_extractors import (
     ReRankingFeatures,

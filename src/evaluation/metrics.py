@@ -1,9 +1,7 @@
 """Evaluation metrics for SRAG retrieval system."""
 
 import math
-from typing import Optional
 
-import numpy as np
 
 
 def mean_reciprocal_rank(ranked_lists: list[list[str]], relevant_sets: list[set[str]]) -> float:

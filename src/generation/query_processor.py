@@ -3,7 +3,6 @@
 import json
 import re
 from dataclasses import dataclass, field
-from typing import Optional
 
 from openai import OpenAI
 

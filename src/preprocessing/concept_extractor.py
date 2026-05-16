@@ -1,6 +1,5 @@
 """Concept extractor for Bhagavad Gita philosophical themes."""
 
-import re
 from dataclasses import dataclass, field
 
 from src.utils.logger import logger

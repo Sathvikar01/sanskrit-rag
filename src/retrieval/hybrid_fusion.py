@@ -1,7 +1,6 @@
 """Hybrid retrieval fusion combining vector, BM25, and graph results."""
 
 import math
-from typing import Optional
 
 from src.utils.config import Config
 from src.utils.logger import logger

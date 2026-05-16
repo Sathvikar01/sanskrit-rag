@@ -1,7 +1,5 @@
 """Linguistic re-ranker for SRAG - Novel contribution."""
 
-import math
-from typing import Optional
 
 from src.preprocessing.chunker import Chunk
 from src.preprocessing.concept_extractor import ConceptExtractor
@@ -14,7 +12,7 @@ from src.reranking.adaptive_reranker import (
     get_adaptive_weights,
     describe_query_type,
 )
-from src.reranking.confidence import PipelineConfidence, sigmoid_normalize
+from src.reranking.confidence import PipelineConfidence
 from src.reranking.feature_extractors import (
     ReRankingFeatures,
     extract_commentary_consensus_score,

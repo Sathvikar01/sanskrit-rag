@@ -3,7 +3,6 @@
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Optional
 
 from lxml import etree
 
@@ -184,7 +183,6 @@ class XMLParser:
             "commentaries": {"sridhara": [], "visvanatha": [], "baladeva": []},
         }
 
-        current_section = "verse"
         current_commentator = None
 
         for elem in div_element:
@@ -204,7 +202,6 @@ class XMLParser:
                     marker_clean = markers[0].replace(" -", "").replace("--", "")
                     if marker_clean in text or any(m in text for m in markers):
                         current_commentator = comm_key
-                        current_section = "commentary"
                         is_commentator = True
                         break
 
@@ -236,7 +233,6 @@ class XMLParser:
             "commentaries": {"sridhara": [], "visvanatha": [], "baladeva": []},
         }
 
-        current_section = "verse"
         current_commentator = None
 
         for elem in div_element:
@@ -256,7 +252,6 @@ class XMLParser:
                     marker_clean = markers[0].replace(" -", "").replace("--", "")
                     if marker_clean in text or any(m in text for m in markers):
                         current_commentator = comm_key
-                        current_section = "commentary"
                         is_commentator = True
                         break
 

@@ -1,6 +1,5 @@
 """Answer generator using MiMo v2.5 API."""
 
-import json
 import re
 from dataclasses import dataclass, field
 from typing import Optional

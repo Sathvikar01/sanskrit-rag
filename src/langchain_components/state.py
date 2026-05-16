@@ -1,7 +1,6 @@
 """State definitions for the SRAG LangGraph pipeline."""
 
-from typing import Annotated, TypedDict
-from operator import add
+from typing import TypedDict
 
 
 class SRAGState(TypedDict):

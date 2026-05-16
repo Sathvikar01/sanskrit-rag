@@ -1,7 +1,5 @@
 """Tests for SRAG retrieval modules."""
 
-import numpy as np
-import pytest
 
 from src.retrieval.bm25_retriever import BM25Retriever
 from src.retrieval.hybrid_fusion import reciprocal_rank_fusion, weighted_fusion

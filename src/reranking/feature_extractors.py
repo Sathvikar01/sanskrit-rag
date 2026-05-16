@@ -1,18 +1,13 @@
 """Feature extractors for the linguistic re-ranker."""
 
 import re
-from collections import Counter
 from dataclasses import dataclass
-from typing import Optional
 
 from src.preprocessing.chunker import Chunk
 from src.preprocessing.morpho_extractor import (
     MorphologicalProfile,
-    build_morphological_profile,
     compute_morpho_similarity,
-    extract_morpho_features_from_line,
 )
-from src.utils.logger import logger
 
 
 def extract_lemma_overlap_score(

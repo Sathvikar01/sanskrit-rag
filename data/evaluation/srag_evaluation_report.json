@@ -1,612 +1,3425 @@
 {
   "summary": {
-    "total_evaluated": 15,
+    "total_evaluated": 100,
     "total_errors": 0,
-    "avg_semantic_similarity": 0.4119,
-    "avg_word_overlap": 0.3177,
-    "avg_verse_recall": 0.0833,
-    "avg_response_time_seconds": 39.55,
-    "high_similarity_count": 4,
-    "medium_similarity_count": 9,
-    "low_similarity_count": 2
+    "pipeline_type": "standard",
+    "avg_semantic_similarity": 0.4044,
+    "avg_word_overlap": 0.2776,
+    "avg_verse_recall": 0.0484,
+    "avg_response_time_seconds": 37.38,
+    "high_similarity_count": 27,
+    "medium_similarity_count": 47,
+    "low_similarity_count": 26
   },
   "by_source": {
     "gita_guidance_qa": {
-      "count": 12,
-      "avg_semantic_similarity": 0.4743,
-      "avg_word_overlap": 0.3274
+      "count": 62,
+      "avg_semantic_similarity": 0.4629,
+      "avg_word_overlap": 0.2781
     },
     "edwin_arnold_qa": {
+      "count": 38,
+      "avg_semantic_similarity": 0.309,
+      "avg_word_overlap": 0.2769
+    }
+  },
+  "by_query_type": {
+    "complex_long": {
+      "count": 63,
+      "avg_semantic_similarity": 0.4594,
+      "avg_word_overlap": 0.2816
+    },
+    "general_medium": {
+      "count": 30,
+      "avg_semantic_similarity": 0.2854,
+      "avg_word_overlap": 0.2363
+    },
+    "factual_short": {
+      "count": 2,
+      "avg_semantic_similarity": 0.3929,
+      "avg_word_overlap": 0.4166
+    },
+    "concept_short": {
+      "count": 2,
+      "avg_semantic_similarity": 0.4056,
+      "avg_word_overlap": 0.2273
+    },
+    "concept_medium": {
       "count": 3,
-      "avg_semantic_similarity": 0.1621,
-      "avg_word_overlap": 0.2787
+      "avg_semantic_similarity": 0.4469,
+      "avg_word_overlap": 0.549
     }
   },
   "detailed_results": [
     {
       "question": "My friend is really down because they feel like everyone is just looking out for themselves and that there's no deeper meaning to life. They're constantly chasing the next thrill or relationship, but nothing ever feels fulfilling. How can I help them understand that maybe there's a different way to look at things and find something more stable than just satisfying temporary desires?",
       "ground_truth": "असत्यमप्रतिष्ठं ते जगदाहुरनीश्वरम् |\nअपरस्परसम्भूतं किमन्यत्कामहैतुकम् ||१६-८|| (Chapter 16, Verse 8)\n\n**Simple Meaning:**\nSome people believe the world isn't real or has no purpose, thinking it's just created from selfish desires and doesn't have any divine guidance. They see life as meaningless and driven only by wanting things for ourselves.\n\n**Original Translation:**\nThey say that this world is unreal, with no foundation, no God in control. They say it is produced of sex desire and has no ca",
-      "srag_answer": "Your friend's feelings resonate deeply with one of the most powerful existential crises in the Bhagavad Gita—that of Arjuna on the battlefield. The Gita offers a profound analysis of this very dilemma: the hollowness of chasing temporary pleasures (*bhoga*) and the search for a stable, meaningful purpose (*dharma* or *mokṣa*). Let's explore how the scripture and its commentaries can provide a framework to understand this.\n\n### 1. The Futility of Chasing Temporary Pleasures\nArjuna's lament in Cha",
+      "srag_answer": "Your friend’s feelings of disillusionment and emptiness are profoundly addressed in the Bhagavad Gita, which diagnoses the root cause of such dissatisfaction and prescribes a path toward lasting fulfillment. While the retrieved verses (BhG 1.32-35 and 11.26-27) poignantly illustrate the emptiness of material pursuits when confronted with mortality and the overwhelming reality of the Divine, the Gita’s core teachings on desire, action, and devotion offer a clear antidote.\n\nHere is a framework to ",
       "source": "gita_guidance_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 2.48",
-        "BhG 2.20",
-        "BhG 1.34",
+        "BhG 3.19",
+        "BhG 2.44",
+        "BhG 2.47",
         "BhG 1.32",
-        "BhG 17.28"
+        "BhG 5.22"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0828,
-        "reranking_confidence": 0.9356,
+        "retrieval_confidence": 0.1427,
+        "reranking_confidence": 0.9917,
         "generation_confidence": 1.0,
-        "overall_confidence": 0.6926
+        "overall_confidence": 0.7387
       },
-      "time_seconds": 46.14,
-      "semantic_similarity": 0.405,
-      "word_overlap": 0.4,
+      "query_type": "complex_long",
+      "time_seconds": 47.06,
+      "semantic_similarity": 0.4883,
+      "word_overlap": 0.3714,
       "verse_recall": 0.0,
       "srag_verses": [
         "1.32",
-        "1.34",
-        "13.31",
-        "17.28",
-        "2.20",
-        "2.48"
+        "2.44",
+        "2.47",
+        "2.62",
+        "3.19",
+        "5.22"
       ],
       "gt_verses": [
         "16.8"
       ],
-      "srag_length": 6432,
+      "srag_length": 5870,
       "gt_length": 520
     },
     {
       "question": "I'm starting a new business and I'm incredibly excited, but also terrified. There are so many possibilities and challenges, it feels overwhelming – like I'm staring into a blinding light of potential success and possible failure. I know this venture could be huge, and I feel a deep connection to it, but the scale of it is making me anxious and unsure where to even begin. How do I deal with this feeling of being awestruck and intimidated by the sheer magnitude of what I'm trying to achieve, and still move forward?",
       "ground_truth": "किरीटिनं गदिनं चक्रिणं च\nतेजोराशिं सर्वतो दीप्तिमन्तम् |\nपश्यामि त्वां दुर्निरीक्ष्यं समन्ताद्\nदीप्तानलार्कद्युतिमप्रमेयम् ||११-१७|| (Chapter 11, Verse 17)\n\n**Simple Meaning:**\nArjuna is overwhelmed by Krishna's divine form, which is brilliantly radiant and almost too intense to look at. It's filled with light, power, and beauty, appearing everywhere, adorned with symbols of strength and authority. It's so powerful that it's hard to grasp its entirety, yet Arjuna still perceives it all around hi",
-      "srag_answer": "Your experience of being both excited and terrified by the immense potential and challenges of your new venture is a deeply human one, and the Bhagavad Gita offers profound wisdom for navigating such moments of overwhelming scale and uncertainty. The teachings of Lord Krishna provide a framework to manage your anxiety, reframe your perspective, and move forward with clarity and resolve.\n\n### 1. **Acknowledge and Understand Your Anxiety (The Human Response)**\nFirst, the Gita validates that such f",
+      "srag_answer": "",
       "source": "gita_guidance_qa",
       "concepts": [],
-      "verses_cited": [
-        "BhG 1.28",
-        "BhG 12.13",
-        "BhG 9.32",
-        "BhG 2.47",
-        "BhG 10.2",
-        "BhG 2.40"
-      ],
+      "verses_cited": [],
       "confidence": {
-        "retrieval_confidence": 0.0831,
-        "reranking_confidence": 0.9109,
-        "generation_confidence": 1.0,
-        "overall_confidence": 0.6804
+        "retrieval_confidence": 0.1415,
+        "reranking_confidence": 0.9035,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.4942
       },
-      "time_seconds": 41.14,
-      "semantic_similarity": 0.6332,
-      "word_overlap": 0.2637,
+      "query_type": "complex_long",
+      "time_seconds": 41.81,
+      "semantic_similarity": 0.0478,
+      "word_overlap": 0.0,
       "verse_recall": 0.0,
-      "srag_verses": [
-        "1.28",
-        "10.2",
-        "12.13",
-        "2.40",
-        "2.47",
-        "9.32"
-      ],
+      "srag_verses": [],
       "gt_verses": [
         "11.17"
       ],
-      "srag_length": 6544,
+      "srag_length": 0,
       "gt_length": 763
     },
     {
       "question": "I'm constantly torn between whether I should focus on understanding spirituality through reading and meditation, or by volunteering and helping others. Both feel important, but I'm not sure which one is 'better' or if I should even be choosing. How do I reconcile these two approaches and find peace knowing I might not be doing 'enough' of one over the other?",
       "ground_truth": "यत्साङ्ख्यैः प्राप्यते स्थानं तद्योगैरपि गम्यते |\nएकं साङ्ख्यं च योगं च यः पश्यति स पश्यति ||५-५|| (Chapter 5, Verse 5)\n\n**Simple Meaning:**\nBoth deep thinking (like philosophy) and dedicated action (like selfless service) can lead you to the same spiritual goal. Understanding this means you see reality clearly – that the *path* doesn’t matter as much as the *intention* and the *effort* you put in.\n\n**Original Translation:**\nOne who knows that the position reached by means of analytical study ca",
-      "srag_answer": "Your question touches upon one of the central tensions addressed in the Bhagavad Gita: the perceived dichotomy between *svādhyāya* (self-study, meditation, scriptural knowledge) and *karma* (action in the world, service). The Gita, particularly through the lens of traditional commentaries, provides a profound reconciliation, suggesting that this is not a choice between two separate paths, but rather an integration of two essential aspects of a single, unified spiritual discipline.\n\nHere is a com",
+      "srag_answer": "This is an excellent and profound question that touches on the very heart of spiritual practice in the Bhagavad Gita. The tension you feel between *jñāna* (knowledge, study, meditation) and *karma* (selfless action, service) is a central theme Krishna addresses. The Gita does not advocate for one at the complete exclusion of the other, but rather teaches their synthesis and the proper attitude that unifies them.\n\nLet's start with the most direct and authoritative verse that establishes this prin",
       "source": "gita_guidance_qa",
       "concepts": [
         "dhyana"
       ],
-      "verses_cited": [],
+      "verses_cited": [
+        "BhG 2.47",
+        "BhG 3.14",
+        "BhG 3.35",
+        "BhG 9.27"
+      ],
       "confidence": {
-        "retrieval_confidence": 0.0828,
-        "reranking_confidence": 0.6741,
-        "generation_confidence": 0.0,
-        "overall_confidence": 0.3619
+        "retrieval_confidence": 0.0729,
+        "reranking_confidence": 0.5937,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.4787
       },
-      "time_seconds": 37.66,
-      "semantic_similarity": 0.5705,
-      "word_overlap": 0.2658,
+      "query_type": "complex_long",
+      "time_seconds": 43.9,
+      "semantic_similarity": 0.5527,
+      "word_overlap": 0.3291,
       "verse_recall": 0.0,
       "srag_verses": [
-        "2.45",
-        "2.50",
-        "4.3",
-        "5.6",
+        "2.47",
+        "3.14",
+        "3.35",
         "9.27"
       ],
       "gt_verses": [
         "5.5"
       ],
-      "srag_length": 5225,
+      "srag_length": 6905,
       "gt_length": 654
     },
     {
       "question": "I'm starting a new business, and it's really stressful. I keep worrying about whether it will succeed or fail, and it's making it hard to focus on actually building it. I feel overwhelmed by expectations and fear of losing money. How can I stay motivated and keep working hard without getting paralyzed by the outcome?",
       "ground_truth": "एवं ज्ञात्वा कृतं कर्म पूर्वैरपि मुमुक्षुभिः |\nकुरु कर्मैव तस्मात्त्वं पूर्वैः पूर्वतरं कृतम् ||४-१५|| (Chapter 4, Verse 15)\n\n**Simple Meaning:**\nWise people throughout history have always done their work without getting attached to the results, understanding the bigger picture of life. So, you should focus on doing your best at what you're meant to do, following the example set by those who came before you.\n\n**Original Translation:**\nAll the liberated souls in ancient times acted with this unde",
-      "srag_answer": "# Staying Motivated Without Attachment to Outcomes: Bhagavad Gita's Teaching on Karma Yoga\n\n## The Core Problem: Attachment to Results\n\nYour situation — working hard while being consumed by worry about outcomes — is precisely the dilemma Arjuna faces in the Bhagavad Gita. The Gita's central response is the doctrine of **Karma Yoga** (the yoga of selfless action), which teaches performing one's duty with full dedication while surrendering attachment to results.\n\n---\n\n## The Foundational Verse: Bh",
+      "srag_answer": "Your concern about stress, fear of failure, and the paralysis caused by outcome-oriented thinking is directly addressed in the Bhagavad Gita’s core teachings on *karma-yoga*—the path of selfless action. While the retrieved verses have low direct relevance, the Gita’s most authoritative guidance on this issue is found elsewhere, particularly in Chapter 2 and Chapter 3.\n\nThe foundational verse that answers your question is:\n\n> **भगवद्गीता 2.47**  \n> **karmaṇy evādhikāras te mā phaleṣu kadācana**  ",
       "source": "gita_guidance_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 2.48",
-        "BhG 3.20",
-        "BhG 4.10",
-        "BhG 2.47",
-        "BhG 2.14",
-        "BhG 18.13"
+        "BhG 2.47"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0831,
-        "reranking_confidence": 0.6945,
-        "generation_confidence": 1.0,
-        "overall_confidence": 0.5722
+        "retrieval_confidence": 0.0729,
+        "reranking_confidence": 0.5978,
+        "generation_confidence": 0.2,
+        "overall_confidence": 0.3608
       },
-      "time_seconds": 43.89,
-      "semantic_similarity": 0.3927,
-      "word_overlap": 0.3,
+      "query_type": "complex_long",
+      "time_seconds": 34.54,
+      "semantic_similarity": 0.4674,
+      "word_overlap": 0.25,
       "verse_recall": 0.0,
       "srag_verses": [
-        "18.13",
-        "2.14",
-        "2.47",
-        "2.48",
-        "3.20",
-        "4.10"
+        "2.47"
       ],
       "gt_verses": [
         "4.15"
       ],
-      "srag_length": 5724,
+      "srag_length": 4202,
       "gt_length": 608
     },
     {
       "question": "I'm feeling really lost about what career path to choose. There are so many options and I'm worried about picking the 'wrong' one. Should I just chase the most lucrative option, or is there a way to find work that feels more meaningful and aligned with something bigger than myself? How do I know if what I'm doing actually *matters*?",
       "ground_truth": "कर्म ब्रह्मोद्भवं विद्धि ब्रह्माक्षरसमुद्भवम् |\nतस्मात्सर्वगतं ब्रह्म नित्यं यज्ञे प्रतिष्ठितम् ||३-१५|| (Chapter 3, Verse 15)\n\n**Simple Meaning:**\nOur duties and actions are rooted in spiritual knowledge, and that knowledge comes from a higher power. This higher power is present in everything, especially when we act with purpose and devotion – like through rituals or selfless service. Essentially, doing our best, guided by spiritual principles, connects us to the divine.\n\n**Original Translation",
-      "srag_answer": "Your question touches upon the core existential dilemma that the *Bhagavad Gita* addresses: how to act meaningfully in a world of complex duties (*svadharma*), dualities, and uncertainty. The Gita does not prescribe a single career path but provides a profound framework for transforming your *relationship* with work, thereby revealing its inherent meaning and aligning it with something universal. Let us explore this through the verses provided.\n\n### 1. The Problem: Anxiety Born from Attachment t",
+      "srag_answer": "Your question about finding meaningful work and fearing the \"wrong\" choice touches on the very heart of the Bhagavad Gita's teachings on action, detachment, and purpose. While the Gita doesn't prescribe specific career paths, it offers profound guidance on *how* to engage with work and *where* to find true meaning.\n\n### The Core Problem: The Overwhelming \"Tree\" of Material Existence\n\nThe feeling of being lost among endless options is described metaphorically in the Gita as the vast, illusory \"Ba",
       "source": "gita_guidance_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 10.7",
-        "BhG 2.15",
-        "BhG 9.32",
+        "BhG 1.4",
+        "BhG 15.3",
         "BhG 2.47",
-        "BhG 4.9",
-        "BhG 14.19"
+        "BhG 15.4",
+        "BhG 3.9"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0831,
-        "reranking_confidence": 0.8195,
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.6949,
         "generation_confidence": 1.0,
-        "overall_confidence": 0.6347
+        "overall_confidence": 0.5694
       },
-      "time_seconds": 40.67,
-      "semantic_similarity": 0.4235,
-      "word_overlap": 0.3855,
+      "query_type": "complex_long",
+      "time_seconds": 46.68,
+      "semantic_similarity": 0.3976,
+      "word_overlap": 0.3253,
       "verse_recall": 0.0,
       "srag_verses": [
-        "10.7",
-        "14.19",
-        "2.15",
+        "1.4",
+        "15.3",
+        "15.4",
         "2.47",
-        "3.33",
-        "4.9",
-        "9.32"
+        "3.9"
       ],
       "gt_verses": [
         "3.15"
       ],
-      "srag_length": 6259,
+      "srag_length": 6485,
       "gt_length": 721
     },
     {
       "question": "I’m constantly trying to be a better person – more positive, productive, and peaceful. But sometimes I get overwhelmed by laziness and negativity, and other times I’m overly ambitious and stressed. I feel like I’m always swinging between extremes. Is it even possible to truly escape these ups and downs, or is this just part of being human?",
       "ground_truth": "न तदस्ति पृथिव्यां वा दिवि देवेषु वा पुनः |\nसत्त्वं प्रकृतिजैर्मुक्तं यदेभिः स्यात्त्रिभिर्गुणैः ||१८-४०|| (Chapter 18, Verse 40)\n\n**Simple Meaning:**\nEveryone and everything in the universe – whether it’s people, animals, or even gods – is influenced by the three qualities (sattva, rajas, and tamas) that come from nature. It’s impossible to find anything completely free from their effects.\n\n**Original Translation:**\nThere is no being existing, either here or among the demigods in the higher pla",
-      "srag_answer": "Your question touches upon one of the most profound and practical discussions in the Bhagavad Gita—the mastery of the mind and the navigation of the *guṇas* (material qualities) that bind all beings. The Gita does not dismiss this struggle; it provides a systematic path to transcend it. Let us explore this through key verses and commentaries.\n\n### The Diagnostic Framework: The Play of the Guṇas\nThe fluctuations you describe—laziness (*tamas*), passionate ambition (*rajas*), and the fleeting desi",
+      "srag_answer": "# Transcending the Swing: The Bhagavad Gita on Overcoming Inner Extremes\n\nYour experience is profoundly recognized in the Bhagavad Gita. What you describe — swinging between lethargy and restless ambition — is one of the central human struggles the text addresses. The Gita's answer is both realistic and hopeful: **yes, it is possible to transcend these oscillations**, but",
       "source": "gita_guidance_qa",
       "concepts": [],
-      "verses_cited": [
-        "BhG 6.35",
-        "BhG 6.16",
-        "BhG 2.54",
-        "BhG 9.30",
-        "BhG 13.22",
-        "BhG 7.14",
-        "BhG 14.5",
-        "BhG 3.28",
-        "BhG 3.29",
-        "BhG 2.47",
-        "BhG 10.10",
-        "BhG 14.26",
-        "BhG 3.20",
-        "BhG 5.12"
-      ],
+      "verses_cited": [],
       "confidence": {
-        "retrieval_confidence": 0.0831,
-        "reranking_confidence": 0.8195,
-        "generation_confidence": 1.0,
-        "overall_confidence": 0.6347
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.5882,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.3161
       },
-      "time_seconds": 39.16,
-      "semantic_similarity": 0.4308,
-      "word_overlap": 0.2603,
+      "query_type": "complex_long",
+      "time_seconds": 38.24,
+      "semantic_similarity": 0.1552,
+      "word_overlap": 0.0959,
       "verse_recall": 0.0,
-      "srag_verses": [
-        "10.10",
-        "13.22",
-        "14.26",
-        "14.5",
-        "15.15",
-        "2.47",
-        "2.54",
-        "3.20",
-        "3.28",
-        "3.29",
-        "5.12",
-        "6.16",
-        "6.35",
-        "7.14",
-        "9.30"
-      ],
+      "srag_verses": [],
       "gt_verses": [
         "18.40"
       ],
-      "srag_length": 5693,
+      "srag_length": 374,
       "gt_length": 578
     },
     {
       "question": "I've built a successful tech company from the ground up, working incredibly long hours and taking all the risks. Now I feel a huge responsibility to use my wealth to help solve societal problems, but also a sense of ownership and the right to decide *how* that help is given. How do I balance using my resources for good with the fact that I earned them through my own efforts and feel entitled to decide their use?",
       "ground_truth": "इदमद्य मया लब्धमिमं प्राप्स्ये मनोरथम् |\nइदमस्तीदमपि मे भविष्यति पुनर्धनम् ||१६-१३|| (Chapter 16, Verse 13)\n\n**Simple Meaning:**\nArjuna believes he achieved all his wealth and power through his own hard work and abilities, not luck or gifts. He feels responsible for using his strength to care for and protect others, because he earned it all himself.\n\n**Original Translation:**\nToday I have obtained all these opulences by My own effort. They were not gifted to Me by anyone else. I am the enjoyer a",
-      "srag_answer": "This is a profound question that touches on the core philosophical tensions in the Bhagavad Gita between **kartavya** (duty), **īśvara-prāpti** (God-given resources), and **svatantriya** (personal agency). The Gita offers a nuanced framework for navigating this balance, centered on transforming one's consciousness from \"owner\" to \"steward.\"\n\n### 1. **The Nature of Ownership: A Divine Trust**\nThe Gita fundamentally challenges the notion of absolute personal ownership. While it acknowledges the li",
+      "srag_answer": "# Wealth, Ownership, and Responsibility: The Bhagavad Gītā's Teachings on stewardship\n\nYour question touches on one of the most profound tensions in the Gītā's philosophy of action: the relationship between personal effort (*puruṣakāra*), divine agency (*Īśvara*), and the proper use of resources (*dāna*). Let me address this systematically.\n\n---\n\n## 1. The Fundamental Question of Ownership: Do You Truly \"Own\" What You Earned?\n\n### The Five Factors of Action\n\nThe Gītā's most direct answer to the ",
       "source": "gita_guidance_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 2.48",
-        "BhG 3.15",
-        "BhG 18.5",
-        "BhG 18.28",
+        "BhG 18.14",
+        "BhG 18.15",
         "BhG 5.14",
-        "BhG 17.20",
         "BhG 2.47",
-        "BhG 17.21"
+        "BhG 3.27",
+        "BhG 9.28",
+        "BhG 17.20"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0831,
-        "reranking_confidence": 0.9477,
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.594,
         "generation_confidence": 1.0,
-        "overall_confidence": 0.6988
+        "overall_confidence": 0.519
       },
-      "time_seconds": 43.8,
-      "semantic_similarity": 0.4966,
-      "word_overlap": 0.325,
+      "query_type": "complex_long",
+      "time_seconds": 40.91,
+      "semantic_similarity": 0.5367,
+      "word_overlap": 0.2375,
       "verse_recall": 0.0,
       "srag_verses": [
         "17.20",
-        "17.21",
-        "18.28",
-        "18.5",
+        "18.14",
+        "18.15",
         "2.47",
-        "2.48",
-        "3.15",
-        "5.14"
+        "3.27",
+        "5.14",
+        "9.28"
       ],
       "gt_verses": [
         "16.13"
       ],
-      "srag_length": 6113,
+      "srag_length": 5129,
       "gt_length": 629
     },
     {
       "question": "What did the Seven Chief Saints, the Elders Four, and the Lordly Manus share in?",
       "ground_truth": "Sharing My work to rule the worlds",
-      "srag_answer": "Based on the Bhagavad Gītā, the Seven Chief Saints (Saptarṣis), the Elders Four (Caturmahārājas, or the Four Kumaras), and the Lordly Manus share in being **divine, ancient beings who are direct expansions or powerful devotees of the Supreme Lord, Śrī Kṛṣṇa, and who participate in the cosmic order (*dharmasya tasya*) established by Him.**\n\nTheir shared essence is that they all arise from His divine potency (*mama māyā*) and are sustained by Him as part of His universal manifestation. Their glori",
+      "srag_answer": "",
       "source": "edwin_arnold_qa",
       "concepts": [],
-      "verses_cited": [
-        "BhG 11.15",
-        "BhG 10.26",
-        "BhG 3.15",
-        "BhG 10.29",
-        "BhG 10.6",
-        "BhG 11.36",
-        "BhG 11.46",
-        "BhG 3.17"
-      ],
+      "verses_cited": [],
       "confidence": {
-        "retrieval_confidence": 0.0823,
-        "reranking_confidence": 0.6194,
-        "generation_confidence": 1.0,
-        "overall_confidence": 0.5344
+        "retrieval_confidence": 0.0737,
+        "reranking_confidence": 0.6113,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.3278
       },
-      "time_seconds": 39.89,
-      "semantic_similarity": 0.0241,
-      "word_overlap": 0.4286,
+      "query_type": "general_medium",
+      "time_seconds": 42.88,
+      "semantic_similarity": 0.1504,
+      "word_overlap": 0.0,
       "verse_recall": null,
-      "srag_verses": [
-        "10.26",
-        "10.29",
-        "10.6",
-        "11.15",
-        "11.36",
-        "11.46",
-        "3.15",
-        "3.17"
-      ],
+      "srag_verses": [],
       "gt_verses": [],
-      "srag_length": 5710,
+      "srag_length": 0,
       "gt_length": 34
     },
     {
       "question": "I'm really struggling with the idea of where all life comes from. It feels overwhelming to think about everything existing, and where it all began. Sometimes I feel lost when thinking about the natural world, and how everything is interconnected. How does Krishna's role as the 'seed-giving father' help me understand the origin and connection of all living things and find peace with it?",
       "ground_truth": "सर्वयोनिषु कौन्तेय मूर्तयः सम्भवन्ति याः |\nतासां ब्रह्म महद्योनिरहं बीजप्रदः पिता ||१४-४|| (Chapter 14, Verse 4)\n\n**Simple Meaning:**\nEvery living thing you see – plants, animals, humans – comes into being through the natural world. Krishna, as the divine source, is like the original creator, providing the life force that makes all of this possible. He's the source of all existence.\n\n**Original Translation:**\nIt should be understood that all species of life, O son of Kuntī, are made possible by ",
-      "srag_answer": "Your question touches upon the profound philosophical heart of the Bhagavad Gita—its teaching on the origin, sustenance, and ultimate unity of all existence in the Supreme Being, Krishna. The feeling of being overwhelmed by the interconnectedness of life is natural, but the Gita provides a deeply comforting framework for understanding it. Let us explore this through the concept of Krishna as the **\"bīja-pradaḥ pitā\" (seed-giving father)** and the related verses.\n\n### 1. Krishna as the Ultimate C",
+      "srag_answer": "Your question touches upon the most profound inquiry in the Bhagavad Gita: the nature of ultimate reality, the source of all existence, and how recognizing this source brings peace amidst the overwhelming interconnectedness of life. The concept of Krishna as the \"seed-giving father\" (bīja-pradaḥ pitā) is central to understanding this.\n\nWhile the most direct definitional verse for this title is not in the provided set, it is referenced as a key concept. The authoritative verse defining this role ",
       "source": "gita_guidance_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 12.13",
-        "BhG 14.3",
-        "BhG 12.14",
         "BhG 18.36",
         "BhG 10.2",
-        "BhG 14.4",
-        "BhG 7.17",
-        "BhG 9.4"
+        "BhG 10.8",
+        "BhG 12.13"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0831,
-        "reranking_confidence": 0.9111,
-        "generation_confidence": 1.0,
-        "overall_confidence": 0.6805
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.8879,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.6259
       },
-      "time_seconds": 35.78,
-      "semantic_similarity": 0.6807,
-      "word_overlap": 0.4744,
-      "verse_recall": 1.0,
+      "query_type": "complex_long",
+      "time_seconds": 37.27,
+      "semantic_similarity": 0.7419,
+      "word_overlap": 0.4359,
+      "verse_recall": 0.0,
       "srag_verses": [
         "10.2",
+        "10.8",
         "12.13",
-        "12.14",
-        "14.3",
-        "14.4",
-        "18.36",
-        "7.17",
-        "9.4"
+        "18.36"
       ],
       "gt_verses": [
         "14.4"
       ],
-      "srag_length": 5078,
+      "srag_length": 5419,
       "gt_length": 568
     },
     {
       "question": "Who is referred to as He who keeps the prison Of Narak in the text?",
       "ground_truth": "Yama dark",
-      "srag_answer": "Based on the provided verses and commentaries, the phrase \"He who keeps the prison of Narak\" is not directly found in the Bhagavad Gita text or the cited commentaries. However, the description aligns with the theological role of **Lord Krishna (Bhagavān Śrī Kṛṣṇa)** as the Supreme Being who governs all realms, including the infernal regions.\n\nIn the Bhagavad Gita, Krishna reveals His universal form (Viśvarūpa) and asserts His supreme control over all aspects of creation, preservation, and destru",
+      "srag_answer": "Based on the provided verses and commentaries from the Bhagavad Gītā, there is **no direct reference** to \"He who keeps the prison of Nāraka\" within these specific sections. The retrieved material focuses on Chapters 1 and 11, primarily on Arjuna's realization of Krishna's universal form and his subsequent apology for past familiarity.\n\nHowever, within the broader theological context of Hindu scriptures (including Purāṇas and the Gītā's own philosophy), the keeper or lord of Nāraka (hell) is tra",
       "source": "edwin_arnold_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 11.41",
-        "BhG 9.29",
         "BhG 11.32",
-        "BhG 9.4",
-        "BhG 11.33"
+        "BhG 10.3",
+        "BhG 9.29"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0828,
-        "reranking_confidence": 0.9349,
-        "generation_confidence": 1.0,
-        "overall_confidence": 0.6923
+        "retrieval_confidence": 0.1423,
+        "reranking_confidence": 0.954,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.6397
       },
-      "time_seconds": 28.97,
-      "semantic_similarity": 0.1544,
+      "query_type": "general_medium",
+      "time_seconds": 27.61,
+      "semantic_similarity": 0.2426,
       "word_overlap": 0.0,
       "verse_recall": null,
       "srag_verses": [
+        "10.3",
         "11.32",
-        "11.33",
-        "11.41",
-        "9.29",
-        "9.4"
+        "9.29"
       ],
       "gt_verses": [],
-      "srag_length": 3338,
+      "srag_length": 2249,
       "gt_length": 9
     },
     {
       "question": "What consequence does the speaker foresee if they do not act earnestly and watchfully?",
       "ground_truth": "Those that look to the speaker for guidance would sink back to sloth and decline from good, resulting in the breaking of earths order and committing her offspring unto ruin.",
-      "srag_answer": "Based on the Bhagavad Gita, the speaker (Lord Krishna) foresees **the ruin of society and the destruction of dharmic order** if individuals—especially the wise and capable—fail to act earnestly and watchfully.\n\nWhile the specific verses cited in the retrieval (BhG 10.16, 11.32, 3.15, 11.36, 3.17) are not directly on this theme, the key teaching is found in **Chapter 3 (Karma Yoga)**, particularly verses 3.20–3.24. Here, Krishna explains that even the wise must act to set an example and uphold th",
+      "srag_answer": "Based on the provided verses, the core consequence foreseen by the speaker (Lord Krishna) for neglecting earnest and watchful action (karma-yoga) is **spiritual regression and bondage to the material cycle of birth and death**.\n\nThe most direct and authoritative statement comes from Bhagavad Gita Chapter 3.\n\n**Definitional Verse:**\n**BhG 3.17:** \"यस्त्वात्मरतिरेव स्यादात्मतृप्तश्च मानवः । आत्यन्यं च न विन्देत क्लेशोऽस्य कर्मजो ध्रुवम् ॥\"\n*But for the man who rejoices in the Self alone, who is sa",
       "source": "edwin_arnold_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 3.18",
-        "BhG 10.16",
-        "BhG 3.17"
+        "BhG 3.15",
+        "BhG 3.17",
+        "BhG 2.45",
+        "BhG 3.16",
+        "BhG 3.19"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0823,
-        "reranking_confidence": 0.6216,
-        "generation_confidence": 0.6,
-        "overall_confidence": 0.4555
+        "retrieval_confidence": 0.0737,
+        "reranking_confidence": 0.6161,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5302
       },
-      "time_seconds": 27.83,
-      "semantic_similarity": 0.3077,
+      "query_type": "general_medium",
+      "time_seconds": 31.75,
+      "semantic_similarity": 0.233,
       "word_overlap": 0.4074,
       "verse_recall": null,
       "srag_verses": [
-        "10.16",
-        "11.32",
-        "11.36",
+        "2.45",
         "3.15",
+        "3.16",
         "3.17",
-        "3.18",
-        "3.20",
-        "3.23",
-        "3.24"
+        "3.19"
       ],
       "gt_verses": [],
-      "srag_length": 2320,
+      "srag_length": 3955,
       "gt_length": 173
     },
     {
       "question": "I've been studying philosophy and spiritual concepts for years, and I intellectually grasp the idea that everything is interconnected and that there's a deeper reality underlying what we see. But it's hard to *feel* that connection, and even harder to see evidence of it in my everyday life. How can I move beyond just understanding the idea to actually experiencing this unity and seeing the bigger picture – like seeing the divine in everything around me?",
       "ground_truth": "एवमेतद्यथात्थ त्वमात्मानं परमेश्वर |\nद्रष्टुमिच्छामि ते रूपमैश्वरं पुरुषोत्तम ||११-३|| (Chapter 11, Verse 3)\n\n**Simple Meaning:**\nArjuna is saying to Krishna, 'I understand what you've told me about your divine nature, but I still want to *see* how you exist within everything in the universe. I want to witness your all-encompassing presence – to truly understand it beyond just hearing about it.' He's seeking a visual, experiential proof of Krishna's universal form.\n\n**Original Translation:**\nO g",
-      "srag_answer": "# Moving from Intellectual Understanding to Direct Experience of Divine Unity\n\nYour question touches upon one of the most profound and practically urgent themes of the Bhagavad Gita: the transformation from *jñāna* (intellectual knowledge) into *anubhava* (direct, embodied experience). The Gita does not treat this gap as trivial—it acknowledges that even Arjuna, who heard all of Krishna's teachings, needed the extraordinary experience of the *vibhūti* (universal form) to have his understanding p",
+      "srag_answer": "Your struggle is profoundly relevant and is precisely the transformative journey the Bhagavad Gita addresses. The gap between intellectual understanding (*jñāna*) and lived, heartfelt realization (*anubhava*) is where the Gita’s teachings become a practical guide. Let’s explore this step-by-step, using the verses and commentaries provided.\n\n### 1. The Starting Point: Recognizing the Cloud of Confusion\nArjuna’s own state in the first chapter illustrates how attachment and limited perspective clou",
       "source": "gita_guidance_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 18.72",
-        "BhG 4.38"
+        "BhG 18.36",
+        "BhG 1.28",
+        "BhG 12.13"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0831,
-        "reranking_confidence": 0.9007,
-        "generation_confidence": 0.4,
-        "overall_confidence": 0.5553
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.8877,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.5858
       },
-      "time_seconds": 41.12,
-      "semantic_similarity": 0.5217,
-      "word_overlap": 0.2556,
+      "query_type": "complex_long",
+      "time_seconds": 42.94,
+      "semantic_similarity": 0.5927,
+      "word_overlap": 0.3,
       "verse_recall": 0.0,
       "srag_verses": [
-        "18.72",
-        "4.38"
+        "1.28",
+        "12.13",
+        "18.36"
       ],
       "gt_verses": [
         "11.3"
       ],
-      "srag_length": 1977,
+      "srag_length": 5001,
       "gt_length": 735
     },
     {
       "question": "My startup is failing. I've poured everything into it, and now it feels like all my hard work, my colleagues' efforts, and even the investments are being 'swallowed up' by the market. I'm watching everything I built crumble, and I'm overwhelmed with grief and a sense of impending loss. How do I deal with the feeling that everything I've worked for is being destroyed and find peace amidst this chaos?",
       "ground_truth": "अमी च त्वां धृतराष्ट्रस्य पुत्राः\nसर्वे सहैवावनिपालसङ्घैः |\nभीष्मो द्रोणः सूतपुत्रस्तथासौ\nसहास्मदीयैरपि योधमुख्यैः ||११-२६|| (Chapter 11, Verse 26)\n\n**Simple Meaning:**\nArjuna sees everyone – his relatives, enemies, and great warriors – being drawn into Krishna's universal form's mouth. It's a terrifying vision showing the complete dissolution of everything into the ultimate reality. Krishna is demonstrating his all-encompassing nature and the inevitability of change and death.\n\n**Original Trans",
-      "srag_answer": "Your situation resonates deeply with the central teachings of the Bhagavad Gita, which addresses the anguish of loss, duty, and the pursuit of peace amid destruction. While the retrieved verses (BhG 1.13, 10.16, 11.32, 3.15, 11.36) are either descriptive or incomplete in context, the Gita's broader philosophy offers profound guidance. Let us examine relevant verses and commentaries to address your grief.\n\n### 1. **Understanding Impermanence and the Eternal Self**\nThe Gita teaches that the materi",
+      "srag_answer": "I understand the profound grief and sense of loss you are experiencing. The collapse of a deeply personal endeavor like a startup can feel like the disintegration of a part of one's identity. The Bhagavad Gita, while spoken on a battlefield, offers timeless wisdom for navigating such personal crises of action, expectation, and loss.\n\nLet us examine the core of your question—how to deal with the destruction of your work and find peace—through the lens of the Gita's teachings.\n\n### 1. The Complexi",
       "source": "gita_guidance_qa",
       "concepts": [],
       "verses_cited": [
+        "BhG 2.55",
+        "BhG 9.27",
         "BhG 2.47",
-        "BhG 11.32",
-        "BhG 2.14",
-        "BhG 9.22",
-        "BhG 18.66",
-        "BhG 2.22",
-        "BhG 1.13"
+        "BhG 4.17",
+        "BhG 2.20"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0828,
-        "reranking_confidence": 0.6124,
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.5882,
         "generation_confidence": 1.0,
-        "overall_confidence": 0.531
+        "overall_confidence": 0.5161
       },
-      "time_seconds": 39.35,
-      "semantic_similarity": 0.3173,
+      "query_type": "complex_long",
+      "time_seconds": 41.13,
+      "semantic_similarity": 0.3856,
       "word_overlap": 0.2644,
       "verse_recall": 0.0,
       "srag_verses": [
-        "1.13",
-        "10.16",
-        "11.32",
-        "11.36",
-        "18.66",
-        "2.14",
-        "2.22",
+        "2.20",
         "2.47",
-        "3.15",
-        "9.22"
+        "2.55",
+        "4.17",
+        "9.27"
       ],
       "gt_verses": [
         "11.26"
       ],
-      "srag_length": 5633,
+      "srag_length": 5737,
       "gt_length": 727
     },
     {
       "question": "I'm really struggling with the loss of my grandfather. It feels like a huge part of me is gone, and I can't stop grieving. How can I cope with this pain, knowing that everything changes and eventually ends, but still feel connected to him and find peace?",
       "ground_truth": "द्वाविमौ पुरुषौ लोके क्षरश्चाक्षर एव च |\nक्षरः सर्वाणि भूतानि कूटस्थोऽक्षर उच्यते ||१५-१६|| (Chapter 15, Verse 16)\n\n**Simple Meaning:**\nThere are two types of beings: those who are temporary and changing (like us in our physical bodies), and those who are eternal and unchanging (the spiritual self). Everything we experience in the world is temporary, but our true self is permanent.\n\n**Original Translation:**\nThere are two classes of beings, the fallible and the infallible. In the material world ",
-      "srag_answer": "My dear friend, I am deeply sorry for the profound loss of your grandfather. The pain of such a separation is one of the most difficult human experiences, and it is natural to feel that a part of you is gone. The Bhagavad Gita, while a scripture of ultimate truth, directly addresses the human condition of suffering, change, and mortality, and offers a path to find peace and enduring connection.\n\nWhile the retrieved verses (BhG 10.2 and 10.12-13) primarily establish Lord Krishna's supreme, unknow",
+      "srag_answer": "My dear friend, I offer my deepest condolences for the loss of your grandfather. The pain you feel is profound, and it is a testament to the love you shared. The Bhagavad Gita does not dismiss this pain; it acknowledges it as a natural part of human experience while offering a path to transform grief into a source of enduring strength and connection.\n\nLet us first acknowledge your sorrow through the lens of scripture. Even the great warrior Arjuna, overwhelmed by the prospect of losing his kinsm",
       "source": "gita_guidance_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 10.20",
-        "BhG 2.20",
-        "BhG 1.46",
+        "BhG 2.23",
+        "BhG 2.28",
+        "BhG 6.26",
+        "BhG 9.23",
         "BhG 2.47",
-        "BhG 2.11",
-        "BhG 10.12",
-        "BhG 9.27",
-        "BhG 10.2",
-        "BhG 2.22"
+        "BhG 1.28",
+        "BhG 12.13",
+        "BhG 18.37",
+        "BhG 9.29"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0831,
-        "reranking_confidence": 0.9113,
+        "retrieval_confidence": 0.1416,
+        "reranking_confidence": 0.9038,
         "generation_confidence": 1.0,
-        "overall_confidence": 0.6806
+        "overall_confidence": 0.6944
       },
-      "time_seconds": 44.93,
-      "semantic_similarity": 0.339,
-      "word_overlap": 0.3594,
+      "query_type": "complex_long",
+      "time_seconds": 38.15,
+      "semantic_similarity": 0.2658,
+      "word_overlap": 0.2656,
       "verse_recall": 0.0,
       "srag_verses": [
-        "1.46",
-        "10.12",
-        "10.2",
-        "10.20",
-        "10.25",
-        "2.11",
-        "2.20",
-        "2.22",
+        "1.28",
+        "12.13",
+        "18.37",
+        "2.23",
+        "2.28",
         "2.47",
-        "9.27"
+        "6.26",
+        "9.23",
+        "9.29"
       ],
       "gt_verses": [
         "15.16"
       ],
-      "srag_length": 6355,
+      "srag_length": 6045,
       "gt_length": 601
     },
     {
       "question": "My grandmother is very sick, and honestly, I'm terrified of losing her, and of death itself. I feel so anxious and overwhelmed thinking about it. How can I find inner peace and strength during this difficult time, so I don't fall apart with grief and fear, and can support her (and myself) with calmness?",
       "ground_truth": "एषा ब्राह्मी स्थितिः पार्थ नैनां प्राप्य विमुह्यति |\nस्थित्वास्यामन्तकालेऽपि ब्रह्मनिर्वाणमृच्छति ||२-७२|| (Chapter 2, Verse 72)\n\n**Simple Meaning:**\nThis is the state of deep spiritual connection – when you're grounded in truth and not confused by life's ups and downs. If you can maintain this peace, even at the time of death, you'll find liberation and a connection with the divine.\n\n**Original Translation:**\nThat is the way of the spiritual and godly life, after attaining which a man is not be",
-      "srag_answer": "# Finding Inner Peace During Times of Fear and Grief: Wisdom from the Bhagavad Gita\n\nDear friend, I hear the pain and fear in your words, and I want you to know that the Bhagavad Gita speaks directly to people in moments like yours — when we are confronted with the fragility of life, the reality of death, and the overwhelming weight of love and loss. The Gita was spoken precisely to a warrior (Arjuna) who was paralyzed by grief and fear at the prospect of losing those he loved. Let us turn to Kr",
+      "srag_answer": "I hear the depth of your fear and love for your grandmother, and I want to offer you some comfort and strength from the wisdom of the Bhagavad Gita. While the specific verses and commentaries retrieved focus on cosmology and the tree of samsara, the Gita provides profound teachings directly relevant to your situation—teachings about the eternal nature of the soul, the purpose of human life, and how to find peace amidst change and loss.\n\nLet me share with you some of the most consoling verses and",
       "source": "gita_guidance_qa",
       "concepts": [],
       "verses_cited": [
-        "BhG 2.15",
-        "BhG 2.14"
+        "BhG 18.66",
+        "BhG 9.22",
+        "BhG 2.14",
+        "BhG 2.47",
+        "BhG 2.20"
       ],
       "confidence": {
-        "retrieval_confidence": 0.0831,
-        "reranking_confidence": 0.8989,
-        "generation_confidence": 0.4,
-        "overall_confidence": 0.5544
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.6953,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5696
       },
-      "time_seconds": 42.96,
-      "semantic_similarity": 0.481,
-      "word_overlap": 0.375,
+      "query_type": "complex_long",
+      "time_seconds": 39.57,
+      "semantic_similarity": 0.5185,
+      "word_overlap": 0.3333,
       "verse_recall": 0.0,
       "srag_verses": [
         "18.66",
         "2.14",
-        "2.15",
-        "2.18",
         "2.20",
-        "2.22"
+        "2.47",
+        "9.22"
       ],
       "gt_verses": [
         "2.72"
       ],
-      "srag_length": 5626,
+      "srag_length": 5478,
       "gt_length": 599
+    },
+    {
+      "question": "My friend is a really successful entrepreneur, but he constantly mocks anyone who tries meditation or mindfulness, saying it's 'woo-woo' and a waste of time. He's incredibly stressed and makes poor decisions. He refuses to even *consider* that these practices might help him. Is he harming his own potential, and if so, how can I help him see that?",
+      "ground_truth": "ये त्वेतदभ्यसूयन्तो नानुतिष्ठन्ति मे मतम् |\nसर्वज्ञानविमूढांस्तान्विद्धि नष्टानचेतसः ||३-३२|| (Chapter 3, Verse 32)\n\n**Simple Meaning:**\nPeople who reject spiritual teachings out of spite or ego, and don't consistently practice them, are lost and won't achieve their goals. They're basically fooling themselves by thinking they know better, and their efforts are wasted.\n\n**Original Translation:**\nBut those who, out of envy, disregard these teachings and do not follow them regularly are to be consi",
+      "srag_answer": "Based on the Bhagavad Gita, your friend is indeed potentially harming his own potential by dismissing practices that cultivate self-awareness and mental clarity. The core issue is one of **ignorance (*ajñāna*) leading to self-sabotaging behavior**, a central theme in the Gita. Here is a comprehensive analysis with citations.\n\n### 1. The Root Problem: Ignorance (*Ajñāna*) and Carelessness (*Pramāda*)\nThe most relevant verses here are **BhG 11.41-42**, where Arjuna apologizes to Krishna for having",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "dhyana"
+      ],
+      "verses_cited": [
+        "BhG 6.6",
+        "BhG 2.67",
+        "BhG 2.53",
+        "BhG 11.41"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1432,
+        "reranking_confidence": 0.9976,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.7018
+      },
+      "query_type": "complex_long",
+      "time_seconds": 42.44,
+      "semantic_similarity": 0.4225,
+      "word_overlap": 0.3056,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "11.41",
+        "2.53",
+        "2.67",
+        "6.6"
+      ],
+      "gt_verses": [
+        "3.32"
+      ],
+      "srag_length": 5963,
+      "gt_length": 586
+    },
+    {
+      "question": "What does the speaker claim to provide to all worshippers regardless of the shrine?",
+      "ground_truth": "Faith",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.0737,
+        "reranking_confidence": 0.7875,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.4159
+      },
+      "query_type": "general_medium",
+      "time_seconds": 39.35,
+      "semantic_similarity": 0.2334,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 5
+    },
+    {
+      "question": "I'm really struggling with the loss of my grandmother. It feels like everything is temporary and pointless knowing everyone I love will eventually pass away. At the same time, I feel like there must be something more to life than just this cycle of endings. How can I find peace knowing life is constantly changing, and understand if there’s something beyond just birth and death?",
+      "ground_truth": "भवाप्ययौ हि भूतानां श्रुतौ विस्तरशो मया |\nत्वत्तः कमलपत्राक्ष माहात्म्यमपि चाव्ययम् ||११-२|| (Chapter 11, Verse 2)\n\n**Simple Meaning:**\nArjuna is telling Krishna that he understands the cycle of birth and death for all beings, and he's also realizing Krishna's limitless and eternal nature. He acknowledges Krishna has revealed deep truths about existence.\n\n**Original Translation:**\nO lotus-eyed one, I have heard from You in detail about the appearance and disappearance of every living entity and ",
+      "srag_answer": "# Finding Peace in Impermanence: The Bhagavad Gita's Teaching on Death and the Eternal Self\n\nI am deeply sorry for the loss of your grandmother. Your questions touch upon the very heart of the Bhagavad Gita's teaching. Arjuna himself stood on the battlefield overwhelmed by similar grief and existential dread. Let me share what Krishna teaches about death, impermanence, and what lies beyond.\n\n---\n\n## The Eternal Nature of the Self (Ātman)\n\nThe most direct answer to your question—*is there somethi",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.16",
+        "BhG 2.23",
+        "BhG 2.22",
+        "BhG 2.28",
+        "BhG 14.24",
+        "BhG 2.27",
+        "BhG 2.20"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.5943,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5191
+      },
+      "query_type": "complex_long",
+      "time_seconds": 39.88,
+      "semantic_similarity": 0.6887,
+      "word_overlap": 0.3188,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "14.24",
+        "2.16",
+        "2.20",
+        "2.22",
+        "2.23",
+        "2.27",
+        "2.28"
+      ],
+      "gt_verses": [
+        "11.2"
+      ],
+      "srag_length": 5465,
+      "gt_length": 541
+    },
+    {
+      "question": "Who asks to see the true form of the Lord of all prayers?",
+      "ground_truth": "The Son of Pritha",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.0737,
+        "reranking_confidence": 0.6651,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.3547
+      },
+      "query_type": "general_medium",
+      "time_seconds": 38.52,
+      "semantic_similarity": 0.0836,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 17
+    },
+    {
+      "question": "I've been working really hard on this new project at work, but some colleagues are constantly making snide remarks about my ideas and saying they're unrealistic. It's really getting me down and making me doubt myself. How do I deal with people trying to tear down my confidence and work when I know I'm doing my best?",
+      "ground_truth": "अवाच्यवादांश्च बहून्वदिष्यन्ति तवाहिताः |\nनिन्दन्तस्तव सामर्थ्यं ततो दुःखतरं नु किम् ||२-३६|| (Chapter 2, Verse 36)\n\n**Simple Meaning:**\nPeople who oppose you will say negative things about you and try to diminish your strengths. But what could cause you more suffering than that kind of criticism?\n\n**Original Translation:**\nYour enemies will describe you in many unkind words and scorn your ability. What could be more painful for you?",
+      "srag_answer": "I understand how disheartening it can be to face criticism and doubt, especially when you are investing your best efforts. The Bhagavad Gita offers profound wisdom for navigating such challenges, focusing on cultivating inner stability, detachment from results, and finding one's worth in service rather than external validation.\n\nHere is a comprehensive answer based on the Gita's teachings, beginning with the most relevant verses for your situation.\n\n### 1. Acknowledge Your Distress as a Natural ",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 12.14",
+        "BhG 2.47",
+        "BhG 1.28",
+        "BhG 12.13",
+        "BhG 12.18",
+        "BhG 18.36"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1416,
+        "reranking_confidence": 0.9253,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.7051
+      },
+      "query_type": "complex_long",
+      "time_seconds": 37.0,
+      "semantic_similarity": 0.512,
+      "word_overlap": 0.2807,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.28",
+        "12.13",
+        "12.14",
+        "12.18",
+        "18.36",
+        "2.47"
+      ],
+      "gt_verses": [
+        "2.36"
+      ],
+      "srag_length": 5935,
+      "gt_length": 437
+    },
+    {
+      "question": "How is rain produced?",
+      "ground_truth": "Rain comes by the pious sacrifice",
+      "srag_answer": "# How Rain is Produced According to the Bhagavad Gita\n\nThe Bhagavad Gita explains the production of rain as part of Krishna's divine function as the sustainer of the universe. The most authoritative verse addressing this question is:\n\n## **BhG 9.19** (Definitional Verse)\n\n**Sanskrit (IAST):**\n> तपाम्यहमहं वर्षं निगृह्णाम्युत्सृजामि च |\n> प्रमाणात्मा न सत्त्वं न प्रकृतिर्न पुमांसकः ||\n\n**Translation:**\n> \"I give heat, I withhold and send forth rain (*varṣa*). I am immortality and also death. I am",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 9.19"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0724,
+        "reranking_confidence": 0.6136,
+        "generation_confidence": 0.2,
+        "overall_confidence": 0.3685
+      },
+      "query_type": "factual_short",
+      "time_seconds": 22.14,
+      "semantic_similarity": 0.4786,
+      "word_overlap": 0.3333,
+      "verse_recall": null,
+      "srag_verses": [
+        "9.19"
+      ],
+      "gt_verses": [],
+      "srag_length": 1733,
+      "gt_length": 33
+    },
+    {
+      "question": "My boss keeps pushing me to take on increasingly stressful projects to 'look good' on paper and get a promotion, even though it’s burning me out and making me miserable. I value a healthy work-life balance and personal well-being. Should I keep sacrificing my happiness for career advancement, or is there a better way to approach this situation?",
+      "ground_truth": "अर्जुन उवाच |\nज्यायसी चेत्कर्मणस्ते मता बुद्धिर्जनार्दन |\nतत्किं कर्मणि घोरे मां नियोजयसि केशव ||३-१|| (Chapter 3, Verse 1)\n\n**Simple Meaning:**\nArjuna is asking Krishna why he's being asked to fight a terrible war if Krishna believes wisdom and understanding are superior to just performing actions for the sake of results. He's questioning the logic – shouldn't they prioritize knowledge over a bloody battle?\n\n**Original Translation:**\nArjuna said: O Janārdana, O Keśava, why do You want to engage",
+      "srag_answer": "Your situation resonates deeply with the core dilemma of the Bhagavad Gita: how to navigate the conflict between worldly duties and personal well-being while maintaining spiritual and mental equilibrium. The Gita does not advocate for mindless self-sacrifice leading to misery, nor does it endorse neglect of one's responsibilities. Instead, it prescribes a middle path of **selfless action without attachment to results (niṣkāma karma)**, guided by wisdom and equanimity.\n\nLet us analyze your situat",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "sukha"
+      ],
+      "verses_cited": [
+        "BhG 12.18",
+        "BhG 18.36",
+        "BhG 1.28",
+        "BhG 12.13"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1416,
+        "reranking_confidence": 0.9434,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.6742
+      },
+      "query_type": "complex_long",
+      "time_seconds": 36.7,
+      "semantic_similarity": 0.4286,
+      "word_overlap": 0.2375,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.28",
+        "12.13",
+        "12.18",
+        "18.36"
+      ],
+      "gt_verses": [
+        "3.1"
+      ],
+      "srag_length": 3911,
+      "gt_length": 589
+    },
+    {
+      "question": "Why is the worth of gifts determined by the mind which gives and the will that serves?",
+      "ground_truth": "Because these qualities are gained by reverence, by strong search, and by humble heed of those who see the Truth and teach it",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.6004,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.3224
+      },
+      "query_type": "general_medium",
+      "time_seconds": 40.35,
+      "semantic_similarity": 0.0135,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 125
+    },
+    {
+      "question": "Who is referred to as the Infinite Creator and God of gods in the text?",
+      "ground_truth": "Thou Brahm",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.1417,
+        "reranking_confidence": 0.7193,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.4022
+      },
+      "query_type": "general_medium",
+      "time_seconds": 36.74,
+      "semantic_similarity": 0.2298,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 10
+    },
+    {
+      "question": "I'm constantly overwhelmed by social media, work pressures, and just 'stuff' in my life. I feel anxious and disconnected, like I'm always chasing the next thing. How can I find a sense of calm and purpose amidst all this chaos and focus on what truly matters?",
+      "ground_truth": "योगी युञ्जीत सततमात्मानं रहसि स्थितः |\nएकाकी यतचित्तात्मा निराशीरपरिग्रहः ||६-१०|| (Chapter 6, Verse 10)\n\n**Simple Meaning:**\nTo truly connect with something bigger than yourself, you need to focus your energy inwards – your body, mind, and spirit. This means finding quiet time alone, controlling your thoughts, and letting go of wanting things for yourself or feeling attached to possessions. It's about simplifying your life to make space for inner peace and connection.\n\n**Original Translation:**",
+      "srag_answer": "# Finding Calm and Purpose: Wisdom from the Bhagavad Gita\n\nI hear the deep sense of restlessness and disconnection in your question, and the Bhagavad Gita addresses precisely this human condition — the overwhelmed, anxious mind caught in a cycle of endless craving and distraction. Let me offer several layers of wisdom from the scripture.\n\n---\n\n## Understanding Your Condition\n\nThe Gita diagnoses your situation with remarkable precision. Lord Krishna states:\n\n> **\"na ca śaknomy avasthatuṃ bhramatī",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 10.36",
+        "BhG 2.66",
+        "BhG 6.34"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0728,
+        "reranking_confidence": 0.5873,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.4355
+      },
+      "query_type": "complex_long",
+      "time_seconds": 36.99,
+      "semantic_similarity": 0.4454,
+      "word_overlap": 0.1978,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "10.36",
+        "2.66",
+        "6.34"
+      ],
+      "gt_verses": [
+        "6.10"
+      ],
+      "srag_length": 1612,
+      "gt_length": 749
+    },
+    {
+      "question": "I'm feeling really overwhelmed by all the different amazing things in the world – like science, art, nature, and people's talents. It feels like so many separate, incredible forces, and I can't see how they all connect. Is there a way to understand everything as being part of something bigger and more unified, instead of just a bunch of random things?",
+      "ground_truth": "आदित्यानामहं विष्णुर्ज्योतिषां रविरंशुमान् |\nमरीचिर्मरुतामस्मि नक्षत्राणामहं शशी ||१०-२१|| (Chapter 10, Verse 21)\n\n**Simple Meaning:**\nKrishna is explaining that He exists in everything beautiful and powerful in the universe. He's not separate from creation; He *is* the essence of things like the sun, moon, and vital energies. He's the underlying power that makes them shine and function.\n\n**Original Translation:**\nOf the Ādityas I am Viṣṇu, of lights I am the radiant sun, of the Maruts I am Marī",
+      "srag_answer": "Your feeling of being overwhelmed by the diverse wonders of the world is beautifully addressed in the Bhagavad Gita. Krishna provides a profound framework for understanding all existence as manifestations of a single, supreme reality. The core teaching is that everything, from the greatest to the smallest, is an expression or energy of the Divine Being, Krishna Himself.\n\n### The Core Definition of Unity\nThe most direct and authoritative statement is found in **Bhagavad Gita 10.20**, where Krishn",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 10.35",
+        "BhG 10.31",
+        "BhG 10.20",
+        "BhG 10.22",
+        "BhG 10.42",
+        "BhG 10.41",
+        "BhG 10.38"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1432,
+        "reranking_confidence": 0.776,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.631
+      },
+      "query_type": "complex_long",
+      "time_seconds": 36.03,
+      "semantic_similarity": 0.6503,
+      "word_overlap": 0.35,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "10.20",
+        "10.22",
+        "10.31",
+        "10.35",
+        "10.38",
+        "10.41",
+        "10.42"
+      ],
+      "gt_verses": [
+        "10.21"
+      ],
+      "srag_length": 4821,
+      "gt_length": 538
+    },
+    {
+      "question": "My startup team is incredibly talented, but we're constantly disagreeing on the best direction. Everyone has strong opinions, and it's slowing us down. How can we ensure we both have strong leadership *and* unified action to actually achieve our goals and succeed?",
+      "ground_truth": "यत्र योगेश्वरः कृष्णो यत्र पार्थो धनुर्धरः |\nतत्र श्रीर्विजयो भूतिर्ध्रुवा नीतिर्मतिर्मम ||१८-७८|| (Chapter 18, Verse 78)\n\n**Simple Meaning:**\nIf you have skillful leadership (like Krishna) and dedicated action (like Arjuna), success, strength, and doing the right thing will naturally follow. Where there's competence and commitment, good things happen.\n\n**Original Translation:**\nWherever there is Kṛṣṇa, the master of all mystics, and wherever there is Arjuna, the supreme archer, there will also ",
+      "srag_answer": "Based on the provided verses and commentaries from the Bhagavad Gita, your challenge of balancing strong leadership with unified action resonates with the core crisis of the Gita: **Arjuna's paralysis due to overwhelming, conflicting perspectives and the need for a higher, unifying vision and guidance.**\n\nWhile the retrieved verses (BhG 11.26-27, 11.47, and the commentary on 10.2) primarily describe Arjuna's experience of the divine *Viśvarūpa* (Universal Form) and the exclusivity of that revela",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "karma"
+      ],
+      "verses_cited": [
+        "BhG 11.47",
+        "BhG 10.2",
+        "BhG 11.26"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.8702,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.5771
+      },
+      "query_type": "complex_long",
+      "time_seconds": 34.65,
+      "semantic_similarity": 0.585,
+      "word_overlap": 0.2206,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "10.2",
+        "11.26",
+        "11.47"
+      ],
+      "gt_verses": [
+        "18.78"
+      ],
+      "srag_length": 5323,
+      "gt_length": 586
+    },
+    {
+      "question": "Why does the speaker still act despite not being bound to any toil, having no heights to scale, or any gifts to gain?",
+      "ground_truth": "The speaker acts to set an example for others who look to them for guidance, to prevent them from sinking back into sloth and declining from good.",
+      "srag_answer": "The question touches on a central paradox of the Bhagavad Gītā: why does a being who is beyond all bondage, personal ambition, and need for reward continue to perform actions? The most authoritative answer is found in **Bhagavad Gītā 3.17–19**, which define the nature and motivation of the enlightened being’s action.\n\n### Core Definition: The Self-Realized Being’s Motivation\n**BhG 3.17** states:  \n*“But those who delight in the Self alone, who are satisfied with the Self, who are content in the ",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 3.17",
+        "BhG 3.24",
+        "BhG 3.19",
+        "BhG 3.26",
+        "BhG 3.18",
+        "BhG 3.25",
+        "BhG 4.20",
+        "BhG 1.32",
+        "BhG 17.28"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.143,
+        "reranking_confidence": 0.9657,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.7257
+      },
+      "query_type": "complex_long",
+      "time_seconds": 37.47,
+      "semantic_similarity": 0.2409,
+      "word_overlap": 0.5,
+      "verse_recall": null,
+      "srag_verses": [
+        "1.32",
+        "17.28",
+        "3.17",
+        "3.18",
+        "3.19",
+        "3.24",
+        "3.25",
+        "3.26",
+        "4.20"
+      ],
+      "gt_verses": [],
+      "srag_length": 3777,
+      "gt_length": 146
+    },
+    {
+      "question": "I'm a freelancer and constantly stressed about getting paid enough, pleasing clients, and whether each project will succeed or fail. It feels like my self-worth is tied to my work, and I can’t relax even when I’m not working. How can I stop letting the success or failure of my work control my happiness and peace of mind, and find a way to work without constantly being anxious about the results?",
+      "ground_truth": "शुभाशुभफलैरेवं मोक्ष्यसे कर्मबन्धनैः |\nसंन्यासयोगयुक्तात्मा विमुक्तो मामुपैष्यसि ||९-२८|| (Chapter 9, Verse 28)\n\n**Simple Meaning:**\nBy doing your duty without worrying about good or bad outcomes, and by dedicating your actions to something bigger than yourself (like a higher power or a greater purpose), you can break free from the cycle of being attached to results. This detachment leads to freedom and ultimately, a deeper connection with that which you are dedicated to.\n\n**Original Translation",
+      "srag_answer": "The Bhagavad Gita offers profound guidance for your situation through its central teaching of **nishkama karma** – performing one's duty without attachment to the fruits of action. Your experience of anxiety is precisely what Arjuna faced, and Lord Krishna's response is directly applicable.\n\nWhile the retrieved verses (BhG 10.16, 11.32, 3.15, 11.36, 3.17) touch upon themes of duty and divine order, the most authoritative and directly relevant verse for your question is **Bhagavad Gita 2.47**. Th",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "sukha"
+      ],
+      "verses_cited": [
+        "BhG 3.17",
+        "BhG 2.48",
+        "BhG 3.19",
+        "BhG 10.16",
+        "BhG 2.47",
+        "BhG 2.62"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0729,
+        "reranking_confidence": 0.5922,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.518
+      },
+      "query_type": "complex_long",
+      "time_seconds": 37.8,
+      "semantic_similarity": 0.49,
+      "word_overlap": 0.4286,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "10.16",
+        "2.47",
+        "2.48",
+        "2.62",
+        "3.17",
+        "3.19"
+      ],
+      "gt_verses": [
+        "9.28"
+      ],
+      "srag_length": 6071,
+      "gt_length": 699
+    },
+    {
+      "question": "I'm feeling really lost and overwhelmed with all the different advice people are giving me about my life choices. It's hard to know what's right for me. Instead of just following others, is there a way to find clarity and make the best decision by looking *within* myself, maybe through thoughtful study or self-reflection?  Could understanding this conversation help me figure that out?",
+      "ground_truth": "अध्येष्यते च य इमं धर्म्यं संवादमावयोः |\nज्ञानयज्ञेन तेनाहमिष्टः स्यामिति मे मतिः ||१८-७०|| (Chapter 18, Verse 70)\n\n**Simple Meaning:**\nBy deeply understanding and reflecting on the teachings in this conversation (the Bhagavad Gita), you are actually showing devotion to the divine. It's like worship through wisdom.\n\n**Original Translation:**\nAnd I declare that he who studies this sacred conversation of ours worships Me by his intelligence.",
+      "srag_answer": "Your question strikes at the heart of a profound human struggle, one that the Bhagavad Gita addresses directly. The Gita’s entire dialogue is a model for seeking clarity when overwhelmed by external voices, duty, and confusion. The conversation between Arjuna and Krishna on the battlefield is the ultimate example of turning inward, through a guided process of reflection (*svādhyāya*) and reasoned dialogue, to find one’s true path and duty (*svadharma*).\n\nThe Gita provides not only a philosophica",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 10.2",
+        "BhG 1.28",
+        "BhG 12.13"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1416,
+        "reranking_confidence": 0.9423,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.6336
+      },
+      "query_type": "complex_long",
+      "time_seconds": 41.06,
+      "semantic_similarity": 0.5928,
+      "word_overlap": 0.35,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.28",
+        "10.2",
+        "12.13"
+      ],
+      "gt_verses": [
+        "18.70"
+      ],
+      "srag_length": 6546,
+      "gt_length": 443
+    },
+    {
+      "question": "I'm constantly stressed and overwhelmed with work and social expectations. I keep chasing the next promotion or the 'perfect' life online, but I never feel satisfied. Even when I achieve something, the feeling doesn't last. I'm always anxious and feel like something is missing. How can I find lasting peace and contentment instead of just temporary highs?",
+      "ground_truth": "नास्ति बुद्धिरयुक्तस्य न चायुक्तस्य भावना |\nन चाभावयतः शान्तिरशान्तस्य कुतः सुखम् ||२-६६|| (Chapter 2, Verse 66)\n\n**Simple Meaning:**\nIf you're not connected to something bigger than yourself – a higher purpose or a sense of spirituality – you won't have clarity or mental stability. Without that stability, true peace is impossible, and happiness simply won't last. It's like trying to build a house on shaky ground.\n\n**Original Translation:**\nOne who is not connected with the Supreme [in Kṛṣṇa con",
+      "srag_answer": "Based on the wisdom of the Bhagavad Gita, the experience you describe—of temporary highs followed by emptiness, anxiety, and a perpetual sense of \"something missing\"—is precisely what the Gita identifies as the result of being driven by **kāma** (uncontrolled desire) and **krodha** (the frustration that arises from unfulfilled desire), which are the great enemies of the wise (BhG 3.37, 3.41). The Gita offers a profound, time-tested solution for finding the lasting peace (*sukham*) and contentmen",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.55",
+        "BhG 7.13",
+        "BhG 2.71",
+        "BhG 2.47",
+        "BhG 17.8",
+        "BhG 13.28",
+        "BhG 5.12",
+        "BhG 18.45",
+        "BhG 3.37",
+        "BhG 6.28"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.5883,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5161
+      },
+      "query_type": "complex_long",
+      "time_seconds": 40.6,
+      "semantic_similarity": 0.5328,
+      "word_overlap": 0.3529,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "13.28",
+        "17.8",
+        "18.45",
+        "2.47",
+        "2.55",
+        "2.71",
+        "3.37",
+        "5.12",
+        "6.28",
+        "7.13"
+      ],
+      "gt_verses": [
+        "2.66"
+      ],
+      "srag_length": 6167,
+      "gt_length": 673
+    },
+    {
+      "question": "I keep working really hard to get promotions and earn more money, thinking it will finally make me happy. But every time I reach a goal, I just feel empty and start chasing the next one. Is this cycle ever going to end? How can I find lasting contentment instead of constantly striving for more?",
+      "ground_truth": "ते तं भुक्त्वा स्वर्गलोकं विशालं\nक्षीणे पुण्ये मर्त्यलोकं विशन्ति |\nएवं त्रयीधर्ममनुप्रपन्ना\nगतागतं कामकामा लभन्ते ||९-२१|| (Chapter 9, Verse 21)\n\n**Simple Meaning:**\nPeople who chase pleasure and good fortune through rituals and actions, hoping for a better afterlife or life, end up going through cycles of birth and death. They enjoy temporary happiness, but ultimately return to the world again and again because they haven’t addressed the root cause of suffering – attachment to desires.\n\n**Orig",
+      "srag_answer": "Your experience reflects one of the central teachings of the Bhagavad Gita: the endless cycle of desire and temporary satisfaction (*kāma-kṣaya*). The Gita offers a clear diagnosis and a path to *sukha* (happiness) that is lasting and fulfilling.\n\n### The Core Definition of True, Lasting Happiness\nThe most direct definition comes from **BhG 18.36-37**, where Krishna describes three types of happiness. The happiness you seek—born of achievement and sense gratification—is *rājasic* (passionate). T",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.55",
+        "BhG 7.17",
+        "BhG 8.28",
+        "BhG 2.47",
+        "BhG 12.13",
+        "BhG 5.12",
+        "BhG 2.59",
+        "BhG 18.36",
+        "BhG 18.37"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1416,
+        "reranking_confidence": 0.9037,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.6943
+      },
+      "query_type": "complex_long",
+      "time_seconds": 32.3,
+      "semantic_similarity": 0.6028,
+      "word_overlap": 0.2812,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "12.13",
+        "18.36",
+        "18.37",
+        "2.47",
+        "2.55",
+        "2.59",
+        "5.12",
+        "7.17",
+        "8.28"
+      ],
+      "gt_verses": [
+        "9.21"
+      ],
+      "srag_length": 4319,
+      "gt_length": 798
+    },
+    {
+      "question": "I'm really stressed about my diet and constantly worried about 'good' and 'bad' foods. I feel guilty after eating certain things and obsessed with getting everything 'right'. Is it possible that this worry about food is missing the bigger picture, and how can I find a more balanced relationship with what I eat?",
+      "ground_truth": "अहं वैश्वानरो भूत्वा प्राणिनां देहमाश्रितः |\nप्राणापानसमायुक्तः पचाम्यन्नं चतुर्विधम् ||१५-१४|| (Chapter 15, Verse 14)\n\n**Simple Meaning:**\nThe divine energy is present within every living being as the power of digestion. It's how we take in food and transform it into life-sustaining energy, working with our breath to keep us going. Essentially, the power that fuels our bodies is a manifestation of the divine.\n\n**Original Translation:**\nI am the fire of digestion in the bodies of all living enti",
+      "srag_answer": "Your experience of stress and guilt around food choices is very common in modern life, but the Bhagavad Gita offers a profound perspective that can indeed help you find balance and see the bigger picture. The Gita’s teachings encourage a move away from rigid dualism (“good” vs. “bad”) and towards a vision of unity, equanimity, and dedicated action.\n\nLet us begin with a key definitional verse that establishes the fundamental principle of seeing the same essence in all things, which is the antidot",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 9.27",
+        "BhG 5.18",
+        "BhG 2.48",
+        "BhG 7.28"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.5954,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.4797
+      },
+      "query_type": "complex_long",
+      "time_seconds": 36.26,
+      "semantic_similarity": 0.4351,
+      "word_overlap": 0.3014,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "2.48",
+        "5.18",
+        "7.28",
+        "9.27"
+      ],
+      "gt_verses": [
+        "15.14"
+      ],
+      "srag_length": 5061,
+      "gt_length": 600
+    },
+    {
+      "question": "Why does the text state that death has not touched the spirit?",
+      "ground_truth": "Death hath not touched it at all, dead though the house of it seems.",
+      "srag_answer": "The statement that **death has not touched the spirit** (*ātman*) is a core teaching of the Bhagavad Gita, found most clearly in **Chapter 2, Verse 20**. This verse defines the eternal, unchanging nature of the Self.\n\n### Definitional Verse: BhG 2.20\n**Sanskrit (IAST):**\n> *na jāyate mriyate vā kadāchin*\n> *nāyaṃ bhūtvā bhavitā vā na bhūyaḥ*\n> *ajo nityaḥ śāśvato 'yaṃ purāṇo*\n> *na hanyate hanyamāne śarīre*\n\n**Translation:**\n> \"The soul (*ātman*) is never born, nor does it ever die. It does not ",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.20"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.6032,
+        "generation_confidence": 0.2,
+        "overall_confidence": 0.3638
+      },
+      "query_type": "general_medium",
+      "time_seconds": 27.25,
+      "semantic_similarity": 0.4411,
+      "word_overlap": 0.6154,
+      "verse_recall": null,
+      "srag_verses": [
+        "2.20"
+      ],
+      "gt_verses": [],
+      "srag_length": 2995,
+      "gt_length": 68
+    },
+    {
+      "question": "I've been working at the same job for 10 years, even though it makes me miserable. I'm scared to leave because it's familiar and provides security, but I feel like it's holding me back from pursuing what I really want. How can I find the courage to detach from this situation and make a change, even though it feels so deeply rooted in my life?",
+      "ground_truth": "न रूपमस्येह तथोपलभ्यते\nनान्तो न चादिर्न च सम्प्रतिष्ठा |\nअश्वत्थमेनं सुविरूढमूलं\nअसङ्गशस्त्रेण दृढेन छित्त्वा ||१५-३|| (Chapter 15, Verse 3)\n\n**Simple Meaning:**\nThis world and our attachments to it are like a huge, ancient tree with roots all around us – we can’t see its beginning or end, and it’s really hard to get rid of it. But if we’re determined and let go of our attachments, we can break free from its hold.\n\n**Original Translation:**\nThe real form of this tree cannot be perceived in this ",
+      "srag_answer": "Thank you for sharing this deeply personal and significant question. While the specific verses retrieved (Bhagavad Gita 10.12-13 and 11.10-11) primarily describe Arjuna’s recognition of Krishna’s supreme, universal form (*viśvata-mukham*) and his divinity, the Bhagavad Gita as a whole provides profound guidance on your situation. The core dilemma of attachment to a familiar but unfulfilling situation, and the search for courage to act according to one’s true nature, is precisely what Arjuna face",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 18.66",
+        "BhG 9.22",
+        "BhG 3.35",
+        "BhG 3.19",
+        "BhG 8.15",
+        "BhG 2.47",
+        "BhG 2.39"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.9193,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.6816
+      },
+      "query_type": "complex_long",
+      "time_seconds": 41.51,
+      "semantic_similarity": 0.3496,
+      "word_overlap": 0.2747,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "18.66",
+        "2.39",
+        "2.47",
+        "3.19",
+        "3.35",
+        "8.15",
+        "9.22"
+      ],
+      "gt_verses": [
+        "15.3"
+      ],
+      "srag_length": 6858,
+      "gt_length": 686
+    },
+    {
+      "question": "Who requested to be taken to the open ground between the armies?",
+      "ground_truth": "Arjuna",
+      "srag_answer": "The individual who requested to be taken to the open ground (i.e., the space between the two armies) was **Arjuna (Pārtha)**.\n\nThis request is made at the very outset of the Bhagavad Gita, immediately after King Dhṛtarāṣṭra inquires about the activities on the battlefield. Arjuna, filled with sorrow and hesitation upon seeing his kinsmen, teachers, and friends arrayed for battle, asks his charioteer, Lord Kṛṣṇa, to position their chariot in the middle of the two armies so he may observe the oppo",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 9.32",
+        "BhG 1.22"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.7877,
+        "generation_confidence": 0.4,
+        "overall_confidence": 0.496
+      },
+      "query_type": "general_medium",
+      "time_seconds": 27.51,
+      "semantic_similarity": 0.4887,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [
+        "1.22",
+        "9.32"
+      ],
+      "gt_verses": [],
+      "srag_length": 2315,
+      "gt_length": 6
+    },
+    {
+      "question": "I'm feeling really lost about what my purpose in life is. I’ve tried so many things, but nothing feels right. People keep telling me different things about what I 'should' be doing. How do I find real clarity and understand my true path, and is there a way to connect with a deeper understanding of myself beyond all the external noise?",
+      "ground_truth": "ॐ तत्सदिति श्रीमद्भगवद्गीतासूपनिषत्सु\nब्रह्मविद्यायां योगशास्त्रे श्रीकृष्णार्जुनसंवादे\nराजविद्याराजगुह्ययोगो नाम नवमोऽध्यायः ||९|| (Chapter 9, Verse 35)\n\n**Simple Meaning:**\nThis is the beginning of the ninth chapter of the Bhagavad Gita, called 'The Yoga of Royal Science and Royal Secret'. It introduces the core teachings about the supreme knowledge of the Self (Brahma-vidya) and the path of yoga, revealed through a conversation between Krishna and Arjuna.\n\n**Original Translation:**\nSwami Siva",
+      "srag_answer": "# Finding Your True Path: The Gita's Guidance on Purpose and Self-Knowledge\n\nYour question resonates deeply with the very crisis that opens the Bhagavad Gita. The great warrior Arjuna himself stands paralyzed on the battlefield — overwhelmed by external voices, conflicting duties, and a profound sense of meaninglessness — crying out that nothing matters: *\"What is the use of this kingdom, these pleasures, or even life itself?\"* (BhG 1.32). Your feeling of being lost and pulled in many directions",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 1.33",
+        "BhG 2.47",
+        "BhG 1.32",
+        "BhG 18.36",
+        "BhG 18.37"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1411,
+        "reranking_confidence": 0.9917,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.7382
+      },
+      "query_type": "complex_long",
+      "time_seconds": 38.2,
+      "semantic_similarity": 0.5681,
+      "word_overlap": 0.3051,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.32",
+        "1.33",
+        "18.36",
+        "18.37",
+        "2.47"
+      ],
+      "gt_verses": [
+        "9.35"
+      ],
+      "srag_length": 5204,
+      "gt_length": 535
+    },
+    {
+      "question": "I've been working really hard on a promotion at work, but I'm constantly anxious about whether I'll actually get it. It's making me miserable and I'm losing sleep. I feel like my happiness depends on this one outcome. How can I approach my work without being so attached to the result and find some peace of mind?",
+      "ground_truth": "युक्तः कर्मफलं त्यक्त्वा शान्तिमाप्नोति नैष्ठिकीम् |\nअयुक्तः कामकारेण फले सक्तो निबध्यते ||५-१२|| (Chapter 5, Verse 12)\n\n**Simple Meaning:**\nIf you do your work without worrying about the results and dedicate it to something bigger than yourself (like a higher power or a noble cause), you'll find inner peace. But if you're only focused on getting rewards and recognition, you'll end up stressed and stuck in a cycle of wanting more.\n\n**Original Translation:**\nThe steadily devoted soul attains unad",
+      "srag_answer": "Your struggle with anxiety and attachment to outcomes is profoundly human, and the Bhagavad Gita addresses this very challenge directly. Lord Krishna's teachings offer a transformative framework for action, detachment, and peace. Let us begin with the core definitional verse and then explore the supporting wisdom.\n\n### The Core Definition: Action Without Attachment\nThe foundational verse that directly answers your question is:\n\n**Bhagavad Gita 2.47:**\n*karmaṇy evādhikāras te mā phaleṣu kadācana*",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "sukha"
+      ],
+      "verses_cited": [
+        "BhG 2.48"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.8879,
+        "generation_confidence": 0.2,
+        "overall_confidence": 0.5059
+      },
+      "query_type": "complex_long",
+      "time_seconds": 37.72,
+      "semantic_similarity": 0.4471,
+      "word_overlap": 0.3404,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "2.48"
+      ],
+      "gt_verses": [
+        "5.12"
+      ],
+      "srag_length": 5365,
+      "gt_length": 685
+    },
+    {
+      "question": "I'm going through a really tough time at work - a lot of pressure, difficult decisions, and I feel overwhelmed and scared. I'm questioning my abilities and don't know how to handle it. How can I find strength and reassurance when facing such daunting challenges, and how do I remember my own capabilities when I feel helpless?",
+      "ground_truth": "सञ्जय उवाच |\nइत्यर्जुनं वासुदेवस्तथोक्त्वा\nस्वकं रूपं दर्शयामास भूयः |\nआश्वासयामास च भीतमेनं\nभूत्वा पुनः सौम्यवपुर्महात्मा ||११-५०|| (Chapter 11, Verse 50)\n\n**Simple Meaning:**\nAfter explaining everything to Arjuna, Krishna showed him his true, powerful four-armed form to reassure him. Then, to comfort Arjuna even more, Krishna went back to his familiar, gentle two-armed appearance.\n\n**Original Translation:**\nSañjaya said to Dhṛtarāṣṭra: The Supreme Personality of Godhead, Kṛṣṇa, having spoken t",
+      "srag_answer": "Your feelings of being overwhelmed in the face of daunting challenges are profoundly human and are the very emotional landscape in which the Bhagavad Gita offers its most direct guidance. The scripture addresses Arjuna's identical fear, paralysis, and self-doubt on the battlefield. The core reassurance is not that challenges will disappear, but that you are equipped with an inherent, divine strength and that performing your duty with the right attitude is the path through fear.\n\nHere are the key",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.47",
+        "BhG 18.66"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0729,
+        "reranking_confidence": 0.5967,
+        "generation_confidence": 0.4,
+        "overall_confidence": 0.4002
+      },
+      "query_type": "complex_long",
+      "time_seconds": 43.64,
+      "semantic_similarity": 0.474,
+      "word_overlap": 0.169,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "18.66",
+        "2.47"
+      ],
+      "gt_verses": [
+        "11.50"
+      ],
+      "srag_length": 6657,
+      "gt_length": 625
+    },
+    {
+      "question": "What is the town which hath nine gateways referred to in the text?",
+      "ground_truth": "The embodied sages soul",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.6657,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.355
+      },
+      "query_type": "general_medium",
+      "time_seconds": 40.15,
+      "semantic_similarity": 0.1555,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 23
+    },
+    {
+      "question": "Who is referred to as the Receiver and the Lord of every sacrifice?",
+      "ground_truth": "I am the Receiver and the Lord of every sacrifice.",
+      "srag_answer": "The Supreme Lord Krishna is referred to as the **Receiver** (*bhoktā*) and the **Lord** (*prabhu*) of every sacrifice. This definition is explicitly stated in **Bhagavad Gita 9.24**:\n\n> **ahaṃ hi sarva-yajñānāṃ bhoktā ca prabhur eva ca |  \n> na tu mām abhijānanti tattvenātaś cyavanti te ||**  \n> *“For I am the enjoyer (bhoktā) and the Lord (prabhu) of all sacrifices (sarva-yajñānām), but they do not know Me in reality, and therefore they fall down.”*\n\n### Elaboration and Commentary Analysis\n\nThi",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.141,
+        "reranking_confidence": 0.7072,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.3959
+      },
+      "query_type": "general_medium",
+      "time_seconds": 42.96,
+      "semantic_similarity": 0.4858,
+      "word_overlap": 0.8889,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 2316,
+      "gt_length": 50
+    },
+    {
+      "question": "My friend is constantly pushing their body to the limit with extreme dieting and never rests, even when they're sick. They also seem to ignore their gut feelings and do things they know aren't good for them just to fit in or achieve a certain look. How would you describe what's happening with their mindset, and what advice could I give them based on this verse?",
+      "ground_truth": "कर्षयन्तः शरीरस्थं भूतग्राममचेतसः |\nमां चैवान्तःशरीरस्थं तान्विद्ध्यासुरनिश्चयान् ||१७-६|| (Chapter 17, Verse 6)\n\n**Simple Meaning:**\nPeople who harm their own bodies through unhealthy habits and also disrespect or ignore their inner self (soul or conscience) are driven by a destructive mindset. They're focused on short-term pleasure and don't understand the harm they're causing to themselves.\n\n**Original Translation:**\nTormenting the elements in the body and Me residing there, and engaged in ac",
+      "srag_answer": "Based on the principles of the Bhagavad Gita, your friend's mindset reflects a profound imbalance and a state of *buddhi-nāśa* (destruction of discriminative intellect), driven by attachment to outcomes and the dominance of *rājas* and *tamas* guṇas. While the specific retrieved verses (BhG 10.38, 10.16, 11.32, 3.15, 11.36) primarily describe Krishna's universal opulence and role, the Gita's broader teachings directly address your friend's condition.\n\n### Diagnosis of the Mindset\n\n1.  **Ignoring",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "sharira"
+      ],
+      "verses_cited": [
+        "BhG 3.35",
+        "BhG 6.16",
+        "BhG 9.27",
+        "BhG 2.47",
+        "BhG 10.38",
+        "BhG 2.20"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1397,
+        "reranking_confidence": 0.5954,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5396
+      },
+      "query_type": "complex_long",
+      "time_seconds": 42.42,
+      "semantic_similarity": 0.4756,
+      "word_overlap": 0.3134,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "10.38",
+        "2.20",
+        "2.47",
+        "3.35",
+        "6.16",
+        "9.27"
+      ],
+      "gt_verses": [
+        "17.6"
+      ],
+      "srag_length": 5373,
+      "gt_length": 549
+    },
+    {
+      "question": "What happens to the fleeting frames mentioned in the text?",
+      "ground_truth": "They perish.",
+      "srag_answer": "The phrase \"fleeting frames\" is not a direct term from the Bhagavad Gītā, but it poetically encapsulates the scripture’s profound teaching on the temporary nature of the material body (deha) and the eternal journey of the soul (ātman). The Gītā consistently refers to the body as perishable, transient, and a mere dwelling for the imperishable Self.\n\n### Definition: The Body as a Temporary Vessel\nThe most authoritative definition of the body’s transient nature is found in **Bhagavad Gītā 2.22**:\n>",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.6659,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.3552
+      },
+      "query_type": "general_medium",
+      "time_seconds": 37.53,
+      "semantic_similarity": 0.1452,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 4145,
+      "gt_length": 12
+    },
+    {
+      "question": "My grandmother recently passed away. She was a really good person, always volunteering and helping others, and she was very spiritually inclined. I'm feeling a lot of grief, but also a sense of hope. The verse talks about 'higher planets' - what does that even *mean* in a modern context, and how can understanding this help me cope with her loss and feel at peace knowing where she might be now?",
+      "ground_truth": "यदा सत्त्वे प्रवृद्धे तु प्रलयं याति देहभृत् |\nतदोत्तमविदां लोकानमलान्प्रतिपद्यते ||१४-१४|| (Chapter 14, Verse 14)\n\n**Simple Meaning:**\nWhen someone passes away while living a life focused on goodness – being kind, honest, and knowledgeable – they move on to a higher, more peaceful existence filled with wisdom and purity. It's like graduating to a better place based on how you lived.\n\n**Original Translation:**\nWhen one dies in the mode of goodness, he attains to the pure higher planets of the gr",
+      "srag_answer": "# Finding Peace in Loss: The Bhagavad Gita's Perspective on Your Grandmother's Journey\n\nI'm deeply sorry for the loss of your grandmother. What you've described—a life of service, compassion, and spiritual devotion—resonates powerfully with the Gita's own portrait of a soul dear to the Divine. Let me address your question about \"higher planets\" and how the Gita's teachings can offer genuine comfort during this time of grief.\n\n---\n\n## Your Grandmother's Qualities: A Portrait from the Gita\n\nBefore",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 9.25",
+        "BhG 8.16",
+        "BhG 18.37",
+        "BhG 12.13"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1416,
+        "reranking_confidence": 0.9036,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.6543
+      },
+      "query_type": "complex_long",
+      "time_seconds": 40.05,
+      "semantic_similarity": 0.4665,
+      "word_overlap": 0.2857,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "12.13",
+        "18.37",
+        "8.16",
+        "9.25"
+      ],
+      "gt_verses": [
+        "14.14"
+      ],
+      "srag_length": 4888,
+      "gt_length": 510
+    },
+    {
+      "question": "How do creatures relate to the speaker according to the text?",
+      "ground_truth": "They come from the speaker, live by the speaker, and depart at the speakers word",
+      "srag_answer": "Based on the Bhagavad Gita and the traditional commentaries, the relationship between creatures (*bhūtāni*) and the Supreme Speaker, Lord Kṛṣṇa, is defined by two primary, complementary principles: **universal refuge and governance**. The text establishes that all beings, regardless of their birth or status, can attain liberation by surrendering to Him, while He simultaneously acts as the supreme controller and sustainer of the cosmic order, including all creatures.\n\n### 1. The Universal Refuge:",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 9.32",
+        "BhG 10.29"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.7876,
+        "generation_confidence": 0.4,
+        "overall_confidence": 0.496
+      },
+      "query_type": "general_medium",
+      "time_seconds": 31.59,
+      "semantic_similarity": 0.1062,
+      "word_overlap": 0.4167,
+      "verse_recall": null,
+      "srag_verses": [
+        "10.29",
+        "9.32"
+      ],
+      "gt_verses": [],
+      "srag_length": 4270,
+      "gt_length": 80
+    },
+    {
+      "question": "I'm facing a huge career decision - whether to stick with a stable job my family wants me to take or follow my passion, which feels risky. Everyone has advice, but they don't *get* what I'm really struggling with. It feels like no one understands my inner conflict. How do I find clarity and decide what’s right for *me* when so many opinions are pulling me in different directions?",
+      "ground_truth": "एतन्मे संशयं कृष्ण छेत्तुमर्हस्यशेषतः |\nत्वदन्यः संशयस्यास्य छेत्ता न ह्युपपद्यते ||६-३९|| (Chapter 6, Verse 39)\n\n**Simple Meaning:**\nI'm completely trusting you, Krishna, to clear up my confusion. I don't believe anyone else can truly understand and resolve my doubts like you can.\n\n**Original Translation:**\nThis is my doubt, O Kṛṣṇa, and I ask You to dispel it completely. But for You, no one is to be found who can destroy this doubt.",
+      "srag_answer": "Your struggle resonates profoundly with the central crisis of the Bhagavad Gita. The battlefield of Kurukshetra is a metaphor for the human psyche in conflict, and Arjuna's paralysis is the quintessential example of being torn between duty, desire, relationships, and self-understanding.\n\nLet us address your question—finding clarity amidst conflicting external opinions—by turning first to the verses that define the nature of Arjuna's (and our own) inner conflict and the sources of confusion, and ",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 10.2",
+        "BhG 1.33",
+        "BhG 1.29",
+        "BhG 2.47",
+        "BhG 1.30",
+        "BhG 2.49",
+        "BhG 1.28",
+        "BhG 18.45",
+        "BhG 6.10",
+        "BhG 1.32",
+        "BhG 18.36"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1421,
+        "reranking_confidence": 0.9741,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.7297
+      },
+      "query_type": "complex_long",
+      "time_seconds": 41.97,
+      "semantic_similarity": 0.4443,
+      "word_overlap": 0.2951,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.28",
+        "1.29",
+        "1.30",
+        "1.32",
+        "1.33",
+        "10.2",
+        "18.36",
+        "18.45",
+        "2.47",
+        "2.49",
+        "6.10"
+      ],
+      "gt_verses": [
+        "6.39"
+      ],
+      "srag_length": 6581,
+      "gt_length": 438
+    },
+    {
+      "question": "Who are included among Arjuna's kindred mentioned in the text?",
+      "ground_truth": "Grandsires and sires, uncles and brothers and sons, cousins and sons-in-law and nephews",
+      "srag_answer": "The list of Arjuna's kindred is prominently presented in the First Chapter of the Bhagavad Gita, when he beholds his own kinsmen arrayed on the battlefield. The most definitive and comprehensive enumeration occurs in verses 1.26–1.27.\n\n### Primary Definitional Verses\n\n**Bhagavad Gita 1.26–1.27**  \n> *tān apy etān paśyāmi sarvān atha gurūn atha mātulān |*  \n> *svaśurān suhṛdaś caiva senayor ubhayor api ||*  \n> *tān samīkṣya sa kaunteyaḥ sarvān bandhūn avasthitān |*  \n> *kṛpayā parayāviṣṭo viṣīdan",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 1.28"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.5909,
+        "generation_confidence": 0.2,
+        "overall_confidence": 0.3577
+      },
+      "query_type": "general_medium",
+      "time_seconds": 39.99,
+      "semantic_similarity": 0.1922,
+      "word_overlap": 0.2222,
+      "verse_recall": null,
+      "srag_verses": [
+        "1.28"
+      ],
+      "gt_verses": [],
+      "srag_length": 2263,
+      "gt_length": 87
+    },
+    {
+      "question": "What is the physical appearance of Thee as described in the text?",
+      "ground_truth": "Thee has a form stupendous, with manifold faces, unnumbered vast arms, and members tremendous, flanks lit with sun and star, feet planted near and far, tushes of terror, and mouths both wrathful and tender.",
+      "srag_answer": "Based on the provided verses and commentaries, **there is no direct description of Krishna's physical appearance**. The retrieved excerpts focus on Krishna's teachings about the transformative power of knowledge (jñāna) and his identification with various divine attributes and beings, but they do not contain the vivid visual descriptions of his cosmic form (vishvarūpa) that are found elsewhere in the Bhagavad Gita.\n\n### Analysis of the Provided Sources\n\n1. **BhG 4.36**  \n   - **Verse:** *api ced",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 10.30",
+        "BhG 11.10",
+        "BhG 10.22",
+        "BhG 4.36"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1405,
+        "reranking_confidence": 0.7025,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.5534
+      },
+      "query_type": "general_medium",
+      "time_seconds": 34.14,
+      "semantic_similarity": 0.2428,
+      "word_overlap": 0.2414,
+      "verse_recall": null,
+      "srag_verses": [
+        "10.22",
+        "10.30",
+        "11.10",
+        "4.36"
+      ],
+      "gt_verses": [],
+      "srag_length": 2533,
+      "gt_length": 206
+    },
+    {
+      "question": "I'm going through a really tough breakup and feel completely broken. Everything feels ruined and I’m worried I’ll never recover from this pain. How can I find strength and remember who I am when I feel like a part of me has been destroyed?",
+      "ground_truth": "नैनं छिन्दन्ति शस्त्राणि नैनं दहति पावकः |\nन चैनं क्लेदयन्त्यापो न शोषयति मारुतः ||२-२३|| (Chapter 2, Verse 23)\n\n**Simple Meaning:**\nThis verse means the true self, your soul, is indestructible. It can’t be harmed or destroyed by anything physical in the world – weapons, fire, water, or even natural forces like wind. It’s eternal and unchanging.\n\n**Original Translation:**\nThe soul can never be cut to pieces by any weapon, nor burned by fire, nor moistened by water, nor withered by the wind.",
+      "srag_answer": "I hear the profound pain in your words, and I want you to know that the Bhagavad Gita speaks directly to this state of overwhelming distress and offers a path to reclaiming your inner strength and essential self. Let us turn to the wisdom of the scripture.\n\nFirst, it is crucial to validate your experience. The Gita begins with Arjuna himself in a state of complete collapse, much like you describe. Seeing his kinsmen on the battlefield, he says:\n\n**\"दृष्ट्वेमान् स्वजनान् कृष्ण युयुत्सुं समुपस्थित",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 12.14",
+        "BhG 12.13",
+        "BhG 1.28",
+        "BhG 18.37"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1416,
+        "reranking_confidence": 0.9039,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.6544
+      },
+      "query_type": "complex_long",
+      "time_seconds": 36.68,
+      "semantic_similarity": 0.4293,
+      "word_overlap": 0.2923,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.28",
+        "12.13",
+        "12.14",
+        "18.37"
+      ],
+      "gt_verses": [
+        "2.23"
+      ],
+      "srag_length": 5619,
+      "gt_length": 495
+    },
+    {
+      "question": "I'm really struggling with feeling disconnected from others, like everyone is so different from me. I get caught up in judging people based on their appearance or what they do, and it makes it hard to build genuine relationships. How can I remember that we're all fundamentally connected and stop feeling so separate?",
+      "ground_truth": "क्षेत्रज्ञं चापि मां विद्धि सर्वक्षेत्रेषु भारत |\nक्षेत्रक्षेत्रज्ञयोर्ज्ञानं यत्तज्ज्ञानं मतं मम ||१३-३|| (Chapter 13, Verse 3)\n\n**Simple Meaning:**\nArjuna, understand that the true self, the consciousness within each being (including you and me), is the same everywhere. Real wisdom comes from recognizing this connection – knowing both the body and the soul inhabiting it. That's my understanding of true knowledge.\n\n**Original Translation:**\nO scion of Bharata, you should understand that I am al",
+      "srag_answer": "# Overcoming Feelings of Separation: A Bhagavad Gītā Perspective\n\nYour question touches upon one of the most profound spiritual challenges discussed in the Bhagavad Gītā — the illusion of separation (*bheda-buddhi*) from other beings and the tendency to judge based on external forms.\n\n## The Foundational Principle: Divine Unity\n\nBefore addressing practical solutions, it is essential to understand the philosophical foundation. In **BhG 10.2**, Krishna declares:\n\n> *\"ahaṃ hi sarva-devānāṃ maharṣīṇ",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 12.14",
+        "BhG 10.2",
+        "BhG 18.36",
+        "BhG 12.13"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1415,
+        "reranking_confidence": 0.9037,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.6543
+      },
+      "query_type": "complex_long",
+      "time_seconds": 36.9,
+      "semantic_similarity": 0.445,
+      "word_overlap": 0.3239,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "10.2",
+        "12.13",
+        "12.14",
+        "18.36"
+      ],
+      "gt_verses": [
+        "13.3"
+      ],
+      "srag_length": 5599,
+      "gt_length": 612
+    },
+    {
+      "question": "I'm a freelancer and constantly stressed about getting enough clients and earning enough money. I feel like I'm always chasing the next project instead of enjoying my work. I try to do good work, but it feels empty without a deeper purpose. How can I find more satisfaction and peace in my career, and maybe even feel more connected to something bigger than myself while still needing to earn a living?",
+      "ground_truth": "मत्कर्मकृन्मत्परमो मद्भक्तः सङ्गवर्जितः |\nनिर्वैरः सर्वभूतेषु यः स मामेति पाण्डव ||११-५५|| (Chapter 11, Verse 55)\n\n**Simple Meaning:**\nIf you dedicate all your actions to God without worrying about the results, stay focused on devotion, and treat everyone with kindness, you will definitely connect with the divine.\n\n**Original Translation:**\nMy dear Arjuna, he who engages in My pure devotional service, free from the contaminations of fruitive activities and mental speculation, he who works for Me",
+      "srag_answer": "Your feelings of stress, emptiness, and a search for deeper purpose in your work resonate profoundly with the central dilemma addressed in the Bhagavad Gita. The scripture offers a transformative perspective that does not dismiss the need for livelihood but reframes the very nature of action and its fruits.\n\n### Core Problem: Attachment to Results\nThe root of your anxiety is identified in a foundational verse:\n\n**BhG 2.47:**  \n**karmaṇy evādhikāras te mā phaleṣu kadācana |**  \n**mā karmaphalahet",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "karma"
+      ],
+      "verses_cited": [
+        "BhG 3.20",
+        "BhG 3.19",
+        "BhG 9.27",
+        "BhG 5.18",
+        "BhG 10.41",
+        "BhG 2.47",
+        "BhG 18.45"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1389,
+        "reranking_confidence": 0.6283,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5558
+      },
+      "query_type": "complex_long",
+      "time_seconds": 39.29,
+      "semantic_similarity": 0.4223,
+      "word_overlap": 0.2963,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "10.41",
+        "18.45",
+        "2.47",
+        "3.19",
+        "3.20",
+        "5.18",
+        "9.27"
+      ],
+      "gt_verses": [
+        "11.55"
+      ],
+      "srag_length": 5885,
+      "gt_length": 614
+    },
+    {
+      "question": "I'm a small business owner and my employees are losing motivation. I've been cutting corners and not putting in my full effort lately, focusing more on personal things. I see their work quality declining, and I think it's because they're mirroring my attitude. How do I get them back on track when I know I'm setting a bad example?",
+      "ground_truth": "यदि ह्यहं न वर्तेयं जातु कर्मण्यतन्द्रितः |\nमम वर्त्मानुवर्तन्ते मनुष्याः पार्थ सर्वशः ||३-२३|| (Chapter 3, Verse 23)\n\n**Simple Meaning:**\nIf I, Krishna, stopped doing my duty and worked carelessly, everyone would copy me and start doing things half-heartedly too. My example sets the standard for the world.\n\n**Original Translation:**\nFor if I ever failed to engage in carefully performing prescribed duties, O Pārtha, certainly all men would follow My path.",
+      "srag_answer": "# Leadership, Personal Responsibility, and Setting an Example: Insights from the Bhagavad Gita\n\nYour situation—recognizing that your own attitude is affecting your employees—actually touches on one of the most important leadership principles in the Bhagavad Gita. While the retrieved verses don't directly address your concern, the Gita speaks extensively about **the influence one's conduct has on others** and the importance of **performing one's duty with full commitment**.\n\n---\n\n## The Core Prin",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 18.46",
+        "BhG 3.35",
+        "BhG 3.26",
+        "BhG 2.47",
+        "BhG 6.5",
+        "BhG 3.21"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0729,
+        "reranking_confidence": 0.5986,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5212
+      },
+      "query_type": "complex_long",
+      "time_seconds": 37.67,
+      "semantic_similarity": 0.5235,
+      "word_overlap": 0.2097,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "18.46",
+        "2.47",
+        "3.21",
+        "3.26",
+        "3.35",
+        "6.5"
+      ],
+      "gt_verses": [
+        "3.23"
+      ],
+      "srag_length": 5249,
+      "gt_length": 459
+    },
+    {
+      "question": "I'm really stressed with work and family commitments, and it feels like I'm constantly pulled in different directions. Even when I try to relax, I feel anxious because I'm worried about letting people down or failing to meet expectations. How can I find inner peace and a sense of connection when life feels so chaotic and fragmented?",
+      "ground_truth": "सर्वभूतस्थितं यो मां भजत्येकत्वमास्थितः |\nसर्वथा वर्तमानोऽपि स योगी मयि वर्तते ||६-३१|| (Chapter 6, Verse 31)\n\n**Simple Meaning:**\nA true devotee sees the divine presence in everything and everyone, and understands that God is within all beings. By focusing on this unity and offering all actions as a form of worship, they remain connected to God in every moment, no matter what’s happening around them.\n\n**Original Translation:**\nSuch a yogī, who engages in the worshipful service of the Supersoul,",
+      "srag_answer": "I understand deeply how work and family commitments can create a sense of being perpetually pulled apart, leading to anxiety even in moments of rest. The Bhagavad Gita speaks directly to this state of mental fragmentation and offers a coherent path toward inner peace (*śānti*). The core of its teaching is to find stability not by eliminating responsibilities, but by transforming our relationship to action and its results, ultimately rooting our consciousness in the eternal.\n\nLet us examine the m",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.70",
+        "BhG 2.47",
+        "BhG 15.3"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.6951,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.4895
+      },
+      "query_type": "complex_long",
+      "time_seconds": 38.16,
+      "semantic_similarity": 0.3687,
+      "word_overlap": 0.2857,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "15.3",
+        "2.47",
+        "2.70"
+      ],
+      "gt_verses": [
+        "6.31"
+      ],
+      "srag_length": 5166,
+      "gt_length": 585
+    },
+    {
+      "question": "I've been working really hard on a new project at work, but I'm doing it mostly to impress my boss and get a promotion. I feel stressed and anxious all the time, and even if I succeed, I don't feel satisfied. I'm starting to wonder if chasing this goal is actually making me *less* happy. Is there a better way to approach my work so I can feel more peaceful and fulfilled?",
+      "ground_truth": "कर्मणः सुकृतस्याहुः सात्त्विकं निर्मलं फलम् |\nरजसस्तु फलं दुःखमज्ञानं तमसः फलम् ||१४-१६|| (Chapter 14, Verse 16)\n\n**Simple Meaning:**\nGood deeds lead to happiness and clarity. Actions driven by desire or ego cause suffering and confusion. And actions done without thought or awareness just lead to more problems and keep you stuck. Basically, the *quality* of your actions determines the results you get.\n\n**Original Translation:**\nThe result of pious action is pure and is said to be in the mode of ",
+      "srag_answer": "Your question touches on a fundamental concern addressed throughout the Bhagavad Gita: how to act in the world without being bound by the stress, anxiety, and dissatisfaction that come from attachment to results. Your current experience of stress despite effort, and dissatisfaction even at the prospect of success, is a direct illustration of what Krishna calls *rājasic* or *tāmic* action and happiness.\n\nLet us analyze this systematically, beginning with the Gita's diagnosis of your situation and",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.48",
+        "BhG 9.27",
+        "BhG 2.47",
+        "BhG 12.13",
+        "BhG 12.10",
+        "BhG 5.12",
+        "BhG 18.36",
+        "BhG 18.37"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1415,
+        "reranking_confidence": 0.9037,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.6943
+      },
+      "query_type": "complex_long",
+      "time_seconds": 36.26,
+      "semantic_similarity": 0.5187,
+      "word_overlap": 0.3333,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "12.10",
+        "12.13",
+        "18.36",
+        "18.37",
+        "2.47",
+        "2.48",
+        "5.12",
+        "9.27"
+      ],
+      "gt_verses": [
+        "14.16"
+      ],
+      "srag_length": 5881,
+      "gt_length": 637
+    },
+    {
+      "question": "My friend is obsessed with social media 'likes' and getting famous online. It's affecting her relationships and she's doing things she doesn't believe in just to get more followers. How can I help her understand she's chasing something that won't truly make her happy and is leading her down a harmful path?",
+      "ground_truth": "काममाश्रित्य दुष्पूरं दम्भमानमदान्विताः |\nमोहाद्गृहीत्वासद्ग्राहान्प्रवर्तन्तेऽशुचिव्रताः ||१६-१०|| (Chapter 16, Verse 10)\n\n**Simple Meaning:**\nPeople driven by endless desires, inflated ego, and arrogance get caught in harmful actions. They chase temporary pleasures and don't care about doing what's right, becoming lost in illusion.\n\n**Original Translation:**\nTaking shelter of insatiable lust and absorbed in the conceit of pride and false prestige, the demoniac, thus illusioned, are always swor",
+      "srag_answer": "I understand your concern for your friend. The Bhagavad Gita offers profound insights into the nature of desire, attachment, and the true self, which directly address the spiritual and psychological trap she finds herself in. While the Gita does not speak of social media, its analysis of *prakṛti* (material nature), the senses, and the mind is eternally relevant.\n\nLet me begin with the most relevant verses that diagnose the problem and then offer a path forward.\n\n### **The Diagnosis: Attachment ",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.47",
+        "BhG 2.63",
+        "BhG 15.15",
+        "BhG 2.62"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1416,
+        "reranking_confidence": 0.6538,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.5294
+      },
+      "query_type": "complex_long",
+      "time_seconds": 39.51,
+      "semantic_similarity": 0.3907,
+      "word_overlap": 0.254,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "15.15",
+        "2.47",
+        "2.62",
+        "2.63"
+      ],
+      "gt_verses": [
+        "16.10"
+      ],
+      "srag_length": 6659,
+      "gt_length": 548
+    },
+    {
+      "question": "What does Krishna refer to as the bond born of ignorance?",
+      "ground_truth": "The doubt that binds Arjunas heart-beats",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.1416,
+        "reranking_confidence": 0.7243,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.4046
+      },
+      "query_type": "general_medium",
+      "time_seconds": 37.27,
+      "semantic_similarity": 0.0547,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 40
+    },
+    {
+      "question": "What is the speaker's concern about killing those who seek to slay them?",
+      "ground_truth": "Killing these must breed but anguish, and their sins will light on the speaker and their kin.",
+      "srag_answer": "Based on the provided verses and commentaries, the speaker's (Arjuna's) concern about killing those who seek to slay him is not directly addressed in the cited sources. However, the commentary from **Visvanatha Chakravarti on BhG 2.36** provides crucial insight into the *social and reputational consequences* Arjuna fears if he refrains from fighting, which is central to his dilemma.\n\nArjuna's core concern is elaborated in earlier chapters (e.g., BhG 1.32-46), where he expresses anguish at the th",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.33",
+        "BhG 2.2",
+        "BhG 2.31",
+        "BhG 2.36",
+        "BhG 1.32",
+        "BhG 2.20"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.6661,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5553
+      },
+      "query_type": "general_medium",
+      "time_seconds": 27.42,
+      "semantic_similarity": 0.3378,
+      "word_overlap": 0.4,
+      "verse_recall": null,
+      "srag_verses": [
+        "1.32",
+        "2.2",
+        "2.20",
+        "2.31",
+        "2.33",
+        "2.36"
+      ],
+      "gt_verses": [],
+      "srag_length": 3037,
+      "gt_length": 93
+    },
+    {
+      "question": "My startup is launching a new product, and I'm really nervous about facing competition. I need to give my team a motivational speech before we go live, but I'm worried it won't be enough to get them pumped up. How can I create a strong, inspiring opening that signals we're ready to fight for success, even against bigger rivals?",
+      "ground_truth": "तस्य सञ्जनयन्हर्षं कुरुवृद्धः पितामहः |\nसिंहनादं विनद्योच्चैः शङ्खं दध्मौ प्रतापवान् ||१-१२|| (Chapter 1, Verse 12)\n\n**Simple Meaning:**\nOld Bhishma, a respected leader on the Kaurava side, blew a loud, powerful horn to boost Duryodhana's confidence and start the battle. It was a signal to begin, meant to inspire his army.\n\n**Original Translation:**\nThen Bhīṣma, the great valiant grandsire of the Kuru dynasty, the grandfather of the fighters, blew his conchshell very loudly, making a sound like ",
+      "srag_answer": "The Bhagavad Gita offers profound guidance for those facing daunting challenges, including the \"battlefield\" of business competition. While the retrieved verse BhG 5.18 speaks of the wise person's equanimity (seeing the same essence in all beings), the most direct inspiration for a leader rallying their team in the face of adversity comes from the earlier chapters where Lord Krishna instructs Arjuna on the nature of action, duty, and inner strength.\n\nFor your motivational speech, I recommend dra",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.14",
+        "BhG 2.47",
+        "BhG 5.18",
+        "BhG 2.48"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.9493,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.6566
+      },
+      "query_type": "complex_long",
+      "time_seconds": 40.73,
+      "semantic_similarity": 0.3513,
+      "word_overlap": 0.1618,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "2.14",
+        "2.47",
+        "2.48",
+        "5.18"
+      ],
+      "gt_verses": [
+        "1.12"
+      ],
+      "srag_length": 5572,
+      "gt_length": 542
+    },
+    {
+      "question": "What is the title of the first chapter of the Bhagavad Gita mentioned in the text?",
+      "ground_truth": "Arjun-Vishad, or The Book of the Distress of Arjuna",
+      "srag_answer": "## The Title of the First Chapter of the Bhagavad Gita\n\nThe traditional title of the first chapter (Adhyāya 1) of the Bhagavad Gita is **\"Arjuna-viṣāda-yoga\"** (अर्जुन-विषाद-योग), which translates to **\"The Yoga of Arjuna's Despair\"** or **\"The Yoga of Arjuna's Sorrow.\"**\n\n### Explanation\n\nThis title is derived from the chapter's central theme: the intense emotional distress (**viṣāda**) experienced by Arjuna when he faces the prospect of fighting his own kinsmen, teachers, and dear ones on the ",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 1.24",
+        "BhG 1.8"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0716,
+        "reranking_confidence": 0.7746,
+        "generation_confidence": 0.4,
+        "overall_confidence": 0.4888
+      },
+      "query_type": "general_medium",
+      "time_seconds": 22.89,
+      "semantic_similarity": 0.6447,
+      "word_overlap": 0.7143,
+      "verse_recall": null,
+      "srag_verses": [
+        "1.24",
+        "1.8"
+      ],
+      "gt_verses": [],
+      "srag_length": 1566,
+      "gt_length": 51
+    },
+    {
+      "question": "How is the sound of the great Conch described?",
+      "ground_truth": "The sound is described as rolling around like a lions roar.",
+      "srag_answer": "The sound of the great conch, specifically Lord Krishna's conch named **Panchajanya**, is described vividly in the opening chapter of the Bhagavad Gita as an **auspicious, terrific, and heaven-resounding roar** that inspired joy and fear in the hearts of all beings.\n\nThe most direct and authoritative description is found in **BhG 1.14-15**:\n\n**BhG 1.14:**  \n*tataḥ śaṅkhāś ca bhṛśaṁ cānuvādya / mṛdaṅgāś ca mahāśaṅkhāś ca  \ndevadattā dṛṣṭadyumno viśvāsaḥ / sātyakiś cāparājitaḥ*  \n\"Then, sounding t",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 1.15",
+        "BhG 1.14"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0737,
+        "reranking_confidence": 0.6063,
+        "generation_confidence": 0.4,
+        "overall_confidence": 0.4053
+      },
+      "query_type": "general_medium",
+      "time_seconds": 30.68,
+      "semantic_similarity": 0.3417,
+      "word_overlap": 0.5455,
+      "verse_recall": null,
+      "srag_verses": [
+        "1.14",
+        "1.15"
+      ],
+      "gt_verses": [],
+      "srag_length": 3376,
+      "gt_length": 59
+    },
+    {
+      "question": "I'm constantly stressed about work – if things are going well, I worry about losing my job, and if things are tough, I get completely overwhelmed.  It feels like a never-ending cycle. How can I find a way to be more even-keeled and stop letting external events control my emotions?",
+      "ground_truth": "दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः |\nवीतरागभयक्रोधः स्थितधीर्मुनिरुच्यते ||२-५६|| (Chapter 2, Verse 56)\n\n**Simple Meaning:**\nA truly wise person stays calm and balanced no matter what happens – they don't get too upset by problems or too excited by good times. They aren't controlled by their desires, fears, or anger, and have a peaceful, stable mind.\n\n**Original Translation:**\nOne who is not disturbed in mind even amidst the threefold miseries or elated when there is happiness, and who is f",
+      "srag_answer": "Your struggle is deeply relatable, and the Bhagavad Gita offers profound guidance on exactly this: how to maintain **mental equilibrium** (*samatva* or *samatvam*) when success and failure pull you in opposite directions. The key teaching the Gita offers is that this \"never-ending cycle\" arises from attachment to outcomes, and the solution lies in transforming your *relationship* with action itself.\n\nThe clearest and most central verse on this is **BhG 2.48**:\n\n> **yogasthaḥ kuru karmāṇi saṅgaṁ ",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.48",
+        "BhG 2.14",
+        "BhG 3.19",
+        "BhG 5.20",
+        "BhG 2.38"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.604,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.524
+      },
+      "query_type": "complex_long",
+      "time_seconds": 42.63,
+      "semantic_similarity": 0.4156,
+      "word_overlap": 0.3836,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "2.14",
+        "2.38",
+        "2.48",
+        "3.19",
+        "5.20"
+      ],
+      "gt_verses": [
+        "2.56"
+      ],
+      "srag_length": 7008,
+      "gt_length": 569
+    },
+    {
+      "question": "I'm feeling incredibly stressed and overwhelmed trying to balance my career, family, and personal life. I'm constantly second-guessing my decisions and feel lost. How can I find peace and clarity in this chaos and stop feeling so conflicted about everything I do?",
+      "ground_truth": "तद्बुद्धयस्तदात्मानस्तन्निष्ठास्तत्परायणाः |\nगच्छन्त्यपुनरावृत्तिं ज्ञाननिर्धूतकल्मषाः ||५-१७|| (Chapter 5, Verse 17)\n\n**Simple Meaning:**\nWhen you completely focus your thoughts, feelings, beliefs, and everything you rely on on God, you'll get rid of all doubts and worries. This complete devotion leads you straight to freedom and enlightenment.\n\n**Original Translation:**\nWhen one’s intelligence, mind, faith and refuge are all fixed in the Supreme, then one becomes fully cleansed of misgivings t",
+      "srag_answer": "Your feelings of stress, indecision, and being overwhelmed by life's complexities are deeply understood within the philosophical framework of the Bhagavad Gita. The scripture diagnoses this condition as being entangled in the \"cosmic tree\" of material existence and prescribes a path to clarity and peace through detachment and surrender. Let us explore the relevant teachings.\n\n### 1. The Root Cause: Entanglement in Saṃsāra\nThe Gita likens our predicament to being caught in a vast, bewildering ban",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 10.41",
+        "BhG 15.3",
+        "BhG 15.4"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.6956,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.4898
+      },
+      "query_type": "complex_long",
+      "time_seconds": 37.08,
+      "semantic_similarity": 0.4263,
+      "word_overlap": 0.3016,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "10.41",
+        "15.3",
+        "15.4"
+      ],
+      "gt_verses": [
+        "5.17"
+      ],
+      "srag_length": 5073,
+      "gt_length": 579
+    },
+    {
+      "question": "I'm going through a really tough time – lots of stress at work, family issues, and generally feeling overwhelmed. It feels like all these problems are *me*, like they define who I am. How can I remember that there's a part of me that is separate from all this chaos and doesn't get ruined by it?",
+      "ground_truth": "यथा सर्वगतं सौक्ष्म्यादाकाशं नोपलिप्यते |\nसर्वत्रावस्थितो देहे तथात्मा नोपलिप्यते ||१३-३३|| (Chapter 13, Verse 33)\n\n**Simple Meaning:**\nJust like the sky is everywhere but stays pure and doesn't get dirty or attached to anything, your true self (Atma) is present in your body but isn't affected by its experiences or limitations. It's separate and untouched by the physical world.\n\n**Original Translation:**\nThe sky, due to its subtle nature, does not mix with anything, although it is all-pervading.",
+      "srag_answer": "I hear you, and I want to acknowledge the weight of what you're describing. The Bhagavad Gita offers a profound perspective for exactly this situation: the realization that the core of your being (*ātman*) is untouched by the turmoil of material existence (*prakṛti*). Let me share the definitional verses and traditional wisdom that address your struggle directly.\n\n### 1. The Core Definition: The Eternal, Unchanging Self\n\nThe most direct answer to your question \"How can I remember that there's a ",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 13.30",
+        "BhG 2.14",
+        "BhG 2.28",
+        "BhG 1.28",
+        "BhG 12.13",
+        "BhG 5.12",
+        "BhG 2.20"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.888,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.666
+      },
+      "query_type": "complex_long",
+      "time_seconds": 45.77,
+      "semantic_similarity": 0.4841,
+      "word_overlap": 0.3333,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.28",
+        "12.13",
+        "13.30",
+        "2.14",
+        "2.20",
+        "2.28",
+        "5.12"
+      ],
+      "gt_verses": [
+        "13.33"
+      ],
+      "srag_length": 5959,
+      "gt_length": 605
+    },
+    {
+      "question": "I'm starting a new business that directly competes with my close friend's. I know I can succeed, but I'm terrified of damaging our friendship and the guilt of potentially putting him out of business. How do I deal with these conflicting emotions and make a decision that feels right?",
+      "ground_truth": "कृपया परयाविष्टो विषीदन्निदमब्रवीत् |\nअर्जुन उवाच |\nदृष्ट्वेमं स्वजनं कृष्ण युयुत्सुं समुपस्थितम् ||१-२८|| (Chapter 1, Verse 28)\n\n**Simple Meaning:**\nArjuna is overwhelmed with sadness and anxiety when he sees his loved ones ready to fight. He feels physically weak – his hands are shaking and his mouth is dry – because he doesn't want to cause them harm.\n\n**Original Translation:**\nArjuna said: My dear Kṛṣṇa, seeing my friends and relatives present before me in such a fighting spirit, I feel the ",
+      "srag_answer": "# Navigating Your Dilemma Through the Lens of the Bhagavad Gita\n\nYour situation represents a profound ethical dilemma—balancing your own aspirations (*svadharma*) against the bonds of friendship and the fear of causing harm. While the retrieved verses may not directly address business competition, the Bhagavad Gita offers timeless wisdom on navigating conflicting duties and emotional turbulence. Let me draw from key teachings that speak to your circumstance.\n\n---\n\n## 1. Acting Without Attachment",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 3.15",
+        "BhG 18.46",
+        "BhG 2.48",
+        "BhG 2.14",
+        "BhG 3.35",
+        "BhG 5.18",
+        "BhG 2.47",
+        "BhG 18.45"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0729,
+        "reranking_confidence": 0.5963,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.52
+      },
+      "query_type": "complex_long",
+      "time_seconds": 39.62,
+      "semantic_similarity": 0.3931,
+      "word_overlap": 0.2667,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "18.45",
+        "18.46",
+        "2.14",
+        "2.47",
+        "2.48",
+        "3.15",
+        "3.35",
+        "5.18"
+      ],
+      "gt_verses": [
+        "1.28"
+      ],
+      "srag_length": 5943,
+      "gt_length": 550
+    },
+    {
+      "question": "What happens to those who learn the threefold Vedas and drink the Soma-wine according to the text?",
+      "ground_truth": "They earn passage to Swarga, where they are fed divine meats by great gods in high Indras heaven.",
+      "srag_answer": "According to the Bhagavad Gita, those who meticulously study the threefold Vedas, perform sacrifices aimed at heavenly rewards, and partake of the ritual Soma wine attain the realm of the Devas (celestial beings). However, this attainment is temporary; upon exhausting their accumulated merit, they return to the cycle of worldly existence (*saṃsāra*). The definitive verse on this is **BhG 9.20**:\n\n**Sanskrit (IAST):**  \n*traidhāyajñāḥ pitaraḥ svargaloke kramayanti*  \n*surān devān somapāḥ pitṛ-jñā",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 9.20"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0716,
+        "reranking_confidence": 0.8408,
+        "generation_confidence": 0.2,
+        "overall_confidence": 0.4819
+      },
+      "query_type": "general_medium",
+      "time_seconds": 29.84,
+      "semantic_similarity": 0.4821,
+      "word_overlap": 0.4118,
+      "verse_recall": null,
+      "srag_verses": [
+        "9.20"
+      ],
+      "gt_verses": [],
+      "srag_length": 3410,
+      "gt_length": 97
+    },
+    {
+      "question": "Imagine you're about to give a really important presentation at work, the biggest of your career. Just before you start, there's a sudden power outage, then the emergency generator kicks in with a loud, jarring noise, and a fire alarm goes off. How do you stay focused and deliver your presentation effectively despite all the unexpected chaos?",
+      "ground_truth": "ततः शङ्खाश्च भेर्यश्च पणवानकगोमुखाः |\nसहसैवाभ्यहन्यन्त स शब्दस्तुमुलोऽभवत् ||१-१३|| (Chapter 1, Verse 13)\n\n**Simple Meaning:**\nAfter the initial preparations, a huge, overwhelming noise erupted on the battlefield – a combination of trumpets, drums, and horns. It was a chaotic, intense sound that filled the air.\n\n**Original Translation:**\nAfter that, the conchshells, drums, bugles, trumpets and horns were all suddenly sounded, and the combined sound was tumultuous.",
+      "srag_answer": "To address how to maintain focus and deliver effectively amidst unexpected chaos—like power outages, loud noises, and alarms—drawing from the Bhagavad Gita, we turn to core teachings on **concentration, equanimity, and dedication to action**. The retrieved verses and commentaries are not directly on this topic, but they provide contextual imagery of chaotic battlefields (like in Chapter 1) that metaphorically relate to external disturbances. The essential guidance comes from foundational verses ",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.48",
+        "BhG 2.50",
+        "BhG 6.26",
+        "BhG 11.36",
+        "BhG 2.47",
+        "BhG 1.13"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.6026,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5233
+      },
+      "query_type": "complex_long",
+      "time_seconds": 35.85,
+      "semantic_similarity": 0.2588,
+      "word_overlap": 0.1852,
+      "verse_recall": 1.0,
+      "srag_verses": [
+        "1.13",
+        "11.36",
+        "2.47",
+        "2.48",
+        "2.50",
+        "6.26"
+      ],
+      "gt_verses": [
+        "1.13"
+      ],
+      "srag_length": 5071,
+      "gt_length": 468
+    },
+    {
+      "question": "Who is considered equal in the eyes of one who wisely sees, according to the text?",
+      "ground_truth": "The Brahman with his scrolls and sanctities, the cow, the elephant, the unclean dog, and the Outcast gorging dogs meat are all one.",
+      "srag_answer": "The primary verse that directly answers this question is **Bhagavad Gita 5.18**.\n\n### **Definitional Verse**\n\n**BhG 5.18**\n**Sanskrit (IAST):**\n*vidyā-vinaya-sampanne brāhmaṇe gavi hastini |\nśuni caiva svapāke ca paṇḍitāḥ sama-darśinaḥ ||*\n\n**Translation:**\n\"The truly learned, the humble sages, see with equal vision (*sama-darśinaḥ*) a *brāhmaṇa* endowed with learning and humility, a cow, an elephant, a dog, and an outcaste (one who eats dogs).\"\n\n### **Elaboration and Commentaries**\n\nThis verse ",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 5.18"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.666,
+        "generation_confidence": 0.2,
+        "overall_confidence": 0.3952
+      },
+      "query_type": "general_medium",
+      "time_seconds": 27.48,
+      "semantic_similarity": 0.5557,
+      "word_overlap": 0.5,
+      "verse_recall": null,
+      "srag_verses": [
+        "5.18"
+      ],
+      "gt_verses": [],
+      "srag_length": 2678,
+      "gt_length": 131
+    },
+    {
+      "question": "What does the text say about the nature of the spirit?",
+      "ground_truth": "The spirit is birthless, deathless, and changeless and remains forever.",
+      "srag_answer": "The Bhagavad Gita provides a profound and multifaceted description of the nature of the spirit (*ātman*). While the verses retrieved for this query are tangential, the core definitions are found in the foundational teachings of Chapter 2. The most authoritative verses define the spirit as eternal, changeless, and distinct from the body.\n\n### Core Definition: The Eternal and Immutable Spirit\n\nThe primary definition is given by Lord Krishna in the following verses:\n\n**BhG 2.17:**\n> *jānāsi veda ya",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.29",
+        "BhG 2.23",
+        "BhG 2.22",
+        "BhG 2.17",
+        "BhG 2.19",
+        "BhG 2.20"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.074,
+        "reranking_confidence": 0.6117,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5281
+      },
+      "query_type": "general_medium",
+      "time_seconds": 33.85,
+      "semantic_similarity": 0.5721,
+      "word_overlap": 0.5556,
+      "verse_recall": null,
+      "srag_verses": [
+        "2.17",
+        "2.19",
+        "2.20",
+        "2.22",
+        "2.23",
+        "2.29"
+      ],
+      "gt_verses": [],
+      "srag_length": 4649,
+      "gt_length": 71
+    },
+    {
+      "question": "I keep buying new things – new clothes, gadgets, cars – hoping to feel better, but the happiness never lasts. I'm constantly wanting the next thing. Is this a normal way to feel, and how can I find more lasting satisfaction?",
+      "ground_truth": "ये हि संस्पर्शजा भोगा दुःखयोनय एव ते |\nआद्यन्तवन्तः कौन्तेय न तेषु रमते बुधः ||५-२२|| (Chapter 5, Verse 22)\n\n**Simple Meaning:**\nTrue happiness doesn't come from temporary pleasures that depend on external things like possessions or sensory experiences. These things always end, and chasing them leads to suffering. A wise person finds joy within themselves, not in things that are constantly changing.\n\n**Original Translation:**\nAn intelligent person does not take part in the sources of misery, whi",
+      "srag_answer": "# The Bhagavad Gita on Desire, Attachment, and Lasting Fulfillment\n\nYour experience is deeply recognized within the Bhagavad Gita as a fundamental challenge of human life. The Gita does not treat your struggle as unusual or sinful — rather, it identifies the mechanism by which desire perpetuates itself and offers a clear path toward genuine, lasting satisfaction. Let me walk you through the Gita's analysis.\n\n---\n\n## 1. The Mechanics of the Desire Cycle\n\nThe Gita provides perhaps its most famous ",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "karma",
+        "sukha"
+      ],
+      "verses_cited": [
+        "BhG 3.37",
+        "BhG 2.55",
+        "BhG 5.22",
+        "BhG 2.62"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.5914,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.4777
+      },
+      "query_type": "complex_long",
+      "time_seconds": 36.07,
+      "semantic_similarity": 0.4914,
+      "word_overlap": 0.407,
+      "verse_recall": 1.0,
+      "srag_verses": [
+        "2.55",
+        "2.62",
+        "3.37",
+        "5.22"
+      ],
+      "gt_verses": [
+        "5.22"
+      ],
+      "srag_length": 4513,
+      "gt_length": 653
+    },
+    {
+      "question": "Who is referred to as the goodness of the good?",
+      "ground_truth": "Vasudev of Vrishnis race",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.1434,
+        "reranking_confidence": 0.7348,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.4104
+      },
+      "query_type": "general_medium",
+      "time_seconds": 36.37,
+      "semantic_similarity": 0.1175,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 24
+    },
+    {
+      "question": "I've worked my entire life to build a successful career, and I've finally reached the top. But after achieving everything I wanted, I still feel empty and unhappy. I'm questioning the meaning of it all. How can I find peace and contentment when external achievements don't seem to bring lasting happiness?",
+      "ground_truth": "न हि प्रपश्यामि ममापनुद्याद्\nयच्छोकमुच्छोषणमिन्द्रियाणाम् |\nअवाप्य भूमावसपत्नमृद्धं\nराज्यं सुराणामपि चाधिपत्यम् ||२-८|| (Chapter 2, Verse 8)\n\n**Simple Meaning:**\nArjuna feels overwhelmed with sorrow and doesn't see how winning the kingdom or achieving any worldly success can actually make him feel better. He believes that no amount of power or achievement can alleviate his grief right now.\n\n**Original Translation:**\nI can find no means to drive away this grief which is drying up my senses. I wil",
+      "srag_answer": "Your question touches upon the very core of the Bhagavad Gita's teachings. The sense of emptiness after achieving worldly success is not a modern phenomenon; it is the fundamental human dilemma that Lord Krishna addresses to Arjuna. The Gita systematically explains that material achievements and pleasures are temporary and cannot provide lasting fulfillment (*sukha*). True peace and contentment come from an internal shift in consciousness, from identifying with the transient body to realizing th",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "sukha"
+      ],
+      "verses_cited": [
+        "BhG 2.55",
+        "BhG 18.54",
+        "BhG 8.15",
+        "BhG 9.27",
+        "BhG 15.8",
+        "BhG 15.7",
+        "BhG 6.28",
+        "BhG 5.21"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1401,
+        "reranking_confidence": 0.631,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5575
+      },
+      "query_type": "complex_long",
+      "time_seconds": 38.84,
+      "semantic_similarity": 0.4834,
+      "word_overlap": 0.3182,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "15.7",
+        "15.8",
+        "18.54",
+        "2.55",
+        "5.21",
+        "6.28",
+        "8.15",
+        "9.27"
+      ],
+      "gt_verses": [
+        "2.8"
+      ],
+      "srag_length": 5610,
+      "gt_length": 627
+    },
+    {
+      "question": "My grandmother passed away during the monsoon season, which is often very cloudy and dark. She was very spiritual but always worried about the cycle of rebirth. This verse talks about unfavorable times and rebirth on the moon. Does this mean her journey isn't final, and she'll eventually be reborn, or is there more to it than just the time of death determining her next life?",
+      "ground_truth": "धूमो रात्रिस्तथा कृष्णः षण्मासा दक्षिणायनम् |\nतत्र चान्द्रमसं ज्योतिर्योगी प्राप्य निवर्तते ||८-२५|| (Chapter 8, Verse 25)\n\n**Simple Meaning:**\nIf someone dies during unfavorable times – like a smoky season, a dark night, or during the six months when the sun is moving south – they might be reborn on the moon. However, this isn't a permanent state; they will eventually be reborn again in the cycle of life and death.\n\n**Original Translation:**\nThe mystic who passes away from this world during the",
+      "srag_answer": "I am sorry for the loss of your grandmother. Her spiritual life and concerns about rebirth are profound, and the Bhagavad Gita offers guidance on these matters. Let us examine the relevant teachings to address your question about unfavorable times, the moon path, and the journey of the soul after death.\n\n### 1. **The Paths After Death and the Influence of Timing**\n\nThe Bhagavad Gita explicitly describes that the time of death can influence the immediate path taken by the soul. In Chapter 8, vers",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.8872,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.4656
+      },
+      "query_type": "complex_long",
+      "time_seconds": 41.63,
+      "semantic_similarity": 0.6164,
+      "word_overlap": 0.1899,
+      "verse_recall": 0.0,
+      "srag_verses": [],
+      "gt_verses": [
+        "8.25"
+      ],
+      "srag_length": 1199,
+      "gt_length": 649
+    },
+    {
+      "question": "I'm feeling overwhelmed trying to balance my career, family, and personal well-being. I'm constantly stressed about losing my job, not having enough time for my kids, and feeling like I'm failing at everything. I've been trying to work harder, but it only seems to make things worse. How can I find peace and stability in this chaos, and feel like I'm actually succeeding instead of just barely surviving?",
+      "ground_truth": "सन्नियम्येन्द्रियग्रामं सर्वत्र समबुद्धयः |\nते प्राप्नुवन्ति मामेव सर्वभूतहिते रताः ||१२-४|| (Chapter 12, Verse 4)\n\n**Simple Meaning:**\nIf you focus your mind and energy on connecting with the divine, and act with kindness towards all beings, the universe will support you. You'll find what you need, and what you already have will be protected. It's about devotion, mindfulness, and selfless service.\n\n**Original Translation:**\nBut those who worship Me with devotion, meditating on My transcendental",
+      "srag_answer": "The Bhagavad Gita offers profound guidance for exactly this situation of feeling overwhelmed by competing duties and anxieties about outcomes. The core teaching is to shift your perspective from being attached to results to being dedicated to the quality and spirit of your action itself.\n\nThe most direct and foundational verse for your situation is:\n\n**BhG 2.47**\n> **karmaṇy evādhikāras te mā phaleṣu kadācana |**\n> **mā karmaphalahetur bhūr mā te saṅgo 'stv akarmaṇi ||**\n>\n> *\"You have a right t",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.47",
+        "BhG 18.45"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.6175,
+        "generation_confidence": 0.4,
+        "overall_confidence": 0.4107
+      },
+      "query_type": "complex_long",
+      "time_seconds": 36.29,
+      "semantic_similarity": 0.4255,
+      "word_overlap": 0.2763,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "18.45",
+        "2.47"
+      ],
+      "gt_verses": [
+        "12.4"
+      ],
+      "srag_length": 4940,
+      "gt_length": 607
+    },
+    {
+      "question": "My friend is a really hard worker, always chasing promotions and bigger paychecks. He's stressed and unhappy, but feels like he *has* to keep striving to be successful. How can I encourage him to find more meaning in his job, without telling him to just quit or stop being ambitious? I don't want to overwhelm him or make him feel like his efforts are pointless.",
+      "ground_truth": "न बुद्धिभेदं जनयेदज्ञानां कर्मसङ्गिनाम् |\nजोषयेत्सर्वकर्माणि विद्वान्युक्तः समाचरन् ||३-२६|| (Chapter 3, Verse 26)\n\n**Simple Meaning:**\nDon't confuse people who are focused on getting results from their work. Instead, a wise person should keep encouraging them to do their duties, but guide them to do it selflessly, with a focus on doing good work rather than just rewards. This helps them gradually develop a deeper understanding and purpose.\n\n**Original Translation:**\nSo as not to disrupt the min",
+      "srag_answer": "It seems the verses and commentaries retrieved (BhG 11.41-42) focus on Arjuna’s heartfelt apology to Krishna after seeing the universal form. While beautiful, they are not directly about work, ambition, or stress. However, the Bhagavad Gita contains profound teachings that directly address your friend’s situation. I will draw from the most relevant chapters and verses to provide a thoughtful, grounded answer.\n\n### 1. Core Teaching: The Principle of Nishkāma Karma (Desireless Action)\nThe Gita’s m",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 18.46",
+        "BhG 2.48",
+        "BhG 3.19",
+        "BhG 2.47",
+        "BhG 11.41",
+        "BhG 18.45",
+        "BhG 5.21"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1431,
+        "reranking_confidence": 0.9803,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.7331
+      },
+      "query_type": "complex_long",
+      "time_seconds": 40.71,
+      "semantic_similarity": 0.5283,
+      "word_overlap": 0.3261,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "11.41",
+        "18.45",
+        "18.46",
+        "2.47",
+        "2.48",
+        "3.19",
+        "5.21"
+      ],
+      "gt_verses": [
+        "3.26"
+      ],
+      "srag_length": 5394,
+      "gt_length": 776
+    },
+    {
+      "question": "I'm feeling really disconnected and lost, like I don't know what gives my life meaning. I'm trying different things – exercise, meditation, helping others – but nothing seems to fill the void.  Everything feels temporary. How can I find a sense of lasting purpose and connect to something bigger than myself when so much feels fleeting and insignificant?",
+      "ground_truth": "पुण्यो गन्धः पृथिव्यां च तेजश्चास्मि विभावसौ |\nजीवनं सर्वभूतेषु तपश्चास्मि तपस्विषु ||७-९|| (Chapter 7, Verse 9)\n\n**Simple Meaning:**\nKrishna is explaining that He is the essential energy present in everything around us. He's the pleasant smell of the earth, the heat in fire, the life force in every living being, and the power behind all spiritual effort. He isn't separate from existence; He *is* existence in its fundamental forms.\n\n**Original Translation:**\nI am the original fragrance of the ea",
+      "srag_answer": "I hear the deep sense of disconnection and the search for lasting meaning in your question. This feeling of being lost and finding all experiences temporary is not new; it is the very crisis that prompts the dialogue in the Bhagavad Gita. The scripture addresses this existential void by pointing toward a connection with that which is eternal, imperishable, and beyond the temporary fluctuations of material life.\n\nWhile the retrieved verses (BhG 11.26-27 and 1.32-35) powerfully illustrate the *con",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "dhyana"
+      ],
+      "verses_cited": [
+        "BhG 9.22",
+        "BhG 2.13",
+        "BhG 9.27",
+        "BhG 1.32",
+        "BhG 10.8",
+        "BhG 11.26",
+        "BhG 2.20"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.9917,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.7178
+      },
+      "query_type": "complex_long",
+      "time_seconds": 42.87,
+      "semantic_similarity": 0.4309,
+      "word_overlap": 0.2941,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.32",
+        "10.8",
+        "11.26",
+        "2.13",
+        "2.20",
+        "9.22",
+        "9.27"
+      ],
+      "gt_verses": [
+        "7.9"
+      ],
+      "srag_length": 6319,
+      "gt_length": 603
+    },
+    {
+      "question": "In what is the true Recluse fixed?",
+      "ground_truth": "Lofty contemplation",
+      "srag_answer": "The question \"In what is the true Recluse fixed?\" pertains to the *pratyekasannyāsī*, the renunciant who is focused on the Supreme Self. The Bhagavad Gita provides a clear definition and elaboration in Chapter 6, specifically in verses 6.4 and 6.5, along with supporting commentaries.\n\n### Definitional Verse\nThe most direct answer is found in **Bhagavad Gita 6.4**:\n\n**saṅkhyāyuktau yadā vibhāgaḥ  \npratyekas tattva-darśinaḥ  \nvyavasāyātmikā buddhir  \nekeha kuru-nandana**\n\n**Translation:**  \n\"When ",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 6.25",
+        "BhG 6.4",
+        "BhG 6.24",
+        "BhG 6.5"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0749,
+        "reranking_confidence": 0.6074,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.4862
+      },
+      "query_type": "concept_short",
+      "time_seconds": 31.28,
+      "semantic_similarity": 0.1981,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [
+        "6.24",
+        "6.25",
+        "6.4",
+        "6.5"
+      ],
+      "gt_verses": [],
+      "srag_length": 3592,
+      "gt_length": 19
+    },
+    {
+      "question": "I'm a startup founder and my company is facing huge losses. I'm constantly stressed about failing, the pressure is immense, and I'm finding it hard to sleep.  How can I deal with this anxiety and maintain my focus without letting the fear of failure consume me?",
+      "ground_truth": "इहैव तैर्जितः सर्गो येषां साम्ये स्थितं मनः |\nनिर्दोषं हि समं ब्रह्म तस्माद् ब्रह्मणि ते स्थिताः ||५-१९|| (Chapter 5, Verse 19)\n\n**Simple Meaning:**\nIf you can stay calm and balanced, no matter what happens in life – good or bad – you've already overcome the cycle of birth and death.  This peaceful state of mind connects you to the ultimate reality, Brahman.\n\n**Original Translation:**\nThose whose minds are established in sameness and equanimity have already conquered the conditions of birth and ",
+      "srag_answer": "# Dealing with Anxiety Through the Wisdom of the Bhagavad Gita\n\nYour situation resonates deeply with the very opening of the Bhagavad Gita, where even the great warrior Arjuna—descanted as one of the foremost heroes of his age—experienced overwhelming anxiety at the prospect of failure and loss. The Gita's entire philosophical framework was revealed precisely to address this kind of existential distress. Let me walk you through the key teachings.\n\n---\n\n## 1. Your Anxiety Is Natural—Even Arjuna E",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.14",
+        "BhG 2.47",
+        "BhG 1.28",
+        "BhG 2.48"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.8881,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.626
+      },
+      "query_type": "complex_long",
+      "time_seconds": 40.73,
+      "semantic_similarity": 0.4244,
+      "word_overlap": 0.2,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.28",
+        "2.14",
+        "2.47",
+        "2.48"
+      ],
+      "gt_verses": [
+        "5.19"
+      ],
+      "srag_length": 3928,
+      "gt_length": 585
+    },
+    {
+      "question": "I'm going through a really tough time with my career and relationships, and I feel completely lost and out of control. I keep questioning what the point of it all is. How can I find peace and understand my role in everything when it feels like life is just happening *to* me, and I don’t have any say in it?",
+      "ground_truth": "उपद्रष्टानुमन्ता च भर्ता भोक्ता महेश्वरः |\nपरमात्मेति चाप्युक्तो देहेऽस्मिन्पुरुषः परः ||१३-२३|| (Chapter 13, Verse 23)\n\n**Simple Meaning:**\nThere's a higher self within each of us – a part of God – that's always watching over everything and allowing things to happen. It's the ultimate owner and enjoyer of life's experiences, but it doesn't interfere directly. It’s like a silent witness within your own body.\n\n**Original Translation:**\nYet in this body there is another, a transcendental enjoyer, ",
+      "srag_answer": "",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.142,
+        "reranking_confidence": 0.9269,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.506
+      },
+      "query_type": "complex_long",
+      "time_seconds": 40.26,
+      "semantic_similarity": 0.113,
+      "word_overlap": 0.0,
+      "verse_recall": 0.0,
+      "srag_verses": [],
+      "gt_verses": [
+        "13.23"
+      ],
+      "srag_length": 0,
+      "gt_length": 617
+    },
+    {
+      "question": "I've been trying to cut back on social media and junk food, but I keep getting strong cravings and the urge to check my phone. It feels like I'm constantly fighting myself. How do I actually overcome these desires instead of just suppressing them? Is there a way to find something that makes these bad habits feel less appealing?",
+      "ground_truth": "विषया विनिवर्तन्ते निराहारस्य देहिनः |\nरसवर्जं रसोऽप्यस्य परं दृष्ट्वा निवर्तते ||२-५९|| (Chapter 2, Verse 59)\n\n**Simple Meaning:**\nEven if you try to control your senses and stop enjoying things, the *desire* for those enjoyments doesn't disappear easily. True freedom comes when you find something even more fulfilling – a deeper, higher experience – that naturally makes you lose interest in lesser pleasures.\n\n**Original Translation:**\nThough the embodied soul may be restricted from sense enjoym",
+      "srag_answer": "# Overcoming Desires Through the Bhagavad Gita's Wisdom\n\nYour struggle is precisely the one Arjuna faced, and the Gita addresses this with remarkable psychological depth. Let me walk you through its framework for actually overcoming desire rather than merely suppressing it.\n\n---\n\n## The Key Insight: Suppression Alone Doesn't Work\n\nThe Gita acknowledges that simply denying yourself is insufficient. **BhG 2.59** states:\n\n> *viṣayā vinivartante nirāharasya dehinaḥ*  \n> *rasa-varjaṁ raso 'py asya pa",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 3.42",
+        "BhG 3.40",
+        "BhG 2.59",
+        "BhG 3.38",
+        "BhG 3.37"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.5927,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5183
+      },
+      "query_type": "complex_long",
+      "time_seconds": 39.79,
+      "semantic_similarity": 0.5657,
+      "word_overlap": 0.3614,
+      "verse_recall": 1.0,
+      "srag_verses": [
+        "2.59",
+        "3.37",
+        "3.38",
+        "3.40",
+        "3.42"
+      ],
+      "gt_verses": [
+        "2.59"
+      ],
+      "srag_length": 2512,
+      "gt_length": 633
+    },
+    {
+      "question": "What is Arjuna's reaction upon seeing the divine form?",
+      "ground_truth": "Arjuna is amazed, thrilled, overfilled, dazzled, and dazed, and he knelt, bowed his head, clasped his palms, cried, and spoke.",
+      "srag_answer": "Based on the *Bhagavad Gita* itself, particularly Chapter 11 (*Viśvarūpa-darśana*), Arjuna's reaction upon witnessing the cosmic form (*viśvarūpa*) of Lord Krishna is one of overwhelming awe, fear, and profound realization. The specific verses describing his reaction are not among the ones you provided (which are from Chapters 2, 5, and 14 and do not pertain to this event). However, drawing from the core text, here is a comprehensive analysis.\n\n### Arjuna's Primary Reaction: Awe and Reverence\nTh",
+      "source": "edwin_arnold_qa",
+      "concepts": [
+        "karma"
+      ],
+      "verses_cited": [
+        "BhG 11.24",
+        "BhG 11.45",
+        "BhG 11.35",
+        "BhG 11.25",
+        "BhG 11.46",
+        "BhG 11.14"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0716,
+        "reranking_confidence": 0.6427,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5428
+      },
+      "query_type": "concept_medium",
+      "time_seconds": 33.6,
+      "semantic_similarity": 0.6968,
+      "word_overlap": 0.3529,
+      "verse_recall": null,
+      "srag_verses": [
+        "11.14",
+        "11.24",
+        "11.25",
+        "11.35",
+        "11.45",
+        "11.46"
+      ],
+      "gt_verses": [],
+      "srag_length": 3289,
+      "gt_length": 126
+    },
+    {
+      "question": "I'm feeling incredibly overwhelmed with everything going on in my life – work, family, relationships, the state of the world. It feels like so many separate things are pulling me apart. How can I find a sense of peace and stability when everything feels so chaotic and disconnected?",
+      "ground_truth": "मत्तः परतरं नान्यत्किञ्चिदस्ति धनञ्जय |\nमयि सर्वमिदं प्रोतं सूत्रे मणिगणा इव ||७-७|| (Chapter 7, Verse 7)\n\n**Simple Meaning:**\nThere's nothing more real or important than the divine reality. Everything in the universe is connected to it and exists within it, just like pearls are all held together by a single thread. It’s the underlying source and support of all things.\n\n**Original Translation:**\nO conqueror of wealth, there is no truth superior to Me. Everything rests upon Me, as pearls are stru",
+      "srag_answer": "I hear the weight in your words, and I want you to know that the Bhagavad Gita directly addresses this profound sense of being overwhelmed. What you're feeling—this sense of being pulled apart by duties, relationships, and the world's chaos—is the very crisis that opens the scripture. Arjuna, a great warrior, experienced an identical breakdown on the battlefield. Let us turn to the timeless wisdom that emerged from that moment of disintegration.\n\n### 1. Your Experience is Valid and Universal: Th",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 18.37",
+        "BhG 1.28",
+        "BhG 12.13"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1415,
+        "reranking_confidence": 0.9038,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.6143
+      },
+      "query_type": "complex_long",
+      "time_seconds": 37.24,
+      "semantic_similarity": 0.3911,
+      "word_overlap": 0.2778,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.28",
+        "12.13",
+        "18.37"
+      ],
+      "gt_verses": [
+        "7.7"
+      ],
+      "srag_length": 5004,
+      "gt_length": 515
+    },
+    {
+      "question": "I'm constantly scrolling through social media, checking work emails even on my days off, and getting pulled in a million different directions by notifications. It feels like I can’t focus on anything important, and I'm always stressed. How can I find some peace and regain control of my attention so I can actually achieve my goals and enjoy life?",
+      "ground_truth": "तानि सर्वाणि संयम्य युक्त आसीत मत्परः |\nवशे हि यस्येन्द्रियाणि तस्य प्रज्ञा प्रतिष्ठिता ||२-६१|| (Chapter 2, Verse 61)\n\n**Simple Meaning:**\nTo have a clear and focused mind, you need to control your senses – what you see, hear, taste, smell, and touch – and dedicate your thoughts to something bigger than yourself, like a higher purpose or a spiritual ideal. When you're not distracted by your impulses, you gain real wisdom and stability.\n\n**Original Translation:**\nOne who restrains his senses, ke",
+      "srag_answer": "Your description of mental restlessness, digital distraction, and scattered attention is a timeless human struggle. While the Bhagavad Gita does not speak of emails or social media, it diagnoses the root cause of such a state and prescribes a comprehensive path to reclaim focus, find peace, and achieve one's true purpose. The solution lies in understanding the nature of the distracted mind and applying a decisive, spiritual weapon against it.\n\nThe most relevant teaching for your situation is fou",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 15.1",
+        "BhG 15.3",
+        "BhG 15.4"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.695,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.4895
+      },
+      "query_type": "complex_long",
+      "time_seconds": 41.77,
+      "semantic_similarity": 0.4767,
+      "word_overlap": 0.2381,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "15.1",
+        "15.3",
+        "15.4"
+      ],
+      "gt_verses": [
+        "2.61"
+      ],
+      "srag_length": 6838,
+      "gt_length": 609
+    },
+    {
+      "question": "What does the speaker embody for those who yearn?",
+      "ground_truth": "Right desire",
+      "srag_answer": "For those who yearn, the speaker (Krishna) embodies the **ultimate source of all fulfillment and the destination of desire itself**. He is not merely a granter of desires but the very embodiment of the desire's fulfillment, operating from within the devotee.\n\nThe most direct and authoritative definition is found in **BhG 7.22**, which establishes Krishna as the active agent behind the fulfillment of all desires:\n\n> **BhG 7.22**: *\"sa tayā śraddhayā yuktas tasyā rādhanam īhate | labhate ca tataḥ ",
+      "source": "edwin_arnold_qa",
+      "concepts": [
+        "sharira"
+      ],
+      "verses_cited": [
+        "BhG 7.22",
+        "BhG 18.73",
+        "BhG 4.9",
+        "BhG 15.14"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0716,
+        "reranking_confidence": 0.6264,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.4947
+      },
+      "query_type": "concept_medium",
+      "time_seconds": 32.07,
+      "semantic_similarity": 0.3447,
+      "word_overlap": 1.0,
+      "verse_recall": null,
+      "srag_verses": [
+        "15.14",
+        "18.73",
+        "4.9",
+        "7.22"
+      ],
+      "gt_verses": [],
+      "srag_length": 3901,
+      "gt_length": 12
+    },
+    {
+      "question": "What does the text suggest one should make their acts equivalent to?",
+      "ground_truth": "Thy piety",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.0739,
+        "reranking_confidence": 0.6048,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.3246
+      },
+      "query_type": "general_medium",
+      "time_seconds": 39.51,
+      "semantic_similarity": 0.2038,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 9
+    },
+    {
+      "question": "What do Yogins renounce to gain endless peace?",
+      "ground_truth": "Renouncing fruit of deeds",
+      "srag_answer": "The Bhagavad Gita provides a direct and profound answer to your question in **Chapter 2, Verse 71**. This verse is the most authoritative source on what must be renounced to achieve enduring peace.\n\n### Primary Definition: The Verse on Renunciation for Peace\nThe pivotal verse states:\n\n> **भोगैश्वर्यप्रसक्तानां तयापहृतचेतसाम् ।**\n> **व्यवसायात्मिकां बुद्धिं समाधौ न विधायते ॥ ७१ ॥**\n>\n> **bhoga-iśvarya-prasaktānāṃ tayāpahṛta-cetasām |\n> vyavasāyātmikāṃ buddhiṃ samādhau na vidhāyate || 71 ||**\n>\n> ",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.70",
+        "BhG 2.71",
+        "BhG 2.55",
+        "BhG 3.27"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.7494,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.5567
+      },
+      "query_type": "factual_short",
+      "time_seconds": 36.51,
+      "semantic_similarity": 0.3071,
+      "word_overlap": 0.5,
+      "verse_recall": null,
+      "srag_verses": [
+        "2.55",
+        "2.70",
+        "2.71",
+        "3.27"
+      ],
+      "gt_verses": [],
+      "srag_length": 4313,
+      "gt_length": 25
+    },
+    {
+      "question": "I've always been good at art, but my parents want me to become a doctor because it's more 'stable.' I'm getting stressed trying to study medicine, and I feel like I'm failing at both art and pre-med. Should I keep pushing to be a doctor to please my family, or should I focus on art, even though they might not approve?",
+      "ground_truth": "श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात् |\nस्वभावनियतं कर्म कुर्वन्नाप्नोति किल्बिषम् ||१८-४७|| (Chapter 18, Verse 47)\n\n**Simple Meaning:**\nIt’s better to do what you're naturally good at, even if you're not the best at it, than to try and be someone else or do something you don't fit. When you follow your own path, you won’t create negative consequences for yourself.\n\n**Original Translation:**\nIt is better to engage in one’s own occupation, even though one may perform it imperfectly, than",
+      "srag_answer": "# Guidance from the Bhagavad Gita: Navigating Family Duty vs. One's True Nature\n\nYour situation resonates deeply with the core ethical and spiritual dilemmas that Arjuna himself faced on the battlefield of Kurukshetra. The Bhagavad Gita offers rich, multifaceted guidance on this very question of acting according to one's own nature versus acting under external compulsion. Let me present the most relevant teachings.\n\n---\n\n## 1. The Right to Act, Not to the Fruits of Action\n\nThe foundational verse",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.47",
+        "BhG 6.1",
+        "BhG 18.12"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1453,
+        "reranking_confidence": 0.9524,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.6398
+      },
+      "query_type": "complex_long",
+      "time_seconds": 39.99,
+      "semantic_similarity": 0.5504,
+      "word_overlap": 0.3125,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "18.12",
+        "2.47",
+        "6.1"
+      ],
+      "gt_verses": [
+        "18.47"
+      ],
+      "srag_length": 3211,
+      "gt_length": 641
+    },
+    {
+      "question": "I'm a small business owner constantly stressed about whether my company will succeed or fail. I work incredibly hard, but I'm still anxious all the time about profits, competition, and the future. How can I find peace and do my job effectively without being consumed by worry and attachment to the outcome?",
+      "ground_truth": "सर्वकर्माणि मनसा संन्यस्यास्ते सुखं वशी |\nनवद्वारे पुरे देही नैव कुर्वन्न कारयन् ||५-१३|| (Chapter 5, Verse 13)\n\n**Simple Meaning:**\nTrue happiness comes from letting go of attachment to the results of your actions and surrendering to a higher power. When you don't crave success or worry about failure, and simply do your best without ego, you find peace even while living in the world and fulfilling your duties.\n\n**Original Translation:**\nWhen the embodied living being controls his nature and men",
+      "srag_answer": "Your situation is a profound and practical reflection of the core human dilemma addressed in the Bhagavad Gita. The anxiety you feel is a natural consequence of attachment to the fruits (*phala*) of action. The Gita's solution is not to abandon your work, but to transform the consciousness with which you perform it. This path is called **Karma Yoga**, the yoga of selfless action.\n\nLet us first establish the foundational principle with a clear definitional verse, and then expand upon it with insi",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.14",
+        "BhG 2.47",
+        "BhG 9.27",
+        "BhG 2.48"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0729,
+        "reranking_confidence": 0.5992,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.4815
+      },
+      "query_type": "complex_long",
+      "time_seconds": 40.7,
+      "semantic_similarity": 0.4579,
+      "word_overlap": 0.3678,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "2.14",
+        "2.47",
+        "2.48",
+        "9.27"
+      ],
+      "gt_verses": [
+        "5.13"
+      ],
+      "srag_length": 5209,
+      "gt_length": 639
+    },
+    {
+      "question": "I'm a freelancer and I'm constantly stressed about getting enough clients and earning money. I feel like I'm always chasing the next project instead of enjoying the work itself. How can I shift my focus from the outcome of my work to just doing my best, without worrying so much about whether it leads to financial success?",
+      "ground_truth": "यस्य सर्वे समारम्भाः कामसङ्कल्पवर्जिताः |\nज्ञानाग्निदग्धकर्माणं तमाहुः पण्डितं बुधाः ||४-१९|| (Chapter 4, Verse 19)\n\n**Simple Meaning:**\nSomeone who does everything without wanting a specific result or reward – acting purely for the sake of duty – is truly wise. Their actions don't create good or bad karma because they've let go of personal desires and attachments through understanding.\n\n**Original Translation:**\nOne is understood to be in full knowledge whose every endeavor is devoid of desire ",
+      "srag_answer": "Your question touches the very heart of the Bhagavad Gita's teachings on *karma-yoga*—the path of selfless action. The stress you describe arises from attachment to the fruits of action (*phala*). The Gita provides a profound philosophical and practical framework to shift your focus from outcome to process, from anxiety to dedicated action.\n\n### The Core Definition: Desireless Action (Nishkama Karma)\n\nThe most authoritative verse on this is BhG 2.47, where Lord Krishna gives the foundational ins",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.47",
+        "BhG 3.20",
+        "BhG 3.19",
+        "BhG 2.48"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.6952,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.5296
+      },
+      "query_type": "complex_long",
+      "time_seconds": 37.58,
+      "semantic_similarity": 0.466,
+      "word_overlap": 0.3023,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "2.47",
+        "2.48",
+        "3.19",
+        "3.20"
+      ],
+      "gt_verses": [
+        "4.19"
+      ],
+      "srag_length": 5495,
+      "gt_length": 644
+    },
+    {
+      "question": "What is Krishna's stance towards all beings?",
+      "ground_truth": "Krishna is alike for all and knows neither hate nor favour.",
+      "srag_answer": "Based on the Bhagavad Gita, Krishna's stance towards all beings is that of the Supreme, self-sufficient Lord who is equally disposed to all, yet has a special, reciprocating relationship with His devoted worshippers. The most definitive verse that establishes this stance is found in Chapter 9, Verse 29.\n\n### Definitive Verse: BhG 9.29\n**Sanskrit (IAST):**\n*samo 'haṁ sarva-bhūteṣu na me dveṣyo 'sti na priyaḥ*\n*ye bhajanti tu māṁ bhaktyā mayi te teṣu cāpy aham*\n\n**Translation:**\n\"I am equal to all",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 3.15",
+        "BhG 11.32",
+        "BhG 10.16",
+        "BhG 9.29"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0745,
+        "reranking_confidence": 0.6214,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.493
+      },
+      "query_type": "concept_short",
+      "time_seconds": 30.92,
+      "semantic_similarity": 0.6132,
+      "word_overlap": 0.4545,
+      "verse_recall": null,
+      "srag_verses": [
+        "10.16",
+        "11.32",
+        "3.15",
+        "9.29"
+      ],
+      "gt_verses": [],
+      "srag_length": 4231,
+      "gt_length": 59
+    },
+    {
+      "question": "I'm really stressed about my career. On one hand, I'm thinking of just quitting and escaping the pressure, but on the other hand, I feel like I should keep working hard to achieve my goals. What’s the better path: to completely give up on pursuing a career, or to keep pushing forward with full effort, even if it's difficult?",
+      "ground_truth": "अर्जुन उवाच |\nसंन्यासं कर्मणां कृष्ण पुनर्योगं च शंससि |\nयच्छ्रेय एतयोरेकं तन्मे ब्रूहि सुनिश्चितम् ||५-१|| (Chapter 5, Verse 1)\n\n**Simple Meaning:**\nArjuna is confused. Krishna first told him to stop acting, then said to act with dedication. Arjuna asks Krishna to clearly tell him what’s better: giving up all work completely or working wholeheartedly and selflessly.\n\n**Original Translation:**\nArjuna said: O Kṛṣṇa, first of all You ask me to renounce work, and then again You recommend work with ",
+      "srag_answer": "# The Bhagavad Gita's Guidance on Your Career Dilemma\n\nYour situation — caught between wanting to escape and feeling compelled to push forward — is precisely the kind of existential crisis Arjuna faces at the outset of the Bhagavad Gita. The Gita's answer is a **profound middle path** that rejects both extremes: neither total withdrawal from duty nor frantic, attachment-driven striving.\n\n---\n\n## The Core Teaching: Action Without Attachment to Results\n\nThe most authoritative and directly relevant",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 18.46",
+        "BhG 2.48",
+        "BhG 3.35",
+        "BhG 3.5",
+        "BhG 2.8",
+        "BhG 2.47",
+        "BhG 1.13",
+        "BhG 3.9"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.5966,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.5203
+      },
+      "query_type": "complex_long",
+      "time_seconds": 38.98,
+      "semantic_similarity": 0.5916,
+      "word_overlap": 0.2027,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.13",
+        "18.46",
+        "2.47",
+        "2.48",
+        "2.8",
+        "3.35",
+        "3.5",
+        "3.9"
+      ],
+      "gt_verses": [
+        "5.1"
+      ],
+      "srag_length": 4634,
+      "gt_length": 585
+    },
+    {
+      "question": "Why does Krishna describe Himself as having a fierce face?",
+      "ground_truth": "Krishna describes Himself as Time who kills and brings all to doom, the Slayer Time, Ancient of Days, come to consume.",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.1415,
+        "reranking_confidence": 0.7181,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.4015
+      },
+      "query_type": "general_medium",
+      "time_seconds": 40.67,
+      "semantic_similarity": 0.0581,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 118
+    },
+    {
+      "question": "Why should one perform their own duty according to the text?",
+      "ground_truth": "One should perform their own duty even if they fail because it is better than taking on tasks that are not their own.",
+      "srag_answer": "",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [],
+      "confidence": {
+        "retrieval_confidence": 0.0737,
+        "reranking_confidence": 0.666,
+        "generation_confidence": 0.0,
+        "overall_confidence": 0.3551
+      },
+      "query_type": "general_medium",
+      "time_seconds": 37.53,
+      "semantic_similarity": 0.0092,
+      "word_overlap": 0.0,
+      "verse_recall": null,
+      "srag_verses": [],
+      "gt_verses": [],
+      "srag_length": 0,
+      "gt_length": 117
+    },
+    {
+      "question": "What effect do the terrors of the Lord God have on the earth according to the text?",
+      "ground_truth": "Filling life full, from birth to death, with deadly, burning, lurid dread",
+      "srag_answer": "According to the Bhagavad Gita, the terrors of the Lord God (Īśvara) have a profound and multifaceted effect on the earth and its inhabitants, primarily serving as a mechanism for cosmic renewal and the establishment of dharma. The most direct discussion of this appears in Chapter 11, where Arjuna witnesses the Universal Form (Viśvarūpa) of Krishna, and in Chapter 10, where Krishna describes his divine opulences.\n\nThe foundational definition and primary effect is articulated by Krishna in the ve",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 11.36",
+        "BhG 4.7",
+        "BhG 11.32"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0737,
+        "reranking_confidence": 0.6652,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.4747
+      },
+      "query_type": "general_medium",
+      "time_seconds": 33.76,
+      "semantic_similarity": 0.2669,
+      "word_overlap": 0.0833,
+      "verse_recall": null,
+      "srag_verses": [
+        "11.32",
+        "11.36",
+        "4.7"
+      ],
+      "gt_verses": [],
+      "srag_length": 4751,
+      "gt_length": 73
+    },
+    {
+      "question": "What does Krishna say is the mark of a person who has attained Yog?",
+      "ground_truth": "A person who, abandoning desires which shake the mind and finds full comfort for his soul in his soul, has attained the Yog.",
+      "srag_answer": "Based on the verses of the Bhagavad Gita, Krishna does not give a single, explicit list titled \"marks of a person who has attained Yog.\" However, the most direct and comprehensive definition of the realized yogi's state is found in **BhG 6.8**, where Krishna describes the ideal established in *sāṅkhya* (wisdom) and *yoga* (unitive practice). This verse serves as the foundational answer.\n\n### Primary Definitional Verse: BhG 6.8\n**Sanskrit:**  \njñāna-vijñāna-tṛṣṇārthair viniriktātmano'sakṛt |  \nga",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 2.54",
+        "BhG 6.15",
+        "BhG 6.8",
+        "BhG 6.37"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1422,
+        "reranking_confidence": 0.6477,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.5265
+      },
+      "query_type": "general_medium",
+      "time_seconds": 32.1,
+      "semantic_similarity": 0.6535,
+      "word_overlap": 0.5238,
+      "verse_recall": null,
+      "srag_verses": [
+        "2.54",
+        "6.15",
+        "6.37",
+        "6.8"
+      ],
+      "gt_verses": [],
+      "srag_length": 3690,
+      "gt_length": 124
+    },
+    {
+      "question": "What physical reactions does the speaker experience as he observes the gathering?",
+      "ground_truth": "His members fail, his tongue dries, a shudder thrills his body, his hair bristles with horror, and a fever burns his skin.",
+      "srag_answer": "Based on the retrieved sources and the context of the Bhagavad Gītā, the question refers to **Arjuna's experience in Chapter 11 upon witnessing the Universal Form (Viśvarūpa) of Lord Krishna**. The physical reactions Arjuna describes are found earlier in the chapter, not in the provided verses (11.41-42), but in verses like **11.13, 11.14, and 11.20**. The verses you provided (11.41-42) are Arjuna's subsequent apology, but they implicitly confirm his earlier fear and awe.\n\nHere is a synthesis of",
+      "source": "edwin_arnold_qa",
+      "concepts": [
+        "karma"
+      ],
+      "verses_cited": [
+        "BhG 11.13",
+        "BhG 11.41"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1423,
+        "reranking_confidence": 0.9407,
+        "generation_confidence": 0.4,
+        "overall_confidence": 0.593
+      },
+      "query_type": "concept_medium",
+      "time_seconds": 39.02,
+      "semantic_similarity": 0.2991,
+      "word_overlap": 0.2941,
+      "verse_recall": null,
+      "srag_verses": [
+        "11.13",
+        "11.41"
+      ],
+      "gt_verses": [],
+      "srag_length": 5138,
+      "gt_length": 122
+    },
+    {
+      "question": "I'm starting a new business and I know a shortcut that could make me a lot of money quickly, but it feels slightly unethical. I'm really tempted to do it because everyone else is doing it and the profits would solve a lot of my financial problems. How do I figure out if this is the right path for me, and how do I make a clear decision when I'm so focused on the potential rewards?",
+      "ground_truth": "यया धर्ममधर्मं च कार्यं चाकार्यमेव च |\nअयथावत्प्रजानाति बुद्धिः सा पार्थ राजसी ||१८-३१|| (Chapter 18, Verse 31)\n\n**Simple Meaning:**\nThis verse says that when you're driven by passion, your judgment gets clouded. You lose the ability to clearly see the difference between right and wrong, or what actions are beneficial versus harmful. Basically, you stop thinking straight and make choices based on desire instead of wisdom.\n\n**Original Translation:**\nO son of Pṛthā, that understanding which cannot",
+      "srag_answer": "# Navigating Ethical Temptation: Guidance from the Bhagavad Gita\n\nYour situation — the temptation of quick profits through a shortcut that feels \"slightly unethical\" — strikes at the heart of one of the Gita's most enduring teachings: **how to distinguish between genuine happiness and destructive pleasure**, and how to act with clarity amid desire and social pressure.\n\n---\n\n## 1. The Definition of True vs. False Happiness\n\nThe most directly relevant passage for your situation is **BhG 18.36-37**",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 18.36"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1415,
+        "reranking_confidence": 0.9253,
+        "generation_confidence": 0.2,
+        "overall_confidence": 0.5451
+      },
+      "query_type": "complex_long",
+      "time_seconds": 38.64,
+      "semantic_similarity": 0.5439,
+      "word_overlap": 0.1951,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "18.36"
+      ],
+      "gt_verses": [
+        "18.31"
+      ],
+      "srag_length": 1193,
+      "gt_length": 643
+    },
+    {
+      "question": "What is the title of Chapter VII of the Bhagavad Gita?",
+      "ground_truth": "Vijnanayog, or The Book of Religion by Discernment.",
+      "srag_answer": "# Title of Chapter VII of the Bhagavad Gita\n\nThe seventh chapter of the Bhagavad Gita is traditionally titled **\"Jñānavijñāna Yoga\"** (ज्ञानविज्ञान योग), which translates to **\"The Yoga of Knowledge and Realization\"** or **\"The Yoga of Wisdom and Transcendental Knowledge.\"**\n\n## Explanation of the Title\n\nThe title consists of two key Sanskrit terms:\n\n- **Jñāna** (ज्ञान) — knowledge, intellectual understanding\n- **Vijñāna** (विज्ञान) — realization, direct experiential wisdom, or transcendental kn",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 11.36",
+        "BhG 1.24",
+        "BhG 1.8"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0716,
+        "reranking_confidence": 0.7761,
+        "generation_confidence": 0.6,
+        "overall_confidence": 0.5295
+      },
+      "query_type": "general_medium",
+      "time_seconds": 22.42,
+      "semantic_similarity": 0.4405,
+      "word_overlap": 0.375,
+      "verse_recall": null,
+      "srag_verses": [
+        "1.24",
+        "1.8",
+        "11.36"
+      ],
+      "gt_verses": [],
+      "srag_length": 1273,
+      "gt_length": 51
+    },
+    {
+      "question": "How does one ultimately plant his feet upon the farther path according to the text?",
+      "ground_truth": "By being a Yogi, striving strong and long, purged from transgressions, perfected by births following on births.",
+      "srag_answer": "The concept of \"planting one's feet upon the farther path\" in the Bhagavad Gītā refers to attaining the supreme spiritual destination, often termed **parāṃ gatim** (the ultimate goal) or **paraṃ padam** (the supreme abode). The most direct verse defining how one achieves this is:\n\n> **māṃ hi pārtha vyapāśritya ye 'pi syuḥ pāpayonayaḥ |  \n> striyo vaiśyās tathā śūdrās te 'pi yānti parāṃ gatim ||**  \n> *(BhG 9.32)*\n\n**Translation:** \"For, O son of Pritha, even those who are of low birth, if they t",
+      "source": "edwin_arnold_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 9.32"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0738,
+        "reranking_confidence": 0.6659,
+        "generation_confidence": 0.2,
+        "overall_confidence": 0.3951
+      },
+      "query_type": "general_medium",
+      "time_seconds": 40.99,
+      "semantic_similarity": 0.3796,
+      "word_overlap": 0.1875,
+      "verse_recall": null,
+      "srag_verses": [
+        "9.32"
+      ],
+      "gt_verses": [],
+      "srag_length": 1183,
+      "gt_length": 111
+    },
+    {
+      "question": "I've been trying so hard to find happiness through my job, possessions, and relationships, but nothing seems to truly satisfy me. I'm constantly chasing the next thing, but I still feel empty. Is it possible I'm looking in the wrong places, and how do I actually start 'seeing' what's really going on?",
+      "ground_truth": "यतन्तो योगिनश्चैनं पश्यन्त्यात्मन्यवस्थितम् |\nयतन्तोऽप्यकृतात्मानो नैनं पश्यन्त्यचेतसः ||१५-११|| (Chapter 15, Verse 11)\n\n**Simple Meaning:**\nPeople who are sincerely trying to understand themselves and connect with their inner truth can clearly see the deeper reality of life. However, those who haven't focused on self-discovery and are lost in their thoughts and desires struggle to understand, even if they try.\n\n**Original Translation:**\nThe endeavoring transcendentalists who are situated in sel",
+      "srag_answer": "The dissatisfaction you describe—chasing happiness through external achievements, possessions, and relationships only to feel empty—is a core human experience addressed profoundly in the Bhagavad Gita. The scripture identifies this restlessness as arising from seeking lasting fulfillment in transient objects, while the true source of joy lies within. Let us examine this through key verses and commentaries.\n\n### **The Root Cause: Misplaced Desire and the Pull of the Senses**\nThe Gita explains tha",
+      "source": "gita_guidance_qa",
+      "concepts": [
+        "sukha"
+      ],
+      "verses_cited": [
+        "BhG 2.28",
+        "BhG 2.13",
+        "BhG 5.21",
+        "BhG 2.47",
+        "BhG 3.38",
+        "BhG 2.59",
+        "BhG 2.58"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.0732,
+        "reranking_confidence": 0.9918,
+        "generation_confidence": 1.0,
+        "overall_confidence": 0.7179
+      },
+      "query_type": "complex_long",
+      "time_seconds": 40.01,
+      "semantic_similarity": 0.4821,
+      "word_overlap": 0.274,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "2.13",
+        "2.28",
+        "2.47",
+        "2.58",
+        "2.59",
+        "3.38",
+        "5.21"
+      ],
+      "gt_verses": [
+        "15.11"
+      ],
+      "srag_length": 5990,
+      "gt_length": 678
+    },
+    {
+      "question": "I'm feeling completely overwhelmed by all the choices and possibilities in my life – career, relationships, where to live. It feels like I need to experience everything to know what's right for me, but that's impossible. How can I find clarity and peace when it feels like there are infinite paths to take and so much I'm missing out on?",
+      "ground_truth": "इहैकस्थं जगत्कृत्स्नं पश्याद्य सचराचरम् |\nमम देहे गुडाकेश यच्चान्यद् द्रष्टुमिच्छसि ||११-७|| (Chapter 11, Verse 7)\n\n**Simple Meaning:**\nKrishna is telling Arjuna that everything in the universe – past, present, and future, living and non-living – is contained within him. If Arjuna wants to understand the entirety of existence, he can see it all within Krishna's divine form.\n\n**Original Translation:**\nO Arjuna, whatever you wish to see, behold at once in this body of Mine! This universal form can",
+      "srag_answer": "# Finding Clarity Amid Life's Overwhelm: A Gita Perspective\n\nI understand the weight you're carrying. The good news is that the Gita directly addresses this very state — and it begins not with your situation, but with someone who felt exactly as you do.\n\n---\n\n## 1. You Are Not Alone: Even Arjuna Was Overwhelmed\n\nYour feelings of paralysis and anxiety mirror **Arjuna's crisis** on the battlefield. He too was overwhelmed by the weight of choices and consequences:\n\n> **दृष्ट्वेमान् स्वजनान् कृष्ण य",
+      "source": "gita_guidance_qa",
+      "concepts": [],
+      "verses_cited": [
+        "BhG 12.18",
+        "BhG 12.17",
+        "BhG 10.2",
+        "BhG 1.28"
+      ],
+      "confidence": {
+        "retrieval_confidence": 0.1415,
+        "reranking_confidence": 0.9037,
+        "generation_confidence": 0.8,
+        "overall_confidence": 0.6543
+      },
+      "query_type": "complex_long",
+      "time_seconds": 35.83,
+      "semantic_similarity": 0.4727,
+      "word_overlap": 0.2532,
+      "verse_recall": 0.0,
+      "srag_verses": [
+        "1.28",
+        "10.2",
+        "12.17",
+        "12.18"
+      ],
+      "gt_verses": [
+        "11.7"
+      ],
+      "srag_length": 3263,
+      "gt_length": 658
     }
   ]
 }
