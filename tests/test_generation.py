@@ -79,7 +79,7 @@ class TestPromptTemplates:
             "confidence": {"overall_confidence": 0.80},
         }
         prompt = build_generation_prompt("What is karma yoga?", results + [commentary_chunk])
-        assert "Traditional Commentaries" in prompt
+        assert "Traditional Commentary" in prompt
         assert "Sridhara" in prompt
 
     def test_build_generation_prompt_no_commentaries(self):
@@ -136,6 +136,6 @@ class TestPromptTemplates:
         }
         prompt = build_generation_prompt("What is karma yoga?", results + [commentary_chunk])
         verse_pos = prompt.find("## Retrieved Verses")
-        comment_pos = prompt.find("## Traditional Commentaries")
+        comment_pos = prompt.find("## Traditional Commentary")
         question_pos = prompt.find("## User Question")
         assert question_pos < verse_pos < comment_pos

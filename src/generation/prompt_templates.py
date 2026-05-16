@@ -1,63 +1,48 @@
 """Prompt templates for answer generation."""
 
-SYSTEM_PROMPT = """You are a scholarly assistant specializing in the Bhagavad Gita. You provide accurate, well-cited answers based on the original Sanskrit text and traditional commentaries.
+SYSTEM_PROMPT = """You are a Bhagavad Gita subject-matter expert. Your job is to answer the user's question in a clear, well-explained manner using ONLY the retrieved verses provided to you.
 
-Your knowledge includes:
-- The original 700 verses of the Bhagavad Gita across 18 chapters
-- Commentaries by three renowned scholars:
-  1. Sridhara Swamin (Gita-Subodhini) - Advaita tradition
-  2. Visvanatha Chakravarti - Acintya-bhedabheda tradition
-  3. Baladeva Vidyabhushana (Gita-Bhushana) - Acintya-bhedabheda tradition
+RULES:
 
-Guidelines:
-- Always cite specific verses using the format "BhG X.Y" (e.g., BhG 2.47)
-- Use IAST transliteration for Sanskrit terms with their meanings
-- Be precise and scholarly in your explanations
+1. **Explanation-first**: Start with your own clear explanation of the concept. Write as if you are teaching — define terms, explain significance, give context.
 
-Answer structure:
-1. First, give YOUR OWN synthesized explanation of the concept based on the retrieved verses. Explain what the verse teaches, its meaning, and its significance. Do NOT lead with commentaries.
-2. Cite and quote the relevant verses within your explanation as support.
-3. Only AFTER your main explanation, include a "Traditional Commentaries" section at the end listing relevant scholarly interpretations.
-- Keep commentaries brief — summarize each in 1-2 sentences.
-- If the user asks a factual question (who, what, when), answer it directly first before adding commentary context."""
+2. **Use verses as evidence, not as the answer**: When you reference a verse, quote it briefly (1-2 lines of Sanskrit) and immediately explain what it means in plain language. Do NOT build your answer by chaining "Verse X says... Verse Y says...".
+
+3. **Markdown formatting**: Use headings, bold for key terms, and bullet points where helpful. Structure your answer with clear sections.
+
+4. **Commentary**: Do NOT discuss commentators in your main answer body. If traditional commentary is provided, add ONE brief section at the very end labeled "## Scholarly Context" with at most 2-3 sentences summarizing the single most relevant scholarly interpretation.
+
+5. **Be direct**: Answer the question fully. Do not hedge or say "this is a complex topic" without explaining it.
+
+6. **Sanskrit terms**: When you introduce a Sanskrit term, give the IAST transliteration followed by the Devanagari in parentheses and its English meaning. Example: dharma (धर्म — duty, righteousness)."""
 
 
-VERSE_CONTEXT_TEMPLATE = """## Retrieved Verses
+VERSE_CONTEXT_TEMPLATE = """## Retrieved Verses (Primary Source Material)
 
-The following verses are relevant to the user's question, ordered by relevance. Use these as the primary basis for your answer. Focus on the most relevant verses first.
+Use these verses as evidence to support your explanation. Do NOT quote them in full — extract only the most relevant lines and explain them.
 
-{verses_context}
-
----
-
-Based on these verses, answer the user's question thoroughly. Cite the specific verses you reference.
-
-IMPORTANT: Your main answer should be your own explanation synthesized from the verses. Do NOT simply quote commentaries as your answer. Only after completing your main explanation, add a brief "Traditional Commentaries" section at the end with 1-2 sentence summaries of each relevant scholar's interpretation."""
+{verses_context}"""
 
 
-COMMENTARIES_CONTEXT_TEMPLATE = """## Traditional Commentaries
+COMMENTARIES_CONTEXT_TEMPLATE = """## Traditional Commentary (Reference Only)
 
-The following commentaries from traditional scholars are available for reference. Include only the most relevant ones as a brief section at the end of your answer, not as the main body.
+This is supplementary context. Do NOT discuss it in your main answer. Only reference it in a brief "Scholarly Context" section at the very end if it adds meaningful insight.
 
 {commentaries_context}"""
 
 
-VERSE_ENTRY_TEMPLATE = """### {verse_ref} (Relevance: {confidence:.2f}){chunk_type_label}
-**Sanskrit (IAST):**
-{verse_text_iast}
-
-**Devanagari:**
-{verse_text_devanagari}
+VERSE_ENTRY_TEMPLATE = """### {verse_ref}
+**Sanskrit (IAST):** {verse_text_iast}
+**Devanagari:** {verse_text_devanagari}
 """
 
 
-COMMENTARY_ENTRY_TEMPLATE = """### {verse_ref} — {commentator_name} ({tradition}){chunk_type_label}
-**Commentary:**
+COMMENTARY_ENTRY_TEMPLATE = """### {verse_ref} — {commentator_name} ({tradition})
 {commentary_text}
 """
 
 
-def format_verse_context(reranked_results: list[dict]) -> str:
+def format_verse_context(reranked_results: list[dict]) -> tuple[str, str]:
     """Format reranked results into separate verse and commentary sections.
 
     Verses form the primary answer context. Commentaries are provided
@@ -80,71 +65,47 @@ def format_verse_context(reranked_results: list[dict]) -> str:
     combined_chunks = [r for r in reranked_results if r.get("chunk_type") == "combined"]
 
     verse_entries = []
-    commentary_entries = []
     seen_verses = set()
-    seen_commentaries = set()
 
-    # Verse chunks first
+    # Verse chunks first — these are the primary content
     for result in verse_chunks + combined_chunks:
         verse_ref = result.get("verse_ref", "Unknown")
         if verse_ref in seen_verses:
             continue
         seen_verses.add(verse_ref)
 
-        chunk_type_label = f" [{result.get('chunk_type', '')}]" if result.get("chunk_type", "") != "verse" else ""
         entry = VERSE_ENTRY_TEMPLATE.format(
             verse_ref=verse_ref,
-            confidence=result.get("confidence", {}).get("overall_confidence", 0.0),
-            chunk_type_label=chunk_type_label,
             verse_text_iast=result.get("text_iast", ""),
             verse_text_devanagari=result.get("text_devanagari", ""),
         )
         verse_entries.append(entry)
 
-    # Commentary chunks in a separate section
-    for result in commentary_chunks:
-        verse_ref = result.get("verse_ref", "Unknown")
-        comm_key = result.get("commentator", "")
-        comm_id = f"{verse_ref}:{comm_key}"
-        if comm_id in seen_commentaries:
-            continue
-        seen_commentaries.add(comm_id)
+    # Commentary — pick ONLY the single most relevant one
+    best_commentary = None
+    best_score = -1.0
 
+    for result in commentary_chunks + combined_chunks:
+        if not result.get("commentator"):
+            continue
+        score = result.get("confidence", {}).get("overall_confidence", 0.0)
+        if score > best_score:
+            best_score = score
+            best_commentary = result
+
+    commentaries_context = ""
+    if best_commentary:
+        comm_key = best_commentary.get("commentator", "")
         name, tradition = commentator_info.get(comm_key, (comm_key, ""))
-        chunk_type_label = " [commentary]"
         entry = COMMENTARY_ENTRY_TEMPLATE.format(
-            verse_ref=verse_ref,
+            verse_ref=best_commentary.get("verse_ref", "Unknown"),
             commentator_name=name,
             tradition=tradition,
-            chunk_type_label=chunk_type_label,
-            commentary_text=result.get("text_iast", ""),
+            commentary_text=best_commentary.get("text_iast", ""),
         )
-        commentary_entries.append(entry)
-
-    # Also extract commentaries from verse/combined chunks that have inline commentary
-    for result in verse_chunks + combined_chunks:
-        verse_ref = result.get("verse_ref", "Unknown")
-        comm_key = result.get("commentator", "")
-        if not comm_key:
-            continue
-        comm_id = f"{verse_ref}:{comm_key}"
-        if comm_id in seen_commentaries:
-            continue
-        seen_commentaries.add(comm_id)
-
-        name, tradition = commentator_info.get(comm_key, (comm_key, ""))
-        chunk_type_label = " [from verse chunk]"
-        entry = COMMENTARY_ENTRY_TEMPLATE.format(
-            verse_ref=verse_ref,
-            commentator_name=name,
-            tradition=tradition,
-            chunk_type_label=chunk_type_label,
-            commentary_text=result.get("text_iast", ""),
-        )
-        commentary_entries.append(entry)
+        commentaries_context = entry
 
     verses_context = "\n\n".join(verse_entries) if verse_entries else "No relevant verses found."
-    commentaries_context = "\n\n".join(commentary_entries) if commentary_entries else ""
 
     return verses_context, commentaries_context
 
@@ -174,7 +135,5 @@ def build_generation_prompt(
 
     if commentaries_context:
         user_prompt += f"\n\n{COMMENTARIES_CONTEXT_TEMPLATE.format(commentaries_context=commentaries_context)}"
-
-    user_prompt += "\n\nPlease provide your answer. Start with your own explanation, then include Traditional Commentaries at the end."
 
     return user_prompt
