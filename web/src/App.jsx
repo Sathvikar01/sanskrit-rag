@@ -110,6 +110,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [sidePanelOpen, setSidePanelOpen] = useState(false)
   const [toggles, setToggles] = useState({ vector: true, graph: true, bm25: true })
+  const [normalize, setNormalize] = useState('minmax')
   const [lastIntermediate, setLastIntermediate] = useState({})
   const [lastCommentaries, setLastCommentaries] = useState({})
   const messagesEndRef = useRef(null)
@@ -131,7 +132,7 @@ function App() {
       const res = await fetch(`${API_URL}/api/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: userMsg, toggles }),
+        body: JSON.stringify({ query: userMsg, toggles, normalize }),
       })
       const data = await res.json()
 
@@ -207,6 +208,29 @@ function App() {
               onChange={() => toggleMethod('graph')} color="#C62828" />
             <ToggleSwitch label="BM25 Lexical" checked={toggles.bm25}
               onChange={() => toggleMethod('bm25')} color="#00838F" />
+          </div>
+
+          <div className="panel-divider" />
+
+          {/* Normalization */}
+          <div className="toggle-group">
+            <h4>Feature Normalization</h4>
+            <select
+              className="normalize-select"
+              value={normalize}
+              onChange={(e) => setNormalize(e.target.value)}
+            >
+              <option value="none">None (raw scores)</option>
+              <option value="minmax">Min-Max [0, 1]</option>
+              <option value="l2">L2 (unit vector)</option>
+              <option value="zscore">Z-score (std)</option>
+            </select>
+            <p className="normalize-hint">
+              {normalize === 'none' && 'Raw feature scores, no normalization'}
+              {normalize === 'minmax' && 'Scales each feature to [0, 1] across candidates'}
+              {normalize === 'l2' && 'Normalizes feature vectors to unit length'}
+              {normalize === 'zscore' && 'Standardizes to zero mean, unit variance'}
+            </p>
           </div>
 
           <div className="panel-divider" />

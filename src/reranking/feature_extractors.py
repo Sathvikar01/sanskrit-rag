@@ -3,6 +3,8 @@
 import re
 from dataclasses import dataclass
 
+import numpy as np
+
 from src.preprocessing.chunker import Chunk
 from src.preprocessing.morpho_extractor import (
     MorphologicalProfile,
@@ -209,3 +211,142 @@ class ReRankingFeatures:
             "score_concept": self.score_concept,
             "score_graph_centrality": self.score_graph_centrality,
         }
+
+
+FEATURE_KEYS = [
+    "score_vector", "score_graph", "score_bm25", "score_lemma",
+    "score_morph", "score_compound", "score_commentary", "score_concept",
+    "score_graph_centrality",
+]
+
+
+def normalize_features_minmax(features_list: list[ReRankingFeatures]) -> list[ReRankingFeatures]:
+    """Min-max normalize each feature across all candidates to [0, 1].
+
+    This ensures all features contribute equally regardless of their original scale.
+    Essential when score_bm25 (unbounded) is combined with score_lemma (0-1).
+
+    Args:
+        features_list: List of ReRankingFeatures from all candidates.
+
+    Returns:
+        New list with normalized features.
+    """
+    if not features_list:
+        return features_list
+
+    n = len(features_list)
+    matrix = np.array([f.to_vector() for f in features_list])
+
+    mins = matrix.min(axis=0)
+    maxs = matrix.max(axis=0)
+    ranges = maxs - mins
+
+    # Avoid division by zero for constant features
+    ranges[ranges == 0] = 1.0
+
+    normalized = (matrix - mins) / ranges
+
+    result = []
+    for i in range(n):
+        f = ReRankingFeatures()
+        for j, key in enumerate(FEATURE_KEYS):
+            setattr(f, key, float(normalized[i, j]))
+        result.append(f)
+
+    return result
+
+
+def normalize_features_l2(features_list: list[ReRankingFeatures]) -> list[ReRankingFeatures]:
+    """L2-normalize each feature vector to unit length.
+
+    This makes the final score depend on the direction of the feature vector
+    rather than its magnitude, preventing any single feature from dominating.
+
+    Args:
+        features_list: List of ReRankingFeatures from all candidates.
+
+    Returns:
+        New list with L2-normalized features.
+    """
+    if not features_list:
+        return features_list
+
+    matrix = np.array([f.to_vector() for f in features_list])
+
+    norms = np.linalg.norm(matrix, axis=1, keepdims=True)
+    norms[norms == 0] = 1.0
+    normalized = matrix / norms
+
+    result = []
+    for i in range(len(features_list)):
+        f = ReRankingFeatures()
+        for j, key in enumerate(FEATURE_KEYS):
+            setattr(f, key, float(normalized[i, j]))
+        result.append(f)
+
+    return result
+
+
+def normalize_features_zscore(features_list: list[ReRankingFeatures]) -> list[ReRankingFeatures]:
+    """Z-score normalize each feature across all candidates.
+
+    Standardizes features to zero mean and unit variance.
+    Handles features with very different scales (e.g., BM25 vs lemma overlap).
+
+    Args:
+        features_list: List of ReRankingFeatures from all candidates.
+
+    Returns:
+        New list with z-score normalized features.
+    """
+    if not features_list:
+        return features_list
+
+    matrix = np.array([f.to_vector() for f in features_list])
+
+    means = matrix.mean(axis=0)
+    stds = matrix.std(axis=0)
+    stds[stds == 0] = 1.0
+
+    normalized = (matrix - means) / stds
+
+    # Shift to positive range for weighted scoring
+    mins = normalized.min(axis=0)
+    normalized = normalized - mins
+
+    result = []
+    for i in range(len(features_list)):
+        f = ReRankingFeatures()
+        for j, key in enumerate(FEATURE_KEYS):
+            setattr(f, key, float(normalized[i, j]))
+        result.append(f)
+
+    return result
+
+
+NORMALIZATION_METHODS = {
+    "none": None,
+    "minmax": normalize_features_minmax,
+    "l2": normalize_features_l2,
+    "zscore": normalize_features_zscore,
+}
+
+
+def normalize_feature_matrix(
+    features_list: list[ReRankingFeatures],
+    method: str = "minmax",
+) -> list[ReRankingFeatures]:
+    """Apply normalization to a list of feature vectors.
+
+    Args:
+        features_list: List of ReRankingFeatures from all candidates.
+        method: Normalization method - "none", "minmax", "l2", or "zscore".
+
+    Returns:
+        Normalized feature list (or original if method is "none").
+    """
+    func = NORMALIZATION_METHODS.get(method)
+    if func is None:
+        return features_list
+    return func(features_list)

@@ -57,6 +57,7 @@ reranking:
   top_n: 5
   method: "weighted"
   adaptive: true
+  normalize: "minmax"  # Options: "none", "minmax", "l2", "zscore"
   weights:
     score_vector: 0.40
     score_graph: 0.20

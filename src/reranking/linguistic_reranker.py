@@ -22,6 +22,7 @@ from src.reranking.feature_extractors import (
     extract_lemma_overlap_score,
     extract_morphological_alignment_score,
     extract_lemmas_from_text,
+    normalize_feature_matrix,
     tokenize_iast,
 )
 from src.utils.config import Config
@@ -52,6 +53,7 @@ class LinguisticReranker:
         self.config_weights = config.get("reranking.weights", {})
         self.top_n = config.get("reranking.top_n", 5)
         self.use_adaptive = config.get("reranking.adaptive", True)
+        self.normalize_method = config.get("reranking.normalize", "none")
         self.confidence = PipelineConfidence()
         self.concept_extractor = ConceptExtractor()
 
@@ -248,12 +250,17 @@ class LinguisticReranker:
             f"({describe_query_type(query_type)}), "
             f"vector_weight={weights.get('score_vector', 0):.2f}, "
             f"graph_weight={weights.get('score_graph', 0):.2f}, "
-            f"bm25_weight={weights.get('score_bm25', 0):.2f}"
+            f"bm25_weight={weights.get('score_bm25', 0):.2f}, "
+            f"normalize={self.normalize_method}"
         )
 
         query_features = self._extract_query_features(query_iast, concepts)
 
+        # Collect all candidates and their features
         reranked = []
+        all_features = []
+        valid_candidates = []
+
         for candidate in candidates:
             chunk_id = candidate["chunk_id"]
             chunk = chunk_map.get(chunk_id)
@@ -265,7 +272,15 @@ class LinguisticReranker:
             features = self.compute_features(
                 query_features, chunk, candidate, all_chunks, chunk_map
             )
+            all_features.append(features)
+            valid_candidates.append((candidate, chunk))
 
+        # Normalize features across all candidates
+        if self.normalize_method != "none":
+            all_features = normalize_feature_matrix(all_features, self.normalize_method)
+
+        # Compute final scores with normalized features
+        for (candidate, chunk), features in zip(valid_candidates, all_features):
             final_score = self.compute_final_score(features, weights)
 
             retrieval_conf = self.confidence.compute_retrieval_confidence(

@@ -1,9 +1,7 @@
 """Tests for SQLite commentary store."""
 
 import tempfile
-from pathlib import Path
 
-import pytest
 
 from src.storage.commentary_store import CommentaryStore
 

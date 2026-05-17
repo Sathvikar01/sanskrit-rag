@@ -296,6 +296,42 @@ body {
   font-family: 'IM Fell English', serif;
 }
 
+.normalize-select {
+  width: 100%;
+  padding: 6px 10px;
+  background: var(--parchment);
+  border: 1px solid var(--burn);
+  border-radius: 0;
+  color: var(--ink-medium);
+  font-family: 'IM Fell English', serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' fill='none' stroke='%236d5e52' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+.normalize-select:focus {
+  outline: none;
+  border-color: var(--sepia);
+}
+
+.normalize-select option {
+  background: var(--parchment);
+  color: var(--ink-medium);
+}
+
+.normalize-hint {
+  font-size: 0.65rem;
+  color: var(--ink-lighter);
+  font-style: italic;
+  margin-top: 4px;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
 .panel-divider {
   height: 1px;
   background: var(--burn);

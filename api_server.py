@@ -63,6 +63,7 @@ app.add_middleware(
 class QueryRequest(BaseModel):
     query: str
     toggles: Optional[dict] = None
+    normalize: Optional[str] = None  # "none", "minmax", "l2", "zscore"
 
 
 class QueryResponse(BaseModel):
@@ -77,11 +78,22 @@ class QueryResponse(BaseModel):
     query_type: str = ""
     intermediate: dict = {}
     commentaries: dict = {}
+    normalize_method: str = "none"
 
 
 @app.post("/api/query", response_model=QueryResponse)
 def query_endpoint(req: QueryRequest):
+    # Apply normalization method if specified
+    if req.normalize and hasattr(pipeline, 'reranker'):
+        old_method = pipeline.reranker.normalize_method
+        pipeline.reranker.normalize_method = req.normalize
+
     result = pipeline.query(req.query, use_api=True, toggles=req.toggles)
+
+    # Restore original normalization method
+    if req.normalize and hasattr(pipeline, 'reranker'):
+        pipeline.reranker.normalize_method = old_method
+
     return QueryResponse(
         query=result["query"],
         query_iast=result["query_iast"],
@@ -94,6 +106,7 @@ def query_endpoint(req: QueryRequest):
         query_type=result.get("query_type", ""),
         intermediate=result.get("intermediate", {}),
         commentaries=result.get("commentaries", {}),
+        normalize_method=req.normalize or "none",
     )
 
 
