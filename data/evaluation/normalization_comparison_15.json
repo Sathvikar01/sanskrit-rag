@@ -1,0 +1,94 @@
+{
+  "title": "SansRAG Normalization Comparison (15 samples per dataset)",
+  "total_samples": 75,
+  "overall_unnormalized": 0.4431,
+  "overall_normalized": 0.4354,
+  "improvement": -0.0077,
+  "datasets": {
+    "gita_guidance_qa": {
+      "label": "Gita Guidance QA",
+      "unnormalized": {
+        "count": 15,
+        "avg_semantic_similarity": 0.46,
+        "high": 5,
+        "medium": 10,
+        "low": 0
+      },
+      "normalized_minmax": {
+        "count": 15,
+        "avg_semantic_similarity": 0.475,
+        "high": 5,
+        "medium": 10,
+        "low": 0
+      }
+    },
+    "edwin_arnold_qa": {
+      "label": "Edwin Arnold QA",
+      "unnormalized": {
+        "count": 15,
+        "avg_semantic_similarity": 0.335,
+        "high": 3,
+        "medium": 6,
+        "low": 6
+      },
+      "normalized_minmax": {
+        "count": 15,
+        "avg_semantic_similarity": 0.3128,
+        "high": 1,
+        "medium": 7,
+        "low": 7
+      }
+    },
+    "hf_gita_qa": {
+      "label": "HuggingFace Gita QA",
+      "unnormalized": {
+        "count": 15,
+        "avg_semantic_similarity": 0.6257,
+        "high": 13,
+        "medium": 1,
+        "low": 1
+      },
+      "normalized_minmax": {
+        "count": 15,
+        "avg_semantic_similarity": 0.6494,
+        "high": 14,
+        "medium": 1,
+        "low": 0
+      }
+    },
+    "kaggle_gita_qa": {
+      "label": "Kaggle Gita QA",
+      "unnormalized": {
+        "count": 15,
+        "avg_semantic_similarity": 0.4893,
+        "high": 8,
+        "medium": 7,
+        "low": 0
+      },
+      "normalized_minmax": {
+        "count": 15,
+        "avg_semantic_similarity": 0.473,
+        "high": 7,
+        "medium": 8,
+        "low": 0
+      }
+    },
+    "iskcon_vedabase": {
+      "label": "ISKCON VedaBase",
+      "unnormalized": {
+        "count": 15,
+        "avg_semantic_similarity": 0.3055,
+        "high": 1,
+        "medium": 7,
+        "low": 7
+      },
+      "normalized_minmax": {
+        "count": 15,
+        "avg_semantic_similarity": 0.267,
+        "high": 1,
+        "medium": 6,
+        "low": 8
+      }
+    }
+  }
+}

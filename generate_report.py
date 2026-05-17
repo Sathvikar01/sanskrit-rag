@@ -169,8 +169,8 @@ def create_evaluation_chart():
     # Left: Unnormalized vs Normalized comparison
     ax = axes[0]
     datasets = ["HF Gita\nQA", "Kaggle\nGita QA", "Gita\nGuidance", "Edwin\nArnold", "ISKCON\nVedaBase"]
-    unnorm = [0.6560, 0.4979, 0.4449, 0.3548, 0.3224]
-    norm = [0.6802, 0.5014, 0.4437, 0.2916, 0.2591]
+    unnorm = [0.6257, 0.4893, 0.4600, 0.3350, 0.3055]
+    norm = [0.6494, 0.4730, 0.4750, 0.3128, 0.2670]
 
     x = np.arange(len(datasets))
     width = 0.35
@@ -195,7 +195,7 @@ def create_evaluation_chart():
 
     # Right: Improvement chart
     ax = axes[1]
-    improvements = [0.0242, 0.0035, -0.0012, -0.0632, -0.0633]
+    improvements = [0.0237, -0.0163, 0.0150, -0.0222, -0.0385]
     colors = ["#4CAF50" if v > 0 else "#f44336" for v in improvements]
 
     bars = ax.bar(datasets, improvements, color=colors, alpha=0.85, edgecolor="white", linewidth=1.5)
@@ -209,7 +209,7 @@ def create_evaluation_chart():
     ax.set_title("MinMax Normalization Impact", fontsize=12, fontweight="bold")
     ax.axhline(y=0, color="#666", linewidth=0.8, linestyle="-")
     ax.set_xticklabels(datasets, fontsize=7)
-    ax.set_ylim(-0.08, 0.04)
+    ax.set_ylim(-0.05, 0.04)
     ax.grid(axis="y", alpha=0.3)
 
     plt.tight_layout()

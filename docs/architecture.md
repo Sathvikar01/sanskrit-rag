@@ -305,26 +305,28 @@ generation:
 - **Word overlap**: Jaccard-style word overlap
 - **Verse recall**: Fraction of ground-truth verses cited by SRAG
 
-### Results (10 samples per dataset)
+### Results (15 samples per dataset, 75 total)
 
 #### Unnormalized (baseline)
 
 | Dataset | Avg Semantic Sim | High | Med | Low |
 |---------|-----------------|------|-----|-----|
-| HuggingFace Gita QA | 0.6560 | 9 | 1 | 0 |
-| Kaggle Gita QA | 0.4979 | 6 | 4 | 0 |
-| Gita Guidance QA | 0.4449 | 1 | 9 | 0 |
-| Edwin Arnold QA | 0.3548 | 2 | 5 | 3 |
-| ISKCON VedaBase | 0.3224 | 0 | 6 | 4 |
-| **Overall** | **0.4552** | **18** | **25** | **7** |
+| HuggingFace Gita QA | 0.6257 | 13 | 1 | 1 |
+| Kaggle Gita QA | 0.4893 | 8 | 7 | 0 |
+| Gita Guidance QA | 0.4600 | 5 | 10 | 0 |
+| Edwin Arnold QA | 0.3350 | 3 | 6 | 6 |
+| ISKCON VedaBase | 0.3055 | 1 | 7 | 7 |
+| **Overall** | **0.4431** | **30** | **31** | **14** |
 
 #### Normalized (minmax)
 
 | Dataset | Avg Semantic Sim | High | Med | Low | Diff |
 |---------|-----------------|------|-----|-----|------|
-| HuggingFace Gita QA | 0.6802 | 9 | 1 | 0 | +0.024 |
-| Kaggle Gita QA | 0.5014 | 5 | 4 | 1 | +0.004 |
-| Gita Guidance QA | 0.4437 | 4 | 5 | 1 | -0.001 |
-| Edwin Arnold QA | 0.2916 | 1 | 3 | 6 | -0.063 |
-| ISKCON VedaBase | 0.2591 | 0 | 6 | 4 | -0.063 |
-| **Overall** | **0.4352** | **19** | **19** | **12** | -0.020 |
+| HuggingFace Gita QA | 0.6494 | 14 | 1 | 0 | +0.024 |
+| Gita Guidance QA | 0.4750 | 5 | 10 | 0 | +0.015 |
+| Kaggle Gita QA | 0.4730 | 7 | 8 | 0 | -0.016 |
+| Edwin Arnold QA | 0.3128 | 1 | 7 | 7 | -0.022 |
+| ISKCON VedaBase | 0.2670 | 1 | 6 | 8 | -0.039 |
+| **Overall** | **0.4354** | **28** | **32** | **15** | -0.008 |
+
+**Conclusion**: MinMax normalization helps for verse-specific (+2.4%) and Gita guidance (+1.5%) queries. It slightly hurts factual and commentary queries. Default remains `minmax` as it helps the most common query types.
