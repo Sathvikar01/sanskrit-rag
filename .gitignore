@@ -15,6 +15,7 @@ venv/
 data/processed/embeddings/
 data/processed/chunks.jsonl
 data/storage/*.db
+data/evaluation/external/kaggle_gita_qa/
 
 # Neo4j
 docker/neo4j/data/

@@ -1,0 +1,121 @@
+{
+  "title": "SansRAG Evaluation: Normalized vs Unnormalized Comparison",
+  "description": "Comparison of feature normalization impact on semantic similarity across 5 datasets",
+  "datasets": {
+    "gita_guidance_qa": {
+      "label": "Gita Guidance QA (Modern Life)",
+      "unnormalized": {
+        "count": 10,
+        "avg_semantic_similarity": 0.4449,
+        "avg_word_overlap": 0.3089,
+        "avg_response_time": 38.05,
+        "high_similarity": 1,
+        "medium_similarity": 9,
+        "low_similarity": 0
+      },
+      "normalized_minmax": {
+        "count": 10,
+        "avg_semantic_similarity": 0.4437,
+        "avg_word_overlap": 0.2667,
+        "avg_response_time": 35.27,
+        "high_similarity": 4,
+        "medium_similarity": 5,
+        "low_similarity": 1
+      }
+    },
+    "edwin_arnold_qa": {
+      "label": "Edwin Arnold QA (Factual)",
+      "unnormalized": {
+        "count": 10,
+        "avg_semantic_similarity": 0.3548,
+        "avg_word_overlap": 0.3219,
+        "avg_response_time": 35.5,
+        "high_similarity": 2,
+        "medium_similarity": 5,
+        "low_similarity": 3
+      },
+      "normalized_minmax": {
+        "count": 10,
+        "avg_semantic_similarity": 0.2916,
+        "avg_word_overlap": 0.3172,
+        "avg_response_time": 33.61,
+        "high_similarity": 1,
+        "medium_similarity": 3,
+        "low_similarity": 6
+      }
+    },
+    "hf_gita_qa": {
+      "label": "HuggingFace Gita QA (Verse-specific)",
+      "unnormalized": {
+        "count": 10,
+        "avg_semantic_similarity": 0.656,
+        "avg_word_overlap": 0.5321,
+        "avg_response_time": 34.71,
+        "high_similarity": 9,
+        "medium_similarity": 1,
+        "low_similarity": 0
+      },
+      "normalized_minmax": {
+        "count": 10,
+        "avg_semantic_similarity": 0.6802,
+        "avg_word_overlap": 0.4695,
+        "avg_response_time": 30.2,
+        "high_similarity": 9,
+        "medium_similarity": 1,
+        "low_similarity": 0
+      }
+    },
+    "kaggle_gita_qa": {
+      "label": "Kaggle Gita QA (Modern Life)",
+      "unnormalized": {
+        "count": 10,
+        "avg_semantic_similarity": 0.4979,
+        "avg_word_overlap": 0.3979,
+        "avg_response_time": 32.39,
+        "high_similarity": 6,
+        "medium_similarity": 4,
+        "low_similarity": 0
+      },
+      "normalized_minmax": {
+        "count": 10,
+        "avg_semantic_similarity": 0.5014,
+        "avg_word_overlap": 0.4088,
+        "avg_response_time": 35.88,
+        "high_similarity": 5,
+        "medium_similarity": 4,
+        "low_similarity": 1
+      }
+    },
+    "iskcon_vedabase": {
+      "label": "ISKCON VedaBase (Commentary)",
+      "unnormalized": {
+        "count": 10,
+        "avg_semantic_similarity": 0.3224,
+        "avg_word_overlap": 0.1699,
+        "avg_response_time": 28.57,
+        "high_similarity": 0,
+        "medium_similarity": 6,
+        "low_similarity": 4
+      },
+      "normalized_minmax": {
+        "count": 10,
+        "avg_semantic_similarity": 0.2591,
+        "avg_word_overlap": 0.1937,
+        "avg_response_time": 30.83,
+        "high_similarity": 0,
+        "medium_similarity": 6,
+        "low_similarity": 4
+      }
+    }
+  },
+  "summary": {
+    "total_samples_per_config": 50,
+    "normalization_methods": [
+      "none (raw scores)",
+      "minmax (scaled to [0,1])"
+    ],
+    "overall_unnormalized": 0.4552,
+    "overall_normalized": 0.4352,
+    "improvement": -0.02
+  }
+}
