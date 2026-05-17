@@ -163,41 +163,53 @@ def create_retrieval_weights_chart():
 
 
 def create_evaluation_chart():
-    """Create evaluation results visualization."""
+    """Create evaluation results visualization with normalization comparison."""
     fig, axes = plt.subplots(1, 2, figsize=(10, 4.5))
 
-    # Left: By dataset
+    # Left: Unnormalized vs Normalized comparison
     ax = axes[0]
-    datasets = ["Gita\nGuidance QA", "ISKCON\nVedaBase", "Edwin\nArnold QA", "Overall"]
-    scores = [0.5013, 0.3016, 0.2693, 0.3884]
-    colors = ["#4CAF50", "#FF9933", "#2196F3", "#9C27B0"]
+    datasets = ["HF Gita\nQA", "Kaggle\nGita QA", "Gita\nGuidance", "Edwin\nArnold", "ISKCON\nVedaBase"]
+    unnorm = [0.6560, 0.4979, 0.4449, 0.3548, 0.3224]
+    norm = [0.6802, 0.5014, 0.4437, 0.2916, 0.2591]
 
-    bars = ax.bar(datasets, scores, color=colors, alpha=0.85, edgecolor="white", linewidth=1.5)
-    for bar, score in zip(bars, scores):
-        ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.01,
-                f"{score:.3f}", ha="center", va="bottom", fontsize=10, fontweight="bold")
+    x = np.arange(len(datasets))
+    width = 0.35
+
+    bars1 = ax.bar(x - width/2, unnorm, width, label="Unnormalized", color="#2196F3", alpha=0.85)
+    bars2 = ax.bar(x + width/2, norm, width, label="MinMax Norm", color="#FF9933", alpha=0.85)
+
+    for bar, score in zip(bars1, unnorm):
+        ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.005,
+                f"{score:.3f}", ha="center", va="bottom", fontsize=7, fontweight="bold")
+    for bar, score in zip(bars2, norm):
+        ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.005,
+                f"{score:.3f}", ha="center", va="bottom", fontsize=7, fontweight="bold")
 
     ax.set_ylabel("Avg Semantic Similarity", fontsize=10)
-    ax.set_title("Evaluation by Dataset", fontsize=12, fontweight="bold")
-    ax.set_ylim(0, 0.65)
+    ax.set_title("Normalization Comparison (5 Datasets)", fontsize=12, fontweight="bold")
+    ax.set_xticks(x)
+    ax.set_xticklabels(datasets, fontsize=7)
+    ax.legend(fontsize=8)
+    ax.set_ylim(0, 0.80)
     ax.grid(axis="y", alpha=0.3)
 
-    # Right: By query type
+    # Right: Improvement chart
     ax = axes[1]
-    qtypes = ["factual_short", "concept_short", "complex_long", "concept_medium", "general_medium"]
-    q_scores = [0.5838, 0.3016, 0.4868, 0.4469, 0.2370]
-    q_colors = ["#FF9933", "#4CAF50", "#2196F3", "#9C27B0", "#f44336"]
-    q_counts = [1, 15, 22, 3, 7]
+    improvements = [0.0242, 0.0035, -0.0012, -0.0632, -0.0633]
+    colors = ["#4CAF50" if v > 0 else "#f44336" for v in improvements]
 
-    bars = ax.bar(qtypes, q_scores, color=q_colors, alpha=0.85, edgecolor="white", linewidth=1.5)
-    for bar, score, count in zip(bars, q_scores, q_counts):
-        ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.01,
-                f"{score:.3f}\n(n={count})", ha="center", va="bottom", fontsize=8, fontweight="bold")
+    bars = ax.bar(datasets, improvements, color=colors, alpha=0.85, edgecolor="white", linewidth=1.5)
+    for bar, val in zip(bars, improvements):
+        y = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2, y + (0.002 if y > 0 else -0.005),
+                f"{val:+.4f}", ha="center", va="bottom" if y > 0 else "top",
+                fontsize=8, fontweight="bold")
 
-    ax.set_ylabel("Avg Semantic Similarity", fontsize=10)
-    ax.set_title("Evaluation by Query Type", fontsize=12, fontweight="bold")
-    ax.set_ylim(0, 0.75)
-    ax.set_xticklabels([t.replace("_", "\n") for t in qtypes], fontsize=7)
+    ax.set_ylabel("Semantic Similarity Change", fontsize=10)
+    ax.set_title("MinMax Normalization Impact", fontsize=12, fontweight="bold")
+    ax.axhline(y=0, color="#666", linewidth=0.8, linestyle="-")
+    ax.set_xticklabels(datasets, fontsize=7)
+    ax.set_ylim(-0.08, 0.04)
     ax.grid(axis="y", alpha=0.3)
 
     plt.tight_layout()

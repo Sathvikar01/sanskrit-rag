@@ -1,8 +1,8 @@
-# SRAG Architecture
+# SansRAG Architecture
 
 ## Overview
 
-SRAG is a hybrid Retrieval-Augmented Generation system for the Bhagavad Gita. It combines three retrieval methods (vector, graph, BM25) with adaptive re-ranking and LangGraph orchestration to generate scholarly answers with proper verse citations.
+SansRAG is a hybrid Retrieval-Augmented Generation system for the Bhagavad Gita. It combines three retrieval methods (vector, graph, BM25) with adaptive re-ranking, feature normalization, SQLite commentary storage, and LangGraph orchestration to generate scholarly answers with proper verse citations.
 
 ## Data Pipeline
 
@@ -21,7 +21,7 @@ XML files
   ↓ xml_parser.py
 Verses + Commentaries + Morphological data
   ↓ chunker.py
-3507 chunks (verse + commentary + combined)
+3507 chunks (627 verse + 1440 commentary + 1440 combined)
   ↓ concept_extractor.py
 26 philosophical concepts (dharma, karma, yoga, etc.)
   ↓ graph_builder.py + graph_import.py
@@ -65,6 +65,14 @@ chunks.jsonl (persistent)
   - Concept neighborhood traversal (verse → concept → related verses)
   - Combined search (full-text + concept, deduplicated)
 
+#### Commentary Store (`src/storage/commentary_store.py`)
+
+- Database: SQLite (`data/storage/commentaries.db`)
+- Tables: `verses` (627), `commentaries` (1440 across 3 commentators)
+- Populated via `migrate_commentaries.py` from `chunks.jsonl`
+- Used to fetch commentaries for top-5 reranked verses
+- Separate from Neo4j/FAISS/BM25 — read-only lookup
+
 ## Query Pipeline
 
 ### Standard Pipeline (`main.py:SRAGPipeline`)
@@ -75,7 +83,7 @@ User Query (any language)
   ├── Language detection (English/Hindi/IAST/Devanagari)
   ├── IAST conversion via MiMo v2.5
   ├── Concept extraction (dharma, karma, yoga, etc.)
-  └── Query type classification
+  └── Query type classification (5 types)
   ↓
   ├── Vector Search (FAISS, Devanagari query)
   ├── Graph Search (Neo4j, IAST + concepts)
@@ -85,14 +93,16 @@ User Query (any language)
   └── Reciprocal Rank Fusion
   ↓ LinguisticReranker.rerank()
   ├── 9 feature extraction per candidate
+  ├── Feature normalization (minmax/l2/zscore)
   ├── Dynamic weight selection (per query type)
   └── Top-5 selected
+  ↓ CommentaryStore.get_commentaries_for_verses()
   ↓ AnswerGenerator.generate()
   ├── Build prompt (verses separated from commentaries)
   ├── MiMo v2.5 completion
   └── Extract verse citations + confidence
   ↓
-Response with answer, citations, top verses, confidence
+Response with answer, citations, commentaries, confidence, intermediate results
 ```
 
 ### LangGraph Pipeline (`src/langchain_components/graph.py`)
@@ -107,12 +117,14 @@ process_query → retrieve → fuse → rerank → [expand?] → generate → EN
 
 **Nodes:**
 1. `process_query` — IAST conversion + concept extraction
-2. `retrieve` — Vector + graph + BM25 parallel search
-3. `fuse` — Adaptive RRF fusion
-4. `rerank` — 9-feature linguistic re-ranking
+2. `retrieve` — Vector + graph + BM25 parallel search (with toggle support)
+3. `fuse` — Adaptive RRF fusion (tracks intermediate results)
+4. `rerank` — 9-feature linguistic re-ranking with normalization
 5. `generate` — MiMo v2.5 answer generation
 
 **Conditional edge**: If average reranking confidence < 0.3, loop back to `process_query` with expanded concepts (up to 2 iterations).
+
+**Toggle support**: Each retrieval method (vector/graph/BM25) can be enabled/disabled per-request via the `toggles` parameter.
 
 ## Re-ranking
 
@@ -129,6 +141,24 @@ process_query → retrieve → fuse → rerank → [expand?] → generate → EN
 | 7 | `score_commentary` | 0.04 | Commentary chunk relevance |
 | 8 | `score_concept` | 0.02 | Concept overlap score |
 | 9 | `score_graph_centrality` | 0.01 | Graph node centrality (degree / max_degree) |
+
+### Feature Normalization (`src/reranking/feature_extractors.py`)
+
+The 9 features have different scales. `score_bm25` is unbounded while others are 0-1. Normalization ensures fair combination:
+
+| Method | Function | Description |
+|--------|----------|-------------|
+| `minmax` | `normalize_features_minmax()` | Scales each feature to [0, 1] across all candidates |
+| `l2` | `normalize_features_l2()` | Normalizes feature vectors to unit length |
+| `zscore` | `normalize_features_zscore()` | Standardizes to zero mean, unit variance (shifted positive) |
+| `none` | — | Raw scores, no normalization |
+
+Normalization is applied after feature extraction and before weighted combination:
+```
+candidates → extract_features() → normalize_matrix() → compute_final_score()
+```
+
+Config: `reranking.normalize: "minmax"` (default)
 
 ### Adaptive Profiles (`src/reranking/adaptive_reranker.py`)
 
@@ -163,11 +193,13 @@ Each fused result carries individual scores:
 
 ### Prompt Structure (`src/generation/prompt_templates.py`)
 
-**System prompt** instructs:
+**System prompt** enforces 6 rules:
 1. Explanation-first: Model writes its own synthesis of retrieved verses
 2. Verses as evidence: Quote 1-2 lines, explain in plain language
 3. Commentaries as appendix: Single most relevant commentary at the end
 4. Markdown formatting with headings, bold key terms, bullet points
+5. Direct answers without hedging
+6. Sanskrit notation: IAST + Devanagari in parentheses + English meaning
 
 **User prompt sections:**
 ```
@@ -207,24 +239,65 @@ If `reranking_confidence < 0.3`:
 - Re-run retrieval + reranking
 - Max 2 iterations before forced generation
 
+## API Server
+
+### Endpoints (`api_server.py`)
+
+- `POST /api/query` — Process a query
+  - Request: `{ query, toggles?, normalize? }`
+  - Response: `{ answer, concepts, verses_cited, commentaries, intermediate, pipeline_confidence }`
+- `GET /api/health` — Health check
+
+**Intermediate results** returned for pipeline inspection:
+- `vector_results` — Top-10 from FAISS
+- `graph_results` — Top-10 from Neo4j
+- `bm25_results` — Top-10 from BM25
+- `fused_results` — Top-10 after RRF fusion
+- `reranked_results` — Top-10 after re-ranking
+
+**Toggles**: Enable/disable retrieval methods per-request:
+```json
+{ "query": "What is dharma?", "toggles": { "vector": true, "graph": false, "bm25": true } }
+```
+
 ## Configuration
 
 All settings in `configs/config.yaml`:
 
-- `langgraph.enabled: true` — Use LangGraph pipeline
-- `langgraph.max_iterations: 2` — Max expansion iterations
-- `langgraph.confidence_threshold: 0.3` — Threshold for expansion
-- `retrieval.adaptive_weights: true` — Enable adaptive fusion weights
-- `reranking.adaptive: true` — Enable adaptive re-ranking weights
-- `generation.provider: "mimo"` — LLM provider
+```yaml
+langgraph:
+  enabled: true
+  max_iterations: 2
+  confidence_threshold: 0.3
+
+retrieval:
+  adaptive_weights: true
+  fusion_method: "rrf"
+  rrf_k: 60
+
+reranking:
+  adaptive: true
+  normalize: "minmax"  # Options: "none", "minmax", "l2", "zscore"
+
+generation:
+  provider: "mimo"
+  mimo:
+    model: "mimo-v2.5"
+    temperature: 0.3
+    max_tokens: 2048
+```
 
 ## Evaluation
 
-### Datasets
+### Datasets (5 total)
 
-- **Gita Guidance QA** (711 pairs) — Modern life questions answered with Gita wisdom
-- **Edwin Arnold QA** (500 pairs) — Short factual questions from Edwin Arnold's "The Song Celestial"
-- **ISCKON VedaBase** (657 entries) — Verse-by-verse commentary from Gaudiya Vaishnava tradition
+| Dataset | Pairs | Type | Source |
+|---------|-------|------|--------|
+| Gita Guidance QA | 711 | Modern life Q&A | Custom |
+| Edwin Arnold QA | 500 | Factual Q&A | "The Song Celestial" |
+| HuggingFace Gita QA | 3,500 | Verse-specific Q&A | JDhruv14/Bhagavad-Gita-QA |
+| Kaggle Gita QA | 12,902 | Modern life Q&A | rambo011 (18 chapters) |
+| ISKCON VedaBase | 657 | Verse commentary | Gaudiya Vaishnava |
 
 ### Metrics
 
@@ -232,11 +305,26 @@ All settings in `configs/config.yaml`:
 - **Word overlap**: Jaccard-style word overlap
 - **Verse recall**: Fraction of ground-truth verses cited by SRAG
 
-### Results (45 samples)
+### Results (10 samples per dataset)
 
-| Source | Avg Semantic Similarity |
-|--------|------------------------|
-| Gita Guidance QA | 0.5013 |
-| ISCKON VedaBase | 0.3016 |
-| Edwin Arnold QA | 0.2693 |
-| **Overall** | **0.3884** |
+#### Unnormalized (baseline)
+
+| Dataset | Avg Semantic Sim | High | Med | Low |
+|---------|-----------------|------|-----|-----|
+| HuggingFace Gita QA | 0.6560 | 9 | 1 | 0 |
+| Kaggle Gita QA | 0.4979 | 6 | 4 | 0 |
+| Gita Guidance QA | 0.4449 | 1 | 9 | 0 |
+| Edwin Arnold QA | 0.3548 | 2 | 5 | 3 |
+| ISKCON VedaBase | 0.3224 | 0 | 6 | 4 |
+| **Overall** | **0.4552** | **18** | **25** | **7** |
+
+#### Normalized (minmax)
+
+| Dataset | Avg Semantic Sim | High | Med | Low | Diff |
+|---------|-----------------|------|-----|-----|------|
+| HuggingFace Gita QA | 0.6802 | 9 | 1 | 0 | +0.024 |
+| Kaggle Gita QA | 0.5014 | 5 | 4 | 1 | +0.004 |
+| Gita Guidance QA | 0.4437 | 4 | 5 | 1 | -0.001 |
+| Edwin Arnold QA | 0.2916 | 1 | 3 | 6 | -0.063 |
+| ISKCON VedaBase | 0.2591 | 0 | 6 | 4 | -0.063 |
+| **Overall** | **0.4352** | **19** | **19** | **12** | -0.020 |
