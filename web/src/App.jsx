@@ -4,15 +4,69 @@ import './App.css'
 
 const API_URL = 'http://localhost:8000'
 
+/* ============ Quill SVG Icon ============ */
+const QuillIcon = ({ className = '', style = {} }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+    style={{ width: 20, height: 20, ...style }}
+  >
+    {/* feather */}
+    <path d="M2 22c0-15 16-22 16-22s-2 10 0 22z" />
+    <path d="M18 2c-2 0-3.5 1.5-5 4-1.5 2.5-1.5 6-1.5 6s3.5-1.5 6-4c1.8-1.8 3.5-4 3.5-7 0-1-1-1-3-1z" />
+    <path d="M6.5 14c2.5 2.5 5 3 7.5 3" strokeOpacity="0.5" />
+  </svg>
+);
+
+/* ============ Typewriter Hook ============ */
+function useTypewriter(text, speed = 28) {
+  const [displayed, setDisplayed] = useState('')
+  const [done, setDone] = useState(false)
+
+  useEffect(() => {
+    if (!text) { setDisplayed(''); setDone(true); return }
+    setDisplayed('')
+    setDone(false)
+    let i = 0
+    let timers = []
+    const scheduleNext = () => {
+      if (i > text.length) {
+        setDone(true)
+        return
+      }
+      setDisplayed(text.slice(0, i))
+      i++
+      if (i <= text.length) {
+        const delay = Math.max(5, speed + (Math.random() * 20 - 10))
+        timers.push(setTimeout(scheduleNext, delay))
+      } else {
+        setDone(true)
+      }
+    }
+    const startTimer = setTimeout(scheduleNext, speed * 2)
+    timers.push(startTimer)
+    return () => { timers.forEach(clearTimeout) }
+  }, [text, speed])
+
+  return { displayed, done }
+}
+
+/* ============ App ============ */
 function App() {
   const [query, setQuery] = useState('')
   const [messages, setMessages] = useState([])
   const [loading, setLoading] = useState(false)
+  const [streamingMessages, setStreamingMessages] = useState({}) // id -> typed text
   const messagesEndRef = useRef(null)
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages])
+  }, [messages, streamingMessages])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -30,7 +84,9 @@ function App() {
         body: JSON.stringify({ query: userMsg }),
       })
       const data = await res.json()
-      setMessages(prev => [...prev, {
+
+      // Build the message with full text hidden for typewriter effect
+      const newMsg = {
         role: 'assistant',
         content: data.answer,
         metadata: {
@@ -39,7 +95,13 @@ function App() {
           confidence: data.pipeline_confidence,
           topVerses: data.top_verses,
         },
-      }])
+      }
+
+      // Add message to array
+      setMessages(prev => [...prev, newMsg])
+
+      // Trigger typewriter stream per message (keyed by index once known)
+      // We'll handle streaming in useEffect after message is added
     } catch (err) {
       setMessages(prev => [...prev, {
         role: 'assistant',
@@ -48,6 +110,17 @@ function App() {
     }
     setLoading(false)
   }
+
+  // Stream typing effect for the last assistant message when content changes
+  const latestAssistantIndex = messages.length - 1
+  const latestContent = messages[messages.length - 1]?.content || ''
+  const isNewAssistant = messages[messages.length - 1]?.role === 'assistant'
+
+  const { displayed: typedDisplay, done: typedDone } = useTypewriter(
+    isNewAssistant ? latestContent : '',
+    28,
+    false
+  )
 
   const exampleQueries = [
     "What is nishkama karma?",
@@ -74,7 +147,7 @@ function App() {
       <main className="chat-container">
         {messages.length === 0 && (
           <div className="welcome">
-            <div className="welcome-icon">||</div>
+            <div className="welcome-icon"><QuillIcon /></div>
             <h2>Ask the Bhagavad Gita</h2>
             <p>Query the Bhagavad Gita with all 18 chapters, 700 verses, and 9 traditional commentaries.</p>
             <div className="examples">
@@ -97,7 +170,14 @@ function App() {
                 {msg.role === 'assistant' ? (
                   <>
                     <div className="answer-content">
-                      <ReactMarkdown>{msg.content}</ReactMarkdown>
+                      {/* Show typing text only for latest assistant message, else full text */}
+                      {i === latestAssistantIndex && !typedDone ? (
+                        <div className="typing-text">
+                          <ReactMarkdown>{typedDisplay || ' '}</ReactMarkdown>
+                        </div>
+                      ) : (
+                        <ReactMarkdown>{msg.content}</ReactMarkdown>
+                      )}
                     </div>
                     {msg.metadata && (
                       <div className="metadata">
@@ -136,14 +216,20 @@ function App() {
               </div>
             </div>
           ))}
+
+          {/* Quill Loading Animation */}
           {loading && (
             <div className="message assistant">
-              <div className="message-avatar">||</div>
+              <div className="message-avatar"><QuillIcon /></div>
               <div className="message-body">
-                <div className="thinking">
-                  <span></span><span></span><span></span>
+                <div className="quill-ink-container">
+                  <QuillIcon className="quill-svg" />
+                  <div className="quill-text-area">
+                    <div className="quill-ink-writing"></div>
+                    <div className="quill-writing-line" />
+                  </div>
                 </div>
-                <p className="thinking-text">Searching 3,507 chunks across vector, graph, and BM25 indices...</p>
+                <p className="thinking-text">The quill is dipping in ink... composing wisdom...</p>
               </div>
             </div>
           )}
@@ -160,8 +246,8 @@ function App() {
             placeholder="Ask about the Bhagavad Gita..."
             disabled={loading}
           />
-          <button type="submit" disabled={loading || !query.trim()}>
-            {loading ? '...' : 'Ask'}
+          <button type="submit" disabled={loading || !query.trim()} aria-label="Ask">
+            <QuillIcon />
           </button>
         </div>
       </form>
