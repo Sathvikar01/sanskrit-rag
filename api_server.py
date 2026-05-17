@@ -12,6 +12,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from pathlib import Path
+from typing import Optional
 
 from src.utils.config import Config
 from src.utils.logger import logger
@@ -48,7 +49,7 @@ async def lifespan(app: FastAPI):
     pipeline.close()
 
 
-app = FastAPI(title="SRAG API", version="0.2.0", lifespan=lifespan)
+app = FastAPI(title="SansRAG API", version="0.3.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -61,6 +62,7 @@ app.add_middleware(
 
 class QueryRequest(BaseModel):
     query: str
+    toggles: Optional[dict] = None
 
 
 class QueryResponse(BaseModel):
@@ -73,11 +75,13 @@ class QueryResponse(BaseModel):
     top_verses: list[dict]
     pipeline_confidence: dict
     query_type: str = ""
+    intermediate: dict = {}
+    commentaries: dict = {}
 
 
 @app.post("/api/query", response_model=QueryResponse)
 def query_endpoint(req: QueryRequest):
-    result = pipeline.query(req.query, use_api=True)
+    result = pipeline.query(req.query, use_api=True, toggles=req.toggles)
     return QueryResponse(
         query=result["query"],
         query_iast=result["query_iast"],
@@ -88,6 +92,8 @@ def query_endpoint(req: QueryRequest):
         top_verses=result["top_verses"],
         pipeline_confidence=result["pipeline_confidence"],
         query_type=result.get("query_type", ""),
+        intermediate=result.get("intermediate", {}),
+        commentaries=result.get("commentaries", {}),
     )
 
 

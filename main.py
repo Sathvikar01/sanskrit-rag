@@ -22,8 +22,17 @@ from src.retrieval.bm25_retriever import BM25Retriever
 from src.retrieval.graph_retriever import GraphRetriever
 from src.retrieval.hybrid_fusion import HybridRetriever
 from src.retrieval.vector_store import VectorStore
+from src.storage.commentary_store import CommentaryStore
 from src.utils.config import Config
 from src.utils.logger import logger
+
+
+# Default toggle state for retrieval methods
+DEFAULT_TOGGLES = {
+    "vector": True,
+    "graph": True,
+    "bm25": True,
+}
 
 
 class SRAGPipeline:
@@ -40,6 +49,7 @@ class SRAGPipeline:
         self.hybrid_retriever = HybridRetriever(config)
         self.reranker = LinguisticReranker(config)
         self.generator = AnswerGenerator(config)
+        self.commentary_store = CommentaryStore()
 
         self.chunks: list[Chunk] = []
         self.chunk_map: dict[str, Chunk] = {}
@@ -113,26 +123,98 @@ class SRAGPipeline:
         concepts: list[str],
         top_k: int = 50,
         query_type: str = "general_medium",
-    ) -> list[dict]:
-        """Retrieve candidates using hybrid retrieval."""
-        vector_results = self.vector_store.search(query_devanagari, top_k=top_k)
+        toggles: dict | None = None,
+    ) -> tuple[list[dict], dict]:
+        """Retrieve candidates using hybrid retrieval.
 
-        graph_retriever = self._get_graph_retriever()
-        graph_results = graph_retriever.search_combined(query_iast, concepts, top_k=top_k)
+        Args:
+            toggles: Dict with 'vector', 'graph', 'bm25' bools to enable/disable methods.
 
-        bm25_results = self.bm25_retriever.search(query_iast, top_k=top_k)
+        Returns:
+            Tuple of (fused_results, intermediate_results).
+        """
+        if toggles is None:
+            toggles = DEFAULT_TOGGLES.copy()
 
+        intermediate = {}
+
+        # Vector retrieval
+        vector_results = []
+        if toggles.get("vector", True):
+            vector_results = self.vector_store.search(query_devanagari, top_k=top_k)
+            intermediate["vector_results"] = [
+                {"chunk_id": r["chunk_id"], "score": round(r.get("score", 0), 4), "verse_ref": r.get("verse_ref", "")}
+                for r in vector_results[:10]
+            ]
+        else:
+            intermediate["vector_results"] = []
+
+        # Graph retrieval
+        graph_results = []
+        if toggles.get("graph", True):
+            try:
+                graph_retriever = self._get_graph_retriever()
+                graph_results = graph_retriever.search_combined(query_iast, concepts, top_k=top_k)
+            except Exception as e:
+                logger.warning(f"Graph retrieval failed: {e}")
+            intermediate["graph_results"] = [
+                {"chunk_id": r["chunk_id"], "score": round(r.get("score", 0), 4), "verse_ref": r.get("verse_ref", "")}
+                for r in graph_results[:10]
+            ]
+        else:
+            intermediate["graph_results"] = []
+
+        # BM25 retrieval
+        bm25_results = []
+        if toggles.get("bm25", True):
+            bm25_results = self.bm25_retriever.search(query_iast, top_k=top_k)
+            intermediate["bm25_results"] = [
+                {"chunk_id": r["chunk_id"], "score": round(r.get("score", 0), 4), "verse_ref": r.get("verse_ref", "")}
+                for r in bm25_results[:10]
+            ]
+        else:
+            intermediate["bm25_results"] = []
+
+        # Fusion
         fused = self.hybrid_retriever.fuse_results(
             vector_results, graph_results, bm25_results, top_k=top_k,
             query_type=query_type,
         )
+        intermediate["fused_results"] = [
+            {"chunk_id": r["chunk_id"], "score": round(r.get("rrf_score", 0), 4),
+             "verse_ref": r.get("verse_ref", ""), "sources": r.get("sources", []),
+             "vector_score": round(r.get("vector_score", 0), 4),
+             "graph_score": round(r.get("graph_score", 0), 4),
+             "bm25_score": round(r.get("bm25_score", 0), 4)}
+            for r in fused[:10]
+        ]
 
-        return fused
+        return fused, intermediate
+
+    def _fetch_commentaries(self, reranked: list[dict]) -> dict:
+        """Fetch commentaries from SQLite for top reranked verses."""
+        try:
+            if not self.commentary_store.conn:
+                self.commentary_store.connect()
+        except Exception:
+            return {}
+
+        verse_refs = []
+        for r in reranked[:5]:
+            ref = r.get("verse_ref", "")
+            if ref and ref not in verse_refs:
+                verse_refs.append(ref)
+
+        if not verse_refs:
+            return {}
+
+        return self.commentary_store.get_commentaries_for_verses(verse_refs)
 
     def query(
         self,
         user_query: str,
         use_api: bool = True,
+        toggles: dict | None = None,
     ) -> dict:
         """Process a user query end-to-end."""
         if use_api:
@@ -148,11 +230,12 @@ class SRAGPipeline:
             f"concepts={processed.concepts}, type={query_type}"
         )
 
-        candidates = self.retrieve(
+        candidates, intermediate = self.retrieve(
             processed.query_iast,
             processed.query_devanagari,
             processed.concepts,
             query_type=query_type,
+            toggles=toggles,
         )
 
         reranked = self.reranker.rerank(
@@ -162,6 +245,18 @@ class SRAGPipeline:
             all_chunks=self.chunks,
             chunk_map=self.chunk_map,
         )
+
+        # Add reranked top-10 to intermediate
+        intermediate["reranked_results"] = [
+            {"chunk_id": r.get("chunk_id", ""), "verse_ref": r.get("verse_ref", ""),
+             "confidence": round(r.get("confidence", {}).get("overall_confidence", 0), 4),
+             "final_score": round(r.get("final_score", 0), 4),
+             "chunk_type": r.get("chunk_type", "")}
+            for r in reranked[:10]
+        ]
+
+        # Fetch commentaries for top verses
+        commentaries = self._fetch_commentaries(reranked)
 
         result = self.generator.generate(
             query=user_query,
@@ -187,6 +282,14 @@ class SRAGPipeline:
             ],
             "pipeline_confidence": result.pipeline_confidence,
             "model_used": result.model_used,
+            "intermediate": intermediate,
+            "commentaries": {
+                ref: [
+                    {"commentator": c["commentator"], "text": c["text_iast"][:300]}
+                    for c in comms
+                ]
+                for ref, comms in commentaries.items()
+            },
         }
 
         return response

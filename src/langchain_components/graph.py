@@ -26,8 +26,13 @@ from src.retrieval.hybrid_fusion import HybridRetriever
 from src.retrieval.vector_store import VectorStore
 from src.generation.generator import AnswerGenerator
 from src.generation.query_processor import QueryProcessor
+from src.storage.commentary_store import CommentaryStore
 from src.utils.config import Config
 from src.utils.logger import logger
+
+
+# Default toggle state
+DEFAULT_TOGGLES = {"vector": True, "graph": True, "bm25": True}
 
 
 class SRAGGraphPipeline:
@@ -45,12 +50,16 @@ class SRAGGraphPipeline:
         self.reranker = LinguisticReranker(config)
         self.generator = AnswerGenerator(config)
         self.concept_extractor = ConceptExtractor()
+        self.commentary_store = CommentaryStore()
 
         self.chunks: list[Chunk] = []
         self.chunk_map: dict[str, Chunk] = {}
 
         self._graph_retriever = None
         self._graph_connected = False
+
+        self._toggles = DEFAULT_TOGGLES.copy()
+        self._intermediate: dict = {}
 
         self.max_iterations = config.get("langgraph.max_iterations", 2)
         self.confidence_threshold = config.get("langgraph.confidence_threshold", 0.3)
@@ -121,21 +130,43 @@ class SRAGGraphPipeline:
             }
 
     def _node_retrieve(self, state: SRAGState) -> dict:
-        """Run vector, graph, and BM25 retrieval."""
+        """Run vector, graph, and BM25 retrieval with toggle support."""
         query_iast = state["query_iast"]
         query_devanagari = state["query_devanagari"]
         concepts = state.get("concepts", [])
 
-        vector_results = self.vector_store.search(query_devanagari, top_k=50)
+        # Vector
+        vector_results = []
+        if self._toggles.get("vector", True):
+            vector_results = self.vector_store.search(query_devanagari, top_k=50)
 
+        # Graph
         graph_results = []
-        try:
-            graph_retriever = self._get_graph_retriever()
-            graph_results = graph_retriever.search_combined(query_iast, concepts, top_k=50)
-        except Exception as e:
-            logger.warning(f"Graph retrieval failed: {e}")
+        if self._toggles.get("graph", True):
+            try:
+                graph_retriever = self._get_graph_retriever()
+                graph_results = graph_retriever.search_combined(query_iast, concepts, top_k=50)
+            except Exception as e:
+                logger.warning(f"Graph retrieval failed: {e}")
 
-        bm25_results = self.bm25_retriever.search(query_iast, top_k=50)
+        # BM25
+        bm25_results = []
+        if self._toggles.get("bm25", True):
+            bm25_results = self.bm25_retriever.search(query_iast, top_k=50)
+
+        # Track intermediate results
+        self._intermediate["vector_results"] = [
+            {"chunk_id": r["chunk_id"], "score": round(r.get("score", 0), 4), "verse_ref": r.get("verse_ref", "")}
+            for r in vector_results[:10]
+        ]
+        self._intermediate["graph_results"] = [
+            {"chunk_id": r["chunk_id"], "score": round(r.get("score", 0), 4), "verse_ref": r.get("verse_ref", "")}
+            for r in graph_results[:10]
+        ]
+        self._intermediate["bm25_results"] = [
+            {"chunk_id": r["chunk_id"], "score": round(r.get("score", 0), 4), "verse_ref": r.get("verse_ref", "")}
+            for r in bm25_results[:10]
+        ]
 
         return {
             "vector_results": vector_results,
@@ -154,6 +185,15 @@ class SRAGGraphPipeline:
             top_k=50,
             query_type=query_type,
         )
+
+        self._intermediate["fused_results"] = [
+            {"chunk_id": r["chunk_id"], "score": round(r.get("rrf_score", 0), 4),
+             "verse_ref": r.get("verse_ref", ""), "sources": r.get("sources", []),
+             "vector_score": round(r.get("vector_score", 0), 4),
+             "graph_score": round(r.get("graph_score", 0), 4),
+             "bm25_score": round(r.get("bm25_score", 0), 4)}
+            for r in fused[:10]
+        ]
 
         return {"fused_results": fused}
 
@@ -174,6 +214,14 @@ class SRAGGraphPipeline:
                 for r in reranked
             ]
             avg_confidence = sum(confidences) / len(confidences)
+
+        self._intermediate["reranked_results"] = [
+            {"chunk_id": r.get("chunk_id", ""), "verse_ref": r.get("verse_ref", ""),
+             "confidence": round(r.get("confidence", {}).get("overall_confidence", 0), 4),
+             "final_score": round(r.get("final_score", 0), 4),
+             "chunk_type": r.get("chunk_type", "")}
+            for r in reranked[:10]
+        ]
 
         return {
             "reranked_results": reranked,
@@ -246,16 +294,24 @@ class SRAGGraphPipeline:
 
         return workflow.compile()
 
-    def query(self, user_query: str, use_api: bool = True) -> dict:
+    def query(self, user_query: str, use_api: bool = True, toggles: dict | None = None) -> dict:
         """Process a query through the LangGraph pipeline.
 
         Args:
             user_query: The user's question.
             use_api: Whether to use MiMo API for query processing.
+            toggles: Dict with 'vector', 'graph', 'bm25' bools.
 
         Returns:
             Complete response dictionary.
         """
+        if toggles is not None:
+            self._toggles = toggles
+        else:
+            self._toggles = DEFAULT_TOGGLES.copy()
+
+        self._intermediate = {}
+
         initial_state: SRAGState = {
             "query": user_query,
             "query_iast": "",
@@ -278,6 +334,21 @@ class SRAGGraphPipeline:
 
         final_state = self.graph.invoke(initial_state)
 
+        # Fetch commentaries for top verses
+        commentaries = {}
+        try:
+            if not self.commentary_store.conn:
+                self.commentary_store.connect()
+            verse_refs = []
+            for r in final_state.get("reranked_results", [])[:5]:
+                ref = r.get("verse_ref", "")
+                if ref and ref not in verse_refs:
+                    verse_refs.append(ref)
+            if verse_refs:
+                commentaries = self.commentary_store.get_commentaries_for_verses(verse_refs)
+        except Exception:
+            pass
+
         return {
             "query": user_query,
             "query_iast": final_state.get("query_iast", ""),
@@ -296,6 +367,14 @@ class SRAGGraphPipeline:
             ],
             "pipeline_confidence": final_state.get("confidence", {}),
             "iterations": final_state.get("iteration", 0) + 1,
+            "intermediate": self._intermediate,
+            "commentaries": {
+                ref: [
+                    {"commentator": c["commentator"], "text": c["text_iast"][:300]}
+                    for c in comms
+                ]
+                for ref, comms in commentaries.items()
+            },
         }
 
     def close(self):
