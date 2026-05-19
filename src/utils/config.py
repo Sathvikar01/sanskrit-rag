@@ -37,10 +37,16 @@ class Config:
 
     @property
     def neo4j_uri(self) -> str:
+        uri = os.getenv("NEO4J_URI")
+        if uri:
+            return uri
         return self.get("neo4j.uri", "bolt://localhost:7687")
 
     @property
     def neo4j_user(self) -> str:
+        user = os.getenv("NEO4J_USERNAME")
+        if user:
+            return user
         return self.get("neo4j.username", "neo4j")
 
     @property

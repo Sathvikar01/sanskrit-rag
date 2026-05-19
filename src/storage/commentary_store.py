@@ -39,8 +39,14 @@ class CommentaryStore:
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.close()
 
+    def _ensure_connected(self):
+        """Raise if not connected."""
+        if self.conn is None:
+            raise RuntimeError("CommentaryStore not connected. Call connect() first.")
+
     def _create_tables(self):
         """Create tables if they don't exist."""
+        self._ensure_connected()
         self.conn.executescript("""
             CREATE TABLE IF NOT EXISTS verses (
                 verse_ref TEXT PRIMARY KEY,
@@ -81,6 +87,7 @@ class CommentaryStore:
         word_count: int = 0,
     ):
         """Insert or replace a verse."""
+        self._ensure_connected()
         self.conn.execute(
             """INSERT OR REPLACE INTO verses
                (verse_ref, chapter_num, verse_num, text_iast, text_devanagari, speaker, word_count)
@@ -98,6 +105,7 @@ class CommentaryStore:
         word_count: int = 0,
     ):
         """Insert or replace a commentary."""
+        self._ensure_connected()
         self.conn.execute(
             """INSERT OR REPLACE INTO commentaries
                (chunk_id, verse_ref, commentator, text_iast, text_devanagari, word_count)
@@ -114,6 +122,7 @@ class CommentaryStore:
         Returns:
             List of commentary dicts with commentator, text, etc.
         """
+        self._ensure_connected()
         cursor = self.conn.execute(
             """SELECT chunk_id, verse_ref, commentator, text_iast, text_devanagari, word_count
                FROM commentaries
@@ -135,6 +144,7 @@ class CommentaryStore:
         if not verse_refs:
             return {}
 
+        self._ensure_connected()
         placeholders = ",".join("?" * len(verse_refs))
         cursor = self.conn.execute(
             f"""SELECT chunk_id, verse_ref, commentator, text_iast, text_devanagari, word_count
@@ -152,6 +162,7 @@ class CommentaryStore:
 
     def get_verse(self, verse_ref: str) -> Optional[dict]:
         """Get verse data by reference."""
+        self._ensure_connected()
         cursor = self.conn.execute(
             "SELECT * FROM verses WHERE verse_ref = ?", (verse_ref,)
         )
@@ -160,6 +171,7 @@ class CommentaryStore:
 
     def get_stats(self) -> dict:
         """Get database statistics."""
+        self._ensure_connected()
         verse_count = self.conn.execute("SELECT COUNT(*) FROM verses").fetchone()[0]
         commentary_count = self.conn.execute("SELECT COUNT(*) FROM commentaries").fetchone()[0]
         commentators = self.conn.execute(

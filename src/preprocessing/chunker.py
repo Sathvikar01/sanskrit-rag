@@ -24,6 +24,7 @@ class Chunk:
     # Text content
     text_iast: str = ""
     text_devanagari: str = ""
+    text_english: str = ""
 
     # Verse-specific
     verse_lines_iast: list[str] = field(default_factory=list)

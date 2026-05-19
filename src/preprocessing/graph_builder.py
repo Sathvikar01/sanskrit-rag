@@ -278,20 +278,22 @@ class GraphBuilder:
     def get_stats(self) -> dict:
         """Get database statistics."""
         with self.driver.session() as session:
-            result = session.run("""
-                CALL apoc.meta.stats() YIELD nodeCount, relCount, labels, relTypes
-                RETURN nodeCount, relCount, labels, relTypes
-            """)
-            record = result.single()
-            if record:
-                return {
-                    "node_count": record["nodeCount"],
-                    "relationship_count": record["relCount"],
-                    "labels": dict(record["labels"]),
-                    "rel_types": dict(record["relTypes"]),
-                }
+            try:
+                result = session.run("""
+                    CALL apoc.meta.stats() YIELD nodeCount, relCount, labels, relTypes
+                    RETURN nodeCount, relCount, labels, relTypes
+                """)
+                record = result.single()
+                if record:
+                    return {
+                        "node_count": record["nodeCount"],
+                        "relationship_count": record["relCount"],
+                        "labels": dict(record["labels"]),
+                        "rel_types": dict(record["relTypes"]),
+                    }
+            except Exception:
+                pass
 
-        with self.driver.session() as session:
             node_count = session.run("MATCH (n) RETURN count(n) as count").single()["count"]
             rel_count = session.run("MATCH ()-[r]->() RETURN count(r) as count").single()["count"]
 

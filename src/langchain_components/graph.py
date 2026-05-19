@@ -99,7 +99,7 @@ class SRAGGraphPipeline:
             self.vector_store.load(faiss_path, metadata_path)
         else:
             logger.info("Building FAISS index...")
-            self.vector_store.build_index(self.chunks, use_devanagari=True, verse_only=False)
+            self.vector_store.build_index(self.chunks, use_devanagari=True, verse_only=True)
             self.vector_store.save(faiss_path, metadata_path)
 
         logger.info("Building BM25 index...")
@@ -121,12 +121,14 @@ class SRAGGraphPipeline:
                 "iteration": 0,
             }
         else:
-            expanded_concepts = list(set(state.get("concepts", []) + [
-                c.name_iast for c in self.concept_extractor.concepts[:5]
-            ]))
+            # Re-extract concepts from the query to find related ones
+            query_iast = state.get("query_iast", "")
+            found = self.concept_extractor.extract_from_text(query_iast)
+            related = [fc["concept"].name_iast for fc in found]
+            expanded_concepts = list(set(state.get("concepts", []) + related))
             return {
                 "concepts": expanded_concepts,
-                "iteration": iteration,
+                "iteration": iteration + 1,
             }
 
     def _node_retrieve(self, state: SRAGState) -> dict:
@@ -192,7 +194,7 @@ class SRAGGraphPipeline:
              "vector_score": round(r.get("vector_score", 0), 4),
              "graph_score": round(r.get("graph_score", 0), 4),
              "bm25_score": round(r.get("bm25_score", 0), 4)}
-            for r in fused[:10]
+            for r in fused[:20]
         ]
 
         return {"fused_results": fused}
@@ -346,8 +348,8 @@ class SRAGGraphPipeline:
                     verse_refs.append(ref)
             if verse_refs:
                 commentaries = self.commentary_store.get_commentaries_for_verses(verse_refs)
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"Commentary store failed: {e}")
 
         return {
             "query": user_query,

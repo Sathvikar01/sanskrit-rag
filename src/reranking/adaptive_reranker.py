@@ -23,9 +23,7 @@ def detect_query_type(query_iast: str, concepts: list[str]) -> str:
     ]
     is_definition = any(re.search(p, query_iast.lower()) for p in definition_patterns)
 
-    if word_count <= 8 and has_concepts and is_definition:
-        return "concept_short"
-    elif word_count <= 8 and is_definition:
+    if word_count <= 8 and is_definition:
         return "concept_short"
     elif word_count <= 8:
         return "factual_short"

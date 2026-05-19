@@ -54,7 +54,7 @@ retrieval:
 
 # Re-ranking
 reranking:
-  top_n: 5
+  top_n: 15
   method: "weighted"
   adaptive: true
   normalize: "minmax"  # Options: "none", "minmax", "l2", "zscore"

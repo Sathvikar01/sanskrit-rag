@@ -157,15 +157,20 @@ def extract_lemmas_from_text(text: str) -> set[str]:
     for token in tokens:
         lemmas.add(token)
         if token.endswith("aḥ"):
-            lemmas.add(token[:-1])
+            if len(token) > 2:
+                lemmas.add(token[:-2] + "a")
         elif token.endswith("am"):
-            lemmas.add(token[:-2])
+            if len(token) > 2:
+                lemmas.add(token[:-2])
         elif token.endswith("āḥ"):
-            lemmas.add(token[:-2] + "a")
+            if len(token) > 2:
+                lemmas.add(token[:-2] + "a")
         elif token.endswith("aiḥ"):
-            lemmas.add(token[:-3])
+            if len(token) > 3:
+                lemmas.add(token[:-3])
         elif token.endswith("ebhyaḥ"):
-            lemmas.add(token[:-6])
+            if len(token) > 6:
+                lemmas.add(token[:-6])
 
     return lemmas
 

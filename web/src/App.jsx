@@ -1,8 +1,34 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, Component } from 'react'
 import ReactMarkdown from 'react-markdown'
 import './App.css'
 
 const API_URL = 'http://localhost:8000'
+
+/* ============ Error Boundary ============ */
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false, error: null }
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error }
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: 40, textAlign: 'center', fontFamily: 'IM Fell English, serif', color: '#5d4037' }}>
+          <h2>Something went wrong</h2>
+          <p>{this.state.error?.message}</p>
+          <button onClick={() => { this.setState({ hasError: false, error: null }); window.location.reload() }}
+            style={{ marginTop: 16, padding: '8px 24px', cursor: 'pointer', background: '#5d4037', color: '#fdf5e6', border: 'none', borderRadius: 4 }}>
+            Reload
+          </button>
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}
 
 /* ============ Quill SVG Icon ============ */
 const QuillIcon = ({ className = '', style = {} }) => (
@@ -134,6 +160,10 @@ function App() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: userMsg, toggles, normalize }),
       })
+      if (!res.ok) {
+        const errBody = await res.json().catch(() => ({}))
+        throw new Error(errBody.detail || `Server error: ${res.status}`)
+      }
       const data = await res.json()
 
       const newMsg = {
@@ -421,4 +451,10 @@ function App() {
   )
 }
 
-export default App
+export default function AppWrapper() {
+  return (
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  )
+}

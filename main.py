@@ -110,7 +110,7 @@ class SRAGPipeline:
             self.vector_store.load(faiss_path, metadata_path)
         else:
             logger.info("Building FAISS index...")
-            self.vector_store.build_index(self.chunks, use_devanagari=use_devanagari, verse_only=False)
+            self.vector_store.build_index(self.chunks, use_devanagari=use_devanagari, verse_only=True)
             self.vector_store.save(faiss_path, metadata_path)
 
         logger.info("Building BM25 index...")
@@ -186,7 +186,7 @@ class SRAGPipeline:
              "vector_score": round(r.get("vector_score", 0), 4),
              "graph_score": round(r.get("graph_score", 0), 4),
              "bm25_score": round(r.get("bm25_score", 0), 4)}
-            for r in fused[:10]
+            for r in fused[:20]
         ]
 
         return fused, intermediate
@@ -196,7 +196,8 @@ class SRAGPipeline:
         try:
             if not self.commentary_store.conn:
                 self.commentary_store.connect()
-        except Exception:
+        except Exception as e:
+            logger.warning(f"Commentary store connection failed: {e}")
             return {}
 
         verse_refs = []
@@ -371,8 +372,9 @@ def main():
             try:
                 if hasattr(pipeline, '_get_graph_retriever'):
                     pipeline._get_graph_retriever()
+                    logger.info("Neo4j graph retriever connected")
             except Exception as e:
-                logger.warning(f"Graph connection failed: {e}. Continuing without graph.")
+                logger.error(f"Neo4j connection failed: {e}. Graph retrieval will be unavailable.")
 
             result = pipeline.query(args.query, use_api=not args.local)
 

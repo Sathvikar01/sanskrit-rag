@@ -65,6 +65,7 @@ class GraphRetriever:
                         "score": float(record["score"]),
                         "rank": rank,
                         "ref": record["ref"],
+                        "verse_ref": record["ref"],
                         "text": record["text"],
                     }
                 )
@@ -114,6 +115,7 @@ class GraphRetriever:
                         "score": float(record["score"]),
                         "rank": rank,
                         "ref": record["ref"],
+                        "verse_ref": record["ref"],
                         "text": record["text"],
                         "concept_overlap": record["concept_overlap"],
                     }
@@ -158,6 +160,7 @@ class GraphRetriever:
                         "score": score,
                         "rank": rank,
                         "ref": record["ref"],
+                        "verse_ref": record["ref"],
                         "text": record["text"],
                         "commentary_count": record["commentary_count"],
                     }
@@ -207,6 +210,7 @@ class GraphRetriever:
                         "score": 1.0 / rank,
                         "rank": len(results) + 1,
                         "ref": ref,
+                        "verse_ref": ref,
                         "text": record["text"],
                         "matched_concept": record["matched_concept"],
                     }

@@ -95,7 +95,7 @@ class LinguisticReranker:
             return "Gen"
         elif token.endswith("e") or token.endswith("asi"):
             return "Loc"
-        elif token.endswith("au") or token.endswith("āḥ"):
+        elif token.endswith("au"):
             return "Nom"
         elif token.endswith("aiḥ") or token.endswith("ebhiḥ"):
             return "Ins"
@@ -281,7 +281,14 @@ class LinguisticReranker:
 
         # Compute final scores with normalized features
         for (candidate, chunk), features in zip(valid_candidates, all_features):
+            chunk_id = candidate["chunk_id"]
             final_score = self.compute_final_score(features, weights)
+
+            # Boost verse chunks — they are the primary source material
+            if chunk.chunk_type == "verse":
+                final_score *= 1.30
+            elif chunk.chunk_type == "combined":
+                final_score *= 1.10
 
             retrieval_conf = self.confidence.compute_retrieval_confidence(
                 candidate.get("rrf_score", 0),
@@ -297,6 +304,7 @@ class LinguisticReranker:
                 "verse_ref": chunk.verse_ref,
                 "text_iast": chunk.text_iast,
                 "text_devanagari": chunk.text_devanagari,
+                "text_english": chunk.text_english,
                 "chunk_type": chunk.chunk_type,
                 "commentator": chunk.commentator,
                 "final_score": final_score,

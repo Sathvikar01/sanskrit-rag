@@ -41,8 +41,9 @@ async def lifespan(app: FastAPI):
     try:
         if hasattr(pipeline, '_get_graph_retriever'):
             pipeline._get_graph_retriever()
-    except Exception:
-        pass
+            logger.info("Neo4j graph retriever connected")
+    except Exception as e:
+        logger.error(f"Neo4j connection failed: {e}. Graph retrieval will be unavailable.")
 
     logger.info("SRAG pipeline ready")
     yield
@@ -83,15 +84,14 @@ class QueryResponse(BaseModel):
 
 @app.post("/api/query", response_model=QueryResponse)
 def query_endpoint(req: QueryRequest):
-    # Apply normalization method if specified
+    old_method = None
     if req.normalize and hasattr(pipeline, 'reranker'):
         old_method = pipeline.reranker.normalize_method
         pipeline.reranker.normalize_method = req.normalize
 
     result = pipeline.query(req.query, use_api=True, toggles=req.toggles)
 
-    # Restore original normalization method
-    if req.normalize and hasattr(pipeline, 'reranker'):
+    if old_method is not None:
         pipeline.reranker.normalize_method = old_method
 
     return QueryResponse(
@@ -112,10 +112,14 @@ def query_endpoint(req: QueryRequest):
 
 @app.get("/api/health")
 def health():
+    neo4j_ok = False
+    if pipeline and hasattr(pipeline, '_graph_connected'):
+        neo4j_ok = pipeline._graph_connected
     return {
         "status": "ok",
         "chunks": len(pipeline.chunks) if pipeline else 0,
         "pipeline_type": "langgraph" if hasattr(pipeline, 'graph') else "standard",
+        "neo4j_connected": neo4j_ok,
     }
 
 

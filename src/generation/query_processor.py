@@ -122,9 +122,14 @@ class QueryProcessor:
         response = self._call_mimo(prompt)
         parsed = self._parse_response(response)
 
-        query_iast = parsed.get("query_iast", query)
+        query_iast = parsed.get("query_iast", "")
         concepts = parsed.get("concepts", [])
         confidence = parsed.get("confidence", 0.5)
+
+        # Fallback: if API failed or returned empty, use local processing
+        if not query_iast:
+            logger.warning("MiMo query processing failed, using local fallback")
+            return self.process_query_local(query)
 
         if not concepts:
             local_concepts = self.concept_extractor.extract_from_text(query_iast)

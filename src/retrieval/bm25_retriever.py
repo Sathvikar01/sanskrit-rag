@@ -27,7 +27,6 @@ class BM25Retriever:
         Simple whitespace + punctuation tokenization.
         """
         text = text.lower()
-        text = text.replace("।", " ").replace("||", " ")
         text = re.sub(r'[।॥,;:!?.\-—\(\)\[\]]', ' ', text)
         tokens = text.split()
         return [t for t in tokens if len(t) > 1]
