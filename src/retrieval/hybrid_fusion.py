@@ -52,6 +52,11 @@ def reciprocal_rank_fusion(
 
             if chunk_id not in data_map:
                 data_map[chunk_id] = result.copy()
+            else:
+                # Merge missing fields from later sources (e.g., graph adds verse_ref, chunk_type).
+                for k, v in result.items():
+                    if k not in data_map[chunk_id] or data_map[chunk_id].get(k) is None:
+                        data_map[chunk_id][k] = v
 
     fused = []
     for chunk_id, score in sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True):
@@ -143,6 +148,11 @@ def weighted_fusion(
 
             if chunk_id not in data_map:
                 data_map[chunk_id] = result.copy()
+            else:
+                # Merge missing fields from later sources (e.g., graph adds verse_ref, chunk_type).
+                for k, v in result.items():
+                    if k not in data_map[chunk_id] or data_map[chunk_id].get(k) is None:
+                        data_map[chunk_id][k] = v
 
     fused = []
     for chunk_id, score in sorted(weighted_scores.items(), key=lambda x: x[1], reverse=True):
@@ -236,10 +246,31 @@ class HybridRetriever:
             logger.warning(f"Unknown fusion method: {self.fusion_method}, using RRF")
             fused = reciprocal_rank_fusion(ranked_lists, k=self.rrf_k, weights=weights)
 
+        # Promote exact verse_ref matches (graph_score > 50) into top_k.
+        # RRF rank-based scoring under-weights graph-only results, so a
+        # high-confidence verse match from Neo4j can get truncated out.
+        promoted = [r for r in fused if r.get("graph_score", 0) > 50]
+        promoted_ids = {r["chunk_id"] for r in promoted}
+        regular = [r for r in fused if r["chunk_id"] not in promoted_ids]
+
+        result = regular[:top_k]
+        for r in promoted:
+            if len(result) < top_k:
+                result.append(r)
+            else:
+                # Replace the lowest-RRF regular entry.
+                for i in range(len(result) - 1, -1, -1):
+                    if result[i].get("graph_score", 0) <= 50:
+                        result[i] = r
+                        break
+
+        for i, r in enumerate(result):
+            r["rank"] = i + 1
+
         logger.info(
             f"Hybrid fusion ({query_type}): {len(vector_results)} vector + "
             f"{len(graph_results)} graph + {len(bm25_results)} BM25 -> "
-            f"{len(fused)} fused results"
+            f"{len(result)} fused results ({len(promoted)} verse_ref matches promoted)"
         )
 
-        return fused[:top_k]
+        return result

@@ -8,6 +8,7 @@ This implements the full RAG pipeline as a LangGraph state machine with:
 - Answer generation with MiMo
 """
 
+import re
 import sys
 if sys.platform == "win32":
     sys.stdout.reconfigure(encoding="utf-8")
@@ -33,6 +34,20 @@ from src.utils.logger import logger
 
 # Default toggle state
 DEFAULT_TOGGLES = {"vector": True, "graph": True, "bm25": True}
+
+VERSE_REF_PATTERN = re.compile(r'(?:BhG|BG)\s+(\d+\.\d+)', re.IGNORECASE)
+
+
+def extract_verse_refs_from_text(text: str) -> list[str]:
+    """Extract unique verse references like 'BhG 2.47' from text."""
+    seen = set()
+    refs = []
+    for m in VERSE_REF_PATTERN.finditer(text):
+        ref = f"BhG {m.group(1)}"
+        if ref not in seen:
+            seen.add(ref)
+            refs.append(ref)
+    return refs
 
 
 class SRAGGraphPipeline:
@@ -130,6 +145,43 @@ class SRAGGraphPipeline:
                 "concepts": expanded_concepts,
                 "iteration": iteration + 1,
             }
+
+    def _node_verse_ref_retrieval(self, state: SRAGState) -> dict:
+        """Check query for BhG X.Y / BG X.Y pattern.
+
+        If detected, retrieve the verse directly from Neo4j and skip the full
+        retrieval pipeline (vector + BM25 + graph combined).
+        """
+        query = state["query"]
+        query_iast = state.get("query_iast", "")
+        refs = extract_verse_refs_from_text(query)
+        if not refs:
+            refs = extract_verse_refs_from_text(query_iast)
+
+        if refs:
+            vid = refs[0]
+            try:
+                graph = self._get_graph_retriever()
+                vr = graph.search_by_verse_ref(vid, top_k=1)
+                if vr:
+                    logger.info(f"Rule-based verse_ref node: '{vid}' found, skipping full retrieval")
+                    vr[0]["exact_verse_match"] = True
+                    return {
+                        "fused_results": vr,
+                        "reranked_results": vr,
+                        "verse_ref_detected": True,
+                        "verse_ref": vid,
+                    }
+            except Exception as e:
+                logger.warning(f"Verse ref retrieval failed for '{vid}': {e}")
+
+        return {"verse_ref_detected": False, "verse_ref": ""}
+
+    def _route_after_verse_check(self, state: SRAGState) -> str:
+        """Route to generate if verse ref was found, else to normal retrieval."""
+        if state.get("verse_ref_detected", False):
+            return "generate"
+        return "retrieve"
 
     def _node_retrieve(self, state: SRAGState) -> dict:
         """Run vector, graph, and BM25 retrieval with toggle support."""
@@ -273,13 +325,19 @@ class SRAGGraphPipeline:
         workflow = StateGraph(SRAGState)
 
         workflow.add_node("process_query", self._node_process_query)
+        workflow.add_node("verse_ref_retrieval", self._node_verse_ref_retrieval)
         workflow.add_node("retrieve", self._node_retrieve)
         workflow.add_node("fuse", self._node_fuse)
         workflow.add_node("rerank", self._node_rerank)
         workflow.add_node("generate", self._node_generate)
 
         workflow.set_entry_point("process_query")
-        workflow.add_edge("process_query", "retrieve")
+        workflow.add_edge("process_query", "verse_ref_retrieval")
+        workflow.add_conditional_edges(
+            "verse_ref_retrieval",
+            self._route_after_verse_check,
+            {"generate": "generate", "retrieve": "retrieve"},
+        )
         workflow.add_edge("retrieve", "fuse")
         workflow.add_edge("fuse", "rerank")
 
@@ -326,6 +384,8 @@ class SRAGGraphPipeline:
             "bm25_results": [],
             "fused_results": [],
             "reranked_results": [],
+            "verse_ref_detected": False,
+            "verse_ref": "",
             "answer": "",
             "citations": [],
             "confidence": {},

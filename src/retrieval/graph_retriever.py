@@ -1,10 +1,24 @@
 """Graph retriever using Neo4j for knowledge graph traversal."""
 
 
+import re
+
 from neo4j import GraphDatabase
 
 from src.utils.config import Config
 from src.utils.logger import logger
+
+
+def normalize_verse_ref(ref: str) -> str:
+    """Normalize a verse reference to 'BhG X.Y' format.
+
+    Handles: 'BG 2.47', 'BhG 2.47', 'bhagavad gita 2.47', '2.47'.
+    """
+    ref = ref.strip()
+    m = re.search(r'(\d+\.\d+)', ref)
+    if not m:
+        return ref
+    return f"BhG {m.group(1)}"
 
 
 class GraphRetriever:
@@ -217,6 +231,49 @@ class GraphRetriever:
                 )
 
         logger.info(f"Concept neighborhood search returned {len(results)} results")
+        return results
+
+    def search_by_verse_ref(self, verse_ref: str, top_k: int = 10) -> list[dict]:
+        """Search verses by exact verse reference (e.g. 'BhG 2.47').
+
+        Uses exact match (not CONTAINS) and normalizes the input ref
+        to handle format variations (BG → BhG, extra whitespace, etc.).
+
+        Args:
+            verse_ref: Verse reference string to search for.
+            top_k: Maximum results to return.
+
+        Returns:
+            List of dicts with chunk_id, score, rank, verse_ref, graph_score, chunk_type.
+        """
+        normalized = normalize_verse_ref(verse_ref)
+        cypher_query = """
+        MATCH (v:Verse)
+        WHERE v.ref = $verse_ref
+        RETURN v.ref AS ref, v.text_iast AS text, v.text_devanagari AS text_devanagari
+        LIMIT $top_k
+        """
+
+        with self.driver.session() as session:
+            result = session.run(cypher_query, verse_ref=normalized, top_k=top_k)
+            results = []
+            for rank, record in enumerate(result, 1):
+                ref = record["ref"]
+                results.append(
+                    {
+                        "chunk_id": f"{ref.replace(' ', '_')}_verse",
+                        "score": 100.0,
+                        "graph_score": 100.0,
+                        "rank": rank,
+                        "verse_ref": ref,
+                        "text_iast": record["text"],
+                        "text_devanagari": record["text_devanagari"],
+                        "sources": ["graph"],
+                        "chunk_type": "verse",
+                    }
+                )
+
+        logger.info(f"Verse ref search for '{verse_ref}' (normalized: '{normalized}') returned {len(results)} results")
         return results
 
     def search_combined(

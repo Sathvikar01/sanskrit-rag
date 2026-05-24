@@ -23,6 +23,9 @@ class SRAGState(TypedDict):
     citations: list[str]
     confidence: dict
 
+    verse_ref_detected: bool
+    verse_ref: str
+
     iteration: int
     should_expand: bool
     error: str

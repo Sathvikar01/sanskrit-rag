@@ -1,0 +1,551 @@
+{
+  "config": {
+    "samples_per_dataset": 3,
+    "iskcon_samples": 2,
+    "neo4j_online": true
+  },
+  "overall": {
+    "without_verse_id": {
+      "s1": 0.0,
+      "s3": 0.3333,
+      "s5": 0.3333,
+      "s10": 0.3333,
+      "mrr": 0.1667
+    },
+    "with_verse_id_reranker": {
+      "s1": 0.8889,
+      "s3": 0.8889,
+      "s5": 0.8889,
+      "s10": 0.8889,
+      "mrr": 0.8889
+    },
+    "with_verse_id_fusion_only": {
+      "s1": 0.8889,
+      "s3": 0.8889,
+      "s5": 0.8889,
+      "s10": 0.8889,
+      "mrr": 0.8889
+    },
+    "verse_ref_direct_pct": 88.9
+  },
+  "by_dataset": {
+    "gita_guidance_qa": {
+      "without_verse_id": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "mrr": 0.0
+      },
+      "with_verse_id_reranker": {
+        "recall_at_1": 0.6667,
+        "recall_at_3": 0.6667,
+        "recall_at_5": 0.6667,
+        "recall_at_10": 0.6667,
+        "mrr": 0.6667
+      },
+      "with_verse_id_fusion_only": {
+        "recall_at_1": 0.6667,
+        "recall_at_3": 0.6667,
+        "recall_at_5": 0.6667,
+        "recall_at_10": 0.6667,
+        "mrr": 0.6667
+      },
+      "verse_ref_direct_pct": 66.7
+    },
+    "hf_gita_qa": {
+      "without_verse_id": {
+        "recall_at_1": 0,
+        "recall_at_3": 0,
+        "recall_at_5": 0,
+        "recall_at_10": 0,
+        "mrr": 0
+      },
+      "with_verse_id_reranker": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "with_verse_id_fusion_only": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "verse_ref_direct_pct": 100.0
+    },
+    "kaggle_gita_qa": {
+      "without_verse_id": {
+        "recall_at_1": 0,
+        "recall_at_3": 0,
+        "recall_at_5": 0,
+        "recall_at_10": 0,
+        "mrr": 0
+      },
+      "with_verse_id_reranker": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "with_verse_id_fusion_only": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "verse_ref_direct_pct": 100.0
+    },
+    "iskcon_vedabase": {
+      "without_verse_id": {
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.5,
+        "recall_at_5": 0.5,
+        "recall_at_10": 0.5,
+        "mrr": 0.25
+      },
+      "with_verse_id_reranker": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "with_verse_id_fusion_only": {
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0
+      },
+      "verse_ref_direct_pct": 100.0
+    }
+  },
+  "detailed_results": {
+    "gita_guidance_qa": [
+      {
+        "question": "I feel stuck in a pattern of always chasing the next promotion, the bigger house",
+        "verse_refs": [
+          "BhG 8.16"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.04,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 8.16"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 8.16"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm feeling overwhelmed trying to balance my career, family, and personal well-b",
+        "verse_refs": [
+          "BhG 12.4"
+        ],
+        "without_id": {
+          "time": 7.51,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 18.12",
+              "BhG 2.45",
+              "BhG 17.17",
+              "BhG 13.3",
+              "BhG 17.2",
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 6.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        }
+      },
+      {
+        "question": "I'm feeling really lost and overwhelmed. There's so much information out there a",
+        "verse_refs": [
+          "BhG 10.32"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.03,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.32"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.32"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      }
+    ],
+    "hf_gita_qa": [
+      {
+        "question": "In Chapter 14, Verse 1, what does 'highest perfection' imply in the context of t",
+        "verse_refs": [
+          "BhG 14.1"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.02,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 14.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 14.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "In Chapter 2, Verse 45, what does Krishna advise Arjuna to do when he says 'nist",
+        "verse_refs": [
+          "BhG 2.45"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.02,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.45"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.45"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Why does Arjuna want his chariot placed in the midst of the armies?",
+        "verse_refs": [
+          "BhG 1.21"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        }
+      }
+    ],
+    "kaggle_gita_qa": [
+      {
+        "question": "I'm an artist, but lately, I feel a creative block, a lack of inspiration and vi",
+        "verse_refs": [
+          "BhG 6.14"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        }
+      },
+      {
+        "question": "I'm an artist, and lately I've been experiencing a severe creative block. It fee",
+        "verse_refs": [
+          "BhG 12.5"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.04,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 12.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 12.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I feel numb to the suffering in the world, overwhelmed by its vastness, and fear",
+        "verse_refs": [
+          "BhG 10.22"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.01,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.22"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.22"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      }
+    ],
+    "iskcon_vedabase": [
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 6.10"
+        ],
+        "without_id": {
+          "time": 1.6,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.01,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 6.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 6.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 11.32"
+        ],
+        "without_id": {
+          "time": 1.11,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 0.5
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.02,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 11.32"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 11.32"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      }
+    ]
+  }
+}
