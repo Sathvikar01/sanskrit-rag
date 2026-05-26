@@ -16,6 +16,11 @@ from src.generation.query_processor import QueryProcessor
 from src.preprocessing.chunker import Chunk, create_all_chunks, load_chunks, save_chunks
 from src.preprocessing.graph_builder import GraphBuilder
 from src.preprocessing.graph_import import save_graph_import_data
+from src.preprocessing.supplement_verses import (
+    get_missing_verses,
+    load_supplementary_verses,
+    save_supplementary_verses,
+)
 from src.preprocessing.xml_parser import XMLParser
 from src.reranking.linguistic_reranker import LinguisticReranker
 from src.retrieval.bm25_retriever import BM25Retriever
@@ -82,6 +87,19 @@ class SRAGPipeline:
                 segmentation_xml=self.config.get("data.xml_segmentation"),
             )
             verses, morpho, segmentation = parser.parse_all()
+
+            # Supplement missing verses from external API
+            supp_path = Path("data/processed/graph_import/supplementary_verses.json")
+            supplementary = load_supplementary_verses(supp_path)
+            if not supplementary:
+                logger.info("Fetching supplementary verses from API...")
+                supplementary = get_missing_verses()
+                if supplementary:
+                    save_supplementary_verses(supplementary, supp_path)
+            if supplementary:
+                logger.info(f"Adding {len(supplementary)} supplementary verses")
+                verses.extend(supplementary)
+
             self.chunks = create_all_chunks(verses, morpho, segmentation)
             save_chunks(self.chunks, chunks_path)
             save_graph_import_data(graph_dir, verses, self.chunks)

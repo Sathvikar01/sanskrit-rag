@@ -18,6 +18,12 @@ from pathlib import Path
 
 CHAPTER_VERSES = [46, 72, 43, 42, 29, 47, 30, 28, 34, 42, 55, 20, 35, 27, 20, 24, 28, 78]
 
+_SUPPLEMENTED_VERSES = {
+    (1,38), (1,47), (2,35), (5,9), (10,26), (12,6), (12,7),
+    (15,6), (15,9), (15,13), (15,16), (16,2), (16,3), (16,9),
+    (16,13), (17,4), (17,14),
+}
+
 def unique_key_to_verse_ref(key: int) -> str:
     cum = 0
     for ch, count in enumerate(CHAPTER_VERSES, 1):
@@ -25,6 +31,26 @@ def unique_key_to_verse_ref(key: int) -> str:
             return f"BhG {ch}.{key - cum}"
         cum += count
     return ""
+
+def _parse_ref(ref: str) -> tuple:
+    parts = ref.replace("BhG ", "").split(".")
+    if len(parts) == 2:
+        try:
+            return (int(parts[0]), int(parts[1]))
+        except ValueError:
+            pass
+    return (0, 0)
+
+def _is_valid_ref(ref: str) -> bool:
+    ch, v = _parse_ref(ref)
+    if ch < 1 or ch > 18 or v < 1:
+        return False
+    if v <= CHAPTER_VERSES[ch - 1]:
+        return True
+    return (ch, v) in _SUPPLEMENTED_VERSES
+
+def _filter_valid(refs: list[str]) -> list[str]:
+    return [r for r in refs if _is_valid_ref(r)]
 
 def extract_verse_refs_from_text(text: str) -> set[str]:
     refs = set()
@@ -45,9 +71,9 @@ def load_gita_guidance_qa(path: str) -> list[dict]:
                 q = msgs[0].get('content', '')
                 a = msgs[1].get('content', '')
                 if q and a:
-                    refs = extract_verse_refs_from_text(a)
+                    refs = _filter_valid(sorted(extract_verse_refs_from_text(a)))
                     if refs:
-                        pairs.append({'question': q, 'source': 'gita_guidance_qa', 'verse_refs': sorted(refs)})
+                        pairs.append({'question': q, 'source': 'gita_guidance_qa', 'verse_refs': refs})
     return pairs
 
 def load_hf_gita_qa(path: str) -> list[dict]:
@@ -57,7 +83,9 @@ def load_hf_gita_qa(path: str) -> list[dict]:
             d = json.loads(line)
             q, a, ch, vs = d.get('question',''), d.get('answer',''), d.get('chapter_no'), d.get('verse_no')
             if q and a and ch and vs:
-                pairs.append({'question': q, 'source': 'hf_gita_qa', 'verse_refs': [f"BhG {ch}.{vs}"]})
+                ref = f"BhG {ch}.{vs}"
+                if _is_valid_ref(ref):
+                    pairs.append({'question': q, 'source': 'hf_gita_qa', 'verse_refs': [ref]})
     return pairs
 
 def load_kaggle_gita_qa(path: str) -> list[dict]:
@@ -67,7 +95,9 @@ def load_kaggle_gita_qa(path: str) -> list[dict]:
             d = json.loads(line)
             q, a, vs = d.get('question',''), d.get('answer',''), d.get('verse_source','')
             if q and a and vs and '.' in vs:
-                pairs.append({'question': q, 'source': 'kaggle_gita_qa', 'verse_refs': [f"BhG {vs}"]})
+                ref = f"BhG {vs}"
+                if _is_valid_ref(ref):
+                    pairs.append({'question': q, 'source': 'kaggle_gita_qa', 'verse_refs': [ref]})
     return pairs
 
 def load_iskcon(path: str, n: int) -> list[dict]:
@@ -109,22 +139,12 @@ def run(samples: int, iskcon_n: int):
     print("=" * 70)
 
     from src.utils.config import Config
-    from src.reranking.adaptive_reranker import detect_query_type
     from src.langchain_components.graph import SRAGGraphPipeline
 
     config = Config()
     pipeline = SRAGGraphPipeline(config)
     pipeline.preprocess()
     pipeline.build_indices()
-
-    # Access components from pipeline
-    qp = pipeline.query_processor
-    vs = pipeline.vector_store
-    bm25 = pipeline.bm25_retriever
-    hybrid = pipeline.hybrid_retriever
-    reranker = pipeline.reranker
-    chunks = pipeline.chunks
-    cmap = pipeline.chunk_map
 
     # ── Neo4j graph ──
     graph_available = False
@@ -135,8 +155,10 @@ def run(samples: int, iskcon_n: int):
     except Exception as e:
         print(f"  Neo4j: OFFLINE ({e})")
 
-    print(f"Chunks: {len(chunks)}")
-    print(f"FAISS: {vs.index.ntotal} | BM25: {len(bm25.chunk_ids)}")
+    print(f"Chunks: {len(pipeline.chunks)}")
+    if pipeline.vector_store.index:
+        print(f"FAISS: {pipeline.vector_store.index.ntotal}")
+    print(f"BM25: {len(pipeline.bm25_retriever.chunk_ids)}")
 
     # Datasets
     ed = Path("data/evaluation/external")
@@ -178,39 +200,12 @@ def run(samples: int, iskcon_n: int):
             for cl, qt in conds:
                 try:
                     t0 = time.time()
-                    p = qp.process_query_local(qt)
-                    qt_type = detect_query_type(p.query_iast, p.concepts)
+                    result = pipeline.query(qt, use_api=False, retrieval_only=True)
 
-                    # Build partial state for the rule-based verse_ref node
-                    state_prefix = {
-                        "query": qt,
-                        "query_iast": p.query_iast,
-                        "query_devanagari": p.query_devanagari,
-                        "concepts": p.concepts,
-                        "query_type": qt_type,
-                        "verse_ref_detected": False,
-                        "verse_ref": "",
-                        "fused_results": [],
-                        "reranked_results": [],
-                    }
-
-                    # Rule-based verse_ref retrieval node — uses regex on query text
-                    verse_ref_result = pipeline._node_verse_ref_retrieval(state_prefix)
-                    verse_ref_detected = verse_ref_result.get("verse_ref_detected", False)
-
-                    if verse_ref_detected:
-                        # Rule-based node found a verse ref — skip full retrieval
-                        rr = verse_ref_result.get("reranked_results", [])
-                        fused = verse_ref_result.get("fused_results", [])
-                    else:
-                        # Normal retrieval pipeline
-                        vr = vs.search(p.query_devanagari, top_k=50)
-                        br = bm25.search(p.query_iast, top_k=50)
-                        gr = []
-                        if graph_available:
-                            gr = pipeline._get_graph_retriever().search_combined(p.query_iast, p.concepts, top_k=50)
-                        fused = hybrid.fuse_results(vr, gr, br, top_k=50, query_type=qt_type)
-                        rr = reranker.rerank(p.query_iast, p.concepts, fused, chunks, cmap)
+                    rr = result.get("reranked_results", [])
+                    fused = result.get("fused_results", [])
+                    intermediate = result.get("intermediate", {})
+                    verse_ref_detected = intermediate.get("verse_ref_detected", False)
 
                     vm = check_verse_in_reranked(refs, rr)
                     fm = check_verse_in_reranked(refs, fused) if fused else {}
