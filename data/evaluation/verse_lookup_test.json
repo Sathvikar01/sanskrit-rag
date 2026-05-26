@@ -1,32 +1,32 @@
 {
   "config": {
-    "samples_per_dataset": 3,
-    "iskcon_samples": 2,
+    "samples_per_dataset": 30,
+    "iskcon_samples": 15,
     "neo4j_online": true
   },
   "overall": {
     "without_verse_id": {
       "s1": 0.0,
-      "s3": 0.3333,
-      "s5": 0.3333,
-      "s10": 0.3333,
-      "mrr": 0.1667
+      "s3": 0.0192,
+      "s5": 0.0192,
+      "s10": 0.0192,
+      "mrr": 0.0096
     },
     "with_verse_id_reranker": {
-      "s1": 0.8889,
-      "s3": 0.8889,
-      "s5": 0.8889,
-      "s10": 0.8889,
-      "mrr": 0.8889
+      "s1": 1.0,
+      "s3": 1.0,
+      "s5": 1.0,
+      "s10": 1.0,
+      "mrr": 1.0
     },
     "with_verse_id_fusion_only": {
-      "s1": 0.8889,
-      "s3": 0.8889,
-      "s5": 0.8889,
-      "s10": 0.8889,
-      "mrr": 0.8889
+      "s1": 1.0,
+      "s3": 1.0,
+      "s5": 1.0,
+      "s10": 1.0,
+      "mrr": 1.0
     },
-    "verse_ref_direct_pct": 88.9
+    "verse_ref_direct_pct": 100.0
   },
   "by_dataset": {
     "gita_guidance_qa": {
@@ -38,28 +38,28 @@
         "mrr": 0.0
       },
       "with_verse_id_reranker": {
-        "recall_at_1": 0.6667,
-        "recall_at_3": 0.6667,
-        "recall_at_5": 0.6667,
-        "recall_at_10": 0.6667,
-        "mrr": 0.6667
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0
       },
       "with_verse_id_fusion_only": {
-        "recall_at_1": 0.6667,
-        "recall_at_3": 0.6667,
-        "recall_at_5": 0.6667,
-        "recall_at_10": 0.6667,
-        "mrr": 0.6667
+        "recall_at_1": 1.0,
+        "recall_at_3": 1.0,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0
       },
-      "verse_ref_direct_pct": 66.7
+      "verse_ref_direct_pct": 100.0
     },
     "hf_gita_qa": {
       "without_verse_id": {
-        "recall_at_1": 0,
-        "recall_at_3": 0,
-        "recall_at_5": 0,
-        "recall_at_10": 0,
-        "mrr": 0
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "mrr": 0.0
       },
       "with_verse_id_reranker": {
         "recall_at_1": 1.0,
@@ -79,11 +79,11 @@
     },
     "kaggle_gita_qa": {
       "without_verse_id": {
-        "recall_at_1": 0,
-        "recall_at_3": 0,
-        "recall_at_5": 0,
-        "recall_at_10": 0,
-        "mrr": 0
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "mrr": 0.0
       },
       "with_verse_id_reranker": {
         "recall_at_1": 1.0,
@@ -104,10 +104,10 @@
     "iskcon_vedabase": {
       "without_verse_id": {
         "recall_at_1": 0.0,
-        "recall_at_3": 0.5,
-        "recall_at_5": 0.5,
-        "recall_at_10": 0.5,
-        "mrr": 0.25
+        "recall_at_3": 0.0667,
+        "recall_at_5": 0.0667,
+        "recall_at_10": 0.0667,
+        "mrr": 0.0333
       },
       "with_verse_id_reranker": {
         "recall_at_1": 1.0,
@@ -137,7 +137,7 @@
           "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time": 0.04,
+          "time": 0.58,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 8.16"
@@ -167,7 +167,7 @@
           "BhG 12.4"
         ],
         "without_id": {
-          "time": 7.51,
+          "time": 3.54,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 18.12",
@@ -198,7 +198,103 @@
           "verse_ref_direct": false
         },
         "with_id": {
-          "time": 6.27,
+          "time": 0.23,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 12.4"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 12.4"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm feeling really lost and overwhelmed. There's so much information out there a",
+        "verse_refs": [
+          "BhG 10.32"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.34,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.32"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.32"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm trying to decide if I should quit my volunteering work at the animal shelter",
+        "verse_refs": [
+          "BhG 18.3"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.36,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 18.3"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 18.3"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I’ve been volunteering at a homeless shelter for months, but honestly, I’m just ",
+        "verse_refs": [
+          "BhG 17.28"
+        ],
+        "without_id": {
+          "time": 3.31,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 10.16",
@@ -227,21 +323,12 @@
             "mrr": 0.0
           },
           "verse_ref_direct": false
-        }
-      },
-      {
-        "question": "I'm feeling really lost and overwhelmed. There's so much information out there a",
-        "verse_refs": [
-          "BhG 10.32"
-        ],
-        "without_id": {
-          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time": 0.03,
+          "time": 0.24,
           "verse_retrieval": {
             "retrieved_top10": [
-              "BhG 10.32"
+              "BhG 17.28"
             ],
             "recall_at_1": 1.0,
             "recall_at_3": 1.0,
@@ -251,7 +338,1084 @@
           },
           "fusion_only": {
             "retrieved_top10": [
-              "BhG 10.32"
+              "BhG 17.28"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "My friend is really down because they feel like everyone is just looking out for",
+        "verse_refs": [
+          "BhG 16.8"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.33,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 16.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 16.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm really struggling with feeling disconnected from others, like everyone is so",
+        "verse_refs": [
+          "BhG 13.3"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 13.3"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 13.3"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've been working really hard to achieve success and happiness, but no matter wh",
+        "verse_refs": [
+          "BhG 12.14"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 12.14"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 12.14"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm working incredibly hard to achieve my career goals, but no matter how much I",
+        "verse_refs": [
+          "BhG 9.24"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.23,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 9.24"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 9.24"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm constantly stressed about my future – worried about getting the right job, b",
+        "verse_refs": [
+          "BhG 5.28"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 5.28"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 5.28"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've been incredibly stressed and overwhelmed by everything going on in my life,",
+        "verse_refs": [
+          "BhG 11.51"
+        ],
+        "without_id": {
+          "time": 2.69,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 10.36",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.3,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 11.51"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 11.51"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've been meditating and trying to live a more mindful life for years, but I sti",
+        "verse_refs": [
+          "BhG 6.42"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 6.42"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 6.42"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've been trying to cut back on social media and junk food, but I keep getting s",
+        "verse_refs": [
+          "BhG 2.59"
+        ],
+        "without_id": {
+          "time": 16.14,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.89,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.59"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.59"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm feeling completely disconnected from everything and everyone. Like there's n",
+        "verse_refs": [
+          "BhG 10.39"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.22,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.39"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.39"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I feel like everyone is always comparing leaders and influencers, saying who's '",
+        "verse_refs": [
+          "BhG 10.37"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.6,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.37"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.37"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm feeling completely overwhelmed by the scale of problems in the world – clima",
+        "verse_refs": [
+          "BhG 11.6"
+        ],
+        "without_id": {
+          "time": 3.53,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.3,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 11.6"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 11.6"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "My colleague constantly takes credit for my work, and it's incredibly frustratin",
+        "verse_refs": [
+          "BhG 16.3"
+        ],
+        "without_id": {
+          "time": 3.34,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.31,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 16.3"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 16.3"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've been volunteering at a homeless shelter every week for months, but honestly",
+        "verse_refs": [
+          "BhG 17.17"
+        ],
+        "without_id": {
+          "time": 4.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 17.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 17.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've been feeling lost and disconnected lately, like something's missing in my l",
+        "verse_refs": [
+          "BhG 4.3"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.28,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 4.3"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 4.3"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm feeling incredibly overwhelmed with work and life, constantly distracted and",
+        "verse_refs": [
+          "BhG 7.1"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 7.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 7.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "My grandmother recently passed away, and I'm struggling with the grief, but I’m ",
+        "verse_refs": [
+          "BhG 10.34"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.32,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.34"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.34"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm constantly stressed and overwhelmed by work and social media. I feel like I'",
+        "verse_refs": [
+          "BhG 6.15"
+        ],
+        "without_id": {
+          "time": 2.56,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 10.36",
+              "BhG 3.17",
+              "BhG 17.8",
+              "BhG 3.20",
+              "BhG 10.2"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.34,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 6.15"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 6.15"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've been feeling really lost after my grandmother passed away. I keep thinking ",
+        "verse_refs": [
+          "BhG 15.8"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.23,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 15.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 15.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "My friend is really struggling with the idea of death and keeps worrying about w",
+        "verse_refs": [
+          "BhG 8.26"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.33,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 8.26"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 8.26"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm constantly stressed about work – if things are going well, I worry about los",
+        "verse_refs": [
+          "BhG 2.56"
+        ],
+        "without_id": {
+          "time": 2.63,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.28,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.56"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.56"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm constantly struggling with negative thoughts and bad habits, and it feels li",
+        "verse_refs": [
+          "BhG 16.5"
+        ],
+        "without_id": {
+          "time": 3.15,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 10.36",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 16.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 16.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm constantly feeling pressured to achieve more – a better job, a bigger house,",
+        "verse_refs": [
+          "BhG 3.17"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.35,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 3.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 3.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've been trying to live a more mindful and spiritual life for years now, but I ",
+        "verse_refs": [
+          "BhG 6.41"
+        ],
+        "without_id": {
+          "time": 3.92,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.36",
+              "BhG 17.8",
+              "BhG 4.29",
+              "BhG 17.2",
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 13.3",
+              "BhG 11.36",
+              "BhG 10.6"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 6.41"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 6.41"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm feeling really stuck. I have a lot of possessions and attachments – my job, ",
+        "verse_refs": [
+          "BhG 18.4"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.3,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 18.4"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 18.4"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm constantly searching for external validation to feel worthy and understand m",
+        "verse_refs": [
+          "BhG 10.15"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.22,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.15"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.15"
             ],
             "recall_at_1": 1.0,
             "recall_at_3": 1.0,
@@ -273,7 +1437,7 @@
           "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time": 0.02,
+          "time": 0.26,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 14.1"
@@ -306,7 +1470,7 @@
           "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time": 0.02,
+          "time": 0.23,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 2.45"
@@ -339,7 +1503,1283 @@
           "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
+          "time": 0.28,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 1.21"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 1.21"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "How does 'arjavam' or straightness contribute to physical discipline according t",
+        "verse_refs": [
+          "BhG 17.14"
+        ],
+        "without_id": {
+          "time": 2.4,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.23,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 17.14"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 17.14"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "How does Krishna describe the nature of sense-born pleasures as having 'a beginn",
+        "verse_refs": [
+          "BhG 5.22"
+        ],
+        "without_id": {
+          "time": 1.52,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.3",
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.31,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 5.22"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 5.22"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "In Chapter 4, Verse 39, what does the phrase 'supreme peace' signify in the cont",
+        "verse_refs": [
+          "BhG 4.39"
+        ],
+        "without_id": {
           "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 4.39"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 4.39"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "What does the verse suggest about the relationship between actions and sin?",
+        "verse_refs": [
+          "BhG 4.21"
+        ],
+        "without_id": {
+          "time": 2.49,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 4.21"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 4.21"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "How does restraining the senses from sense objects affect a person's intelligenc",
+        "verse_refs": [
+          "BhG 2.68"
+        ],
+        "without_id": {
+          "time": 2.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.28,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.68"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.68"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "How is 'putrid' or 'stale' food characterized in relation to Tamasika individual",
+        "verse_refs": [
+          "BhG 17.10"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 17.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 17.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "How does the promise of either heaven or earthly sovereignty help overcome fear ",
+        "verse_refs": [
+          "BhG 2.37"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.37"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.37"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "How does this teaching on Those portray the state of a person who is 'vinivritta",
+        "verse_refs": [
+          "BhG 15.5"
+        ],
+        "without_id": {
+          "time": 2.04,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.31,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 15.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 15.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "In Chapter 17, Verse 13, why is offering food and paying sacrificial fees import",
+        "verse_refs": [
+          "BhG 17.13"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.31,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 17.13"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 17.13"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "How does the concept of being an 'instrument' relate to detachment in actions?",
+        "verse_refs": [
+          "BhG 11.33"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 11.33"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 11.33"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "In Chapter 2, Verse 25, what does it mean when Krishna calls the soul 'avyakta',",
+        "verse_refs": [
+          "BhG 2.25"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.23,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.25"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.25"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Why does Krishna emphasize freedom from harsa (delight), amarsa (envy), bhaya (f",
+        "verse_refs": [
+          "BhG 12.15"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.23,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 12.15"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 12.15"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Why does the verse emphasize the repetition of creation?",
+        "verse_refs": [
+          "BhG 9.8"
+        ],
+        "without_id": {
+          "time": 1.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 11.36",
+              "BhG 3.15",
+              "BhG 3.17",
+              "BhG 10.6",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 9.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 9.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "In Chapter 1, Verse 27, who is filled with deep compassion after seeing the rela",
+        "verse_refs": [
+          "BhG 1.27"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.35,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 1.27"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 1.27"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Why might Arjuna refer to the assembled warriors in front of Bhishma and Drona?",
+        "verse_refs": [
+          "BhG 1.25"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.23,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 1.25"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 1.25"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Why does Krishna emphasize that the soul residing in all bodies is 'never slain'",
+        "verse_refs": [
+          "BhG 2.30"
+        ],
+        "without_id": {
+          "time": 2.44,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 3.36",
+              "BhG 6.37",
+              "BhG 2.2",
+              "BhG 3.1",
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 6.46"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.3,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.30"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.30"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "In Chapter 4, Verse 18, what is described as the quality of a wise man?",
+        "verse_refs": [
+          "BhG 4.18"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.21,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 4.18"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 4.18"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Who are the practitioners mentioned in the verse that focus on breath-control?",
+        "verse_refs": [
+          "BhG 4.29"
+        ],
+        "without_id": {
+          "time": 2.26,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 4.29"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 4.29"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "How can a person find peace in knowing that the universe is upheld by only a sma",
+        "verse_refs": [
+          "BhG 10.42"
+        ],
+        "without_id": {
+          "time": 2.34,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.26,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.42"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.42"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "What are the components mentioned in Chapter 13, Verse 5?",
+        "verse_refs": [
+          "BhG 13.5"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.33,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 13.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 13.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "What does Arjuna's request to observe the warriors signify about his state of mi",
+        "verse_refs": [
+          "BhG 1.22"
+        ],
+        "without_id": {
+          "time": 2.67,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 1.22"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 1.22"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "What is the significance of Arjuna's request to see the form with conch, discus,",
+        "verse_refs": [
+          "BhG 11.46"
+        ],
+        "without_id": {
+          "time": 3.41,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.34,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 11.46"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 11.46"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "In Chapter 4, Verse 1, what does the passage of Yoga from Vivasvan to Manu and I",
+        "verse_refs": [
+          "BhG 4.1"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.26,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 4.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 4.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "According to the verse, what is lacking in the sacrifices performed by those fil",
+        "verse_refs": [
+          "BhG 16.17"
+        ],
+        "without_id": {
+          "time": 2.5,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.28,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 16.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 16.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "In Chapter 14, Verse 10, what happens when Rajas overpowers Sattva and Tamas acc",
+        "verse_refs": [
+          "BhG 14.10"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.22,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 14.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 14.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "What might be the significance of being born with a 'divine endowment'?",
+        "verse_refs": [
+          "BhG 16.5"
+        ],
+        "without_id": {
+          "time": 1.85,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 16.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 16.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Why does Krishna tell Arjuna to 'arise' and 'gain fame'?",
+        "verse_refs": [
+          "BhG 11.33"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 11.33"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 11.33"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
         }
       }
     ],
@@ -350,10 +2790,59 @@
           "BhG 6.14"
         ],
         "without_id": {
-          "error": "can only concatenate str (not \"int\") to str"
+          "time": 1.65,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 18.28",
+              "BhG 17.25",
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 18.25",
+              "BhG 9.13",
+              "BhG 11.36",
+              "BhG 9.22",
+              "BhG 6.38"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
         },
         "with_id": {
-          "error": "can only concatenate str (not \"int\") to str"
+          "time": 0.22,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 6.14"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 6.14"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
         }
       },
       {
@@ -365,7 +2854,7 @@
           "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time": 0.04,
+          "time": 0.31,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 12.5"
@@ -398,7 +2887,7 @@
           "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time": 0.01,
+          "time": 0.22,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 10.22"
@@ -421,16 +2910,113 @@
           },
           "verse_ref_direct": true
         }
-      }
-    ],
-    "iskcon_vedabase": [
+      },
       {
-        "question": "Explain this Bhagavad Gita verse.",
+        "question": "I'm an artist, and sometimes I feel a powerful creative force flowing through me",
         "verse_refs": [
-          "BhG 6.10"
+          "BhG 8.22"
         ],
         "without_id": {
-          "time": 1.6,
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.23,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 8.22"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 8.22"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm working myself to the bone, always striving for the next promotion and recog",
+        "verse_refs": [
+          "BhG 17.18"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 17.18"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 17.18"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "As I grow older, I find myself thinking a lot about my legacy and how I'll be re",
+        "verse_refs": [
+          "BhG 16.17"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 16.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 16.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I sometimes get drawn into arguments online, defending my views passionately, bu",
+        "verse_refs": [
+          "BhG 16.1"
+        ],
+        "without_id": {
+          "time": 2.06,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 10.16",
@@ -461,10 +3047,10 @@
           "verse_ref_direct": false
         },
         "with_id": {
-          "time": 0.01,
+          "time": 0.24,
           "verse_retrieval": {
             "retrieved_top10": [
-              "BhG 6.10"
+              "BhG 16.1"
             ],
             "recall_at_1": 1.0,
             "recall_at_3": 1.0,
@@ -474,7 +3060,1137 @@
           },
           "fusion_only": {
             "retrieved_top10": [
-              "BhG 6.10"
+              "BhG 16.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've worked incredibly hard to get where I am in my career, and sometimes I find",
+        "verse_refs": [
+          "BhG 13.8"
+        ],
+        "without_id": {
+          "time": 3.62,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.32,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 13.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 13.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Everything feels so uncertain right now – the economy, my health, the state of t",
+        "verse_refs": [
+          "BhG 8.18"
+        ],
+        "without_id": {
+          "time": 2.12,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 8.18"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 8.18"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "CosmosView, I've spent my whole life studying, accumulating knowledge, and achie",
+        "verse_refs": [
+          "BhG 11.52"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 11.52"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 11.52"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I feel an inexplicable, deep pull towards a certain spiritual path or way of lif",
+        "verse_refs": [
+          "BhG 6.45"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 6.45"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 6.45"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've lost connection with my spiritual practices due to the demands of daily lif",
+        "verse_refs": [
+          "BhG 8.21"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 8.21"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 8.21"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I feel so lost about my life's purpose. I'm successful by worldly standards, but",
+        "verse_refs": [
+          "BhG 4.5"
+        ],
+        "without_id": {
+          "time": 2.55,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 10.36",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.39,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 4.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 4.5"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "CosmosView, I'm feeling so overwhelmed by negativity at work. There's constant g",
+        "verse_refs": [
+          "BhG 11.36"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.37,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 11.36"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 11.36"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "As a leader, the weight of responsibility feels immense. Every decision affects ",
+        "verse_refs": [
+          "BhG 5.2"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.21,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 5.2"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 5.2"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've made mistakes in the past that I deeply regret, and I'm constantly burdened",
+        "verse_refs": [
+          "BhG 2.7"
+        ],
+        "without_id": {
+          "time": 1.87,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.7"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.7"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "The future feels like a vast, dark ocean, full of uncertainty, and I'm afraid of",
+        "verse_refs": [
+          "BhG 10.29"
+        ],
+        "without_id": {
+          "time": 2.94,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.29"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.29"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm going through a tough transition, moving to a new city, and everything feels",
+        "verse_refs": [
+          "BhG 10.27"
+        ],
+        "without_id": {
+          "time": 4.02,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.4,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.27"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.27"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm constantly seeking external validation and approval from others. My happines",
+        "verse_refs": [
+          "BhG 11.43"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.35,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 11.43"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 11.43"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm constantly worried about the future – my finances, my health, the world. How",
+        "verse_refs": [
+          "BhG 15.19"
+        ],
+        "without_id": {
+          "time": 3.16,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.38,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 15.19"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 15.19"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "With so much conflicting information online about every topic, from health to cu",
+        "verse_refs": [
+          "BhG 16.7"
+        ],
+        "without_id": {
+          "time": 2.51,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.32,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 16.7"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 16.7"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I constantly procrastinate, knowing what I need to do but always putting it off ",
+        "verse_refs": [
+          "BhG 3.10"
+        ],
+        "without_id": {
+          "time": 2.55,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 3.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 3.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I've recently retired, and while I thought I'd be happy, I feel a profound sense",
+        "verse_refs": [
+          "BhG 5.13"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.29,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 5.13"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 5.13"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm struggling with a moral dilemma at work, and the \"easy\" path feels wrong, bu",
+        "verse_refs": [
+          "BhG 10.24"
+        ],
+        "without_id": {
+          "time": 5.09,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.24"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.24"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I put a lot of effort into my work, but sometimes I receive harsh criticism that",
+        "verse_refs": [
+          "BhG 4.20"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 4.20"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 4.20"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm constantly worried about money, even though I have a stable job. I save, I p",
+        "verse_refs": [
+          "BhG 15.1"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.31,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 15.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 15.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm an artist struggling with a deep creative block. I feel disconnected from my",
+        "verse_refs": [
+          "BhG 8.1"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 8.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 8.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I'm trying to start a new business, but every setback makes me want to quit. It ",
+        "verse_refs": [
+          "BhG 6.23"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.21,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 6.23"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 6.23"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I feel overwhelmed by the immense problems facing the world – climate change, po",
+        "verse_refs": [
+          "BhG 7.17"
+        ],
+        "without_id": {
+          "time": 3.16,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.33,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 7.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 7.17"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "I often feel overwhelmed by the sheer scale of global problems – poverty, confli",
+        "verse_refs": [
+          "BhG 4.4"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
+        },
+        "with_id": {
+          "time": 0.34,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 4.4"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 4.4"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      }
+    ],
+    "iskcon_vedabase": [
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 14.4"
+        ],
+        "without_id": {
+          "time": 1.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 14.4"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 14.4"
             ],
             "recall_at_1": 1.0,
             "recall_at_3": 1.0,
@@ -491,7 +4207,7 @@
           "BhG 11.32"
         ],
         "without_id": {
-          "time": 1.11,
+          "time": 2.49,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 10.16",
@@ -522,7 +4238,7 @@
           "verse_ref_direct": false
         },
         "with_id": {
-          "time": 0.02,
+          "time": 0.27,
           "verse_retrieval": {
             "retrieved_top10": [
               "BhG 11.32"
@@ -536,6 +4252,799 @@
           "fusion_only": {
             "retrieved_top10": [
               "BhG 11.32"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 6.10"
+        ],
+        "without_id": {
+          "time": 1.56,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.31,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 6.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 6.10"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 10.33"
+        ],
+        "without_id": {
+          "time": 3.14,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.33"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 10.33"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 12.13"
+        ],
+        "without_id": {
+          "time": 1.17,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.28,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 12.13"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 12.13"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 13.27"
+        ],
+        "without_id": {
+          "time": 1.47,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.35,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 13.27"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 13.27"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 17.8"
+        ],
+        "without_id": {
+          "time": 1.55,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.25,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 17.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 17.8"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 1.24"
+        ],
+        "without_id": {
+          "time": 1.43,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.34,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 1.24"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 1.24"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 2.55"
+        ],
+        "without_id": {
+          "time": 1.91,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.42,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.55"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.55"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 2.24"
+        ],
+        "without_id": {
+          "time": 1.2,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.31,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 2.24"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 2.24"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 13.16"
+        ],
+        "without_id": {
+          "time": 1.11,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 13.16"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 13.16"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 12.18"
+        ],
+        "without_id": {
+          "time": 1.95,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.24,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 12.18"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 12.18"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 16.13"
+        ],
+        "without_id": {
+          "time": 1.3,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.35,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 16.13"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 16.13"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 14.6"
+        ],
+        "without_id": {
+          "time": 2.15,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.27,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 14.6"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 14.6"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "verse_ref_direct": true
+        }
+      },
+      {
+        "question": "Explain this Bhagavad Gita verse.",
+        "verse_refs": [
+          "BhG 14.1"
+        ],
+        "without_id": {
+          "time": 2.07,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6",
+              "BhG 3.17",
+              "BhG 3.20",
+              "BhG 10.2",
+              "BhG 3.19",
+              "BhG 11.47"
+            ],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [],
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0
+          },
+          "verse_ref_direct": false
+        },
+        "with_id": {
+          "time": 0.3,
+          "verse_retrieval": {
+            "retrieved_top10": [
+              "BhG 14.1"
+            ],
+            "recall_at_1": 1.0,
+            "recall_at_3": 1.0,
+            "recall_at_5": 1.0,
+            "recall_at_10": 1.0,
+            "mrr": 1.0
+          },
+          "fusion_only": {
+            "retrieved_top10": [
+              "BhG 14.1"
             ],
             "recall_at_1": 1.0,
             "recall_at_3": 1.0,

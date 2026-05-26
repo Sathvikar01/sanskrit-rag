@@ -224,7 +224,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.4-6",
+    "start_value": "BhG 1.4",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "1",
@@ -234,17 +234,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.4-6",
+    "start_value": "BhG 1.4",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.4-6_sridhara",
+    "end_value": "BhG_1.4_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.4-6_sridhara",
+    "start_value": "BhG_1.4_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -254,17 +254,117 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.4-6",
+    "start_value": "BhG 1.4",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.4-6_visvanatha",
+    "end_value": "BhG_1.4_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.4-6_visvanatha",
+    "start_value": "BhG_1.4_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.5",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.5",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.5_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.5_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.5",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.5_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.5_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.6",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.6",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.6_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.6_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.6",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.6_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.6_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -344,7 +444,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.8-9",
+    "start_value": "BhG 1.8",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "1",
@@ -354,17 +454,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.8-9",
+    "start_value": "BhG 1.8",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.8-9_sridhara",
+    "end_value": "BhG_1.8_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.8-9_sridhara",
+    "start_value": "BhG_1.8_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -374,17 +474,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.8-9",
+    "start_value": "BhG 1.8",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.8-9_visvanatha",
+    "end_value": "BhG_1.8_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.8-9_visvanatha",
+    "start_value": "BhG_1.8_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -394,17 +494,87 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.8-9",
+    "start_value": "BhG 1.8",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.8-9_baladeva",
+    "end_value": "BhG_1.8_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.8-9_baladeva",
+    "start_value": "BhG_1.8_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.9",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.9",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.9_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.9_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.9",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.9_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.9_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.9",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.9_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.9_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -534,6 +704,56 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
+    "start_value": "BhG 1.12",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.12",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.12_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.12_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.12",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.12_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.12_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
     "start_value": "BhG 1.13",
     "end_label": "Chapter",
     "end_key": "number",
@@ -654,7 +874,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.15-18",
+    "start_value": "BhG 1.15",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "1",
@@ -664,17 +884,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.15-18",
+    "start_value": "BhG 1.15",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.15-18_sridhara",
+    "end_value": "BhG_1.15_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.15-18_sridhara",
+    "start_value": "BhG_1.15_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -684,17 +904,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.15-18",
+    "start_value": "BhG 1.15",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.15-18_visvanatha",
+    "end_value": "BhG_1.15_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.15-18_visvanatha",
+    "start_value": "BhG_1.15_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -704,17 +924,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.15-18",
+    "start_value": "BhG 1.15",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.15-18_baladeva",
+    "end_value": "BhG_1.15_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.15-18_baladeva",
+    "start_value": "BhG_1.15_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -724,7 +944,253 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.15-18",
+    "start_value": "BhG 1.15",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "ishvara",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.16",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.16",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.16_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.16_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.16",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.16_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.16_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.16",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.16_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.16_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.16",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "ishvara",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.17",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.17",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.17_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.17_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.17",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.17_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.17_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.17",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.17_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.17_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.17",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "ishvara",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.18",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.18",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.18_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.18_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.18",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.18_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.18_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.18",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.18_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.18_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.18",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "ishvara",
@@ -746,7 +1212,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.20-23",
+    "start_value": "BhG 1.20",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "1",
@@ -756,7 +1222,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.21-23",
+    "start_value": "BhG 1.21",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "1",
@@ -766,7 +1232,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.24-25",
+    "start_value": "BhG 1.22",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "1",
@@ -776,17 +1242,67 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.24-25",
+    "start_value": "BhG 1.23",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.21",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.22",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.23",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.24",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.24",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.24-25_sridhara",
+    "end_value": "BhG_1.24_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.24-25_sridhara",
+    "start_value": "BhG_1.24_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -796,17 +1312,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.24-25",
+    "start_value": "BhG 1.24",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.24-25_visvanatha",
+    "end_value": "BhG_1.24_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.24-25_visvanatha",
+    "start_value": "BhG_1.24_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -816,17 +1332,87 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.24-25",
+    "start_value": "BhG 1.24",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.24-25_baladeva",
+    "end_value": "BhG_1.24_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.24-25_baladeva",
+    "start_value": "BhG_1.24_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.25",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.25",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.25_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.25_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.25",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.25_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.25_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.25",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.25_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.25_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -976,7 +1562,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.28-29",
+    "start_value": "BhG 1.28",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "1",
@@ -986,17 +1572,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.28-29",
+    "start_value": "BhG 1.28",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.28-29_sridhara",
+    "end_value": "BhG_1.28_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.28-29_sridhara",
+    "start_value": "BhG_1.28_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -1006,17 +1592,67 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.28-29",
+    "start_value": "BhG 1.28",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.28-29_baladeva",
+    "end_value": "BhG_1.28_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.28-29_baladeva",
+    "start_value": "BhG_1.28_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.29",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.29",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.29_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.29_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.29",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.29_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.29_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -1166,7 +1802,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.32-35",
+    "start_value": "BhG 1.32",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "1",
@@ -1176,17 +1812,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.32-35",
+    "start_value": "BhG 1.32",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.32-35_sridhara",
+    "end_value": "BhG_1.32_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.32-35_sridhara",
+    "start_value": "BhG_1.32_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -1196,17 +1832,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.32-35",
+    "start_value": "BhG 1.32",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.32-35_visvanatha",
+    "end_value": "BhG_1.32_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.32-35_visvanatha",
+    "start_value": "BhG_1.32_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -1216,17 +1852,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.32-35",
+    "start_value": "BhG 1.32",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_1.32-35_baladeva",
+    "end_value": "BhG_1.32_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_1.32-35_baladeva",
+    "start_value": "BhG_1.32_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -1236,7 +1872,253 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.32-35",
+    "start_value": "BhG 1.32",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yajna",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.33",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.33",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.33_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.33_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.33",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.33_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.33_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.33",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.33_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.33_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.33",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yajna",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.34",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.34",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.34_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.34_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.34",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.34_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.34_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.34",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.34_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.34_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.34",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yajna",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.35",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.35",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.35_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.35_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.35",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.35_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.35_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.35",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_1.35_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_1.35_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.35",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "yajna",
@@ -4832,7 +5714,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.42-44",
+    "start_value": "BhG 2.42",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "2",
@@ -4842,17 +5724,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.42-44",
+    "start_value": "BhG 2.42",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_2.42-44_sridhara",
+    "end_value": "BhG_2.42_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_2.42-44_sridhara",
+    "start_value": "BhG_2.42_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -4862,17 +5744,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.42-44",
+    "start_value": "BhG 2.42",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_2.42-44_visvanatha",
+    "end_value": "BhG_2.42_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_2.42-44_visvanatha",
+    "start_value": "BhG_2.42_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -4882,17 +5764,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.42-44",
+    "start_value": "BhG 2.42",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_2.42-44_baladeva",
+    "end_value": "BhG_2.42_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_2.42-44_baladeva",
+    "start_value": "BhG_2.42_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -4902,7 +5784,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.42-44",
+    "start_value": "BhG 2.42",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "karma",
@@ -4914,7 +5796,195 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.42-44",
+    "start_value": "BhG 2.42",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "samkhya",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.43",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "2",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.43",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_2.43_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_2.43_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.43",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_2.43_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_2.43_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.43",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_2.43_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_2.43_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.43",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "karma",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.43",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "samkhya",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.44",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "2",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.44",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_2.44_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_2.44_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.44",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_2.44_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_2.44_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.44",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_2.44_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_2.44_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.44",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "karma",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.44",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "samkhya",
@@ -6392,7 +7462,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.62-63",
+    "start_value": "BhG 2.62",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "2",
@@ -6402,17 +7472,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.62-63",
+    "start_value": "BhG 2.62",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_2.62-63_sridhara",
+    "end_value": "BhG_2.62_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_2.62-63_sridhara",
+    "start_value": "BhG_2.62_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -6422,17 +7492,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.62-63",
+    "start_value": "BhG 2.62",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_2.62-63_visvanatha",
+    "end_value": "BhG_2.62_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_2.62-63_visvanatha",
+    "start_value": "BhG_2.62_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -6442,17 +7512,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.62-63",
+    "start_value": "BhG 2.62",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_2.62-63_baladeva",
+    "end_value": "BhG_2.62_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_2.62-63_baladeva",
+    "start_value": "BhG_2.62_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -6462,7 +7532,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.62-63",
+    "start_value": "BhG 2.62",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "samkhya",
@@ -6474,7 +7544,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.62-63",
+    "start_value": "BhG 2.62",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "duhkha",
@@ -6486,7 +7556,113 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.62-63",
+    "start_value": "BhG 2.62",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "vishada",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.63",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "2",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.63",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_2.63_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_2.63_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.63",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_2.63_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_2.63_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.63",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_2.63_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_2.63_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.63",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "samkhya",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.63",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "duhkha",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.63",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "vishada",
@@ -9444,6 +10620,68 @@
     "end_value": "baladeva",
     "rel_type": "BY_COMMENTATOR",
     "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 3.31",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "3",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 3.31",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_3.31_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_3.31_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 3.31",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_3.31_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_3.31_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 3.31",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "karma",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
   },
   {
     "start_label": "Verse",
@@ -15670,7 +16908,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 5.27-28",
+    "start_value": "BhG 5.27",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "5",
@@ -15680,17 +16918,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 5.27-28",
+    "start_value": "BhG 5.27",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_5.27-28_sridhara",
+    "end_value": "BhG_5.27_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_5.27-28_sridhara",
+    "start_value": "BhG_5.27_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -15700,17 +16938,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 5.27-28",
+    "start_value": "BhG 5.27",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_5.27-28_visvanatha",
+    "end_value": "BhG_5.27_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_5.27-28_visvanatha",
+    "start_value": "BhG_5.27_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -15720,17 +16958,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 5.27-28",
+    "start_value": "BhG 5.27",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_5.27-28_baladeva",
+    "end_value": "BhG_5.27_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_5.27-28_baladeva",
+    "start_value": "BhG_5.27_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -15740,7 +16978,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 5.27-28",
+    "start_value": "BhG 5.27",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "samkhya",
@@ -15752,7 +16990,101 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 5.27-28",
+    "start_value": "BhG 5.27",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "duhkha",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 5.28",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "5",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 5.28",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_5.28_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_5.28_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 5.28",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_5.28_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_5.28_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 5.28",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_5.28_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_5.28_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 5.28",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "samkhya",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 5.28",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "duhkha",
@@ -16666,7 +17998,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.11-12",
+    "start_value": "BhG 6.11",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "6",
@@ -16676,17 +18008,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.11-12",
+    "start_value": "BhG 6.11",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_6.11-12_sridhara",
+    "end_value": "BhG_6.11_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_6.11-12_sridhara",
+    "start_value": "BhG_6.11_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -16696,17 +18028,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.11-12",
+    "start_value": "BhG 6.11",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_6.11-12_visvanatha",
+    "end_value": "BhG_6.11_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_6.11-12_visvanatha",
+    "start_value": "BhG_6.11_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -16716,17 +18048,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.11-12",
+    "start_value": "BhG 6.11",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_6.11-12_baladeva",
+    "end_value": "BhG_6.11_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_6.11-12_baladeva",
+    "start_value": "BhG_6.11_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -16736,7 +18068,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.11-12",
+    "start_value": "BhG 6.11",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "yoga",
@@ -16748,7 +18080,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.11-12",
+    "start_value": "BhG 6.11",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "dhyana",
@@ -16760,7 +18092,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.13-14",
+    "start_value": "BhG 6.12",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "6",
@@ -16770,17 +18102,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.13-14",
+    "start_value": "BhG 6.12",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_6.13-14_sridhara",
+    "end_value": "BhG_6.12_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_6.13-14_sridhara",
+    "start_value": "BhG_6.12_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -16790,17 +18122,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.13-14",
+    "start_value": "BhG 6.12",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_6.13-14_visvanatha",
+    "end_value": "BhG_6.12_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_6.13-14_visvanatha",
+    "start_value": "BhG_6.12_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -16810,17 +18142,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.13-14",
+    "start_value": "BhG 6.12",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_6.13-14_baladeva",
+    "end_value": "BhG_6.12_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_6.13-14_baladeva",
+    "start_value": "BhG_6.12_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -16830,7 +18162,183 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.13-14",
+    "start_value": "BhG 6.12",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yoga",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.12",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "dhyana",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.13",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "6",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.13",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.13_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.13_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.13",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.13_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.13_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.13",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.13_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.13_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.13",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "brahman",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.14",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "6",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.14",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.14_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.14_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.14",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.14_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.14_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.14",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.14_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.14_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.14",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "brahman",
@@ -17208,7 +18716,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.20-23",
+    "start_value": "BhG 6.20",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "6",
@@ -17218,17 +18726,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.20-23",
+    "start_value": "BhG 6.20",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_6.20-23_sridhara",
+    "end_value": "BhG_6.20_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_6.20-23_sridhara",
+    "start_value": "BhG_6.20_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -17238,17 +18746,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.20-23",
+    "start_value": "BhG 6.20",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_6.20-23_visvanatha",
+    "end_value": "BhG_6.20_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_6.20-23_visvanatha",
+    "start_value": "BhG_6.20_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -17258,17 +18766,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.20-23",
+    "start_value": "BhG 6.20",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_6.20-23_baladeva",
+    "end_value": "BhG_6.20_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_6.20-23_baladeva",
+    "start_value": "BhG_6.20_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -17278,7 +18786,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.20-23",
+    "start_value": "BhG 6.20",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "yoga",
@@ -17290,7 +18798,289 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.20-23",
+    "start_value": "BhG 6.20",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "dhyana",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.21",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "6",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.21",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.21_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.21_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.21",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.21_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.21_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.21",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.21_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.21_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.21",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yoga",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.21",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "dhyana",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.22",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "6",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.22",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.22_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.22_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.22",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.22_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.22_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.22",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.22_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.22_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.22",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yoga",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.22",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "dhyana",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.23",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "6",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.23",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.23_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.23_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.23",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.23_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.23_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.23",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_6.23_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_6.23_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.23",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yoga",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.23",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "dhyana",
@@ -20158,7 +21948,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 8.11\n \n\n \n yad akṣaraṃ vedavido vadanti \n viśanti yad yatayo vītarāgāḥ | \n yad icchanto brahmacaryaṃ caranti \n tat te padaṃ saṃgraheṇa pravakṣye ||11||",
+    "start_value": "BhG 8.11",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "8",
@@ -20168,7 +21958,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 8.11\n \n\n \n yad akṣaraṃ vedavido vadanti \n viśanti yad yatayo vītarāgāḥ | \n yad icchanto brahmacaryaṃ caranti \n tat te padaṃ saṃgraheṇa pravakṣye ||11||",
+    "start_value": "BhG 8.11",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "brahman",
@@ -20180,7 +21970,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 8.12-13",
+    "start_value": "BhG 8.12",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "8",
@@ -20190,7 +21980,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 8.12-13",
+    "start_value": "BhG 8.12",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "yoga",
@@ -20202,7 +21992,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 8.12-13",
+    "start_value": "BhG 8.12",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "brahman",
@@ -20214,7 +22004,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 8.12-13",
+    "start_value": "BhG 8.12",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "dhyana",
@@ -20226,7 +22016,65 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 8.12-13",
+    "start_value": "BhG 8.12",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "sharira",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 8.13",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "8",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 8.13",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yoga",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 8.13",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "brahman",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 8.13",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "dhyana",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 8.13",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "sharira",
@@ -20742,7 +22590,37 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 9.16-19",
+    "start_value": "BhG 9.16",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "9",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 9.17",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "9",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 9.18",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "9",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 9.19",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "9",
@@ -21296,7 +23174,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.4-5",
+    "start_value": "BhG 10.4",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "10",
@@ -21306,17 +23184,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.4-5",
+    "start_value": "BhG 10.4",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_10.4-5_sridhara",
+    "end_value": "BhG_10.4_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_10.4-5_sridhara",
+    "start_value": "BhG_10.4_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -21326,17 +23204,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.4-5",
+    "start_value": "BhG 10.4",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_10.4-5_visvanatha",
+    "end_value": "BhG_10.4_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_10.4-5_visvanatha",
+    "start_value": "BhG_10.4_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -21346,17 +23224,87 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.4-5",
+    "start_value": "BhG 10.4",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_10.4-5_baladeva",
+    "end_value": "BhG_10.4_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_10.4-5_baladeva",
+    "start_value": "BhG_10.4_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.5",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "10",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.5",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_10.5_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_10.5_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.5",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_10.5_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_10.5_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.5",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_10.5_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_10.5_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -21826,7 +23774,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.12-13",
+    "start_value": "BhG 10.12",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "10",
@@ -21836,17 +23784,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.12-13",
+    "start_value": "BhG 10.12",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_10.12-13_sridhara",
+    "end_value": "BhG_10.12_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_10.12-13_sridhara",
+    "start_value": "BhG_10.12_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -21856,17 +23804,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.12-13",
+    "start_value": "BhG 10.12",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_10.12-13_visvanatha",
+    "end_value": "BhG_10.12_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_10.12-13_visvanatha",
+    "start_value": "BhG_10.12_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -21876,17 +23824,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.12-13",
+    "start_value": "BhG 10.12",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_10.12-13_baladeva",
+    "end_value": "BhG_10.12_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_10.12-13_baladeva",
+    "start_value": "BhG_10.12_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -21896,7 +23844,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.12-13",
+    "start_value": "BhG 10.12",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "brahman",
@@ -21908,7 +23856,101 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.12-13",
+    "start_value": "BhG 10.12",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "ishvara",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.13",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "10",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.13",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_10.13_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_10.13_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.13",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_10.13_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_10.13_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.13",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_10.13_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_10.13_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.13",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "brahman",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.13",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "ishvara",
@@ -24514,7 +26556,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.10-11",
+    "start_value": "BhG 11.10",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "11",
@@ -24524,17 +26566,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.10-11",
+    "start_value": "BhG 11.10",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_11.10-11_sridhara",
+    "end_value": "BhG_11.10_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_11.10-11_sridhara",
+    "start_value": "BhG_11.10_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -24544,17 +26586,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.10-11",
+    "start_value": "BhG 11.10",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_11.10-11_baladeva",
+    "end_value": "BhG_11.10_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_11.10-11_baladeva",
+    "start_value": "BhG_11.10_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -24564,7 +26606,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.10-11",
+    "start_value": "BhG 11.10",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "maya",
@@ -24576,7 +26618,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.10-11",
+    "start_value": "BhG 11.10",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "ishvara",
@@ -24588,7 +26630,93 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.10-11",
+    "start_value": "BhG 11.10",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "prakriti",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.11",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "11",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.11",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_11.11_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_11.11_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.11",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_11.11_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_11.11_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.11",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "maya",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.11",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "ishvara",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.11",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "prakriti",
@@ -25516,7 +27644,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.26-27",
+    "start_value": "BhG 11.26",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "11",
@@ -25526,17 +27654,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.26-27",
+    "start_value": "BhG 11.26",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_11.26-27_sridhara",
+    "end_value": "BhG_11.26_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_11.26-27_sridhara",
+    "start_value": "BhG_11.26_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -25546,17 +27674,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.26-27",
+    "start_value": "BhG 11.26",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_11.26-27_visvanatha",
+    "end_value": "BhG_11.26_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_11.26-27_visvanatha",
+    "start_value": "BhG_11.26_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -25566,17 +27694,87 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.26-27",
+    "start_value": "BhG 11.26",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_11.26-27_baladeva",
+    "end_value": "BhG_11.26_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_11.26-27_baladeva",
+    "start_value": "BhG_11.26_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.27",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "11",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.27",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_11.27_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_11.27_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.27",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_11.27_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_11.27_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.27",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_11.27_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_11.27_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -26488,7 +28686,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.41-42",
+    "start_value": "BhG 11.41",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "11",
@@ -26498,17 +28696,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.41-42",
+    "start_value": "BhG 11.41",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_11.41-42_sridhara",
+    "end_value": "BhG_11.41_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_11.41-42_sridhara",
+    "start_value": "BhG_11.41_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -26518,17 +28716,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.41-42",
+    "start_value": "BhG 11.41",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_11.41-42_visvanatha",
+    "end_value": "BhG_11.41_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_11.41-42_visvanatha",
+    "start_value": "BhG_11.41_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -26538,17 +28736,87 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.41-42",
+    "start_value": "BhG 11.41",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_11.41-42_baladeva",
+    "end_value": "BhG_11.41_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_11.41-42_baladeva",
+    "start_value": "BhG_11.41_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.42",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "11",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.42",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_11.42_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_11.42_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.42",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_11.42_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_11.42_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.42",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_11.42_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_11.42_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -27560,7 +29828,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.3-4",
+    "start_value": "BhG 12.3",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "12",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.4",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "12",
@@ -27726,7 +30004,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.13-14",
+    "start_value": "BhG 12.13",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "12",
@@ -27736,7 +30014,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.13-14",
+    "start_value": "BhG 12.13",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "sukha",
@@ -27748,7 +30026,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.13-14",
+    "start_value": "BhG 12.13",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "brahman",
@@ -27760,7 +30038,53 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.13-14",
+    "start_value": "BhG 12.13",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "samkhya",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.14",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "12",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.14",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "sukha",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.14",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "brahman",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.14",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "samkhya",
@@ -27814,7 +30138,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.18-19",
+    "start_value": "BhG 12.18",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "12",
@@ -27824,7 +30148,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.18-19",
+    "start_value": "BhG 12.18",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "bhakti",
@@ -27836,7 +30160,41 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.18-19",
+    "start_value": "BhG 12.18",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "sukha",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.19",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "12",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.19",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "bhakti",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.19",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "sukha",
@@ -28182,7 +30540,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.5-6",
+    "start_value": "BhG 13.5",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "13",
@@ -28192,17 +30550,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.5-6",
+    "start_value": "BhG 13.5",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_13.5-6_sridhara",
+    "end_value": "BhG_13.5_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_13.5-6_sridhara",
+    "start_value": "BhG_13.5_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -28212,17 +30570,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.5-6",
+    "start_value": "BhG 13.5",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_13.5-6_visvanatha",
+    "end_value": "BhG_13.5_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_13.5-6_visvanatha",
+    "start_value": "BhG_13.5_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -28232,17 +30590,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.5-6",
+    "start_value": "BhG 13.5",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_13.5-6_baladeva",
+    "end_value": "BhG_13.5_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_13.5-6_baladeva",
+    "start_value": "BhG_13.5_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -28252,7 +30610,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.5-6",
+    "start_value": "BhG 13.5",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "sukha",
@@ -28264,7 +30622,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.5-6",
+    "start_value": "BhG 13.5",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "samkhya",
@@ -28276,7 +30634,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.7-11",
+    "start_value": "BhG 13.6",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "13",
@@ -28286,17 +30644,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.7-11",
+    "start_value": "BhG 13.6",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_13.7-11_sridhara",
+    "end_value": "BhG_13.6_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_13.7-11_sridhara",
+    "start_value": "BhG_13.6_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -28306,17 +30664,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.7-11",
+    "start_value": "BhG 13.6",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_13.7-11_visvanatha",
+    "end_value": "BhG_13.6_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_13.7-11_visvanatha",
+    "start_value": "BhG_13.6_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -28326,17 +30684,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.7-11",
+    "start_value": "BhG 13.6",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_13.7-11_baladeva",
+    "end_value": "BhG_13.6_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_13.7-11_baladeva",
+    "start_value": "BhG_13.6_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -28346,13 +30704,517 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.7-11",
+    "start_value": "BhG 13.6",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "sukha",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.6",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "samkhya",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.7",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.7",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.7_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.7_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.7",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.7_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.7_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.7",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.7_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.7_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.7",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "bhakti",
     "rel_type": "MENTIONS_CONCEPT",
     "properties": {
       "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.8",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.8",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.8_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.8_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.8",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.8_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.8_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.8",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.8_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.8_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.8",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "bhakti",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.9",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.9",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.9_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.9_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.9",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.9_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.9_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.9",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.9_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.9_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.9",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "bhakti",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.10",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.10",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.10_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.10_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.10",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.10_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.10_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.10",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.10_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.10_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.10",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "bhakti",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.11",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.11",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.11_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.11_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.11",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.11_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.11_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.11",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.11_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.11_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.11",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "bhakti",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.12",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.12",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.12_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.12_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.12",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.12_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.12_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.12",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.12_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.12_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.12",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "brahman",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
     }
   },
   {
@@ -28428,14 +31290,212 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.13",
-    "end_label": "Concept",
-    "end_key": "name_iast",
-    "end_value": "brahman",
-    "rel_type": "MENTIONS_CONCEPT",
-    "properties": {
-      "confidence": 0.8
-    }
+    "start_value": "BhG 13.14",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.14",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.14_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.14_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.14",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.14_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.14_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.14",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.14_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.14_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.15",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.15",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.15_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.15_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.15",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.15_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.15_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.15",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.15_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.15_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.16",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.16",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.16_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.16_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.16",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.16_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.16_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.16",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.16_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.16_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
   },
   {
     "start_label": "Verse",
@@ -28506,6 +31566,30 @@
     "end_value": "baladeva",
     "rel_type": "BY_COMMENTATOR",
     "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.17",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "gunas",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.17",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "maya",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
   },
   {
     "start_label": "Verse",
@@ -29572,6 +32656,56 @@
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.34",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "13",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.34",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.34_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.34_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.34",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_13.34_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_13.34_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
     "rel_type": "BY_COMMENTATOR",
     "properties": {}
   },
@@ -32016,7 +35150,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 15.3-4",
+    "start_value": "BhG 15.3",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "15",
@@ -32026,17 +35160,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 15.3-4",
+    "start_value": "BhG 15.3",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_15.3-4_sridhara",
+    "end_value": "BhG_15.3_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_15.3-4_sridhara",
+    "start_value": "BhG_15.3_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -32046,17 +35180,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 15.3-4",
+    "start_value": "BhG 15.3",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_15.3-4_visvanatha",
+    "end_value": "BhG_15.3_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_15.3-4_visvanatha",
+    "start_value": "BhG_15.3_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -32066,17 +35200,87 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 15.3-4",
+    "start_value": "BhG 15.3",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_15.3-4_baladeva",
+    "end_value": "BhG_15.3_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_15.3-4_baladeva",
+    "start_value": "BhG_15.3_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.4",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "15",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.4",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_15.4_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_15.4_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.4",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_15.4_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_15.4_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.4",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_15.4_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_15.4_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -34576,7 +37780,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.5-6",
+    "start_value": "BhG 17.5",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "17",
@@ -34586,17 +37790,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.5-6",
+    "start_value": "BhG 17.5",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_17.5-6_sridhara",
+    "end_value": "BhG_17.5_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_17.5-6_sridhara",
+    "start_value": "BhG_17.5_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -34606,17 +37810,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.5-6",
+    "start_value": "BhG 17.5",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_17.5-6_visvanatha",
+    "end_value": "BhG_17.5_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_17.5-6_visvanatha",
+    "start_value": "BhG_17.5_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -34626,17 +37830,87 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.5-6",
+    "start_value": "BhG 17.5",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_17.5-6_baladeva",
+    "end_value": "BhG_17.5_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_17.5-6_baladeva",
+    "start_value": "BhG_17.5_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.6",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "17",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.6",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_17.6_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_17.6_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.6",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_17.6_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_17.6_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.6",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_17.6_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_17.6_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -35676,7 +38950,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.23-24",
+    "start_value": "BhG 17.23",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "17",
@@ -35686,17 +38960,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.23-24",
+    "start_value": "BhG 17.23",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_17.23-24_sridhara",
+    "end_value": "BhG_17.23_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_17.23-24_sridhara",
+    "start_value": "BhG_17.23_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -35706,17 +38980,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.23-24",
+    "start_value": "BhG 17.23",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_17.23-24_visvanatha",
+    "end_value": "BhG_17.23_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_17.23-24_visvanatha",
+    "start_value": "BhG_17.23_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -35726,17 +39000,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.23-24",
+    "start_value": "BhG 17.23",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_17.23-24_baladeva",
+    "end_value": "BhG_17.23_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_17.23-24_baladeva",
+    "start_value": "BhG_17.23_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -35746,7 +39020,89 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.23-24",
+    "start_value": "BhG 17.23",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "brahman",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.24",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "17",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.24",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_17.24_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_17.24_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.24",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_17.24_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_17.24_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.24",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_17.24_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_17.24_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.24",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "brahman",
@@ -35828,7 +39184,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.26-27",
+    "start_value": "BhG 17.26",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "17",
@@ -35838,17 +39194,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.26-27",
+    "start_value": "BhG 17.26",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_17.26-27_sridhara",
+    "end_value": "BhG_17.26_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_17.26-27_sridhara",
+    "start_value": "BhG_17.26_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -35858,17 +39214,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.26-27",
+    "start_value": "BhG 17.26",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_17.26-27_visvanatha",
+    "end_value": "BhG_17.26_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_17.26-27_visvanatha",
+    "start_value": "BhG_17.26_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -35878,17 +39234,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.26-27",
+    "start_value": "BhG 17.26",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_17.26-27_baladeva",
+    "end_value": "BhG_17.26_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_17.26-27_baladeva",
+    "start_value": "BhG_17.26_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -35898,7 +39254,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.26-27",
+    "start_value": "BhG 17.26",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "karma",
@@ -35910,7 +39266,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.26-27",
+    "start_value": "BhG 17.26",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "yoga",
@@ -35922,7 +39278,113 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.26-27",
+    "start_value": "BhG 17.26",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yajna",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.27",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "17",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.27",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_17.27_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_17.27_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.27",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_17.27_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_17.27_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.27",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_17.27_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_17.27_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.27",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "karma",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.27",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yoga",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.27",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "yajna",
@@ -36796,6 +40258,100 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
+    "start_value": "BhG 18.11",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "18",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.11",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.11_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.11_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.11",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.11_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.11_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.11",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.11_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.11_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.11",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "karma",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.11",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "sharira",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
     "start_value": "BhG 18.12",
     "end_label": "Chapter",
     "end_key": "number",
@@ -36847,6 +40403,88 @@
     "start_label": "Verse",
     "start_key": "ref",
     "start_value": "BhG 18.12",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "karma",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.13",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "18",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.13",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.13_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.13_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.13",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.13_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.13_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.13",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.13_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.13_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.13",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "karma",
@@ -38334,7 +41972,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.36-37",
+    "start_value": "BhG 18.36",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "18",
@@ -38344,17 +41982,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.36-37",
+    "start_value": "BhG 18.36",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_18.36-37_sridhara",
+    "end_value": "BhG_18.36_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_18.36-37_sridhara",
+    "start_value": "BhG_18.36_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -38364,17 +42002,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.36-37",
+    "start_value": "BhG 18.36",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_18.36-37_baladeva",
+    "end_value": "BhG_18.36_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_18.36-37_baladeva",
+    "start_value": "BhG_18.36_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -38384,7 +42022,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.36-37",
+    "start_value": "BhG 18.36",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "sukha",
@@ -38396,7 +42034,81 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.36-37",
+    "start_value": "BhG 18.36",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "samkhya",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.37",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "18",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.37",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.37_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.37_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.37",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.37_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.37_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.37",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "sukha",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.37",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "samkhya",
@@ -39318,7 +43030,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.51-53",
+    "start_value": "BhG 18.51",
     "end_label": "Chapter",
     "end_key": "number",
     "end_value": "18",
@@ -39328,17 +43040,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.51-53",
+    "start_value": "BhG 18.51",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_18.51-53_sridhara",
+    "end_value": "BhG_18.51_sridhara",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_18.51-53_sridhara",
+    "start_value": "BhG_18.51_sridhara",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "sridhara",
@@ -39348,17 +43060,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.51-53",
+    "start_value": "BhG 18.51",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_18.51-53_visvanatha",
+    "end_value": "BhG_18.51_visvanatha",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_18.51-53_visvanatha",
+    "start_value": "BhG_18.51_visvanatha",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "visvanatha",
@@ -39368,17 +43080,17 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.51-53",
+    "start_value": "BhG 18.51",
     "end_label": "Commentary",
     "end_key": "id",
-    "end_value": "BhG_18.51-53_baladeva",
+    "end_value": "BhG_18.51_baladeva",
     "rel_type": "HAS_COMMENTARY",
     "properties": {}
   },
   {
     "start_label": "Commentary",
     "start_key": "id",
-    "start_value": "BhG_18.51-53_baladeva",
+    "start_value": "BhG_18.51_baladeva",
     "end_label": "Commentator",
     "end_key": "id",
     "end_value": "baladeva",
@@ -39388,7 +43100,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.51-53",
+    "start_value": "BhG 18.51",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "yoga",
@@ -39400,7 +43112,7 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.51-53",
+    "start_value": "BhG 18.51",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "brahman",
@@ -39412,7 +43124,219 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.51-53",
+    "start_value": "BhG 18.51",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "dhyana",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.52",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "18",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.52",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.52_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.52_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.52",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.52_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.52_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.52",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.52_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.52_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.52",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yoga",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.52",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "brahman",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.52",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "dhyana",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.53",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "18",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.53",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.53_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.53_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.53",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.53_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.53_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.53",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.53_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.53_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.53",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "yoga",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.53",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "brahman",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.53",
     "end_label": "Concept",
     "end_key": "name_iast",
     "end_value": "dhyana",
@@ -40456,6 +44380,88 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
+    "start_value": "BhG 18.68",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "18",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.68",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.68_sridhara",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.68_sridhara",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "sridhara",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.68",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.68_visvanatha",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.68_visvanatha",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "visvanatha",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.68",
+    "end_label": "Commentary",
+    "end_key": "id",
+    "end_value": "BhG_18.68_baladeva",
+    "rel_type": "HAS_COMMENTARY",
+    "properties": {}
+  },
+  {
+    "start_label": "Commentary",
+    "start_key": "id",
+    "start_value": "BhG_18.68_baladeva",
+    "end_label": "Commentator",
+    "end_key": "id",
+    "end_value": "baladeva",
+    "rel_type": "BY_COMMENTATOR",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.68",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "bhakti",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 1.0
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
     "start_value": "BhG 18.69",
     "end_label": "Chapter",
     "end_key": "number",
@@ -41096,6 +45102,212 @@
   {
     "start_label": "Verse",
     "start_key": "ref",
+    "start_value": "BhG 1.38",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.47",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "1",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.35",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "2",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 5.9",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "5",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.26",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "10",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.26",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "ishvara",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.6",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "12",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.7",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "12",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.6",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "15",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.9",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "15",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.13",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "15",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.16",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "15",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 16.2",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "16",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 16.3",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "16",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 16.9",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "16",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 16.13",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "16",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.4",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "17",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.14",
+    "end_label": "Chapter",
+    "end_key": "number",
+    "end_value": "17",
+    "rel_type": "IN_CHAPTER",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.14",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "brahman",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.14",
+    "end_label": "Concept",
+    "end_key": "name_iast",
+    "end_value": "ishvara",
+    "rel_type": "MENTIONS_CONCEPT",
+    "properties": {
+      "confidence": 0.8
+    }
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
     "start_value": "BhG 1.1",
     "end_label": "Verse",
     "end_key": "ref",
@@ -41119,14 +45331,34 @@
     "start_value": "BhG 1.3",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 1.4-6",
+    "end_value": "BhG 1.4",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.4-6",
+    "start_value": "BhG 1.4",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.5",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.5",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.6",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.6",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 1.7",
@@ -41139,14 +45371,24 @@
     "start_value": "BhG 1.7",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 1.8-9",
+    "end_value": "BhG 1.8",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.8-9",
+    "start_value": "BhG 1.8",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.9",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.9",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 1.10",
@@ -41169,6 +45411,16 @@
     "start_value": "BhG 1.11",
     "end_label": "Verse",
     "end_key": "ref",
+    "end_value": "BhG 1.12",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.12",
+    "end_label": "Verse",
+    "end_key": "ref",
     "end_value": "BhG 1.13",
     "rel_type": "NEXT_VERSE",
     "properties": {}
@@ -41189,14 +45441,44 @@
     "start_value": "BhG 1.14",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 1.15-18",
+    "end_value": "BhG 1.15",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.15-18",
+    "start_value": "BhG 1.15",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.16",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.16",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.17",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.17",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.18",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.18",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 1.19",
@@ -41209,34 +45491,94 @@
     "start_value": "BhG 1.19",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 1.20-23",
+    "end_value": "BhG 1.20",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.20-23",
+    "start_value": "BhG 1.20",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 1.21-23",
+    "end_value": "BhG 1.21",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.21-23",
+    "start_value": "BhG 1.21",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 1.24-25",
+    "end_value": "BhG 1.22",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.24-25",
+    "start_value": "BhG 1.22",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.23",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.23",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.21",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.21",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.22",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.22",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.23",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.23",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.24",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.24",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.25",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.25",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 1.26",
@@ -41259,14 +45601,24 @@
     "start_value": "BhG 1.27",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 1.28-29",
+    "end_value": "BhG 1.28",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.28-29",
+    "start_value": "BhG 1.28",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.29",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.29",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 1.30",
@@ -41289,14 +45641,44 @@
     "start_value": "BhG 1.31",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 1.32-35",
+    "end_value": "BhG 1.32",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 1.32-35",
+    "start_value": "BhG 1.32",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.33",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.33",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.34",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.34",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.35",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.35",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 1.36",
@@ -41789,14 +46171,34 @@
     "start_value": "BhG 2.41",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 2.42-44",
+    "end_value": "BhG 2.42",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.42-44",
+    "start_value": "BhG 2.42",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 2.43",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.43",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 2.44",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.44",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 2.45",
@@ -41969,14 +46371,24 @@
     "start_value": "BhG 2.61",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 2.62-63",
+    "end_value": "BhG 2.62",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 2.62-63",
+    "start_value": "BhG 2.62",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 2.63",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 2.63",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 2.64",
@@ -42357,6 +46769,16 @@
     "start_label": "Verse",
     "start_key": "ref",
     "start_value": "BhG 3.30",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 3.31",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 3.31",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 3.32",
@@ -43129,14 +47551,24 @@
     "start_value": "BhG 5.26",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 5.27-28",
+    "end_value": "BhG 5.27",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 5.27-28",
+    "start_value": "BhG 5.27",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 5.28",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 5.28",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 5.29",
@@ -43239,24 +47671,44 @@
     "start_value": "BhG 6.10",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 6.11-12",
+    "end_value": "BhG 6.11",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.11-12",
+    "start_value": "BhG 6.11",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 6.13-14",
+    "end_value": "BhG 6.12",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.13-14",
+    "start_value": "BhG 6.12",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 6.13",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.13",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 6.14",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.14",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 6.15",
@@ -43309,14 +47761,44 @@
     "start_value": "BhG 6.19",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 6.20-23",
+    "end_value": "BhG 6.20",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 6.20-23",
+    "start_value": "BhG 6.20",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 6.21",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.21",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 6.22",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.22",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 6.23",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 6.23",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 6.24",
@@ -43939,24 +48421,34 @@
     "start_value": "BhG 8.10",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 8.11\n \n\n \n yad akṣaraṃ vedavido vadanti \n viśanti yad yatayo vītarāgāḥ | \n yad icchanto brahmacaryaṃ caranti \n tat te padaṃ saṃgraheṇa pravakṣye ||11||",
+    "end_value": "BhG 8.11",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 8.11\n \n\n \n yad akṣaraṃ vedavido vadanti \n viśanti yad yatayo vītarāgāḥ | \n yad icchanto brahmacaryaṃ caranti \n tat te padaṃ saṃgraheṇa pravakṣye ||11||",
+    "start_value": "BhG 8.11",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 8.12-13",
+    "end_value": "BhG 8.12",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 8.12-13",
+    "start_value": "BhG 8.12",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 8.13",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 8.13",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 8.14",
@@ -44249,14 +48741,44 @@
     "start_value": "BhG 9.15",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 9.16-19",
+    "end_value": "BhG 9.16",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 9.16-19",
+    "start_value": "BhG 9.16",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 9.17",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 9.17",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 9.18",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 9.18",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 9.19",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 9.19",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 9.20",
@@ -44429,14 +48951,24 @@
     "start_value": "BhG 10.3",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 10.4-5",
+    "end_value": "BhG 10.4",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.4-5",
+    "start_value": "BhG 10.4",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 10.5",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.5",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 10.6",
@@ -44499,14 +49031,24 @@
     "start_value": "BhG 10.11",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 10.12-13",
+    "end_value": "BhG 10.12",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 10.12-13",
+    "start_value": "BhG 10.12",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 10.13",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 10.13",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 10.14",
@@ -44869,14 +49411,24 @@
     "start_value": "BhG 11.9",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 11.10-11",
+    "end_value": "BhG 11.10",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.10-11",
+    "start_value": "BhG 11.10",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 11.11",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.11",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 11.12",
@@ -45019,14 +49571,24 @@
     "start_value": "BhG 11.25",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 11.26-27",
+    "end_value": "BhG 11.26",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.26-27",
+    "start_value": "BhG 11.26",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 11.27",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.27",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 11.28",
@@ -45159,14 +49721,24 @@
     "start_value": "BhG 11.40",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 11.41-42",
+    "end_value": "BhG 11.41",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 11.41-42",
+    "start_value": "BhG 11.41",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 11.42",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 11.42",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 11.43",
@@ -45309,14 +49881,24 @@
     "start_value": "BhG 12.2",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 12.3-4",
+    "end_value": "BhG 12.3",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.3-4",
+    "start_value": "BhG 12.3",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 12.4",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.4",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 12.5",
@@ -45379,14 +49961,24 @@
     "start_value": "BhG 12.12",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 12.13-14",
+    "end_value": "BhG 12.13",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.13-14",
+    "start_value": "BhG 12.13",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 12.14",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.14",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 12.15",
@@ -45419,14 +50011,24 @@
     "start_value": "BhG 12.17",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 12.18-19",
+    "end_value": "BhG 12.18",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 12.18-19",
+    "start_value": "BhG 12.18",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 12.19",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.19",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 12.20",
@@ -45469,24 +50071,84 @@
     "start_value": "BhG 13.4",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 13.5-6",
+    "end_value": "BhG 13.5",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.5-6",
+    "start_value": "BhG 13.5",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 13.7-11",
+    "end_value": "BhG 13.6",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 13.7-11",
+    "start_value": "BhG 13.6",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.7",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.7",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.8",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.8",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.9",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.9",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.10",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.10",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.11",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.11",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.12",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.12",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 13.13",
@@ -45497,6 +50159,36 @@
     "start_label": "Verse",
     "start_key": "ref",
     "start_value": "BhG 13.13",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.14",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.14",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.15",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.15",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.16",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.16",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 13.17",
@@ -45660,6 +50352,16 @@
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 13.33",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 13.33",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 13.34",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
@@ -45939,14 +50641,24 @@
     "start_value": "BhG 15.2",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 15.3-4",
+    "end_value": "BhG 15.3",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 15.3-4",
+    "start_value": "BhG 15.3",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 15.4",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.4",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 15.5",
@@ -46279,14 +50991,24 @@
     "start_value": "BhG 17.3",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 17.5-6",
+    "end_value": "BhG 17.5",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.5-6",
+    "start_value": "BhG 17.5",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 17.6",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.6",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 17.7",
@@ -46439,14 +51161,24 @@
     "start_value": "BhG 17.22",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 17.23-24",
+    "end_value": "BhG 17.23",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.23-24",
+    "start_value": "BhG 17.23",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 17.24",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.24",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 17.25",
@@ -46459,14 +51191,24 @@
     "start_value": "BhG 17.25",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 17.26-27",
+    "end_value": "BhG 17.26",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 17.26-27",
+    "start_value": "BhG 17.26",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 17.27",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.27",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 17.28",
@@ -46569,6 +51311,16 @@
     "start_value": "BhG 18.10",
     "end_label": "Verse",
     "end_key": "ref",
+    "end_value": "BhG 18.11",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.11",
+    "end_label": "Verse",
+    "end_key": "ref",
     "end_value": "BhG 18.12",
     "rel_type": "NEXT_VERSE",
     "properties": {}
@@ -46577,6 +51329,16 @@
     "start_label": "Verse",
     "start_key": "ref",
     "start_value": "BhG 18.12",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 18.13",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.13",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 18.14",
@@ -46799,14 +51561,24 @@
     "start_value": "BhG 18.35",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 18.36-37",
+    "end_value": "BhG 18.36",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.36-37",
+    "start_value": "BhG 18.36",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 18.37",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.37",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 18.38",
@@ -46939,14 +51711,34 @@
     "start_value": "BhG 18.50",
     "end_label": "Verse",
     "end_key": "ref",
-    "end_value": "BhG 18.51-53",
+    "end_value": "BhG 18.51",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },
   {
     "start_label": "Verse",
     "start_key": "ref",
-    "start_value": "BhG 18.51-53",
+    "start_value": "BhG 18.51",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 18.52",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.52",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 18.53",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.53",
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 18.54",
@@ -47089,6 +51881,16 @@
     "start_value": "BhG 18.67",
     "end_label": "Verse",
     "end_key": "ref",
+    "end_value": "BhG 18.68",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 18.68",
+    "end_label": "Verse",
+    "end_key": "ref",
     "end_value": "BhG 18.69",
     "rel_type": "NEXT_VERSE",
     "properties": {}
@@ -47180,6 +51982,96 @@
     "end_label": "Verse",
     "end_key": "ref",
     "end_value": "BhG 18.78",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 1.38",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 1.47",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 12.6",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 12.7",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.6",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 15.9",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.9",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 15.13",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 15.13",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 15.16",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 16.2",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 16.3",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 16.3",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 16.9",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 16.9",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 16.13",
+    "rel_type": "NEXT_VERSE",
+    "properties": {}
+  },
+  {
+    "start_label": "Verse",
+    "start_key": "ref",
+    "start_value": "BhG 17.4",
+    "end_label": "Verse",
+    "end_key": "ref",
+    "end_value": "BhG 17.14",
     "rel_type": "NEXT_VERSE",
     "properties": {}
   },

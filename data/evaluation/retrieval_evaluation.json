@@ -8,102 +8,102 @@
   },
   "overall": {
     "without_verse_id": {
-      "total_samples": 105,
-      "avg_recall_at_1": 0.0095,
-      "avg_recall_at_3": 0.019,
-      "avg_recall_at_5": 0.0381,
-      "avg_recall_at_10": 0.0381,
-      "avg_mrr": 0.0197,
-      "avg_semantic_similarity": 0.1113,
-      "avg_word_overlap": 0.0039,
-      "avg_time_seconds": 0.72
+      "total_samples": 92,
+      "avg_recall_at_1": 0.0,
+      "avg_recall_at_3": 0.0217,
+      "avg_recall_at_5": 0.0326,
+      "avg_recall_at_10": 0.0326,
+      "avg_mrr": 0.0133,
+      "avg_semantic_similarity": 0.0803,
+      "avg_word_overlap": 0.0023,
+      "avg_time_seconds": 1.39
     },
     "with_verse_id": {
-      "total_samples": 105,
-      "avg_recall_at_1": 0.0095,
-      "avg_recall_at_3": 0.019,
-      "avg_recall_at_5": 0.0381,
-      "avg_recall_at_10": 0.0476,
-      "avg_mrr": 0.0198,
-      "avg_semantic_similarity": 0.075,
-      "avg_word_overlap": 0.0024,
-      "avg_time_seconds": 0.69
+      "total_samples": 85,
+      "avg_recall_at_1": 0.0,
+      "avg_recall_at_3": 0.0118,
+      "avg_recall_at_5": 0.0235,
+      "avg_recall_at_10": 0.0353,
+      "avg_mrr": 0.0103,
+      "avg_semantic_similarity": 0.0308,
+      "avg_word_overlap": 0.0008,
+      "avg_time_seconds": 1.28
     }
   },
   "by_dataset": {
     "gita_guidance_qa": {
       "total_samples": 30,
       "without_verse_id": {
-        "n": 30,
+        "n": 28,
         "recall_at_1": 0.0,
         "recall_at_3": 0.0,
         "recall_at_5": 0.0,
         "recall_at_10": 0.0,
-        "mrr": 0.0,
-        "semantic_similarity": 0.1685,
-        "word_overlap": 0.0078,
-        "avg_time": 1.189
+        "mrr": 0.0026,
+        "semantic_similarity": 0.1486,
+        "word_overlap": 0.0068,
+        "avg_time": 2.3157
       },
       "with_verse_id": {
-        "n": 30,
+        "n": 28,
         "recall_at_1": 0.0,
         "recall_at_3": 0.0,
         "recall_at_5": 0.0,
-        "recall_at_10": 0.0333,
-        "mrr": 0.0042,
-        "semantic_similarity": 0.0632,
-        "word_overlap": 0.0026,
-        "avg_time": 1.024
+        "recall_at_10": 0.0357,
+        "mrr": 0.0045,
+        "semantic_similarity": 0.047,
+        "word_overlap": 0.0018,
+        "avg_time": 1.8336
       }
     },
     "hf_gita_qa": {
       "total_samples": 30,
       "without_verse_id": {
-        "n": 30,
-        "recall_at_1": 0.0333,
-        "recall_at_3": 0.0333,
-        "recall_at_5": 0.0667,
-        "recall_at_10": 0.0667,
-        "mrr": 0.0439,
-        "semantic_similarity": 0.1328,
-        "word_overlap": 0.0058,
-        "avg_time": 0.4393
+        "n": 23,
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0435,
+        "recall_at_5": 0.0435,
+        "recall_at_10": 0.0435,
+        "mrr": 0.0174,
+        "semantic_similarity": 0.0484,
+        "word_overlap": 0.0008,
+        "avg_time": 0.8617
       },
       "with_verse_id": {
-        "n": 30,
-        "recall_at_1": 0.0333,
-        "recall_at_3": 0.0333,
-        "recall_at_5": 0.0667,
-        "recall_at_10": 0.0667,
-        "mrr": 0.04,
-        "semantic_similarity": 0.1398,
-        "word_overlap": 0.0058,
-        "avg_time": 0.4687
+        "n": 20,
+        "recall_at_1": 0.0,
+        "recall_at_3": 0.0,
+        "recall_at_5": 0.0,
+        "recall_at_10": 0.0,
+        "mrr": 0.0,
+        "semantic_similarity": 0.0555,
+        "word_overlap": 0.0009,
+        "avg_time": 0.8915
       }
     },
     "kaggle_gita_qa": {
       "total_samples": 30,
       "without_verse_id": {
-        "n": 30,
+        "n": 26,
         "recall_at_1": 0.0,
         "recall_at_3": 0.0,
-        "recall_at_5": 0.0333,
-        "recall_at_10": 0.0333,
-        "mrr": 0.0083,
-        "semantic_similarity": 0.0881,
+        "recall_at_5": 0.0385,
+        "recall_at_10": 0.0385,
+        "mrr": 0.0096,
+        "semantic_similarity": 0.0812,
         "word_overlap": 0.0,
-        "avg_time": 0.714
+        "avg_time": 1.2862
       },
       "with_verse_id": {
-        "n": 30,
+        "n": 22,
         "recall_at_1": 0.0,
         "recall_at_3": 0.0,
-        "recall_at_5": 0.0333,
-        "recall_at_10": 0.0333,
-        "mrr": 0.0083,
-        "semantic_similarity": 0.0596,
+        "recall_at_5": 0.0455,
+        "recall_at_10": 0.0455,
+        "mrr": 0.0114,
+        "semantic_similarity": 0.0086,
         "word_overlap": 0.0,
-        "avg_time": 0.744
+        "avg_time": 1.3073
       }
     },
     "iskcon_vedabase": {
@@ -117,7 +117,7 @@
         "mrr": 0.0333,
         "semantic_similarity": 0.0,
         "word_overlap": 0.0,
-        "avg_time": 0.352
+        "avg_time": 0.6733
       },
       "with_verse_id": {
         "n": 15,
@@ -128,7 +128,7 @@
         "mrr": 0.0333,
         "semantic_similarity": 0.0,
         "word_overlap": 0.0,
-        "avg_time": 0.3787
+        "avg_time": 0.7007
       }
     }
   },
@@ -141,7 +141,7 @@
           "BhG 8.16"
         ],
         "without_id": {
-          "time_seconds": 6.38,
+          "time_seconds": 14.99,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -173,7 +173,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.93,
+          "time_seconds": 2.01,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -212,7 +212,7 @@
           "BhG 12.4"
         ],
         "without_id": {
-          "time_seconds": 1.13,
+          "time_seconds": 2.11,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -244,7 +244,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.12,
+          "time_seconds": 2.18,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -283,7 +283,7 @@
           "BhG 10.32"
         ],
         "without_id": {
-          "time_seconds": 1.06,
+          "time_seconds": 1.82,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -315,7 +315,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.11,
+          "time_seconds": 2.28,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -354,7 +354,7 @@
           "BhG 18.3"
         ],
         "without_id": {
-          "time_seconds": 1.06,
+          "time_seconds": 1.9,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -366,7 +366,6 @@
               "BhG 18.3"
             ],
             "retrieved_verse_refs": [
-              "BhG 17.28",
               "BhG 10.16",
               "BhG 11.32",
               "BhG 3.15",
@@ -375,18 +374,19 @@
               "BhG 3.17",
               "BhG 3.20",
               "BhG 10.2",
-              "BhG 3.19"
+              "BhG 3.19",
+              "BhG 11.47"
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.3042,
-            "word_overlap": 0.0137,
-            "char_length_a": 105,
-            "char_length_b": 583
+            "semantic_similarity": 0.0,
+            "word_overlap": 0.0,
+            "char_length_a": 0,
+            "char_length_b": 0
           }
         },
         "with_id": {
-          "time_seconds": 1.07,
+          "time_seconds": 2.48,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -425,7 +425,7 @@
           "BhG 17.28"
         ],
         "without_id": {
-          "time_seconds": 0.91,
+          "time_seconds": 2.0,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -457,7 +457,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.98,
+          "time_seconds": 1.64,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -496,7 +496,7 @@
           "BhG 16.8"
         ],
         "without_id": {
-          "time_seconds": 1.05,
+          "time_seconds": 1.85,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -528,7 +528,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.07,
+          "time_seconds": 1.92,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -544,8 +544,8 @@
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
-              "BhG 10.6",
               "BhG 3.17",
+              "BhG 10.6",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
@@ -567,7 +567,7 @@
           "BhG 13.3"
         ],
         "without_id": {
-          "time_seconds": 0.9,
+          "time_seconds": 1.72,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -579,7 +579,7 @@
               "BhG 13.3"
             ],
             "retrieved_verse_refs": [
-              "BhG 1.21-23",
+              "BhG 1.23",
               "BhG 16.15",
               "BhG 10.16",
               "BhG 11.32",
@@ -599,7 +599,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.91,
+          "time_seconds": 1.69,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -638,7 +638,7 @@
           "BhG 12.14"
         ],
         "without_id": {
-          "time_seconds": 0.98,
+          "time_seconds": 1.73,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -670,7 +670,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.91,
+          "time_seconds": 1.51,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -709,7 +709,7 @@
           "BhG 9.24"
         ],
         "without_id": {
-          "time_seconds": 1.0,
+          "time_seconds": 1.66,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -741,7 +741,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.02,
+          "time_seconds": 1.96,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -780,68 +780,10 @@
           "BhG 5.28"
         ],
         "without_id": {
-          "time_seconds": 0.94,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 5.28"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 5.18",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.2506,
-            "word_overlap": 0.0161,
-            "char_length_a": 97,
-            "char_length_b": 485
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.98,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 5.28"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 5.18",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.2506,
-            "word_overlap": 0.0161,
-            "char_length_a": 97,
-            "char_length_b": 485
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -851,7 +793,7 @@
           "BhG 11.51"
         ],
         "without_id": {
-          "time_seconds": 0.82,
+          "time_seconds": 1.5,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -883,7 +825,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.87,
+          "time_seconds": 1.42,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -922,7 +864,7 @@
           "BhG 6.42"
         ],
         "without_id": {
-          "time_seconds": 1.04,
+          "time_seconds": 1.75,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -942,8 +884,8 @@
               "BhG 10.18",
               "BhG 14.27",
               "BhG 10.9",
-              "BhG 18.36-37",
-              "BhG 1.28-29"
+              "BhG 10.34",
+              "BhG 10.41"
             ]
           },
           "semantic": {
@@ -954,7 +896,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.04,
+          "time_seconds": 2.0,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -993,7 +935,7 @@
           "BhG 2.59"
         ],
         "without_id": {
-          "time_seconds": 0.95,
+          "time_seconds": 2.2,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1025,7 +967,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.98,
+          "time_seconds": 1.8,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1064,7 +1006,7 @@
           "BhG 10.39"
         ],
         "without_id": {
-          "time_seconds": 0.84,
+          "time_seconds": 1.87,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1085,7 +1027,7 @@
               "BhG 10.6",
               "BhG 3.17",
               "BhG 3.20",
-              "BhG 10.2"
+              "BhG 10.41"
             ]
           },
           "semantic": {
@@ -1096,7 +1038,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.89,
+          "time_seconds": 1.76,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1135,7 +1077,7 @@
           "BhG 10.37"
         ],
         "without_id": {
-          "time_seconds": 1.14,
+          "time_seconds": 2.21,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1167,7 +1109,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.23,
+          "time_seconds": 2.29,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1183,12 +1125,12 @@
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
-              "BhG 10.6",
               "BhG 3.17",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
-              "BhG 11.47"
+              "BhG 11.47",
+              "BhG 3.7"
             ]
           },
           "semantic": {
@@ -1206,7 +1148,7 @@
           "BhG 11.6"
         ],
         "without_id": {
-          "time_seconds": 0.9,
+          "time_seconds": 1.9,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1238,7 +1180,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.96,
+          "time_seconds": 1.55,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1254,12 +1196,12 @@
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
-              "BhG 10.6",
               "BhG 3.17",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
-              "BhG 11.47"
+              "BhG 11.47",
+              "BhG 3.7"
             ]
           },
           "semantic": {
@@ -1277,7 +1219,7 @@
           "BhG 16.3"
         ],
         "without_id": {
-          "time_seconds": 1.18,
+          "time_seconds": 1.58,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1309,7 +1251,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.1,
+          "time_seconds": 1.89,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1348,7 +1290,7 @@
           "BhG 17.17"
         ],
         "without_id": {
-          "time_seconds": 0.92,
+          "time_seconds": 1.66,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1380,7 +1322,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.89,
+          "time_seconds": 1.8,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1419,7 +1361,7 @@
           "BhG 4.3"
         ],
         "without_id": {
-          "time_seconds": 0.96,
+          "time_seconds": 1.59,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1451,7 +1393,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.99,
+          "time_seconds": 1.62,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1490,7 +1432,7 @@
           "BhG 7.1"
         ],
         "without_id": {
-          "time_seconds": 0.87,
+          "time_seconds": 2.28,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1522,7 +1464,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.91,
+          "time_seconds": 1.49,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1561,7 +1503,7 @@
           "BhG 10.34"
         ],
         "without_id": {
-          "time_seconds": 1.11,
+          "time_seconds": 2.05,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1593,7 +1535,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.11,
+          "time_seconds": 1.85,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1632,7 +1574,7 @@
           "BhG 6.15"
         ],
         "without_id": {
-          "time_seconds": 0.94,
+          "time_seconds": 1.49,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1664,7 +1606,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.93,
+          "time_seconds": 1.46,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1703,7 +1645,7 @@
           "BhG 15.8"
         ],
         "without_id": {
-          "time_seconds": 1.16,
+          "time_seconds": 2.47,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1735,7 +1677,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.2,
+          "time_seconds": 2.6,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1774,7 +1716,7 @@
           "BhG 8.26"
         ],
         "without_id": {
-          "time_seconds": 1.04,
+          "time_seconds": 2.05,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1806,7 +1748,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.03,
+          "time_seconds": 1.67,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1845,7 +1787,7 @@
           "BhG 2.56"
         ],
         "without_id": {
-          "time_seconds": 0.99,
+          "time_seconds": 1.46,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1877,7 +1819,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.01,
+          "time_seconds": 1.69,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1916,7 +1858,7 @@
           "BhG 16.5"
         ],
         "without_id": {
-          "time_seconds": 0.94,
+          "time_seconds": 1.81,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1948,7 +1890,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.01,
+          "time_seconds": 1.76,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -1987,14 +1929,14 @@
           "BhG 3.17"
         ],
         "without_id": {
-          "time_seconds": 1.02,
+          "time_seconds": 1.63,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
             "recall_at_3": 0.0,
             "recall_at_5": 0.0,
             "recall_at_10": 0.0,
-            "mrr": 0.0,
+            "mrr": 0.07142857142857142,
             "expected_verses": [
               "BhG 3.17"
             ],
@@ -2002,24 +1944,24 @@
               "BhG 10.36",
               "BhG 16.15",
               "BhG 10.3",
-              "BhG 18.36-37",
               "BhG 17.8",
-              "BhG 1.28-29",
-              "BhG 10.12-13",
               "BhG 4.29",
-              "BhG 12.13-14",
-              "BhG 12.18-19"
+              "BhG 10.41",
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 13.16"
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.3895,
+            "semantic_similarity": 0.3939,
             "word_overlap": 0.0132,
-            "char_length_a": 409,
+            "char_length_a": 310,
             "char_length_b": 567
           }
         },
         "with_id": {
-          "time_seconds": 1.02,
+          "time_seconds": 1.6,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2058,7 +2000,7 @@
           "BhG 6.41"
         ],
         "without_id": {
-          "time_seconds": 1.2,
+          "time_seconds": 1.86,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2090,7 +2032,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.16,
+          "time_seconds": 1.87,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2129,68 +2071,10 @@
           "BhG 18.4"
         ],
         "without_id": {
-          "time_seconds": 1.2,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 18.4"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 5.18",
-              "BhG 17.18",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 13.3",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.3438,
-            "word_overlap": 0.013,
-            "char_length_a": 307,
-            "char_length_b": 592
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 1.17,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 18.4"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 5.18",
-              "BhG 17.18",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.3293,
-            "word_overlap": 0.013,
-            "char_length_a": 200,
-            "char_length_b": 592
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -2200,7 +2084,7 @@
           "BhG 10.15"
         ],
         "without_id": {
-          "time_seconds": 1.04,
+          "time_seconds": 1.7,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2232,7 +2116,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 1.12,
+          "time_seconds": 1.55,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2248,8 +2132,8 @@
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
-              "BhG 10.6",
               "BhG 3.17",
+              "BhG 10.6",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
@@ -2273,7 +2157,7 @@
           "BhG 14.1"
         ],
         "without_id": {
-          "time_seconds": 0.48,
+          "time_seconds": 0.99,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2305,7 +2189,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.51,
+          "time_seconds": 0.83,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2321,12 +2205,12 @@
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
-              "BhG 10.6",
               "BhG 3.17",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
-              "BhG 11.47"
+              "BhG 11.47",
+              "BhG 3.7"
             ]
           },
           "semantic": {
@@ -2344,19 +2228,18 @@
           "BhG 2.45"
         ],
         "without_id": {
-          "time_seconds": 0.51,
+          "time_seconds": 0.93,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
+            "recall_at_3": 1.0,
             "recall_at_5": 1.0,
             "recall_at_10": 1.0,
-            "mrr": 0.25,
+            "mrr": 0.3333333333333333,
             "expected_verses": [
               "BhG 2.45"
             ],
             "retrieved_verse_refs": [
-              "BhG 2.54",
               "BhG 10.32",
               "BhG 6.37",
               "BhG 2.45",
@@ -2365,18 +2248,19 @@
               "BhG 3.15",
               "BhG 11.36",
               "BhG 10.6",
-              "BhG 3.17"
+              "BhG 3.17",
+              "BhG 7.16"
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.3611,
+            "semantic_similarity": 0.411,
             "word_overlap": 0.0189,
-            "char_length_a": 334,
+            "char_length_a": 320,
             "char_length_b": 429
           }
         },
         "with_id": {
-          "time_seconds": 0.55,
+          "time_seconds": 1.02,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2388,7 +2272,6 @@
               "BhG 2.45"
             ],
             "retrieved_verse_refs": [
-              "BhG 2.54",
               "BhG 6.37",
               "BhG 10.16",
               "BhG 11.32",
@@ -2397,11 +2280,12 @@
               "BhG 3.17",
               "BhG 2.2",
               "BhG 3.20",
-              "BhG 10.2"
+              "BhG 10.2",
+              "BhG 3.19"
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.3834,
+            "semantic_similarity": 0.3828,
             "word_overlap": 0.0189,
             "char_length_a": 348,
             "char_length_b": 429
@@ -2415,68 +2299,10 @@
           "BhG 1.21"
         ],
         "without_id": {
-          "time_seconds": 0.39,
-          "query_type": "general_medium",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 1.21"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 2.54",
-              "BhG 10.32",
-              "BhG 4.4",
-              "BhG 3.36",
-              "BhG 10.39",
-              "BhG 6.37",
-              "BhG 2.2",
-              "BhG 18.1",
-              "BhG 10.42",
-              "BhG 10.16"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.372,
-            "word_overlap": 0.0312,
-            "char_length_a": 332,
-            "char_length_b": 247
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.42,
-          "query_type": "general_medium",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 1.21"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 2.54",
-              "BhG 4.4",
-              "BhG 3.36",
-              "BhG 6.37",
-              "BhG 2.2",
-              "BhG 10.32",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.4096,
-            "word_overlap": 0.0312,
-            "char_length_a": 340,
-            "char_length_b": 247
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -2486,7 +2312,7 @@
           "BhG 17.14"
         ],
         "without_id": {
-          "time_seconds": 0.47,
+          "time_seconds": 0.84,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2518,7 +2344,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.46,
+          "time_seconds": 0.86,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2557,7 +2383,7 @@
           "BhG 5.22"
         ],
         "without_id": {
-          "time_seconds": 0.49,
+          "time_seconds": 1.0,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2589,36 +2415,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.5,
-          "query_type": "general_medium",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 5.22"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 10.3",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 3.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1537,
-            "word_overlap": 0.0,
-            "char_length_a": 109,
-            "char_length_b": 273
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -2628,7 +2425,7 @@
           "BhG 4.39"
         ],
         "without_id": {
-          "time_seconds": 0.45,
+          "time_seconds": 1.03,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2660,7 +2457,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.51,
+          "time_seconds": 1.26,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2699,7 +2496,7 @@
           "BhG 4.21"
         ],
         "without_id": {
-          "time_seconds": 0.4,
+          "time_seconds": 0.83,
           "query_type": "concept_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2731,7 +2528,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.44,
+          "time_seconds": 0.85,
           "query_type": "concept_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2770,7 +2567,7 @@
           "BhG 2.68"
         ],
         "without_id": {
-          "time_seconds": 0.45,
+          "time_seconds": 1.13,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2802,7 +2599,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.48,
+          "time_seconds": 0.91,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2841,7 +2638,7 @@
           "BhG 17.10"
         ],
         "without_id": {
-          "time_seconds": 0.35,
+          "time_seconds": 0.72,
           "query_type": "concept_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2873,7 +2670,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.42,
+          "time_seconds": 0.85,
           "query_type": "concept_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2912,7 +2709,7 @@
           "BhG 2.37"
         ],
         "without_id": {
-          "time_seconds": 0.48,
+          "time_seconds": 0.92,
           "query_type": "concept_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2944,7 +2741,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.55,
+          "time_seconds": 0.9,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -2983,7 +2780,7 @@
           "BhG 15.5"
         ],
         "without_id": {
-          "time_seconds": 0.5,
+          "time_seconds": 1.08,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3015,7 +2812,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.52,
+          "time_seconds": 1.26,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3054,7 +2851,7 @@
           "BhG 17.13"
         ],
         "without_id": {
-          "time_seconds": 0.55,
+          "time_seconds": 1.13,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3086,36 +2883,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.58,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 17.13"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 10.3",
-              "BhG 10.38",
-              "BhG 2.66",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.2337,
-            "word_overlap": 0.0,
-            "char_length_a": 199,
-            "char_length_b": 326
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -3125,7 +2893,7 @@
           "BhG 11.33"
         ],
         "without_id": {
-          "time_seconds": 0.34,
+          "time_seconds": 0.84,
           "query_type": "concept_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3157,7 +2925,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.41,
+          "time_seconds": 0.88,
           "query_type": "concept_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3196,7 +2964,7 @@
           "BhG 2.25"
         ],
         "without_id": {
-          "time_seconds": 0.42,
+          "time_seconds": 0.74,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3228,7 +2996,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.48,
+          "time_seconds": 0.79,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3267,68 +3035,10 @@
           "BhG 12.15"
         ],
         "without_id": {
-          "time_seconds": 0.55,
-          "query_type": "concept_medium",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 12.15"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 16.4",
-              "BhG 11.45",
-              "BhG 4.10",
-              "BhG 9.12",
-              "BhG 2.56",
-              "BhG 18.35",
-              "BhG 18.30",
-              "BhG 16.5",
-              "BhG 18.28",
-              "BhG 18.14"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1963,
-            "word_overlap": 0.0,
-            "char_length_a": 330,
-            "char_length_b": 350
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.52,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 1.0,
-            "recall_at_10": 1.0,
-            "mrr": 0.2,
-            "expected_verses": [
-              "BhG 12.15"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 18.35",
-              "BhG 12.15",
-              "BhG 11.36",
-              "BhG 9.12",
-              "BhG 10.6",
-              "BhG 18.30",
-              "BhG 3.17"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.2641,
-            "word_overlap": 0.0,
-            "char_length_a": 304,
-            "char_length_b": 350
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -3338,7 +3048,7 @@
           "BhG 9.8"
         ],
         "without_id": {
-          "time_seconds": 0.33,
+          "time_seconds": 0.56,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3370,7 +3080,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.37,
+          "time_seconds": 0.59,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3409,7 +3119,7 @@
           "BhG 1.27"
         ],
         "without_id": {
-          "time_seconds": 0.46,
+          "time_seconds": 0.72,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3441,7 +3151,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.46,
+          "time_seconds": 0.77,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3480,68 +3190,10 @@
           "BhG 1.25"
         ],
         "without_id": {
-          "time_seconds": 0.39,
-          "query_type": "general_medium",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 1.25"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 3.36",
-              "BhG 10.32",
-              "BhG 2.2",
-              "BhG 2.54",
-              "BhG 4.4",
-              "BhG 10.39",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 6.37",
-              "BhG 3.15"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.4526,
-            "word_overlap": 0.04,
-            "char_length_a": 327,
-            "char_length_b": 175
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.46,
-          "query_type": "general_medium",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 1.25"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 3.36",
-              "BhG 2.2",
-              "BhG 4.4",
-              "BhG 2.54",
-              "BhG 10.32",
-              "BhG 6.37",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.4313,
-            "word_overlap": 0.04,
-            "char_length_a": 336,
-            "char_length_b": 175
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -3551,68 +3203,10 @@
           "BhG 2.30"
         ],
         "without_id": {
-          "time_seconds": 0.49,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 2.30"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 2.54",
-              "BhG 4.4",
-              "BhG 3.36",
-              "BhG 6.37",
-              "BhG 2.2",
-              "BhG 10.16",
-              "BhG 3.1",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 6.46"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.389,
-            "word_overlap": 0.0256,
-            "char_length_a": 340,
-            "char_length_b": 292
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.48,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 2.30"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 4.4",
-              "BhG 2.54",
-              "BhG 2.2",
-              "BhG 6.37",
-              "BhG 3.36",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 6.46",
-              "BhG 11.36"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.3917,
-            "word_overlap": 0.0256,
-            "char_length_a": 346,
-            "char_length_b": 292
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -3622,7 +3216,7 @@
           "BhG 4.18"
         ],
         "without_id": {
-          "time_seconds": 0.43,
+          "time_seconds": 0.83,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3654,36 +3248,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.48,
-          "query_type": "general_medium",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 4.18"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 16.5",
-              "BhG 10.3",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1831,
-            "word_overlap": 0.0,
-            "char_length_a": 96,
-            "char_length_b": 119
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -3693,7 +3258,7 @@
           "BhG 4.29"
         ],
         "without_id": {
-          "time_seconds": 0.38,
+          "time_seconds": 0.75,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3725,7 +3290,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.45,
+          "time_seconds": 0.8,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3764,7 +3329,7 @@
           "BhG 10.42"
         ],
         "without_id": {
-          "time_seconds": 0.47,
+          "time_seconds": 0.83,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3796,7 +3361,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.5,
+          "time_seconds": 0.88,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3812,12 +3377,12 @@
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
-              "BhG 10.6",
               "BhG 3.17",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
-              "BhG 11.47"
+              "BhG 11.47",
+              "BhG 3.7"
             ]
           },
           "semantic": {
@@ -3835,7 +3400,7 @@
           "BhG 13.5"
         ],
         "without_id": {
-          "time_seconds": 0.33,
+          "time_seconds": 0.53,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3850,24 +3415,24 @@
               "BhG 18.15",
               "BhG 18.14",
               "BhG 10.16",
+              "BhG 18.13",
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
               "BhG 14.21",
               "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20"
+              "BhG 3.17"
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.1078,
+            "semantic_similarity": 0.1076,
             "word_overlap": 0.0,
-            "char_length_a": 313,
+            "char_length_a": 303,
             "char_length_b": 193
           }
         },
         "with_id": {
-          "time_seconds": 0.35,
+          "time_seconds": 0.56,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3906,7 +3471,7 @@
           "BhG 1.22"
         ],
         "without_id": {
-          "time_seconds": 0.46,
+          "time_seconds": 0.83,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3938,7 +3503,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.47,
+          "time_seconds": 0.95,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -3977,7 +3542,7 @@
           "BhG 11.46"
         ],
         "without_id": {
-          "time_seconds": 0.53,
+          "time_seconds": 0.82,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4009,7 +3574,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.49,
+          "time_seconds": 1.11,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4048,68 +3613,10 @@
           "BhG 4.1"
         ],
         "without_id": {
-          "time_seconds": 0.5,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 4.1"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 6.43",
-              "BhG 4.27",
-              "BhG 4.41",
-              "BhG 6.19",
-              "BhG 18.39",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.4602,
-            "word_overlap": 0.0,
-            "char_length_a": 294,
-            "char_length_b": 417
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.5,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 4.1"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 6.43",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.0,
-            "word_overlap": 0.0,
-            "char_length_a": 0,
-            "char_length_b": 0
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -4119,7 +3626,7 @@
           "BhG 16.17"
         ],
         "without_id": {
-          "time_seconds": 0.48,
+          "time_seconds": 1.13,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4151,7 +3658,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.52,
+          "time_seconds": 1.05,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4190,68 +3697,10 @@
           "BhG 14.10"
         ],
         "without_id": {
-          "time_seconds": 0.41,
-          "query_type": "concept_medium",
-          "verse_retrieval": {
-            "recall_at_1": 1.0,
-            "recall_at_3": 1.0,
-            "recall_at_5": 1.0,
-            "recall_at_10": 1.0,
-            "mrr": 1.0,
-            "expected_verses": [
-              "BhG 14.10"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 14.10",
-              "BhG 10.36",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.5708,
-            "word_overlap": 0.0286,
-            "char_length_a": 211,
-            "char_length_b": 255
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.44,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 1.0,
-            "recall_at_3": 1.0,
-            "recall_at_5": 1.0,
-            "recall_at_10": 1.0,
-            "mrr": 1.0,
-            "expected_verses": [
-              "BhG 14.10"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 14.10",
-              "BhG 14.5",
-              "BhG 10.16",
-              "BhG 17.1",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.5135,
-            "word_overlap": 0.0286,
-            "char_length_a": 796,
-            "char_length_b": 255
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -4261,7 +3710,7 @@
           "BhG 16.5"
         ],
         "without_id": {
-          "time_seconds": 0.34,
+          "time_seconds": 0.64,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4293,7 +3742,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.39,
+          "time_seconds": 0.71,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4332,68 +3781,10 @@
           "BhG 11.33"
         ],
         "without_id": {
-          "time_seconds": 0.35,
-          "query_type": "general_medium",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 11.33"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 4.4",
-              "BhG 2.54",
-              "BhG 6.37",
-              "BhG 3.36",
-              "BhG 2.2",
-              "BhG 10.32",
-              "BhG 10.39",
-              "BhG 4.37",
-              "BhG 3.1",
-              "BhG 10.42"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.4793,
-            "word_overlap": 0.0303,
-            "char_length_a": 343,
-            "char_length_b": 254
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.35,
-          "query_type": "general_medium",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 11.33"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 6.37",
-              "BhG 4.4",
-              "BhG 2.2",
-              "BhG 2.54",
-              "BhG 3.36",
-              "BhG 10.32",
-              "BhG 4.37",
-              "BhG 3.1",
-              "BhG 2.4",
-              "BhG 18.1"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.5011,
-            "word_overlap": 0.0303,
-            "char_length_a": 339,
-            "char_length_b": 254
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       }
     ],
@@ -4405,7 +3796,7 @@
           "BhG 6.14"
         ],
         "without_id": {
-          "time_seconds": 0.57,
+          "time_seconds": 1.05,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4417,56 +3808,27 @@
               "BhG 6.14"
             ],
             "retrieved_verse_refs": [
-              "BhG 6.16",
               "BhG 18.28",
               "BhG 17.25",
-              "BhG 17.15",
-              "BhG 3.36",
               "BhG 10.16",
               "BhG 11.32",
               "BhG 3.15",
+              "BhG 18.25",
+              "BhG 9.13",
               "BhG 11.36",
-              "BhG 18.25"
+              "BhG 9.22",
+              "BhG 6.38"
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.1203,
+            "semantic_similarity": 0.1852,
             "word_overlap": 0.0,
             "char_length_a": 307,
             "char_length_b": 406
           }
         },
         "with_id": {
-          "time_seconds": 0.5,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 6.14"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 18.25",
-              "BhG 3.36",
-              "BhG 6.16",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 17.25",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 2.2"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1294,
-            "word_overlap": 0.0,
-            "char_length_a": 311,
-            "char_length_b": 406
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -4476,68 +3838,10 @@
           "BhG 12.5"
         ],
         "without_id": {
-          "time_seconds": 0.69,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 12.5"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 11.54",
-              "BhG 9.22",
-              "BhG 18.25",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 18.28",
-              "BhG 17.25",
-              "BhG 11.36",
-              "BhG 10.6"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1766,
-            "word_overlap": 0.0,
-            "char_length_a": 308,
-            "char_length_b": 407
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.73,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 12.5"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 18.25",
-              "BhG 11.54",
-              "BhG 9.22",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.2084,
-            "word_overlap": 0.0,
-            "char_length_a": 308,
-            "char_length_b": 407
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -4547,7 +3851,7 @@
           "BhG 10.22"
         ],
         "without_id": {
-          "time_seconds": 0.72,
+          "time_seconds": 1.21,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4579,7 +3883,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.73,
+          "time_seconds": 1.22,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4596,11 +3900,11 @@
               "BhG 3.15",
               "BhG 11.36",
               "BhG 3.17",
-              "BhG 10.6",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
-              "BhG 11.47"
+              "BhG 11.47",
+              "BhG 3.7"
             ]
           },
           "semantic": {
@@ -4618,68 +3922,10 @@
           "BhG 8.22"
         ],
         "without_id": {
-          "time_seconds": 0.79,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 8.22"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 11.19",
-              "BhG 11.54",
-              "BhG 7.4",
-              "BhG 16.15",
-              "BhG 17.25",
-              "BhG 13.18",
-              "BhG 17.17",
-              "BhG 10.21",
-              "BhG 18.25",
-              "BhG 4.9"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1514,
-            "word_overlap": 0.0,
-            "char_length_a": 343,
-            "char_length_b": 392
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.86,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 8.22"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 11.19",
-              "BhG 11.54",
-              "BhG 7.4",
-              "BhG 11.12",
-              "BhG 10.19",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 17.25",
-              "BhG 3.15",
-              "BhG 11.36"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1514,
-            "word_overlap": 0.0,
-            "char_length_a": 343,
-            "char_length_b": 392
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -4689,7 +3935,7 @@
           "BhG 17.18"
         ],
         "without_id": {
-          "time_seconds": 0.69,
+          "time_seconds": 1.31,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4721,7 +3967,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.69,
+          "time_seconds": 1.19,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4760,68 +4006,10 @@
           "BhG 16.17"
         ],
         "without_id": {
-          "time_seconds": 0.78,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 16.17"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 17.15",
-              "BhG 10.36",
-              "BhG 10.3",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 6.16",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1385,
-            "word_overlap": 0.0,
-            "char_length_a": 308,
-            "char_length_b": 412
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.82,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 16.17"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 10.3",
-              "BhG 18.25",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 10.36",
-              "BhG 3.17",
-              "BhG 3.20"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.2187,
-            "word_overlap": 0.0,
-            "char_length_a": 204,
-            "char_length_b": 412
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -4831,7 +4019,7 @@
           "BhG 16.1"
         ],
         "without_id": {
-          "time_seconds": 0.73,
+          "time_seconds": 1.22,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4863,7 +4051,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.74,
+          "time_seconds": 1.28,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4902,7 +4090,7 @@
           "BhG 13.8"
         ],
         "without_id": {
-          "time_seconds": 0.83,
+          "time_seconds": 1.3,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4934,7 +4122,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.81,
+          "time_seconds": 1.34,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -4973,7 +4161,7 @@
           "BhG 8.18"
         ],
         "without_id": {
-          "time_seconds": 0.56,
+          "time_seconds": 1.13,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5005,7 +4193,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.69,
+          "time_seconds": 1.35,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5044,7 +4232,7 @@
           "BhG 11.52"
         ],
         "without_id": {
-          "time_seconds": 0.81,
+          "time_seconds": 1.59,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5062,10 +4250,10 @@
               "BhG 10.34",
               "BhG 18.26",
               "BhG 17.18",
-              "BhG 18.36-37",
-              "BhG 1.28-29",
               "BhG 10.18",
-              "BhG 10.12-13"
+              "BhG 17.15",
+              "BhG 14.24",
+              "BhG 17.10"
             ]
           },
           "semantic": {
@@ -5076,7 +4264,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.79,
+          "time_seconds": 1.36,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5096,14 +4284,14 @@
               "BhG 10.6",
               "BhG 3.17",
               "BhG 3.20",
-              "BhG 18.36-37",
-              "BhG 10.2"
+              "BhG 10.2",
+              "BhG 3.19"
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.1993,
+            "semantic_similarity": 0.1886,
             "word_overlap": 0.0,
-            "char_length_a": 411,
+            "char_length_a": 206,
             "char_length_b": 356
           }
         }
@@ -5115,7 +4303,7 @@
           "BhG 6.45"
         ],
         "without_id": {
-          "time_seconds": 0.79,
+          "time_seconds": 1.52,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5127,56 +4315,27 @@
               "BhG 6.45"
             ],
             "retrieved_verse_refs": [
-              "BhG 11.54",
               "BhG 17.25",
-              "BhG 17.15",
               "BhG 6.38",
-              "BhG 3.36",
               "BhG 18.25",
               "BhG 9.13",
               "BhG 9.22",
               "BhG 8.14",
-              "BhG 10.16"
+              "BhG 10.16",
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36"
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.2334,
+            "semantic_similarity": 0.2807,
             "word_overlap": 0.0,
-            "char_length_a": 319,
+            "char_length_a": 311,
             "char_length_b": 397
           }
         },
         "with_id": {
-          "time_seconds": 0.81,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 6.45"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 18.25",
-              "BhG 11.54",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 17.25",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 17.15",
-              "BhG 3.17"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.2739,
-            "word_overlap": 0.0,
-            "char_length_a": 316,
-            "char_length_b": 397
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -5186,7 +4345,7 @@
           "BhG 8.21"
         ],
         "without_id": {
-          "time_seconds": 0.78,
+          "time_seconds": 1.93,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5198,16 +4357,16 @@
               "BhG 8.21"
             ],
             "retrieved_verse_refs": [
-              "BhG 1.21-23",
+              "BhG 1.22",
               "BhG 16.15",
               "BhG 3.2",
               "BhG 2.7",
-              "BhG 18.36-37",
-              "BhG 1.28-29",
-              "BhG 10.12-13",
               "BhG 10.16",
               "BhG 18.70",
-              "BhG 11.32"
+              "BhG 11.32",
+              "BhG 3.15",
+              "BhG 11.36",
+              "BhG 10.6"
             ]
           },
           "semantic": {
@@ -5218,7 +4377,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.74,
+          "time_seconds": 1.37,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5257,7 +4416,7 @@
           "BhG 4.5"
         ],
         "without_id": {
-          "time_seconds": 0.7,
+          "time_seconds": 1.49,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5289,7 +4448,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.76,
+          "time_seconds": 1.46,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5328,7 +4487,7 @@
           "BhG 11.36"
         ],
         "without_id": {
-          "time_seconds": 0.83,
+          "time_seconds": 1.48,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5360,7 +4519,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.86,
+          "time_seconds": 1.44,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5399,7 +4558,7 @@
           "BhG 5.2"
         ],
         "without_id": {
-          "time_seconds": 0.8,
+          "time_seconds": 1.38,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5424,43 +4583,14 @@
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.2136,
+            "semantic_similarity": 0.2041,
             "word_overlap": 0.0,
-            "char_length_a": 293,
+            "char_length_a": 204,
             "char_length_b": 388
           }
         },
         "with_id": {
-          "time_seconds": 0.85,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 5.2"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 10.3",
-              "BhG 16.5",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1987,
-            "word_overlap": 0.0,
-            "char_length_a": 289,
-            "char_length_b": 388
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -5470,7 +4600,7 @@
           "BhG 2.7"
         ],
         "without_id": {
-          "time_seconds": 0.52,
+          "time_seconds": 1.2,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5502,7 +4632,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.51,
+          "time_seconds": 1.25,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5541,7 +4671,7 @@
           "BhG 10.29"
         ],
         "without_id": {
-          "time_seconds": 0.55,
+          "time_seconds": 0.97,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5573,7 +4703,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.54,
+          "time_seconds": 1.12,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5612,7 +4742,7 @@
           "BhG 10.27"
         ],
         "without_id": {
-          "time_seconds": 0.69,
+          "time_seconds": 1.36,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5644,7 +4774,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.75,
+          "time_seconds": 1.2,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5683,7 +4813,7 @@
           "BhG 11.43"
         ],
         "without_id": {
-          "time_seconds": 0.5,
+          "time_seconds": 0.82,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5715,7 +4845,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.51,
+          "time_seconds": 0.9,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5754,7 +4884,7 @@
           "BhG 15.19"
         ],
         "without_id": {
-          "time_seconds": 0.56,
+          "time_seconds": 1.08,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5786,7 +4916,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.53,
+          "time_seconds": 1.13,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5825,7 +4955,7 @@
           "BhG 16.7"
         ],
         "without_id": {
-          "time_seconds": 0.85,
+          "time_seconds": 1.52,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5857,7 +4987,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.88,
+          "time_seconds": 1.33,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5896,7 +5026,7 @@
           "BhG 3.10"
         ],
         "without_id": {
-          "time_seconds": 0.71,
+          "time_seconds": 1.24,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5928,7 +5058,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.74,
+          "time_seconds": 1.31,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5944,12 +5074,12 @@
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
-              "BhG 10.6",
               "BhG 3.17",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
-              "BhG 11.47"
+              "BhG 11.47",
+              "BhG 3.7"
             ]
           },
           "semantic": {
@@ -5967,7 +5097,7 @@
           "BhG 5.13"
         ],
         "without_id": {
-          "time_seconds": 0.78,
+          "time_seconds": 1.4,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -5999,7 +5129,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.81,
+          "time_seconds": 1.37,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6038,7 +5168,7 @@
           "BhG 10.24"
         ],
         "without_id": {
-          "time_seconds": 0.65,
+          "time_seconds": 1.1,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6070,7 +5200,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.76,
+          "time_seconds": 1.93,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6086,12 +5216,12 @@
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
-              "BhG 10.6",
               "BhG 3.17",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
-              "BhG 11.47"
+              "BhG 11.47",
+              "BhG 3.7"
             ]
           },
           "semantic": {
@@ -6109,7 +5239,7 @@
           "BhG 4.20"
         ],
         "without_id": {
-          "time_seconds": 0.74,
+          "time_seconds": 1.31,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6124,13 +5254,13 @@
               "BhG 16.15",
               "BhG 10.35",
               "BhG 2.7",
-              "BhG 18.36-37",
               "BhG 10.16",
               "BhG 10.41",
-              "BhG 1.28-29",
               "BhG 11.32",
-              "BhG 10.12-13",
-              "BhG 3.15"
+              "BhG 3.15",
+              "BhG 18.70",
+              "BhG 11.36",
+              "BhG 10.6"
             ]
           },
           "semantic": {
@@ -6141,7 +5271,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.77,
+          "time_seconds": 1.28,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6180,7 +5310,7 @@
           "BhG 15.1"
         ],
         "without_id": {
-          "time_seconds": 0.59,
+          "time_seconds": 0.87,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6212,7 +5342,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.72,
+          "time_seconds": 1.11,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6251,7 +5381,7 @@
           "BhG 8.1"
         ],
         "without_id": {
-          "time_seconds": 0.74,
+          "time_seconds": 1.19,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6270,49 +5400,20 @@
               "BhG 3.15",
               "BhG 11.36",
               "BhG 10.6",
-              "BhG 17.15",
               "BhG 3.17",
-              "BhG 3.20"
+              "BhG 3.20",
+              "BhG 10.2"
             ]
           },
           "semantic": {
-            "semantic_similarity": 0.2565,
+            "semantic_similarity": 0.2176,
             "word_overlap": 0.0,
-            "char_length_a": 319,
+            "char_length_a": 215,
             "char_length_b": 458
           }
         },
         "with_id": {
-          "time_seconds": 0.84,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 8.1"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 11.54",
-              "BhG 18.25",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 17.25",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 17.15",
-              "BhG 3.17"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.2781,
-            "word_overlap": 0.0,
-            "char_length_a": 316,
-            "char_length_b": 458
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -6322,68 +5423,10 @@
           "BhG 6.23"
         ],
         "without_id": {
-          "time_seconds": 0.71,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 6.23"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 9.13",
-              "BhG 18.36-37",
-              "BhG 17.25",
-              "BhG 17.15",
-              "BhG 18.12",
-              "BhG 18.25",
-              "BhG 9.22",
-              "BhG 18.4",
-              "BhG 3.22",
-              "BhG 18.40"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1295,
-            "word_overlap": 0.0,
-            "char_length_a": 417,
-            "char_length_b": 380
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         },
         "with_id": {
-          "time_seconds": 0.74,
-          "query_type": "complex_long",
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "expected_verses": [
-              "BhG 6.23"
-            ],
-            "retrieved_verse_refs": [
-              "BhG 9.13",
-              "BhG 18.36-37",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 17.25",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 17.15",
-              "BhG 3.17"
-            ]
-          },
-          "semantic": {
-            "semantic_similarity": 0.1295,
-            "word_overlap": 0.0,
-            "char_length_a": 417,
-            "char_length_b": 380
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -6393,7 +5436,7 @@
           "BhG 7.17"
         ],
         "without_id": {
-          "time_seconds": 0.88,
+          "time_seconds": 1.42,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6425,7 +5468,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.91,
+          "time_seconds": 1.4,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6464,7 +5507,7 @@
           "BhG 4.4"
         ],
         "without_id": {
-          "time_seconds": 0.88,
+          "time_seconds": 1.35,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6496,7 +5539,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.93,
+          "time_seconds": 1.42,
           "query_type": "complex_long",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6537,7 +5580,7 @@
           "BhG 14.4"
         ],
         "without_id": {
-          "time_seconds": 0.32,
+          "time_seconds": 0.65,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6569,7 +5612,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.41,
+          "time_seconds": 0.79,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6608,7 +5651,7 @@
           "BhG 11.32"
         ],
         "without_id": {
-          "time_seconds": 0.35,
+          "time_seconds": 0.56,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6640,7 +5683,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.38,
+          "time_seconds": 0.58,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6679,7 +5722,7 @@
           "BhG 6.10"
         ],
         "without_id": {
-          "time_seconds": 0.39,
+          "time_seconds": 0.69,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6711,7 +5754,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.39,
+          "time_seconds": 0.83,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6750,7 +5793,7 @@
           "BhG 10.33"
         ],
         "without_id": {
-          "time_seconds": 0.35,
+          "time_seconds": 0.67,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6782,7 +5825,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.36,
+          "time_seconds": 0.65,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6821,7 +5864,7 @@
           "BhG 12.13"
         ],
         "without_id": {
-          "time_seconds": 0.36,
+          "time_seconds": 0.63,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6853,7 +5896,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.37,
+          "time_seconds": 0.6,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6892,7 +5935,7 @@
           "BhG 13.27"
         ],
         "without_id": {
-          "time_seconds": 0.35,
+          "time_seconds": 0.55,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6924,7 +5967,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.37,
+          "time_seconds": 0.54,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6963,7 +6006,7 @@
           "BhG 17.8"
         ],
         "without_id": {
-          "time_seconds": 0.41,
+          "time_seconds": 0.48,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -6995,7 +6038,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.39,
+          "time_seconds": 0.57,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7034,7 +6077,7 @@
           "BhG 1.24"
         ],
         "without_id": {
-          "time_seconds": 0.31,
+          "time_seconds": 0.93,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7066,7 +6109,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.36,
+          "time_seconds": 0.94,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7105,7 +6148,7 @@
           "BhG 2.55"
         ],
         "without_id": {
-          "time_seconds": 0.34,
+          "time_seconds": 0.78,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7137,7 +6180,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.39,
+          "time_seconds": 0.67,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7153,12 +6196,12 @@
               "BhG 11.32",
               "BhG 3.15",
               "BhG 11.36",
-              "BhG 10.6",
               "BhG 3.17",
               "BhG 3.20",
               "BhG 10.2",
               "BhG 3.19",
-              "BhG 11.47"
+              "BhG 11.47",
+              "BhG 3.7"
             ]
           },
           "semantic": {
@@ -7176,7 +6219,7 @@
           "BhG 2.24"
         ],
         "without_id": {
-          "time_seconds": 0.35,
+          "time_seconds": 0.6,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7208,7 +6251,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.4,
+          "time_seconds": 0.81,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7247,7 +6290,7 @@
           "BhG 13.16"
         ],
         "without_id": {
-          "time_seconds": 0.34,
+          "time_seconds": 0.71,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7279,7 +6322,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.4,
+          "time_seconds": 0.69,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7318,7 +6361,7 @@
           "BhG 12.18"
         ],
         "without_id": {
-          "time_seconds": 0.38,
+          "time_seconds": 0.65,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7350,7 +6393,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.38,
+          "time_seconds": 0.79,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7389,7 +6432,7 @@
           "BhG 16.13"
         ],
         "without_id": {
-          "time_seconds": 0.35,
+          "time_seconds": 0.89,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7421,7 +6464,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.39,
+          "time_seconds": 0.81,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7460,7 +6503,7 @@
           "BhG 14.6"
         ],
         "without_id": {
-          "time_seconds": 0.32,
+          "time_seconds": 0.69,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7492,7 +6535,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.35,
+          "time_seconds": 0.63,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7531,7 +6574,7 @@
           "BhG 14.1"
         ],
         "without_id": {
-          "time_seconds": 0.36,
+          "time_seconds": 0.62,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -7563,7 +6606,7 @@
           }
         },
         "with_id": {
-          "time_seconds": 0.34,
+          "time_seconds": 0.61,
           "query_type": "general_medium",
           "verse_retrieval": {
             "recall_at_1": 0.0,
