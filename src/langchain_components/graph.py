@@ -80,6 +80,8 @@ class SRAGGraphPipeline:
         self.confidence_threshold = config.get("langgraph.confidence_threshold", 0.3)
         self.expand_on_low_conf = config.get("langgraph.expand_query_on_low_confidence", True)
 
+        self._retrieval_only = False
+
         self.graph = self._build_graph()
 
     def _get_graph_retriever(self) -> GraphRetriever:
@@ -166,6 +168,13 @@ class SRAGGraphPipeline:
                 if vr:
                     logger.info(f"Rule-based verse_ref node: '{vid}' found, skipping full retrieval")
                     vr[0]["exact_verse_match"] = True
+                    self._intermediate["verse_ref_detected"] = True
+                    self._intermediate["verse_ref"] = vid
+                    self._intermediate["reranked_results"] = [
+                        {"chunk_id": r.get("chunk_id"), "verse_ref": r.get("verse_ref", ""),
+                         "chunk_type": r.get("chunk_type", "")}
+                        for r in vr
+                    ]
                     return {
                         "fused_results": vr,
                         "reranked_results": vr,
@@ -283,11 +292,14 @@ class SRAGGraphPipeline:
                 "avg_reranking_confidence": avg_confidence,
                 "top_score": reranked[0]["final_score"] if reranked else 0,
             },
-            "should_expand": avg_confidence < self.confidence_threshold,
+            "should_expand": not self._retrieval_only and avg_confidence < self.confidence_threshold,
         }
 
     def _node_generate(self, state: SRAGState) -> dict:
-        """Generate the answer using MiMo."""
+        """Generate the answer using MiMo (no-op when retrieval_only=True)."""
+        if self._retrieval_only:
+            return {}
+
         result = self.generator.generate(
             query=state["query"],
             reranked_results=state["reranked_results"],
@@ -354,13 +366,14 @@ class SRAGGraphPipeline:
 
         return workflow.compile()
 
-    def query(self, user_query: str, use_api: bool = True, toggles: dict | None = None) -> dict:
+    def query(self, user_query: str, use_api: bool = True, toggles: dict | None = None, retrieval_only: bool = False) -> dict:
         """Process a query through the LangGraph pipeline.
 
         Args:
             user_query: The user's question.
             use_api: Whether to use MiMo API for query processing.
             toggles: Dict with 'vector', 'graph', 'bm25' bools.
+            retrieval_only: Skip generation (no-op) and disable query expansion.
 
         Returns:
             Complete response dictionary.
@@ -370,6 +383,7 @@ class SRAGGraphPipeline:
         else:
             self._toggles = DEFAULT_TOGGLES.copy()
 
+        self._retrieval_only = retrieval_only
         self._intermediate = {}
 
         initial_state: SRAGState = {
@@ -411,6 +425,9 @@ class SRAGGraphPipeline:
         except Exception as e:
             logger.warning(f"Commentary store failed: {e}")
 
+        reranked_results = final_state.get("reranked_results", [])
+        fused_results = final_state.get("fused_results", [])
+
         return {
             "query": user_query,
             "query_iast": final_state.get("query_iast", ""),
@@ -419,13 +436,15 @@ class SRAGGraphPipeline:
             "query_type": final_state.get("query_type", ""),
             "answer": final_state.get("answer", ""),
             "verses_cited": final_state.get("citations", []),
+            "reranked_results": reranked_results,
+            "fused_results": fused_results,
             "top_verses": [
                 {
                     "ref": r.get("verse_ref"),
                     "text_iast": r.get("text_iast", "")[:200],
                     "confidence": r.get("confidence", {}).get("overall_confidence", 0),
                 }
-                for r in final_state.get("reranked_results", [])[:5]
+                for r in reranked_results[:5]
             ],
             "pipeline_confidence": final_state.get("confidence", {}),
             "iterations": final_state.get("iteration", 0) + 1,

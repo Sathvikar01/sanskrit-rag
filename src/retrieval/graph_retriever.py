@@ -153,8 +153,9 @@ class GraphRetriever:
             List of dicts with chunk_id, score, rank.
         """
         cypher_query = """
-        MATCH (v:Verse)-[:HAS_COMMENTARY]->(com:Commentary)-[:DISCUSSES_CONCEPT]->(c:Concept)
+        MATCH (v:Verse)-[:MENTIONS_CONCEPT]->(c:Concept)
         WHERE c.name_iast IN $concepts
+        MATCH (v)-[:HAS_COMMENTARY]->(com:Commentary)
         WITH v, collect(DISTINCT com.commentator) AS commentators, c
         WHERE size(commentators) >= 2
         RETURN v.ref AS ref, v.text_iast AS text,

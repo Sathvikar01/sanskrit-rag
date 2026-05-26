@@ -7,7 +7,7 @@ from pathlib import Path
 from src.preprocessing.chunker import Chunk
 from src.preprocessing.concept_extractor import Concept, ConceptExtractor, SEED_CONCEPTS
 from src.preprocessing.iast_devanagari import get_converter
-from src.preprocessing.xml_parser import VerseData
+from src.preprocessing.xml_parser import VerseData, parse_verse_range
 from src.utils.logger import logger
 
 
@@ -142,7 +142,7 @@ def generate_verse_nodes(
     verses: list[VerseData],
     chunks: list[Chunk],
 ) -> list[GraphNode]:
-    """Generate Verse nodes for Neo4j."""
+    """Generate Verse nodes for Neo4j. Expands range refs into individual Verse nodes."""
     converter = get_converter()
     chunk_map = {c.verse_ref: c for c in chunks if c.chunk_type == "verse"}
 
@@ -150,24 +150,27 @@ def generate_verse_nodes(
     for verse in verses:
         text_iast = " ".join(verse.verse_lines_iast)
         text_deva = converter.iast_to_devanagari(text_iast)
+        ch, lo, hi = parse_verse_range(verse.ref)
 
-        chunk = chunk_map.get(verse.ref)
-        lemmas = chunk.lemmas if chunk else []
+        for v in range(lo, hi + 1):
+            individual_ref = f"BhG {ch}.{v}"
+            chunk = chunk_map.get(individual_ref)
+            lemmas = chunk.lemmas if chunk else []
 
-        nodes.append(
-            GraphNode(
-                label="Verse",
-                properties={
-                    "ref": verse.ref,
-                    "chapter_num": verse.chapter_num,
-                    "verse_num": verse.verse_num,
-                    "text_iast": text_iast,
-                    "text_devanagari": text_deva,
-                    "speaker": verse.speaker,
-                    "lemmas": lemmas,
-                },
+            nodes.append(
+                GraphNode(
+                    label="Verse",
+                    properties={
+                        "ref": individual_ref,
+                        "chapter_num": ch,
+                        "verse_num": v,
+                        "text_iast": text_iast,
+                        "text_devanagari": text_deva,
+                        "speaker": verse.speaker,
+                        "lemmas": lemmas,
+                    },
+                )
             )
-        )
     return nodes
 
 
@@ -175,11 +178,13 @@ def generate_commentary_nodes(
     verses: list[VerseData],
     chunks: list[Chunk],
 ) -> list[GraphNode]:
-    """Generate Commentary nodes for Neo4j."""
+    """Generate Commentary nodes for Neo4j. Expands range refs into individual nodes."""
     converter = get_converter()
 
     nodes = []
     for verse in verses:
+        ch, lo, hi = parse_verse_range(verse.ref)
+
         for comm_key in ["sridhara", "visvanatha", "baladeva"]:
             lines = getattr(verse, f"{comm_key}_lines", [])
             if not lines:
@@ -188,23 +193,25 @@ def generate_commentary_nodes(
             text_iast = " ".join(lines)
             text_deva = converter.iast_to_devanagari(text_iast)
 
-            chunk_id = f"{verse.ref.replace(' ', '_')}_{comm_key}"
-            chunk = next((c for c in chunks if c.chunk_id == chunk_id), None)
-            lemmas = chunk.lemmas if chunk else []
+            for v in range(lo, hi + 1):
+                individual_ref = f"BhG {ch}.{v}"
+                chunk_id = f"{individual_ref.replace(' ', '_')}_{comm_key}"
+                chunk = next((c for c in chunks if c.chunk_id == chunk_id), None)
+                lemmas = chunk.lemmas if chunk else []
 
-            nodes.append(
-                GraphNode(
-                    label="Commentary",
-                    properties={
-                        "id": chunk_id,
-                        "verse_ref": verse.ref,
-                        "commentator": comm_key,
-                        "text_iast": text_iast[:5000],
-                        "text_devanagari": text_deva[:5000],
-                        "lemmas": lemmas,
-                    },
+                nodes.append(
+                    GraphNode(
+                        label="Commentary",
+                        properties={
+                            "id": chunk_id,
+                            "verse_ref": individual_ref,
+                            "commentator": comm_key,
+                            "text_iast": text_iast[:5000],
+                            "text_devanagari": text_deva[:5000],
+                            "lemmas": lemmas,
+                        },
+                    )
                 )
-            )
     return nodes
 
 
@@ -213,79 +220,88 @@ def generate_relationships(
     concepts: list[Concept] = None,
     concept_extractor: ConceptExtractor = None,
 ) -> list[GraphRelationship]:
-    """Generate relationships for Neo4j import."""
+    """Generate relationships for Neo4j import. Expands range refs."""
     if concept_extractor is None:
         concept_extractor = ConceptExtractor()
 
     relationships = []
+    all_individual_refs = []
 
     for verse in verses:
-        relationships.append(
-            GraphRelationship(
-                start_label="Verse",
-                start_key="ref",
-                start_value=verse.ref,
-                end_label="Chapter",
-                end_key="number",
-                end_value=str(verse.chapter_num),
-                rel_type="IN_CHAPTER",
-            )
-        )
+        ch, lo, hi = parse_verse_range(verse.ref)
 
-        for comm_key in ["sridhara", "visvanatha", "baladeva"]:
-            lines = getattr(verse, f"{comm_key}_lines", [])
-            if lines:
-                chunk_id = f"{verse.ref.replace(' ', '_')}_{comm_key}"
+        for v in range(lo, hi + 1):
+            individual_ref = f"BhG {ch}.{v}"
+            all_individual_refs.append((individual_ref, ch, v))
+
+            relationships.append(
+                GraphRelationship(
+                    start_label="Verse",
+                    start_key="ref",
+                    start_value=individual_ref,
+                    end_label="Chapter",
+                    end_key="number",
+                    end_value=str(ch),
+                    rel_type="IN_CHAPTER",
+                )
+            )
+
+            for comm_key in ["sridhara", "visvanatha", "baladeva"]:
+                lines = getattr(verse, f"{comm_key}_lines", [])
+                if lines:
+                    chunk_id = f"{individual_ref.replace(' ', '_')}_{comm_key}"
+                    relationships.append(
+                        GraphRelationship(
+                            start_label="Verse",
+                            start_key="ref",
+                            start_value=individual_ref,
+                            end_label="Commentary",
+                            end_key="id",
+                            end_value=chunk_id,
+                            rel_type="HAS_COMMENTARY",
+                        )
+                    )
+                    relationships.append(
+                        GraphRelationship(
+                            start_label="Commentary",
+                            start_key="id",
+                            start_value=chunk_id,
+                            end_label="Commentator",
+                            end_key="id",
+                            end_value=comm_key,
+                            rel_type="BY_COMMENTATOR",
+                        )
+                    )
+
+            text_iast = " ".join(verse.verse_lines_iast)
+            found_concepts = concept_extractor.extract_from_text(text_iast)
+            for fc in found_concepts:
+                concept = fc["concept"]
                 relationships.append(
                     GraphRelationship(
                         start_label="Verse",
                         start_key="ref",
-                        start_value=verse.ref,
-                        end_label="Commentary",
-                        end_key="id",
-                        end_value=chunk_id,
-                        rel_type="HAS_COMMENTARY",
-                    )
-                )
-                relationships.append(
-                    GraphRelationship(
-                        start_label="Commentary",
-                        start_key="id",
-                        start_value=chunk_id,
-                        end_label="Commentator",
-                        end_key="id",
-                        end_value=comm_key,
-                        rel_type="BY_COMMENTATOR",
+                        start_value=individual_ref,
+                        end_label="Concept",
+                        end_key="name_iast",
+                        end_value=concept.name_iast,
+                        rel_type="MENTIONS_CONCEPT",
+                        properties={"confidence": fc["confidence"]},
                     )
                 )
 
-        text_iast = " ".join(verse.verse_lines_iast)
-        found_concepts = concept_extractor.extract_from_text(text_iast)
-        for fc in found_concepts:
-            concept = fc["concept"]
+    for i in range(len(all_individual_refs) - 1):
+        ref_a, ch_a, v_a = all_individual_refs[i]
+        ref_b, ch_b, v_b = all_individual_refs[i + 1]
+        if ch_a == ch_b:
             relationships.append(
                 GraphRelationship(
                     start_label="Verse",
                     start_key="ref",
-                    start_value=verse.ref,
-                    end_label="Concept",
-                    end_key="name_iast",
-                    end_value=concept.name_iast,
-                    rel_type="MENTIONS_CONCEPT",
-                    properties={"confidence": fc["confidence"]},
-                )
-            )
-
-    for i in range(len(verses) - 1):
-        if verses[i].chapter_num == verses[i + 1].chapter_num:
-            relationships.append(
-                GraphRelationship(
-                    start_label="Verse",
-                    start_key="ref",
-                    start_value=verses[i].ref,
+                    start_value=ref_a,
                     end_label="Verse",
                     end_key="ref",
-                    end_value=verses[i + 1].ref,
+                    end_value=ref_b,
                     rel_type="NEXT_VERSE",
                 )
             )

@@ -210,7 +210,7 @@ def run_evaluation(args):
     if faiss_path.exists() and metadata_path.exists():
         vector_store.load(faiss_path, metadata_path)
     else:
-        vector_store.build_index(chunks, use_devanagari=True, verse_only=True)
+        vector_store.build_index(chunks, use_devanagari=True, verse_only=False)
         vector_store.save(faiss_path, metadata_path)
     print(f"  FAISS: {vector_store.index.ntotal} vectors")
 

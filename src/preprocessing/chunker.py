@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Optional
 
 from src.preprocessing.iast_devanagari import get_converter
-from src.preprocessing.xml_parser import MorphoData, SegmentationData, VerseData
+from src.preprocessing.xml_parser import MorphoData, SegmentationData, VerseData, parse_verse_range
 from src.utils.logger import logger
 
 
@@ -18,7 +18,7 @@ class Chunk:
     verse_ref: str  # e.g., "BhG 1.1"
     chapter_num: int
     verse_num: int
-    chunk_type: str  # verse, commentary, combined
+    chunk_type: str  # verse, commentary, combined, pada
     commentator: Optional[str] = None  # sridhara, visvanatha, baladeva, or None for verse
 
     # Text content
@@ -42,6 +42,7 @@ class Chunk:
 
     # Metadata
     word_count: int = 0
+    pada_index: Optional[int] = None  # index within verse for pada chunks
 
 
 def create_verse_chunk(verse: VerseData, converter=None) -> Chunk:
@@ -137,6 +138,58 @@ def create_combined_chunk(
     )
 
 
+def create_pada_chunks(
+    verse: VerseData,
+    converter=None,
+    overlap_lines: int = 1,
+) -> list[Chunk]:
+    """Create sub-verse (pada) chunks with overlapping context.
+
+    Each chunk contains one verse line plus `overlap_lines` of surrounding context.
+    For a verse with N lines, creates N pada chunks.
+
+    Args:
+        verse: VerseData object.
+        converter: IAST-to-Devanagari converter.
+        overlap_lines: Number of surrounding lines to include as context.
+
+    Returns:
+        List of Chunk objects, one per verse line.
+    """
+    if converter is None:
+        converter = get_converter()
+
+    lines = verse.verse_lines_iast
+    if len(lines) <= 1:
+        return []
+
+    chunks = []
+    for i, line in enumerate(lines):
+        lo = max(0, i - overlap_lines)
+        hi = min(len(lines), i + overlap_lines + 1)
+        context_lines = lines[lo:hi]
+        text_iast = " ".join(context_lines)
+        text_devanagari = converter.iast_to_devanagari(text_iast)
+
+        chunk = Chunk(
+            chunk_id=f"{verse.ref.replace(' ', '_')}_p{i}",
+            verse_ref=verse.ref,
+            chapter_num=verse.chapter_num,
+            verse_num=verse.verse_num,
+            chunk_type="pada",
+            text_iast=text_iast,
+            text_devanagari=text_devanagari,
+            verse_lines_iast=context_lines,
+            verse_lines_devanagari=converter.iast_to_devanagari_batch(context_lines),
+            speaker=verse.speaker,
+            word_count=len(text_iast.split()),
+            pada_index=i,
+        )
+        chunks.append(chunk)
+
+    return chunks
+
+
 def enrich_chunk_with_linguistics(
     chunk: Chunk,
     morpho: Optional[MorphoData],
@@ -178,7 +231,7 @@ def create_all_chunks(
         List of Chunk objects.
     """
     if chunk_types is None:
-        chunk_types = ["verse", "commentary", "combined"]
+        chunk_types = ["verse", "commentary", "combined", "pada"]
 
     converter = get_converter()
 
@@ -189,28 +242,54 @@ def create_all_chunks(
     commentators = ["sridhara", "visvanatha", "baladeva"]
 
     for verse in verses:
-        morpho = morpho_map.get(verse.ref)
-        seg = seg_map.get(verse.ref)
+        ch, lo, hi = parse_verse_range(verse.ref)
+        is_range = hi > lo
 
-        if "verse" in chunk_types:
-            chunk = create_verse_chunk(verse, converter)
-            chunk = enrich_chunk_with_linguistics(chunk, morpho, seg)
-            chunks.append(chunk)
+        for v in range(lo, hi + 1):
+            individual_ref = f"BhG {ch}.{v}"
 
-        for comm in commentators:
-            lines = getattr(verse, f"{comm}_lines", [])
-            if not lines:
-                continue
+            if is_range:
+                vdata = VerseData(
+                    ref=individual_ref,
+                    chapter_num=ch,
+                    verse_num=v,
+                    verse_lines_iast=verse.verse_lines_iast,
+                    sridhara_lines=verse.sridhara_lines,
+                    visvanatha_lines=verse.visvanatha_lines,
+                    baladeva_lines=verse.baladeva_lines,
+                    speaker=verse.speaker,
+                )
+            else:
+                vdata = verse
 
-            if "commentary" in chunk_types:
-                chunk = create_commentary_chunk(verse, comm, lines, converter)
-                if chunk:
-                    chunk = enrich_chunk_with_linguistics(chunk, morpho, seg)
-                    chunks.append(chunk)
+            morpho = morpho_map.get(individual_ref)
+            seg = seg_map.get(individual_ref)
 
-            if "combined" in chunk_types:
-                chunk = create_combined_chunk(verse, comm, lines, converter)
-                if chunk:
+            if "verse" in chunk_types:
+                chunk = create_verse_chunk(vdata, converter)
+                chunk = enrich_chunk_with_linguistics(chunk, morpho, seg)
+                chunks.append(chunk)
+
+            for comm in commentators:
+                lines = getattr(vdata, f"{comm}_lines", [])
+                if not lines:
+                    continue
+
+                if "commentary" in chunk_types:
+                    chunk = create_commentary_chunk(vdata, comm, lines, converter)
+                    if chunk:
+                        chunk = enrich_chunk_with_linguistics(chunk, morpho, seg)
+                        chunks.append(chunk)
+
+                if "combined" in chunk_types:
+                    chunk = create_combined_chunk(vdata, comm, lines, converter)
+                    if chunk:
+                        chunk = enrich_chunk_with_linguistics(chunk, morpho, seg)
+                        chunks.append(chunk)
+
+            if "pada" in chunk_types:
+                pada_chunks = create_pada_chunks(vdata, converter)
+                for chunk in pada_chunks:
                     chunk = enrich_chunk_with_linguistics(chunk, morpho, seg)
                     chunks.append(chunk)
 
