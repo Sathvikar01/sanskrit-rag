@@ -1,0 +1,155 @@
+{
+  "summary": {
+    "total_questions": 5,
+    "total_time_seconds": 167.15,
+    "grade_distribution": {
+      "RELATED": 5
+    },
+    "average_correctness": 0.2886,
+    "average_semantic_similarity": 0.4323,
+    "average_keyword_overlap": 0.073,
+    "average_latency_ms": 32507.14
+  },
+  "results": [
+    {
+      "question_number": 1,
+      "question": "What is the conchshell name of Yudhisthira? BG 1.16-18",
+      "reference_answer": "Ananta-vijaya",
+      "generated_answer": "[Citation 1] (ID: BhG 1.16-18, Source: RRF, Score: 0.0315)\n\nyasya śirasā śaṃkhaḥ saṃbhṛtaḥ\nyasya mukhaḥ pūrṇaḥ kṣaudraḥ\nyasya aṅghriḥ pādaś cakṣuḥ\nyasya aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś cakṣur\naṅghriḥ pādaś cakṣur aṅghriḥ pādaś c",
+      "is_true_false": false,
+      "semantic_similarity": 0.5291,
+      "keyword_overlap": 0.0,
+      "grade": "RELATED",
+      "correctness": 0.3174,
+      "combined_score": 0.3174,
+      "latency_ms": 60824.53,
+      "num_citations": 10,
+      "citations": [
+        {
+          "verse_id": "BhG 1.26",
+          "score": 0.031544957774465976
+        },
+        {
+          "verse_id": "BhG 18.64",
+          "score": 0.031054405392392875
+        },
+        {
+          "verse_id": "BhG 2.4",
+          "score": 0.03057889822595705
+        }
+      ]
+    },
+    {
+      "question_number": 2,
+      "question": "What was Arjuna chariot bearing the flag marked with? BG 1.20",
+      "reference_answer": "Hanuman",
+      "generated_answer": "The question is about the flag marked on Arjuna's chariot in the Bhagavad Gita.\n\n[Citation 1] (ID: BhG 1.20, Source: RRF, Score: 0.0164)\narjuna-rathaṃ yāvatam āśyam iti\n\nUnfortunately, the provided verses do not contain any information about the flag marked on Arjuna's chariot. The verse ID BhG 1.20 is mentioned in the metadata, but the corresponding verse is not provided.\n\nHowever, we can look at other verses that might be related to Arjuna's chariot or the flag. \n\n[Citation 4] (ID: BhG 1.46, Source: RRF, Score: 0.0161)\niti iti śrī--śrī śrīdhara--śrīdhara svāmi--svāmin kṛtāyām_kṛ bhagavat--bhagavant gītā--gītā ṭīkāyām_ṭīkā subodhinyām_subodhinī arjuna--arjuna viṣādaḥ_viṣāda nāma_nāma prathamaḥ_prathama adhyāyaḥ_adhyāya\n\nThis verse does not mention the flag marked on Arjuna's chariot either.\n\n[Citation 5] (ID: BhG 4.27, Source: RRF, Score: 0.0161)\nśrīdhara__ ka__ ca__ sarva__ iti__  apara_Case=Nom|Gender=Masc|Number=Plur dhyāna_Case=Cpd|Gender=Neut niṣṭhā_Case=Nom|Gender=Masc|Number=Plur  buddhīndriya_Case=Gen|Gender=Neut|Number=Plur śrotra_Case=Cpd ādi_Case=Gen|Gender=Neut|Number=Plur karman_Case=Nom|Gender=Neut|Number=Plur śravaṇa_Case=Cpd darśana_Case=Cpd ādi_Case=Nom|Gender=Neut|Number=Plur  karmendriya_Case=Gen|Gender=Neut|Number=Plur vāc_Case=Cpd pāṇi_Case=Cpd ādi_Case=Gen|Gender=Neut|Number=Plur karman_Case=Nom|Gender=Neut|Number=Plur vacana_Case=Cpd upādāna_Case=Cpd ādi_Case=Nom|Gender=Neut|Number=Plur  prāṇa_Case=Gen|Gender=Masc|Number=Plur ca_ daśan_Case=Gen|Gender=Masc|Number=Plur karman_Case=Acc|Gender=Neut|Number=Plur  prāṇa_Case=Gen|Gender=Masc|Number=Sing bahis_ gamana_Case=Nom|Gender=Neut|Number=Sing  apāna_Case=Gen|Gender=Masc|Number=Sing adhas_ nayana_Case=Nom|Gender=Neut|Number=Sing  vyāna_Case=Gen|Gender=Masc|Number=Sing vyānayana_Case=Nom|Gender=Neut|Number=Sing ākuñcana_Case=Cpd prasāraṇa_Case=Cpd ādi_Case=Nom|Gender=Neut|Number=Sing  samāna_Case=Gen|Gender=Masc|Number=Sing aś_Case=Cpd|VerbForm=Part pā_Case=Cpd|VerbForm=Part ādi_Case=Gen|Gender=Masc|Number=Plur samunnayana_Case=Nom|Gender=Neut|Number=Sing  udāna_Case=Gen|Gender=Masc|Number=Sing ūrdhva_Case=Cpd nayana_Case=Nom|Gender=Neut|Number=Sing\n\nThis verse does not mention the flag marked on Arjuna's chariot either.\n\nSince the provided verses do not contain any information about the flag marked on Arjuna's chariot, we cannot provide a precise answer to the question.\n\nHowever, we can look at other sources or commentaries on the Bhagavad Gita to find the answer.",
+      "is_true_false": false,
+      "semantic_similarity": 0.4963,
+      "keyword_overlap": 0.0,
+      "grade": "RELATED",
+      "correctness": 0.2978,
+      "combined_score": 0.2978,
+      "latency_ms": 14713.06,
+      "num_citations": 9,
+      "citations": [
+        {
+          "verse_id": "BhG 7.26",
+          "score": 0.01639344262295082
+        },
+        {
+          "verse_id": "BhG 4.28",
+          "score": 0.01639344262295082
+        },
+        {
+          "verse_id": "BhG 15.14",
+          "score": 0.01639344262295082
+        }
+      ]
+    },
+    {
+      "question_number": 3,
+      "question": "What is Arjuna bow name? BG 1.29",
+      "reference_answer": "Gandiva",
+      "generated_answer": "The question is about the name of Arjuna's bow. \n\nThe relevant verse is not provided in the citations. However, based on the metadata, we can infer that the answer might be related to the Bhagavad Gita (BG). \n\nIn BG 1.29, Arjuna says: \"arjunaḥ_arjuna uvāca_vac\" [Citation 1]. However, this verse does not mention the name of Arjuna's bow. \n\nTo answer the question, we need to find a verse that mentions Arjuna's bow. Unfortunately, the provided citations do not contain such a verse. \n\nTherefore, I must conclude that the answer is not available in the provided citations.",
+      "is_true_false": false,
+      "semantic_similarity": 0.3393,
+      "keyword_overlap": 0.0,
+      "grade": "RELATED",
+      "correctness": 0.2036,
+      "combined_score": 0.2036,
+      "latency_ms": 33014.33,
+      "num_citations": 10,
+      "citations": [
+        {
+          "verse_id": "BhG 2.4",
+          "score": 0.01639344262295082
+        },
+        {
+          "verse_id": "BhG 4.5",
+          "score": 0.01639344262295082
+        },
+        {
+          "verse_id": "BhG 6.43",
+          "score": 0.016129032258064516
+        }
+      ]
+    },
+    {
+      "question_number": 4,
+      "question": "Why Arjuna sat on the chariot keeping aside his bow and arrow? BG 1.46",
+      "reference_answer": "Because his mind was overwhelmed with grief",
+      "generated_answer": "The question is: Why Arjuna sat on the chariot keeping aside his bow and arrow? BG 1.46\nIAST Query: kimo arjunah śarācchāyāṃ śarair āsītaḥ\n\n[Citation 1] (ID: BhG 1.1, Source: RRF, Score: 0.0164)\nsantaḥ_as kṣamadhvam_kṣam śaraṇa--_śaraṇa āgatasya_āgam\n\n[Citation 2] (ID: BhG 2.21, Source: RRF, Score: 0.0164)\nathavā_ avināśin_Case=Acc|Gender=Masc|Number=Sing abādhya_Case=Acc|Gender=Masc|Number=Sing satya_Case=Acc|Gender=Masc|Number=Sing iti_ yāvat_ nitya_Case=Acc|Gender=Masc|Number=Sing sarva_Case=Cpd vyāpaka_Case=Acc|Gender=Masc|Number=Sing tatra_ hetu_Case=Nom|Gender=Masc|Number=Sing aja_Case=Acc|Gender=Masc|Number=Sing avyaya_Case=Acc|Gender=Masc|Number=Sing janman_Case=Cpd vināśa_Cpd śūnya_Case=Acc|Gender=Masc|Number=Sing jan_Case=Gen|Gender=Masc|Number=Sing|Tense=Pres|VerbForm=Part vinaś_Case=Gen|Gender=Masc|Number=Sing|Tense=Pres|VerbForm=Part ca_ sarva_Case=Cpd vyāpaka_Case=Cpd tva_Case=Cpd satya_Case=Cpd tva_Case=Gen|Gender=Neut|Number=Dual ayoga_Case=Abl|Gender=Masc|Number=Sing\n\n[Citation 3] (ID: BhG 2.72, Source: RRF, Score: 0.0161)\nujjahāra_uddhṛ arjunam_arjuna bhaktam_bhakta sa_tad kṛṣṇa--_kṛṣṇa śaraṇam_śaraṇa mama_mad\n\n[Citation 4] (ID: BhG 13.28, Source: RRF, Score: 0.0161)\nsama_Case=Acc|Gender=Masc|Number=Sing dṛś_Case=Nom|Gender=Masc|Number=Sing|Tense=Pres|VerbForm=Part hi_ sarvatra_ samavasthā_Case=Acc|Gender=Masc|Number=Sing|VerbForm=Part īśvara_Case=Acc|Gender=Masc|Number=Sing\n\n[Citation 5] (ID: BhG 18.66, Source: RRF, Score: 0.0159)\nsarva--_sarva ātmanā_ātman yaḥ_yad śaraṇam_śaraṇa śaraṇyam_śaraṇya\n\n[Citation 6] (ID: BhG 2.5, Source: RRF, Score: 0.0159)\nnanu_ etad_Case=Nom|Gender=Masc|Number=Plur bhīṣma_Case=Cpd ādi_Case=Nom|Gender=Masc|Number=Plur guru_Case=Nom|Gender=Masc|Number=Plur api_ yuddha_Case=Cpd garva_Case=Cpd avalepa_Case=Abl|Gender=Masc|Number=Sing chadman_Case=Ins|Gender=Neut|Number=Sing tvad_Case=Cpd rājya_Case=Cpd apahāra_Case=Acc|Gender=Masc|Number=Sing tvad_Case=Cpd droha_Case=Acc|Gender=Masc|Number=Sing ca_ kṛ_Case=Gen|Gender=Masc|Number=Plur|Tense=Pres|VerbForm=Part duryodhana_Case=Cpd ādi_Case=Gen|Gender=Masc|Number=Plur saṃsarga_Case=Ins|Gender=Masc|Number=Sing kārya_Case=Cpd akārya_Case=Cpd viveka_Case=Cpd viraha_Case=Abl|Gender=Masc|Number=Sing ca_ samprati_ tyaj_Case=Nom|Gender=Masc|Number=Plur|VerbForm=Gdv eva_\n\n[Citation 7] (ID: BhG 15.1, Source: RRF, Score: 0.0156)\nuttamaḥ_uttama puruṣaḥ_puruṣa kṛṣṇaḥ_kṛṣṇa pañcadaśe_pañcadaśa kathā_kathā\n\n[Citation 8] (ID: BhG 12.17, Source: RRF, Score: 0.0156)\nśrīdhara_Case=Nom|Gender=Masc|Number=Sing ka_Case=Nom|Gender=Neut|Number=Sing ca_ sama_Case=Nom|Gender=Masc|Number=Sing iti_ śatru_Case=Loc|Gender=Masc|Number=Sing ca_ mitra_Case=Loc|Gender=Masc|Number=Sing ca_ sama_Case=Nom|Gender=Masc|Number=Sing eka_Case=Cpd rūpa_Case=Nom|Gender=Masc|Number=Sing māna_Case=Cpd apamāna_Case=Loc|Gender=Masc|Number=Dual api_ tathā_ sama_Case=Nom|Gender=Masc|Number=Sing eva_ harṣa_Case=Cpd viṣāda_Case=Cpd śūnya_Case=Nom|Gender=Masc|Number=Sing iti_ artha_Case=Nom|Gender=Masc|Number=Sing śīta_Case=Cpd uṣṇa_Case=Loc|Gender=Neut|Number=Dual sukha_Case=Cpd duḥkha_Case=Loc|Gender=Neut|Number=Dual ca_ sama_Case=Nom|Gender=Masc|Number=Sing saṅga_Case=Cpd vivarjay_Case=Nom|Gender=Masc|Number=Sing|VerbForm=Part kvacid_ api_ anāsakta_Case=Nom|Gender=Masc|Number=Sing\n\n[Citation 9] (ID: BhG 9.15, Source: RRF, Score: 0.0154)\ngatiḥ_gati bhartā_bhartṛ prabhuḥ_prabhu sākṣī_sākṣin nivāsaḥ_nivāsa śaraṇam_śaraṇa suhṛd_suhṛd\n\nThe provided verses do not explicitly state why Arjuna sat on the chariot keeping aside his bow and arrow. However, we can infer some context from the surrounding verses.\n\n[Citation 2] (ID: BhG 2.21, Source: RRF, Score: 0.0164) mentions that Arjuna is a warrior and a devotee of Lord Krishna. It says:\n\nathavā_ avināśin_Case=Acc|Gender=Masc|Number=Sing abādhya_Case=Acc|Gender=Masc|Number=Sing satya_Case=Acc|Gender=Masc|Number=Sing iti_ yāvat_ nitya_Case=Acc|Gender=Masc|Number=Sing sarva_Case=Cpd vyāpaka_Case=Acc|Gender=Masc|Number=Sing tatra_ hetu_Case=Nom|Gender=Masc|Number=Sing aja_Case=Acc|Gender=Masc|Number=Sing avyaya_Case=Acc|Gender=Masc|Number=Sing janman_Case=Cpd vināśa_Cpd śūnya_Case=Acc|Gender=Masc|Number=Sing jan_Case=Gen|Gender=Masc|Number=Sing|Tense=Pres|VerbForm=Part vinaś_Case=Gen|Gender=Masc|Number=Sing|Tense=Pres|VerbForm=Part ca_ sarva_Case=Cpd vyāpaka_Case=Cpd tva_Case=Cpd satya_Case=Cpd tva_Case=Gen|Gender=Neut|Number=Dual ayoga_Case=Abl|Gender=Masc|Number=Sing\n\nThis verse describes the nature of the Self (Atman) as eternal, unchanging, and all-pervading. It is not explicitly related to Arjuna's actions, but it sets the context for the discussion of the Self in the Bhagavad Gita.\n\n[Citation 3] (ID: BhG 2.72, Source: RRF, Score: 0.0161) mentions that Lord Krishna is the ultimate refuge and the one who can grant liberation. It says:\n\nujjahāra_uddhṛ arjunam_arjuna bhaktam_bhakta sa_tad kṛṣṇa--_kṛṣṇ",
+      "is_true_false": false,
+      "semantic_similarity": 0.4222,
+      "keyword_overlap": 0.1429,
+      "grade": "RELATED",
+      "correctness": 0.3105,
+      "combined_score": 0.3105,
+      "latency_ms": 27525.82,
+      "num_citations": 9,
+      "citations": [
+        {
+          "verse_id": "BhG 1.1",
+          "score": 0.01639344262295082
+        },
+        {
+          "verse_id": "BhG 2.21",
+          "score": 0.01639344262295082
+        },
+        {
+          "verse_id": "BhG 2.72",
+          "score": 0.016129032258064516
+        }
+      ]
+    },
+    {
+      "question_number": 5,
+      "question": "What did Sanjaya said to Dhrtarastra at the end of Bhagavad gita Chapter-1? BG 1.46",
+      "reference_answer": "After speaking to Lord Krsna on the battle field Arjuna sat on the Chariot keeping aside his bow and arrow.",
+      "generated_answer": "The question asks for the statement Sanjaya made to Dhrtarastra at the end of Bhagavad Gita Chapter 1. \n\nThe relevant verse is not directly provided in the metadata, but we can infer the answer from the metadata of verse ID BhG 1.1 and the metadata of verse ID BhG 1.46.\n\nVerse ID BhG 1.1 is the first verse of the Bhagavad Gita, and it does not contain any information about Sanjaya's statement to Dhrtarastra.\n\nVerse ID BhG 1.46 is the 46th verse of the Bhagavad Gita, and it contains the following metadata:\n\n[Meta 1] {'verse_id': 'BhG 1.46', 'lemmas': ['sanjaya', 'uvāca', 'dhṛtarāṣṭra', 'uvāca', 'bhagavad-gītā-pāṭhaḥ', 'ekādaśaḥ', 'adhyāyaḥ', 'bhagavad-gītā', '1.46']}\n\nThis metadata indicates that verse ID BhG 1.46 contains the statement Sanjaya made to Dhrtarastra.\n\nHowever, the metadata does not provide the actual text of the verse. We need to look for the original Sanskrit text of verse ID BhG 1.46.\n\nUnfortunately, the original Sanskrit text of verse ID BhG 1.46 is not provided in the metadata.\n\nTherefore, I must say that the verses do not contain enough information to answer the question accurately.\n\nHowever, based on the metadata, we can infer that the statement Sanjaya made to Dhrtarastra at the end of Bhagavad Gita Chapter 1 is likely to be contained in verse ID BhG 1.46.\n\nIf we assume that verse ID BhG 1.46 contains the statement Sanjaya made to Dhrtarastra, we can look for the original Sanskrit text of verse ID BhG 1.46 in other sources.\n\nThe original Sanskrit text of verse ID BhG 1.46 is:\n\nsanjayaḥ uvāca / dhṛtarāṣṭraḥ uvāca / bhagavad-gītā-pāṭhaḥ / ekādaśaḥ adhyāyaḥ / bhagavad-gītā 1.46.\n\nThis text does not contain any information about the statement Sanjaya made to Dhrtarastra.\n\nHowever, the next verse, verse ID BhG 1.47, contains the following text:\n\ndhṛtarāṣṭraḥ uvāca / sanjayaḥ uvāca / yad ahaṃ praśnaṃ kurūṣaṃ / tvayā saṃvādam anvicchāmi / kṛṣṇaḥ uvāca / yad ahaṃ vedaś ca teṣāṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ vedaṃ v",
+      "is_true_false": false,
+      "semantic_similarity": 0.3746,
+      "keyword_overlap": 0.2222,
+      "grade": "RELATED",
+      "correctness": 0.3136,
+      "combined_score": 0.3136,
+      "latency_ms": 26457.95,
+      "num_citations": 9,
+      "citations": [
+        {
+          "verse_id": "BhG 1.1",
+          "score": 0.01639344262295082
+        },
+        {
+          "verse_id": "BhG 15.20",
+          "score": 0.01639344262295082
+        },
+        {
+          "verse_id": "BhG 12.20",
+          "score": 0.016129032258064516
+        }
+      ]
+    }
+  ]
+}
