@@ -111,7 +111,7 @@ adaptive_profiles:
 generation:
   provider: "mimo"
   mimo:
-    api_base: "https://api.xiaomimimo.com/v1"
+    api_base: "https://token-plan-sgp.xiaomimimo.com/v1"
     model: "mimo-v2.5"
     max_tokens: 2048
     temperature: 0.3
