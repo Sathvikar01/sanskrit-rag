@@ -162,3 +162,11 @@ MiMo API was being called for query processing (IAST conversion, concept extract
 - `src/generation/query_processor.py` — removed MiMo dependency, local-only processing
 - `configs/config.yaml` — updated `api_base` to `token-plan-sgp.xiaomimimo.com/v1`
 - `.env` — updated `MIMO_API_KEY` (gitignored)
+
+### Semantic Evaluation Results (NoID, post-fix)
+- **Overall**: Recall@1 = 28.30%, MRR = 28.30%, Sim@top1 = 1.52%, N = 53
+- **gita_guidance_qa**: R@1 = 0.00%, Sim@top1 = 0.98% (30 samples)
+- **hf_gita_qa**: R@1 = 0.00%, Sim@top1 = 1.42% (30 samples)
+- **kaggle_gita_qa**: R@1 = 0.00%, Sim@top1 = 1.68% (30 samples)
+- **iskcon_vedabase**: R@1 = 100.00%, Sim@top1 = 1.26% (15 samples, queries contain verse IDs)
+- The 28.30% overall is driven entirely by iskcon_vedabase. Other datasets score 0% due to English→Devanagari embedding mismatch.

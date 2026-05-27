@@ -262,8 +262,6 @@ def run_evaluation(args):
             verse_id = expected_refs[0] if expected_refs else ""
 
             conds = [("without_id", question)]
-            if verse_id:
-                conds.append(("with_id", f"{verse_id}: {question}"))
 
             row = {"question": question[:120], "verse_refs": expected_refs}
 
@@ -320,9 +318,9 @@ def run_evaluation(args):
                     vals.append(d)
             return np.mean(vals) if vals else 0.0
 
-        print(f"\n  --- {ds_name} Summary ---")
-        print(f"  {'Metric':<22} {'NoID':>10} {'WithID':>10}")
-        print(f"  {'-'*22} {'-'*10} {'-'*10}")
+        print(f"\n  --- {ds_name} Summary (NoID) ---")
+        print(f"  {'Metric':<22} {'NoID':>10}")
+        print(f"  {'-'*22} {'-'*10}")
         for metric, keys in [
             ("Recall@1", ["verse_retrieval", "recall_at_1"]),
             ("Recall@3", ["verse_retrieval", "recall_at_3"]),
@@ -330,11 +328,9 @@ def run_evaluation(args):
             ("Sim@top1", ["semantic", "sim_top1"]),
             ("Sim@top3", ["semantic", "sim_top3"]),
             ("Sim@top5", ["semantic", "sim_top5"]),
-            ("Dir%", ["verse_ref_detected"]),
         ]:
             v = avg(valid, "without_id", *keys)
-            w = avg(valid_with, "with_id", *keys) if valid_with else 0
-            print(f"  {metric:<22} {v:>10.4f} {w:>10.4f}")
+            print(f"  {metric:<22} {v*100:>9.2f}%")
 
         # Accumulate totals
         for r in valid:
@@ -359,19 +355,18 @@ def run_evaluation(args):
 
     # Overall
     n = max(totals["samples"], 1)
-    wn = max(totals_with_id["samples"], 1)
     print(f"\n{'=' * 70}")
-    print("OVERALL SEMANTIC RETRIEVAL RESULTS")
+    print("OVERALL SEMANTIC RETRIEVAL RESULTS (NoID)")
     print(f"{'=' * 70}")
-    print(f"  {'Metric':<22} {'NoID':>10} {'WithID':>10}")
-    print(f"  {'-'*22} {'-'*10} {'-'*10}")
-    print(f"  {'Recall@1':<22} {totals['sum_recall_1']/n:>10.4f} {totals_with_id['sum_recall_1']/wn:>10.4f}")
-    print(f"  {'Recall@3':<22} {totals['sum_recall_3']/n:>10.4f} {totals_with_id['sum_recall_3']/wn:>10.4f}")
-    print(f"  {'MRR':<22} {totals['sum_mrr']/n:>10.4f} {totals_with_id['sum_mrr']/wn:>10.4f}")
-    print(f"  {'Sim@top1':<22} {totals['sum_sim_top1']/n:>10.4f} {totals_with_id['sum_sim_top1']/wn:>10.4f}")
-    print(f"  {'Sim@top3':<22} {totals['sum_sim_top3']/n:>10.4f} {totals_with_id['sum_sim_top3']/wn:>10.4f}")
-    print(f"  {'Sim@top5':<22} {totals['sum_sim_top5']/n:>10.4f} {totals_with_id['sum_sim_top5']/wn:>10.4f}")
-    print(f"  N = {totals['samples']} (NoID), {totals_with_id['samples']} (WithID)")
+    print(f"  {'Metric':<22} {'NoID':>10}")
+    print(f"  {'-'*22} {'-'*10}")
+    print(f"  {'Recall@1':<22} {totals['sum_recall_1']/n*100:>9.2f}%")
+    print(f"  {'Recall@3':<22} {totals['sum_recall_3']/n*100:>9.2f}%")
+    print(f"  {'MRR':<22} {totals['sum_mrr']/n*100:>9.2f}%")
+    print(f"  {'Sim@top1':<22} {totals['sum_sim_top1']/n*100:>9.2f}%")
+    print(f"  {'Sim@top3':<22} {totals['sum_sim_top3']/n*100:>9.2f}%")
+    print(f"  {'Sim@top5':<22} {totals['sum_sim_top5']/n*100:>9.2f}%")
+    print(f"  N = {totals['samples']}")
 
     # Save
     output_path = "data/evaluation/semantic_evaluation.json"
