@@ -150,6 +150,7 @@ Normalized:"""
         query_intent: Optional[Dict[str, Any]] = None,
         entities: Optional[List[Dict[str, Any]]] = None,
         confidence: float = 0.0,
+        answer_mode: str = "current",
     ) -> Dict[str, Any]:
         """Generate a citation-backed answer using canonical verses, commentary, and metadata."""
         verses_context = ""
@@ -190,7 +191,49 @@ Normalized:"""
         intent_context = query_intent or {}
         entity_context = entities or []
 
-        prompt = f"""You are a Sanskrit scholar AI assistant. Answer the user's question using ONLY the evidence below.
+        if answer_mode == "structured_step":
+            prompt = f"""You are a Sanskrit scholar AI assistant. Answer using ONLY the evidence below.
+
+User Query: {query}
+IAST Query: {iast_query}
+Query Intent: {intent_context}
+Detected Entities: {entity_context}
+Evidence Confidence: {confidence:.4f}
+
+Canonical Original Verses:
+{verses_context}
+
+Related Commentary:
+{commentary_context}
+
+Additional Metadata:
+{meta_context}
+
+Supporting Retrieval Chunks:
+{support_context}
+
+Retrieval Metadata:
+{retrieval_context}
+
+Answer Template:
+{answer_template}
+
+Instructions:
+Step 1 - Evidence scan:
+- List only the canonical verses or commentary passages that directly answer the query.
+- For each selected item, explain in one short phrase why it is relevant.
+- If no supplied evidence directly answers the query, write "No directly relevant supplied evidence."
+
+Step 2 - Final answer:
+- Answer using only the Step 1 evidence.
+- Cite verse IDs using [Citation N] format when referencing a verse.
+- Cite commentary as "Author on Verse ID" when commentary influences the interpretation.
+- If Step 1 found no directly relevant evidence, abstain clearly instead of using outside memory.
+- Be precise, concise, and scholarly.
+
+Answer:"""
+        else:
+            prompt = f"""You are a Sanskrit scholar AI assistant. Answer the user's question using ONLY the evidence below.
 
 User Query: {query}
 IAST Query: {iast_query}

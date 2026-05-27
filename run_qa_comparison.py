@@ -109,6 +109,12 @@ def parse_args():
         default=None,
         help="Limit the number of questions evaluated.",
     )
+    parser.add_argument(
+        "--answer-mode",
+        choices=["current", "structured_step"],
+        default="current",
+        help="Answer generation mode for non-retrieval-only runs.",
+    )
     return parser.parse_args()
 
 
@@ -186,6 +192,8 @@ def main():
     print("SansRAG Q&A Comparison Test - Bhagavad Gita Chapter 1")
     if args.retrieval_only:
         print("Mode: Retrieval-only quality evaluation")
+    else:
+        print(f"Answer Mode: {args.answer_mode}")
     print("=" * 70)
 
     embedder = NVIDIAEmbeddingClient()
@@ -237,7 +245,8 @@ def main():
         qdrant_manager=qdrant if qdrant_ok else None,
         neo4j_manager=neo4j if neo4j_ok else None,
         verse_db=verse_db,
-        top_k=RRF_TOP_K
+        top_k=RRF_TOP_K,
+        answer_mode=args.answer_mode,
     )
 
     results = []
@@ -252,7 +261,7 @@ def main():
         print(f"\n[{i}/{len(qa_items)}] Q: {question[:60]}...")
 
         try:
-            answer_result: AnswerResult = answer_gen.generate_answer(question)
+            answer_result: AnswerResult = answer_gen.generate_answer(question, answer_mode=args.answer_mode)
             generated_answer = answer_result.answer
             latency = answer_result.latency_ms
             citations = answer_result.citations
@@ -342,6 +351,7 @@ def main():
     summary = {
         "test_name": "Bhagavad Gita Chapter 1 Q&A Comparison",
         "mode": "retrieval_only" if args.retrieval_only else "qa_comparison",
+        "answer_mode": "retrieval_only" if args.retrieval_only else args.answer_mode,
         "total_questions": len(qa_items),
         "total_time_seconds": round(total_time, 2),
         "grade_distribution": grades,
@@ -371,7 +381,12 @@ def main():
         "results": results
     }
 
-    output_name = "qa_retrieval_quality_chapter1.json" if args.retrieval_only else "qa_comparison_chapter1.json"
+    if args.retrieval_only:
+        output_name = "qa_retrieval_quality_chapter1.json"
+    elif args.answer_mode == "structured_step":
+        output_name = "qa_comparison_chapter1_structured_step.json"
+    else:
+        output_name = "qa_comparison_chapter1.json"
     output_path = ROOT_DIR / "results" / output_name
     output_path.parent.mkdir(exist_ok=True)
     with open(output_path, 'w', encoding='utf-8') as f:

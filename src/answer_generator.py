@@ -119,7 +119,8 @@ class AnswerGenerator:
         qdrant_manager: QdrantManager = None,
         neo4j_manager: Neo4jManager = None,
         verse_db: VerseDatabase = None,
-        top_k: int = RRF_TOP_K
+        top_k: int = RRF_TOP_K,
+        answer_mode: str = "current",
     ):
         self.gemini = gemini_client
         self.retriever = retriever
@@ -127,6 +128,7 @@ class AnswerGenerator:
         self.neo4j = neo4j_manager
         self.verse_db = verse_db
         self.top_k = top_k
+        self.answer_mode = answer_mode
         self.commentary_manager = CommentaryManager(
             qdrant_manager=qdrant_manager,
             embedding_client=getattr(retriever, "embedding_client", None),
@@ -693,9 +695,11 @@ class AnswerGenerator:
         reference_answer: str = None,
         regularization: str = "combined",
         max_retries: int = MAX_CONSISTENCY_RETRIES,
+        answer_mode: Optional[str] = None,
     ) -> AnswerResult:
         """Full pipeline with evidence-first routing, reranking, and confidence."""
         start_time = time.time()
+        effective_answer_mode = answer_mode or self.answer_mode
 
         verse_filter = parse_verse_references(query)
         explicit_references = verse_filter.verse_ids or []
@@ -828,6 +832,7 @@ class AnswerGenerator:
                 "commentary_candidates": len(commentary_matches),
                 "direct_commentary_verse_ids": direct_commentary_verse_ids,
                 "retrieval_mode": query_intent.get("intent") or ("verse_level" if verse_filter.has_filter() else "multi_hop"),
+                "answer_mode": effective_answer_mode,
                 "top_scores": [r.final_score for r in rrf_results[:5]],
                 "query_intent": query_intent,
                 "entities": entities,
@@ -894,6 +899,7 @@ class AnswerGenerator:
                     "query": query,
                     "model": getattr(self.gemini, "model_name", "unknown"),
                     "intent": query_intent.get("intent"),
+                    "answer_mode": effective_answer_mode,
                     "verse_ids": [verse.get("verse_id") for verse in retrieved_verses],
                     "commentary_ids": [match.get("commentary_id") for match in commentary_matches],
                     "template": query_intent.get("intent"),
@@ -914,6 +920,7 @@ class AnswerGenerator:
                         query_intent=query_intent,
                         entities=entities,
                         confidence=confidence,
+                        answer_mode=effective_answer_mode,
                     )
                     self.cache.set("llm_answer", llm_key, answer_data)
                 answer_text = answer_data["answer"]
@@ -927,9 +934,20 @@ class AnswerGenerator:
                     f"[{m.get('verse_id', 'Unknown')}] {m.get('author_display_name', 'Commentary')}: {m.get('text', '')}"
                     for m in commentary_matches
                 ])
-                answer_text = f"Based on the retrieved verses:\n\n{verse_context}"
-                if commentary_context:
-                    answer_text += f"\n\nRelated commentary:\n\n{commentary_context}"
+                if effective_answer_mode == "structured_step":
+                    answer_text = (
+                        "Step 1 - Evidence scan:\n"
+                        f"{verse_context or 'No directly relevant supplied evidence.'}"
+                        "\n\nStep 2 - Final answer:\n"
+                        "The LLM is unavailable, so this run can only expose the selected evidence "
+                        "for answer-quality review."
+                    )
+                    if commentary_context:
+                        answer_text += f"\n\nRelated commentary:\n\n{commentary_context}"
+                else:
+                    answer_text = f"Based on the retrieved verses:\n\n{verse_context}"
+                    if commentary_context:
+                        answer_text += f"\n\nRelated commentary:\n\n{commentary_context}"
                 citations = [
                     {
                         "verse_id": v.get("verse_id", ""),
