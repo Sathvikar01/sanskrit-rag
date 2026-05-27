@@ -131,3 +131,34 @@ Dir% stuck at 97% because 17 verses were absent from the source XML. Additionall
 - `main.py` — loads supplementary verses in `preprocess()`
 - `test_verse_lookup.py` — `_is_valid_ref()`, `_filter_valid()`, `_SUPPLEMENTED_VERSES`, `_parse_ref()`
 - `evaluate_semantic.py` — same validation functions added to loaders
+
+## 2026-05-27 — Remove MiMo from Query Processing, Fix Cross-Lingual Retrieval
+
+### Problem
+MiMo API was being called for query processing (IAST conversion, concept extraction), adding latency and API dependency. When MiMo failed (empty content due to reasoning token budget), queries fell back to local processing but with empty `query_iast`, causing BM25 to return 0 results. Additionally, English queries couldn't retrieve relevant Devanagari verses because the embedding model (`bge-m3-sanskritFT`) is Sanskrit-native.
+
+### Fix 1: QueryProcessor — remove MiMo, use local tools only
+- **File**: `src/generation/query_processor.py`
+- **Change**: Removed MiMo API client, `OpenAI` import, `_call_mimo()`, `_parse_response()`, `QUERY_PROCESSING_PROMPT`. `process_query()` now uses local tools directly: `detect_language()`, `converter.devanagari_to_iast()`, `converter.iast_to_devanagari()`, `concept_extractor.extract_from_text()`.
+- **Why**: MiMo was unnecessary for query processing — all needed functionality exists locally. Eliminates API dependency, latency (~15-30s per query), and failure modes.
+- **Removed**: `from openai import OpenAI`, MiMo client initialization, API call methods.
+- **Result**: Query processing is now instant (<1s) with no API calls.
+
+### Fix 2: MiMo API endpoint updated
+- **Files**: `.env`, `configs/config.yaml`
+- **Change**: `MIMO_API_KEY` → new key for `token-plan-sgp.xiaomimimo.com/v1` endpoint. `api_base` updated in config.
+- **Note**: MiMo is still used in `generator.py` for answer generation (correct usage).
+
+### Fix 3: MiMo max_tokens for reasoning model
+- **File**: `src/generation/query_processor.py` (now removed, but was the issue)
+- **Change**: `max_tokens` 1024 → 4096 before removal. The MiMo model uses ~250 reasoning tokens before producing content, so 1024 was insufficient.
+
+### Verification
+- BM25 works correctly: "dharma" → BhG 4.8 (score 4.32), "karma yoga" → BhG 3.7 (score 5.59)
+- Vector search works: "What is dharma?" → BhG 18.32, BhG 1.1, BhG 14.21 (scores 0.20-0.26)
+- The low vector scores are expected: English queries vs Devanagari verse text in Sanskrit-native embedding model
+
+### Files changed
+- `src/generation/query_processor.py` — removed MiMo dependency, local-only processing
+- `configs/config.yaml` — updated `api_base` to `token-plan-sgp.xiaomimimo.com/v1`
+- `.env` — updated `MIMO_API_KEY` (gitignored)
