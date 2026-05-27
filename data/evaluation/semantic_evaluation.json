@@ -11,33 +11,7 @@
           "BhG 8.5"
         ],
         "without_id": {
-          "time": 12.84,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -73,7 +47,35 @@
           "BhG 17.9"
         ],
         "without_id": {
-          "error": "can only concatenate str (not \"int\") to str"
+          "time": 10.55,
+          "verse_ref_detected": false,
+          "verse_retrieval": {
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 1.0,
+            "mrr": 0.1111111111111111,
+            "retrieved_verse_refs": [
+              "BhG 2.63",
+              "BhG 2.62",
+              "BhG 18.77",
+              "BhG 18.37",
+              "BhG 18.36",
+              "BhG 10.9",
+              "BhG 11.49",
+              "BhG 2.4",
+              "BhG 17.9",
+              "BhG 17.8"
+            ]
+          },
+          "semantic": {
+            "sim_top1": 0.1711,
+            "sim_top3": 0.1807,
+            "sim_top5": 0.194,
+            "chunk_types": {
+              "verse": 10
+            }
+          }
         }
       },
       {
@@ -82,35 +84,7 @@
           "BhG 17.14"
         ],
         "without_id": {
-          "time": 1.48,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 2.45",
-              "BhG 14.21",
-              "BhG 18.12",
-              "BhG 10.16",
-              "BhG 4.29",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 4.27"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0606,
-            "sim_top3": 0.052,
-            "sim_top5": 0.0325,
-            "chunk_types": {
-              "verse": 10
-            }
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -119,25 +93,7 @@
           "BhG 13.32"
         ],
         "without_id": {
-          "error": "can only concatenate str (not \"int\") to str"
-        }
-      },
-      {
-        "question": "I'm constantly stressed about my career. I work really hard, but I'm always worried about getting a promotion, earning m",
-        "verse_refs": [
-          "BhG 12.16"
-        ],
-        "without_id": {
-          "error": "can only concatenate str (not \"int\") to str"
-        }
-      },
-      {
-        "question": "I'm a doctor, and I constantly deal with life and death situations. I feel emotionally drained and responsible for every",
-        "verse_refs": [
-          "BhG 9.9"
-        ],
-        "without_id": {
-          "time": 1.68,
+          "time": 10.62,
           "verse_ref_detected": false,
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -146,26 +102,72 @@
             "recall_at_10": 0.0,
             "mrr": 0.0,
             "retrieved_verse_refs": [
-              "BhG 10.36",
-              "BhG 18.43",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2"
+              "BhG 18.53",
+              "BhG 18.51",
+              "BhG 18.52",
+              "BhG 6.23",
+              "BhG 6.22",
+              "BhG 6.21",
+              "BhG 6.20",
+              "BhG 15.5",
+              "BhG 18.42",
+              "BhG 7.28"
             ]
           },
           "semantic": {
-            "sim_top1": 0.0491,
-            "sim_top3": 0.0907,
-            "sim_top5": 0.0544,
+            "sim_top1": 0.1855,
+            "sim_top3": 0.1855,
+            "sim_top5": 0.2423,
             "chunk_types": {
               "verse": 10
             }
           }
+        }
+      },
+      {
+        "question": "I'm constantly stressed about my career. I work really hard, but I'm always worried about getting a promotion, earning m",
+        "verse_refs": [
+          "BhG 12.16"
+        ],
+        "without_id": {
+          "time": 10.81,
+          "verse_ref_detected": false,
+          "verse_retrieval": {
+            "recall_at_1": 0.0,
+            "recall_at_3": 0.0,
+            "recall_at_5": 0.0,
+            "recall_at_10": 0.0,
+            "mrr": 0.0,
+            "retrieved_verse_refs": [
+              "BhG 18.53",
+              "BhG 18.52",
+              "BhG 18.51",
+              "BhG 6.15",
+              "BhG 18.56",
+              "BhG 9.14",
+              "BhG 12.9",
+              "BhG 4.20",
+              "BhG 6.36",
+              "BhG 7.28"
+            ]
+          },
+          "semantic": {
+            "sim_top1": 0.3144,
+            "sim_top3": 0.3144,
+            "sim_top5": 0.3083,
+            "chunk_types": {
+              "verse": 10
+            }
+          }
+        }
+      },
+      {
+        "question": "I'm a doctor, and I constantly deal with life and death situations. I feel emotionally drained and responsible for every",
+        "verse_refs": [
+          "BhG 9.9"
+        ],
+        "without_id": {
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -183,33 +185,7 @@
           "BhG 11.52"
         ],
         "without_id": {
-          "time": 1.82,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -218,33 +194,7 @@
           "BhG 7.12"
         ],
         "without_id": {
-          "time": 1.51,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -253,33 +203,7 @@
           "BhG 2.68"
         ],
         "without_id": {
-          "time": 1.34,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -315,33 +239,7 @@
           "BhG 17.1"
         ],
         "without_id": {
-          "time": 2.07,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -350,33 +248,7 @@
           "BhG 17.23"
         ],
         "without_id": {
-          "time": 1.94,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -421,33 +293,7 @@
           "BhG 16.13"
         ],
         "without_id": {
-          "time": 2.36,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -456,7 +302,7 @@
           "BhG 9.15"
         ],
         "without_id": {
-          "time": 1.85,
+          "time": 62.43,
           "verse_ref_detected": false,
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -491,33 +337,7 @@
           "BhG 2.65"
         ],
         "without_id": {
-          "time": 1.41,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -535,7 +355,7 @@
           "BhG 3.27"
         ],
         "without_id": {
-          "time": 1.75,
+          "time": 14.04,
           "verse_ref_detected": false,
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -628,7 +448,7 @@
           "BhG 17.14"
         ],
         "without_id": {
-          "time": 0.59,
+          "time": 8.46,
           "verse_ref_detected": false,
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -663,33 +483,7 @@
           "BhG 5.22"
         ],
         "without_id": {
-          "time": 0.62,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.3",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -707,33 +501,7 @@
           "BhG 4.21"
         ],
         "without_id": {
-          "time": 0.55,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -742,33 +510,7 @@
           "BhG 2.68"
         ],
         "without_id": {
-          "time": 0.65,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -795,33 +537,7 @@
           "BhG 15.5"
         ],
         "without_id": {
-          "time": 0.63,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -866,7 +582,7 @@
           "BhG 9.8"
         ],
         "without_id": {
-          "time": 0.89,
+          "time": 33.05,
           "verse_ref_detected": false,
           "verse_retrieval": {
             "recall_at_1": 0.0,
@@ -875,23 +591,25 @@
             "recall_at_10": 0.0,
             "mrr": 0.0,
             "retrieved_verse_refs": [
+              "BhG 2.36",
+              "BhG 14.21",
+              "BhG 2.21",
               "BhG 10.16",
               "BhG 11.32",
-              "BhG 11.36",
               "BhG 3.15",
-              "BhG 3.17",
+              "BhG 11.36",
               "BhG 10.6",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
+              "BhG 3.17",
+              "BhG 3.20"
             ]
           },
           "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
+            "sim_top1": 0.2092,
+            "sim_top3": 0.1932,
+            "sim_top5": 0.1864,
+            "chunk_types": {
+              "verse": 10
+            }
           }
         }
       },
@@ -919,35 +637,7 @@
           "BhG 2.30"
         ],
         "without_id": {
-          "time": 0.69,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 3.36",
-              "BhG 6.37",
-              "BhG 2.2",
-              "BhG 3.1",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 6.46"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.1852,
-            "sim_top3": 0.1928,
-            "sim_top5": 0.1323,
-            "chunk_types": {
-              "verse": 10
-            }
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -965,33 +655,7 @@
           "BhG 4.29"
         ],
         "without_id": {
-          "time": 0.53,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1000,33 +664,7 @@
           "BhG 10.42"
         ],
         "without_id": {
-          "time": 0.94,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1044,33 +682,7 @@
           "BhG 1.22"
         ],
         "without_id": {
-          "time": 0.79,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1079,33 +691,7 @@
           "BhG 11.46"
         ],
         "without_id": {
-          "time": 0.76,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1123,33 +709,7 @@
           "BhG 16.17"
         ],
         "without_id": {
-          "time": 1.03,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1167,33 +727,7 @@
           "BhG 16.5"
         ],
         "without_id": {
-          "time": 0.6,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1213,35 +747,7 @@
           "BhG 6.14"
         ],
         "without_id": {
-          "time": 0.72,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 18.28",
-              "BhG 17.25",
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 18.25",
-              "BhG 9.13",
-              "BhG 11.36",
-              "BhG 9.22",
-              "BhG 6.38"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.1551,
-            "sim_top3": 0.0943,
-            "sim_top5": 0.0921,
-            "chunk_types": {
-              "verse": 10
-            }
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1295,33 +801,7 @@
           "BhG 16.1"
         ],
         "without_id": {
-          "time": 1.29,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1330,33 +810,7 @@
           "BhG 13.8"
         ],
         "without_id": {
-          "time": 1.46,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1365,33 +819,7 @@
           "BhG 8.18"
         ],
         "without_id": {
-          "time": 1.23,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1427,35 +855,7 @@
           "BhG 4.5"
         ],
         "without_id": {
-          "time": 1.36,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 10.36",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0639,
-            "sim_top3": 0.077,
-            "sim_top5": 0.0717,
-            "chunk_types": {
-              "verse": 10
-            }
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1482,33 +882,7 @@
           "BhG 2.7"
         ],
         "without_id": {
-          "time": 1.12,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1517,33 +891,7 @@
           "BhG 10.29"
         ],
         "without_id": {
-          "time": 1.17,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1552,33 +900,7 @@
           "BhG 10.27"
         ],
         "without_id": {
-          "time": 1.51,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1596,33 +918,7 @@
           "BhG 15.19"
         ],
         "without_id": {
-          "time": 0.95,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1631,33 +927,7 @@
           "BhG 16.7"
         ],
         "without_id": {
-          "time": 1.37,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1666,33 +936,7 @@
           "BhG 3.10"
         ],
         "without_id": {
-          "time": 1.09,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1710,33 +954,7 @@
           "BhG 10.24"
         ],
         "without_id": {
-          "time": 1.57,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1781,33 +999,7 @@
           "BhG 7.17"
         ],
         "without_id": {
-          "time": 1.36,
-          "verse_ref_detected": false,
-          "verse_retrieval": {
-            "recall_at_1": 0.0,
-            "recall_at_3": 0.0,
-            "recall_at_5": 0.0,
-            "recall_at_10": 0.0,
-            "mrr": 0.0,
-            "retrieved_verse_refs": [
-              "BhG 10.16",
-              "BhG 11.32",
-              "BhG 3.15",
-              "BhG 11.36",
-              "BhG 10.6",
-              "BhG 3.17",
-              "BhG 3.20",
-              "BhG 10.2",
-              "BhG 3.19",
-              "BhG 11.47"
-            ]
-          },
-          "semantic": {
-            "sim_top1": 0.0,
-            "sim_top3": 0.0,
-            "sim_top5": 0.0,
-            "chunk_types": {}
-          }
+          "error": "can only concatenate str (not \"int\") to str"
         }
       },
       {
@@ -1827,7 +1019,7 @@
           "BhG 6.10"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 6.21,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -1855,7 +1047,7 @@
           "BhG 11.32"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 4.69,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -1881,7 +1073,7 @@
           "BhG 1.25"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 3.79,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -1909,7 +1101,7 @@
           "BhG 14.10"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 23.09,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -1937,7 +1129,7 @@
           "BhG 12.13"
         ],
         "without_id": {
-          "time": 0.01,
+          "time": 3.7,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -1965,7 +1157,7 @@
           "BhG 2.55"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 5.36,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -1993,7 +1185,7 @@
           "BhG 12.18"
         ],
         "without_id": {
-          "time": 0.03,
+          "time": 4.11,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -2021,7 +1213,7 @@
           "BhG 17.7"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 4.26,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -2049,7 +1241,7 @@
           "BhG 14.19"
         ],
         "without_id": {
-          "time": 0.01,
+          "time": 4.35,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -2077,7 +1269,7 @@
           "BhG 17.26"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 23.9,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -2105,7 +1297,7 @@
           "BhG 14.22"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 4.49,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -2133,7 +1325,7 @@
           "BhG 10.33"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 6.25,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -2161,7 +1353,7 @@
           "BhG 2.24"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 6.79,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -2189,7 +1381,7 @@
           "BhG 14.24"
         ],
         "without_id": {
-          "time": 0.04,
+          "time": 3.73,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
@@ -2217,7 +1409,7 @@
           "BhG 13.16"
         ],
         "without_id": {
-          "time": 0.02,
+          "time": 3.84,
           "verse_ref_detected": true,
           "verse_retrieval": {
             "recall_at_1": 1.0,
