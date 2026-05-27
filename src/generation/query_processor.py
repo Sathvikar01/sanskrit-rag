@@ -24,22 +24,25 @@ class ProcessedQuery:
     extraction_confidence: float = 0.0
 
 
-TRANSLATION_PROMPT = """You are a Sanskrit language expert. Translate the following query to IAST transliteration.
+TRANSLATION_PROMPT = """You are a Sanskrit language expert. Your task is IAST TRANSLITERATION, not translation to Hindi.
 
 Query: "{query}"
 
 Rules:
-- If the query is in English, translate the key Sanskrit terms to IAST (e.g., "dharma", "karma", "Bhagavad Gita")
-- If the query already contains Sanskrit in Devanagari, convert it to IAST
-- If the query is already in IAST, return it as-is
-- Keep the query structure natural, just ensure Sanskrit terms are in IAST
-- Respond ONLY with the IAST text, no explanations
+- Convert ALL Sanskrit/Hindi terms in the query to proper IAST transliteration with diacritics
+- IAST uses diacritics: ā, ī, ū, ṛ, ṝ, ḷ, ṃ, ḥ, ś, ṣ, ṇ, ṭ, ḍ, ñ, ṅ, ṭh, ḍh
+- Keep the query structure in the SAME LANGUAGE - just transliterate Sanskrit words to IAST
+- Do NOT translate to Hindi. Only transliterate Sanskrit terms.
+- Respond ONLY with the transliterated text, no explanations
 
-Example:
-"What is dharma?" → "dharma ki hai?"
-"Explain karma yoga" → "karma yoga samjhao"
-"What does Bhagavad Gita say about moksha?" → "bhagavad gītā moksha ke baare mein kya kahtī hai?"
-"dharma kya hai" → "dharma kya hai" (already has Hindi/Sanskrit terms)"""
+Examples:
+"What is dharma?" → "What is dharma?"
+"Explain karma yoga" → "Explain karma yoga"
+"What does Bhagavad Gita say about moksha?" → "What does bhagavad gītā say about moksha?"
+"Tell me about the soul" → "Tell me about the ātman"
+"How to achieve liberation?" → "How to achieve mokṣa?"
+"dharma karmāt sambandhita hai" → "dharma karmāt sambandhita hai"
+"bhagavad gita mein kya kaha gaya hai" → "bhagavad gītā mein kyā kaha gayā hai" """
 
 
 class QueryProcessor:
@@ -63,12 +66,12 @@ class QueryProcessor:
         logger.info(f"QueryProcessor initialized with MiMo ({self.model}) for IAST translation")
 
     def _translate_to_iast(self, query: str) -> str:
-        """Use MiMo to translate query to IAST."""
+        """Use MiMo to transliterate Sanskrit terms to IAST (not translate to Hindi)."""
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": "You are a Sanskrit language expert. Respond ONLY with the IAST text."},
+                    {"role": "system", "content": "You are a Sanskrit transliteration expert. Convert Sanskrit terms to IAST with diacritics. Do NOT translate to Hindi. Keep the original language structure."},
                     {"role": "user", "content": TRANSLATION_PROMPT.format(query=query)},
                 ],
                 temperature=0.1,

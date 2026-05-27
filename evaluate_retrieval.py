@@ -279,7 +279,7 @@ def run_evaluation(args):
                 try:
                     start = time.time()
 
-                    processed = query_processor.process_query_local(query_text)
+                    processed = query_processor.process_query(query_text)
                     query_type = detect_query_type(processed.query_iast, processed.concepts)
 
                     top_k = 50
