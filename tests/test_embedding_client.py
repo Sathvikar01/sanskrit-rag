@@ -210,9 +210,10 @@ class TestNVIDIAEmbeddingClient(unittest.TestCase):
             )
             fake_model = Mock()
             fake_model.encode.return_value = np.ones((2, 1024), dtype=np.float32)
+            texts = [f"dharma yoga {Path(tmpdir).name}", f"karma yoga {Path(tmpdir).name}"]
 
             with patch.object(client, "_get_local_model", return_value=fake_model):
-                results = client.get_embeddings_batch(["dharma yoga", "karma yoga"], input_type="query")
+                results = client.get_embeddings_batch(texts, input_type="query")
 
         fake_model.encode.assert_called_once()
         self.assertEqual(len(results), 2)

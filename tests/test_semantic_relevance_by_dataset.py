@@ -5,6 +5,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from run_semantic_relevance_by_dataset import (
+    load_eval_questions,
     score_ranked_verses,
     strip_explicit_verse_references,
     unique_in_order,
@@ -32,3 +33,11 @@ def test_score_ranked_verses_combines_coverage_and_reciprocal_rank():
     assert metrics["first_expected_rank"] == 2
     assert metrics["reciprocal_rank"] == 0.5
     assert metrics["dense_semantic_quality"] == 0.875
+
+
+def test_load_eval_questions_uses_tracked_result_fallback():
+    items = load_eval_questions(limit=2)
+
+    assert len(items) == 2
+    assert items[0]["question"]
+    assert items[0]["expected_verse_ids"]

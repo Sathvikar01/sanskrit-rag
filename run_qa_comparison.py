@@ -352,6 +352,8 @@ def main():
         "test_name": "Bhagavad Gita Chapter 1 Q&A Comparison",
         "mode": "retrieval_only" if args.retrieval_only else "qa_comparison",
         "answer_mode": "retrieval_only" if args.retrieval_only else args.answer_mode,
+        "embedding_backend": embedder.backend,
+        "embedding_model": embedder.model,
         "total_questions": len(qa_items),
         "total_time_seconds": round(total_time, 2),
         "grade_distribution": grades,

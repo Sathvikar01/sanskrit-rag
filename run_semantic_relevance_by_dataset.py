@@ -7,6 +7,7 @@ This script is intentionally separate from ``run_qa_comparison.py``:
   semantic relevance, not verse-ID parsing.
 """
 import argparse
+import hashlib
 import io
 import json
 import re
@@ -27,6 +28,11 @@ from src.xml_parser import TEIXMLParser, TextChunk
 
 
 DEFAULT_OUTPUT = ROOT_DIR / "results" / "semantic_relevance_by_dataset_chapter1.json"
+QA_FALLBACK_PATHS = [
+    ROOT_DIR / "test_qa" / "golden_chapter1_qa.json",
+    ROOT_DIR / "results" / "qa_retrieval_quality_chapter1.json",
+    ROOT_DIR / "results" / "qa_comparison_chapter1.json",
+]
 
 
 def configure_utf8_stdio() -> None:
@@ -54,12 +60,26 @@ def parse_args() -> argparse.Namespace:
         help="Keep explicit BG references in questions. Default strips them for semantic-only scoring.",
     )
     parser.add_argument(
+        "--candidate-unit",
+        choices=["verse", "chunk"],
+        default="verse",
+        help="Evaluate each dataset as verse-aggregated text or individual chunks.",
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         default=DEFAULT_OUTPUT,
         help="JSON output path.",
     )
     return parser.parse_args()
+
+
+def load_eval_questions(limit: Optional[int] = None) -> List[Dict[str, Any]]:
+    for path in QA_FALLBACK_PATHS:
+        items = load_golden_chapter1_qa(path=path)
+        if items:
+            return items[:limit] if limit else items
+    return []
 
 
 def strip_explicit_verse_references(question: str) -> str:
@@ -131,6 +151,37 @@ def score_ranked_verses(
 def filter_chunks_for_chapter(chunks: List[TextChunk], chapter: int) -> List[TextChunk]:
     prefix = f"BhG {chapter}."
     return [chunk for chunk in chunks if (chunk.verse_id or "").startswith(prefix)]
+
+
+def aggregate_chunks_by_verse(chunks: List[TextChunk], dataset_type: str) -> List[TextChunk]:
+    """Collapse source chunks to one candidate per verse for CPU-friendly scoring."""
+    grouped: Dict[str, List[TextChunk]] = {}
+    for chunk in chunks:
+        if chunk.verse_id:
+            grouped.setdefault(chunk.verse_id, []).append(chunk)
+
+    aggregated = []
+    for verse_id, verse_chunks in sorted(grouped.items(), key=lambda item: item[0]):
+        text = "\n".join(unique_in_order(chunk.text for chunk in verse_chunks if chunk.text.strip()))
+        chunk_id = hashlib.md5(f"{dataset_type}:{verse_id}:{text}".encode()).hexdigest()[:16]
+        first = verse_chunks[0]
+        aggregated.append(TextChunk(
+            id=chunk_id,
+            text=text,
+            dataset_type=dataset_type,
+            verse_id=verse_id,
+            element_type="verse_aggregate",
+            line_number=first.line_number,
+            metadata={
+                "dataset_type": dataset_type,
+                "verse_id": verse_id,
+                "candidate_unit": "verse",
+                "source_chunk_count": len(verse_chunks),
+                "chapter": first.metadata.get("chapter"),
+                "verse_num": first.metadata.get("verse_num"),
+            },
+        ))
+    return aggregated
 
 
 def l2_normalize(matrix: np.ndarray) -> np.ndarray:
@@ -264,9 +315,12 @@ def evaluate_dataset(
 def main() -> None:
     configure_utf8_stdio()
     args = parse_args()
-    qa_items = load_golden_chapter1_qa()
-    if args.limit:
-        qa_items = qa_items[:args.limit]
+    qa_items = load_eval_questions(limit=args.limit)
+    if not qa_items:
+        raise RuntimeError(
+            "No Chapter 1 QA items found. Expected test_qa/golden_chapter1_qa.json "
+            "or a prior results/qa_*_chapter1.json file."
+        )
 
     print("=" * 72)
     print("Dense Semantic Relevance by Source Dataset")
@@ -282,6 +336,7 @@ def main() -> None:
         "test_name": "Dense semantic relevance by source dataset",
         "chapter": args.chapter,
         "top_k": args.top_k,
+        "candidate_unit": args.candidate_unit,
         "question_mode": "with_verse_refs" if args.keep_verse_refs else "semantic_only_refs_stripped",
         "embedding_backend": embedder.backend,
         "embedding_model": embedder.model,
@@ -289,7 +344,12 @@ def main() -> None:
     }
 
     for dataset_type in args.datasets:
-        chapter_chunks = filter_chunks_for_chapter(all_chunks.get(dataset_type, []), args.chapter)
+        source_chunks = filter_chunks_for_chapter(all_chunks.get(dataset_type, []), args.chapter)
+        chapter_chunks = (
+            aggregate_chunks_by_verse(source_chunks, dataset_type)
+            if args.candidate_unit == "verse"
+            else source_chunks
+        )
         dataset_result = evaluate_dataset(
             dataset_type=dataset_type,
             chunks=chapter_chunks,
@@ -298,6 +358,8 @@ def main() -> None:
             top_k=args.top_k,
             strip_refs=not args.keep_verse_refs,
         )
+        dataset_result["source_chunks"] = len(source_chunks)
+        dataset_result["candidate_unit"] = args.candidate_unit
         output["datasets"][dataset_type] = dataset_result
         summary = dataset_result["summary"]
         print(

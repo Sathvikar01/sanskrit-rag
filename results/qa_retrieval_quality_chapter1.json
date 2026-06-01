@@ -2,15 +2,18 @@
   "summary": {
     "test_name": "Bhagavad Gita Chapter 1 Q&A Comparison",
     "mode": "retrieval_only",
+    "answer_mode": "retrieval_only",
+    "embedding_backend": "local",
+    "embedding_model": "sanganaka/bge-m3-sanskritFT",
     "total_questions": 49,
-    "total_time_seconds": 116.22,
+    "total_time_seconds": 42.57,
     "grade_distribution": {
       "NOT_GRADED": 49
     },
     "average_correctness": 0.0,
     "average_semantic_similarity": 0.0,
     "average_keyword_overlap": 0.0,
-    "average_latency_ms": 2371.54,
+    "average_latency_ms": 868.69,
     "explicit_verse_hit_rate": 1.0,
     "top_verse_hit_rate": 1.0,
     "commentary_hit_rate": 1.0,
@@ -35,7 +38,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 13770.05,
+      "latency_ms": 1837.41,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -82,7 +85,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2776.33,
+      "latency_ms": 1323.95,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -129,7 +132,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2644.67,
+      "latency_ms": 1031.38,
       "num_citations": 3,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -196,7 +199,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 3101.38,
+      "latency_ms": 855.71,
       "num_citations": 3,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -263,7 +266,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2411.4,
+      "latency_ms": 866.33,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -290,12 +293,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8966
+        "confidence": 0.9072
       },
       "citations": [
         {
           "verse_id": "BhG 1.19",
-          "score": 0.43294707876329186
+          "score": 0.6446835732792419
         }
       ]
     },
@@ -310,7 +313,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 3874.8,
+      "latency_ms": 891.77,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -337,12 +340,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8966
+        "confidence": 0.9072
       },
       "citations": [
         {
           "verse_id": "BhG 1.19",
-          "score": 0.43294707876329186
+          "score": 0.6446835732792419
         }
       ]
     },
@@ -357,7 +360,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2544.0,
+      "latency_ms": 905.27,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -384,12 +387,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8966
+        "confidence": 0.9072
       },
       "citations": [
         {
           "verse_id": "BhG 1.19",
-          "score": 0.43294707876329186
+          "score": 0.6446835732792419
         }
       ]
     },
@@ -404,7 +407,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2488.96,
+      "latency_ms": 806.67,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -451,7 +454,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2295.57,
+      "latency_ms": 801.46,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -498,7 +501,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2035.88,
+      "latency_ms": 769.82,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -545,7 +548,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2193.11,
+      "latency_ms": 939.25,
       "num_citations": 2,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -602,7 +605,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2829.8,
+      "latency_ms": 813.07,
       "num_citations": 2,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -659,7 +662,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2791.4,
+      "latency_ms": 849.92,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -706,7 +709,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2764.54,
+      "latency_ms": 833.4,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -753,7 +756,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2510.21,
+      "latency_ms": 881.42,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -780,12 +783,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8897
+        "confidence": 0.8919
       },
       "citations": [
         {
           "verse_id": "BhG 1.26",
-          "score": 0.29392588932806324
+          "score": 0.3388369565217392
         }
       ]
     },
@@ -800,7 +803,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2557.68,
+      "latency_ms": 863.27,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -827,12 +830,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.892
+        "confidence": 0.897
       },
       "citations": [
         {
           "verse_id": "BhG 1.27",
-          "score": 0.33992196949310893
+          "score": 0.44002833288483967
         }
       ]
     },
@@ -847,7 +850,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2456.63,
+      "latency_ms": 952.74,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -894,7 +897,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2358.48,
+      "latency_ms": 817.72,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -941,7 +944,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2624.75,
+      "latency_ms": 875.05,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -988,7 +991,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2485.89,
+      "latency_ms": 788.56,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1015,12 +1018,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8901
+        "confidence": 0.8929
       },
       "citations": [
         {
           "verse_id": "BhG 1.30",
-          "score": 0.30232588932806326
+          "score": 0.3573169565217391
         }
       ]
     },
@@ -1035,7 +1038,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2860.63,
+      "latency_ms": 957.74,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1062,12 +1065,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8901
+        "confidence": 0.8929
       },
       "citations": [
         {
           "verse_id": "BhG 1.30",
-          "score": 0.30232588932806326
+          "score": 0.3573169565217391
         }
       ]
     },
@@ -1082,7 +1085,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2234.39,
+      "latency_ms": 815.28,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1109,12 +1112,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8926
+        "confidence": 0.8954
       },
       "citations": [
         {
           "verse_id": "BhG 1.30",
-          "score": 0.3523258893280633
+          "score": 0.40731695652173916
         }
       ]
     },
@@ -1129,7 +1132,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2443.5,
+      "latency_ms": 849.85,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1156,12 +1159,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8901
+        "confidence": 0.8929
       },
       "citations": [
         {
           "verse_id": "BhG 1.30",
-          "score": 0.30232588932806326
+          "score": 0.3573169565217391
         }
       ]
     },
@@ -1176,7 +1179,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2237.18,
+      "latency_ms": 758.45,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1203,12 +1206,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8944
+        "confidence": 0.9024
       },
       "citations": [
         {
           "verse_id": "BhG 1.31",
-          "score": 0.3888340947918504
+          "score": 0.5476350085420708
         }
       ]
     },
@@ -1223,7 +1226,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2785.71,
+      "latency_ms": 935.38,
       "num_citations": 4,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1296,7 +1299,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2618.95,
+      "latency_ms": 874.29,
       "num_citations": 4,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1369,7 +1372,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2502.99,
+      "latency_ms": 851.7,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1396,12 +1399,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8909
+        "confidence": 0.8946
       },
       "citations": [
         {
           "verse_id": "BhG 1.36",
-          "score": 0.3181805901827641
+          "score": 0.39219729840208106
         }
       ]
     },
@@ -1416,7 +1419,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2886.8,
+      "latency_ms": 819.95,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1443,12 +1446,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8909
+        "confidence": 0.8946
       },
       "citations": [
         {
           "verse_id": "BhG 1.36",
-          "score": 0.3181805901827641
+          "score": 0.39219729840208106
         }
       ]
     },
@@ -1463,7 +1466,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2405.88,
+      "latency_ms": 896.57,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1490,12 +1493,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8909
+        "confidence": 0.8946
       },
       "citations": [
         {
           "verse_id": "BhG 1.36",
-          "score": 0.3181805901827641
+          "score": 0.39219729840208106
         }
       ]
     },
@@ -1510,7 +1513,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1494.58,
+      "latency_ms": 627.61,
       "num_citations": 2,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1543,12 +1546,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8919
+        "confidence": 0.896
       },
       "citations": [
         {
           "verse_id": "BhG 1.37",
-          "score": 0.33740786291003677
+          "score": 0.4204245711293537
         },
         {
           "verse_id": "BhG 1.38",
@@ -1567,7 +1570,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2081.63,
+      "latency_ms": 799.71,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1594,12 +1597,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8897
+        "confidence": 0.8919
       },
       "citations": [
         {
           "verse_id": "BhG 1.39",
-          "score": 0.29392588932806324
+          "score": 0.3388369565217392
         }
       ]
     },
@@ -1614,7 +1617,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2714.15,
+      "latency_ms": 852.66,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1641,12 +1644,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8897
+        "confidence": 0.8919
       },
       "citations": [
         {
           "verse_id": "BhG 1.40",
-          "score": 0.29392588932806324
+          "score": 0.3388369565217392
         }
       ]
     },
@@ -1661,7 +1664,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2456.32,
+      "latency_ms": 839.13,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1688,12 +1691,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8897
+        "confidence": 0.8919
       },
       "citations": [
         {
           "verse_id": "BhG 1.40",
-          "score": 0.29392588932806324
+          "score": 0.3388369565217392
         }
       ]
     },
@@ -1708,7 +1711,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2597.06,
+      "latency_ms": 948.85,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1735,12 +1738,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8897
+        "confidence": 0.8919
       },
       "citations": [
         {
           "verse_id": "BhG 1.41",
-          "score": 0.29392588932806324
+          "score": 0.3388369565217392
         }
       ]
     },
@@ -1755,7 +1758,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 2235.8,
+      "latency_ms": 961.45,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1782,12 +1785,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8897
+        "confidence": 0.8919
       },
       "citations": [
         {
           "verse_id": "BhG 1.41",
-          "score": 0.29392588932806324
+          "score": 0.3388369565217392
         }
       ]
     },
@@ -1802,7 +1805,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1709.8,
+      "latency_ms": 931.59,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1829,12 +1832,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8901
+        "confidence": 0.8929
       },
       "citations": [
         {
           "verse_id": "BhG 1.42",
-          "score": 0.30232588932806326
+          "score": 0.3573169565217391
         }
       ]
     },
@@ -1849,7 +1852,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1883.23,
+      "latency_ms": 926.07,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1876,12 +1879,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8901
+        "confidence": 0.8929
       },
       "citations": [
         {
           "verse_id": "BhG 1.42",
-          "score": 0.30232588932806326
+          "score": 0.3573169565217391
         }
       ]
     },
@@ -1896,7 +1899,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1151.93,
+      "latency_ms": 772.76,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1923,12 +1926,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8897
+        "confidence": 0.8919
       },
       "citations": [
         {
           "verse_id": "BhG 1.43",
-          "score": 0.29392588932806324
+          "score": 0.3388369565217392
         }
       ]
     },
@@ -1943,7 +1946,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1049.16,
+      "latency_ms": 752.2,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -1970,12 +1973,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8897
+        "confidence": 0.8919
       },
       "citations": [
         {
           "verse_id": "BhG 1.43",
-          "score": 0.29392588932806324
+          "score": 0.3388369565217392
         }
       ]
     },
@@ -1990,7 +1993,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1327.11,
+      "latency_ms": 824.77,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -2017,12 +2020,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8897
+        "confidence": 0.8919
       },
       "citations": [
         {
           "verse_id": "BhG 1.43",
-          "score": 0.29392588932806324
+          "score": 0.3388369565217392
         }
       ]
     },
@@ -2037,7 +2040,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1194.38,
+      "latency_ms": 917.91,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -2064,12 +2067,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8893
+        "confidence": 0.891
       },
       "citations": [
         {
           "verse_id": "BhG 1.44",
-          "score": 0.28517588932806326
+          "score": 0.3195869565217391
         }
       ]
     },
@@ -2084,12 +2087,34 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 729.99,
-      "num_citations": 0,
+      "latency_ms": 464.72,
+      "num_citations": 10,
       "retrieval_metrics": {
         "expected_verse_ids": [],
-        "canonical_verse_ids": [],
-        "commentary_verse_ids": [],
+        "canonical_verse_ids": [
+          "BhG 9.7",
+          "BhG 3.37",
+          "BhG 7.3",
+          "BhG 7.26",
+          "BhG 15.18",
+          "BhG 10.42",
+          "BhG 2.29",
+          "BhG 13.31",
+          "BhG 2.18",
+          "BhG 11.54"
+        ],
+        "commentary_verse_ids": [
+          "BhG 9.7",
+          "BhG 9.7",
+          "BhG 3.37",
+          "BhG 3.37",
+          "BhG 7.3",
+          "BhG 7.3",
+          "BhG 7.26",
+          "BhG 7.26",
+          "BhG 15.18",
+          "BhG 15.18"
+        ],
         "matched_canonical_verse_ids": [],
         "matched_commentary_verse_ids": [],
         "expected_coverage": null,
@@ -2099,10 +2124,23 @@
         "explicit_verse_hit": false,
         "top_verse_hit": false,
         "commentary_hit": false,
-        "abstained": true,
-        "confidence": 0.0
+        "abstained": false,
+        "confidence": 0.6811
       },
-      "citations": []
+      "citations": [
+        {
+          "verse_id": "BhG 9.7",
+          "score": 0.122
+        },
+        {
+          "verse_id": "BhG 3.37",
+          "score": 0.12154999999999999
+        },
+        {
+          "verse_id": "BhG 7.3",
+          "score": 0.12145454545454545
+        }
+      ]
     },
     {
       "question_number": 43,
@@ -2115,7 +2153,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 897.34,
+      "latency_ms": 586.94,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -2142,12 +2180,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.894
+        "confidence": 0.8991
       },
       "citations": [
         {
           "verse_id": "BhG 1.46",
-          "score": 0.38092196949310897
+          "score": 0.4810283328848396
         }
       ]
     },
@@ -2162,7 +2200,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 875.73,
+      "latency_ms": 556.29,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -2189,12 +2227,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8978
+        "confidence": 0.9028
       },
       "citations": [
         {
           "verse_id": "BhG 1.46",
-          "score": 0.4559219694931089
+          "score": 0.5560283328848397
         }
       ]
     },
@@ -2209,7 +2247,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1147.47,
+      "latency_ms": 877.55,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -2236,12 +2274,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.8893
+        "confidence": 0.891
       },
       "citations": [
         {
           "verse_id": "BhG 1.44",
-          "score": 0.28517588932806326
+          "score": 0.3195869565217391
         }
       ]
     },
@@ -2256,7 +2294,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 983.41,
+      "latency_ms": 811.97,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -2303,7 +2341,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1106.92,
+      "latency_ms": 957.22,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -2350,7 +2388,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1006.24,
+      "latency_ms": 812.05,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -2397,7 +2435,7 @@
       "grade": "NOT_GRADED",
       "correctness": 0.0,
       "combined_score": 0.0,
-      "latency_ms": 1071.49,
+      "latency_ms": 881.18,
       "num_citations": 1,
       "retrieval_metrics": {
         "expected_verse_ids": [
@@ -2424,12 +2462,12 @@
         "top_verse_hit": true,
         "commentary_hit": true,
         "abstained": false,
-        "confidence": 0.892
+        "confidence": 0.897
       },
       "citations": [
         {
           "verse_id": "BhG 1.46",
-          "score": 0.33992196949310893
+          "score": 0.44002833288483967
         }
       ]
     }
