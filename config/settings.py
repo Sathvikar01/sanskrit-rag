@@ -15,7 +15,17 @@ QDRANT_PORT = int(os.getenv("QDRANT_PORT", "6333"))
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password123")
+EMBEDDING_BACKEND = os.getenv("EMBEDDING_BACKEND", "local").strip().lower()
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "nvidia/nv-embedqa-e5-v5")
+LOCAL_EMBEDDING_MODEL = os.getenv("LOCAL_EMBEDDING_MODEL", "sanganaka/bge-m3-sanskritFT")
+LOCAL_EMBEDDING_DEVICE = os.getenv("LOCAL_EMBEDDING_DEVICE", "cpu")
+LOCAL_EMBEDDING_BATCH_SIZE = int(os.getenv("LOCAL_EMBEDDING_BATCH_SIZE", "4"))
+LOCAL_EMBEDDING_NORMALIZE = os.getenv("LOCAL_EMBEDDING_NORMALIZE", "true").strip().lower() in {
+    "1",
+    "true",
+    "yes",
+}
+EMBEDDING_CACHE_VERSION = os.getenv("EMBEDDING_CACHE_VERSION", "v2")
 BATCH_SIZE = int(os.getenv("BATCH_SIZE", "32"))
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
 

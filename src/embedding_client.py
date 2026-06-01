@@ -1,4 +1,4 @@
-"""NVIDIA BGE-M3 Embedding Client with dense, sparse, and multi-vec support."""
+"""Embedding client with dense, sparse, and multi-vec support."""
 import re
 import time
 import json
@@ -17,7 +17,13 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from config.settings import (
     NVIDEA_API_KEY,
     NVIDIA_API_URL,
+    EMBEDDING_BACKEND,
     EMBEDDING_MODEL,
+    LOCAL_EMBEDDING_MODEL,
+    LOCAL_EMBEDDING_DEVICE,
+    LOCAL_EMBEDDING_BATCH_SIZE,
+    LOCAL_EMBEDDING_NORMALIZE,
+    EMBEDDING_CACHE_VERSION,
     BATCH_SIZE,
     MAX_RETRIES,
     DENSE_DIM,
@@ -62,26 +68,45 @@ class EmbeddingResult:
 
 
 class NVIDIAEmbeddingClient:
-    """Client for NVIDIA NIM BGE-M3 embedding API."""
+    """Client for dense embeddings plus local sparse and multi-vector features.
+
+    The historical class name is kept for compatibility. Set
+    ``EMBEDDING_BACKEND=local`` to use a CPU SentenceTransformer model instead
+    of the NVIDIA embedding API.
+    """
     
     def __init__(
         self,
         api_key: str = None,
         api_url: str = NVIDIA_API_URL,
         model: str = EMBEDDING_MODEL,
+        backend: str = EMBEDDING_BACKEND,
+        local_model_name: str = LOCAL_EMBEDDING_MODEL,
+        local_device: str = LOCAL_EMBEDDING_DEVICE,
+        local_batch_size: int = LOCAL_EMBEDDING_BATCH_SIZE,
+        local_normalize_embeddings: bool = LOCAL_EMBEDDING_NORMALIZE,
         batch_size: int = BATCH_SIZE,
         max_retries: int = MAX_RETRIES,
         cache_dir: Optional[str] = None
     ):
         self.api_key = api_key or NVIDEA_API_KEY
         self.api_url = api_url
-        self.model = model
+        self.backend = (backend or "nvidia").strip().lower()
+        if self.backend not in {"local", "nvidia"}:
+            raise ValueError(f"Unsupported embedding backend: {self.backend}")
+
+        self.local_model_name = local_model_name or LOCAL_EMBEDDING_MODEL
+        self.local_device = local_device or "cpu"
+        self.local_batch_size = max(1, int(local_batch_size or 1))
+        self.local_normalize_embeddings = bool(local_normalize_embeddings)
+        self.model = self.local_model_name if self.backend == "local" else model
         self.batch_size = batch_size
         self.max_retries = max_retries
         self.cache_dir = Path(cache_dir) if cache_dir else Path(__file__).parent.parent / "cache"
         self.cache_dir.mkdir(exist_ok=True)
 
         self.session = self._create_session()
+        self._local_model = None
         self._embedding_cache: Dict[str, EmbeddingResult] = {}
         self.evidence_cache = EvidenceCache()
         
@@ -110,21 +135,76 @@ class NVIDIAEmbeddingClient:
     
     def _get_cache_key(self, text: str, input_type: str = "passage") -> str:
         key = {
+            "backend": self.backend,
             "model": self.model,
+            "cache_version": EMBEDDING_CACHE_VERSION,
+            "normalize_embeddings": self.local_normalize_embeddings if self.backend == "local" else None,
             "input_type": input_type,
             "dense_dim": DENSE_DIM,
             "text": text,
         }
         return hashlib.sha256(json.dumps(key, sort_keys=True).encode()).hexdigest()
+
+    def _prepare_dense_texts(self, texts: List[str]) -> List[str]:
+        cleaned_texts = []
+        for t in texts:
+            t = re.sub(r'_Case=[^_]+', '', t)
+            t = re.sub(r'--', ' ', t)
+            t = re.sub(r'\s+', ' ', t).strip()
+
+            if not t:
+                cleaned_texts.append("unknown")
+                continue
+
+            if self._tokenizer:
+                tokens = self._tokenizer.encode(t)
+                if len(tokens) > MAX_TOKENS - 10:
+                    tokens = tokens[:MAX_TOKENS - 10]
+                    t = self._tokenizer.decode(tokens)
+
+            words = t.split()
+            max_words = 350
+            if len(words) > max_words:
+                t = ' '.join(words[:max_words])
+
+            if not t.strip():
+                t = "unknown"
+            cleaned_texts.append(t)
+
+        return cleaned_texts
     
-    def _load_from_cache(self, cache_key: str) -> Optional[EmbeddingResult]:
+    def _is_cache_compatible(self, result: EmbeddingResult, input_type: Optional[str] = None) -> bool:
+        if len(result.dense_vector) != DENSE_DIM:
+            return False
+
+        metadata = result.metadata or {}
+        expected = {
+            "embedding_cache_version": EMBEDDING_CACHE_VERSION,
+            "embedding_backend": self.backend,
+            "embedding_model": self.model,
+            "dense_dim": DENSE_DIM,
+        }
+        for key, value in expected.items():
+            if metadata.get(key) != value:
+                return False
+
+        if input_type is not None and metadata.get("embedding_input_type") != input_type:
+            return False
+
+        if self.backend == "local" and metadata.get("normalize_embeddings") != self.local_normalize_embeddings:
+            return False
+
+        return True
+
+    def _load_from_cache(self, cache_key: str, input_type: Optional[str] = None) -> Optional[EmbeddingResult]:
         if cache_key in self._embedding_cache:
-            return self._embedding_cache[cache_key]
+            cached = self._embedding_cache[cache_key]
+            return cached if self._is_cache_compatible(cached, input_type=input_type) else None
 
         cached_json = self.evidence_cache.get("embedding", cache_key)
         if cached_json:
             result = self._embedding_from_dict(cached_json)
-            if len(result.dense_vector) == DENSE_DIM:
+            if self._is_cache_compatible(result, input_type=input_type):
                 self._embedding_cache[cache_key] = result
                 return result
 
@@ -132,7 +212,7 @@ class NVIDIAEmbeddingClient:
         if cache_file.exists():
             data = np.load(str(cache_file), allow_pickle=True).item()
             result = self._embedding_from_dict(data)
-            if len(result.dense_vector) == DENSE_DIM:
+            if self._is_cache_compatible(result, input_type=input_type):
                 self._embedding_cache[cache_key] = result
                 return result
         return None
@@ -176,7 +256,7 @@ class NVIDIAEmbeddingClient:
 
         for idx, (text, text_id) in enumerate(zip(texts, ids)):
             cache_key = self._get_cache_key(text, input_type=input_type)
-            cached = self._load_from_cache(cache_key)
+            cached = self._load_from_cache(cache_key, input_type=input_type)
             if cached:
                 results[idx] = cached
             else:
@@ -191,6 +271,9 @@ class NVIDIAEmbeddingClient:
                 emb_result.metadata = {
                     **(metadata_list[idx] or {}),
                     "embedding_model": self.model,
+                    "embedding_backend": self.backend,
+                    "embedding_cache_version": EMBEDDING_CACHE_VERSION,
+                    "normalize_embeddings": self.local_normalize_embeddings if self.backend == "local" else None,
                     "embedding_input_type": input_type,
                     "dense_dim": DENSE_DIM,
                 }
@@ -228,34 +311,14 @@ class NVIDIAEmbeddingClient:
         return results
     
     def _get_dense_embeddings(self, texts: List[str], input_type: str = "passage") -> List[List[float]]:
-        """Get dense embeddings from NVIDIA API with retry logic and token truncation."""
-        cleaned_texts = []
-        for t in texts:
-            t = re.sub(r'_Case=[^_]+', '', t)
-            t = re.sub(r'--', ' ', t)
-            t = re.sub(r'\s+', ' ', t).strip()
-            
-            if not t:
-                cleaned_texts.append("unknown")
-                continue
-            
-            if self._tokenizer:
-                tokens = self._tokenizer.encode(t)
-                if len(tokens) > MAX_TOKENS - 10:
-                    tokens = tokens[:MAX_TOKENS - 10]
-                    t = self._tokenizer.decode(tokens)
-            
-            words = t.split()
-            max_words = 350
-            if len(words) > max_words:
-                t = ' '.join(words[:max_words])
-            
-            if not t.strip():
-                t = "unknown"
-            cleaned_texts.append(t)
+        """Get dense embeddings from the configured backend."""
+        cleaned_texts = self._prepare_dense_texts(texts)
 
         if not cleaned_texts:
             return []
+
+        if self.backend == "local":
+            return self._get_local_dense_embeddings(cleaned_texts)
 
         payload = {
             "model": self.model,
@@ -303,6 +366,40 @@ class NVIDIAEmbeddingClient:
                 else:
                     raise
         return []
+
+    def _get_local_model(self):
+        if self._local_model is None:
+            try:
+                from sentence_transformers import SentenceTransformer
+            except ImportError as exc:
+                raise RuntimeError(
+                    "sentence-transformers is required for EMBEDDING_BACKEND=local"
+                ) from exc
+
+            self._local_model = SentenceTransformer(
+                self.local_model_name,
+                device=self.local_device,
+            )
+        return self._local_model
+
+    def _get_local_dense_embeddings(self, cleaned_texts: List[str]) -> List[List[float]]:
+        """Embed text with a local CPU SentenceTransformer model."""
+        model = self._get_local_model()
+        embeddings = model.encode(
+            cleaned_texts,
+            batch_size=min(self.local_batch_size, max(1, len(cleaned_texts))),
+            normalize_embeddings=self.local_normalize_embeddings,
+            convert_to_numpy=True,
+            show_progress_bar=False,
+        )
+        embeddings = np.asarray(embeddings, dtype=np.float32)
+        if embeddings.ndim == 1:
+            embeddings = embeddings.reshape(1, -1)
+        if embeddings.shape[1] != DENSE_DIM:
+            raise ValueError(
+                f"Local embedding model returned dimension {embeddings.shape[1]}, expected {DENSE_DIM}"
+            )
+        return embeddings.tolist()
     
     def _get_sparse_embeddings(self, texts: List[str]) -> List[Dict[int, float]]:
         """Generate sparse embeddings (BM25-style lexical features) with deterministic hashing."""
@@ -346,6 +443,9 @@ class NVIDIAEmbeddingClient:
 
     def _get_single_word_embedding(self, word: str) -> List[float]:
         """Get a dense embedding for a single word, reduced to COLBERT_DIM."""
+        if self.backend == "local":
+            return self._deterministic_colbert_vector(word)
+
         try:
             payload = {
                 "model": self.model,
@@ -367,9 +467,15 @@ class NVIDIAEmbeddingClient:
                 reduced.append(0.0)
             return reduced[:COLBERT_DIM]
         except Exception:
-            np.random.seed(hash(word) % (2**31))
-            emb = np.random.randn(COLBERT_DIM).astype(np.float32).tolist()
-            return emb
+            return self._deterministic_colbert_vector(word)
+
+    def _deterministic_colbert_vector(self, word: str) -> List[float]:
+        seed = int(
+            hashlib.md5(f"{_DETERMINISTIC_HASH_SEED}:colbert:{word}".encode()).hexdigest()[:8],
+            16,
+        )
+        rng = np.random.default_rng(seed)
+        return rng.standard_normal(COLBERT_DIM).astype(np.float32).tolist()
 
     def _build_query_fallback_embedding(self, query: str, reason: str = "") -> EmbeddingResult:
         """Build a local-only query embedding when the remote dense API is unavailable.
@@ -389,6 +495,8 @@ class NVIDIAEmbeddingClient:
                 "embedding_fallback": "local_sparse_only",
                 "embedding_input_type": "query",
                 "embedding_model": self.model,
+                "embedding_backend": self.backend,
+                "embedding_cache_version": EMBEDDING_CACHE_VERSION,
                 "fallback_reason": reason[:300],
             },
         )

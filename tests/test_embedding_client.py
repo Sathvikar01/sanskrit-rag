@@ -191,6 +191,72 @@ class TestNVIDIAEmbeddingClient(unittest.TestCase):
         self.assertNotEqual(key1, key3)
         self.assertNotEqual(key1, query_key)
 
+    def test_cache_key_separates_embedding_backends(self):
+        local_client = NVIDIAEmbeddingClient(backend="local", local_model_name="local-test-model")
+        nvidia_client = NVIDIAEmbeddingClient(backend="nvidia", model="nvidia-test-model")
+
+        self.assertNotEqual(
+            local_client._get_cache_key("test text", input_type="query"),
+            nvidia_client._get_cache_key("test text", input_type="query"),
+        )
+
+    def test_local_backend_uses_sentence_transformer_dense_embeddings(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            client = NVIDIAEmbeddingClient(
+                backend="local",
+                local_model_name="fake-local-model",
+                local_batch_size=2,
+                cache_dir=tmpdir,
+            )
+            fake_model = Mock()
+            fake_model.encode.return_value = np.ones((2, 1024), dtype=np.float32)
+
+            with patch.object(client, "_get_local_model", return_value=fake_model):
+                results = client.get_embeddings_batch(["dharma yoga", "karma yoga"], input_type="query")
+
+        fake_model.encode.assert_called_once()
+        self.assertEqual(len(results), 2)
+        self.assertEqual(results[0].dense_vector.shape, (1024,))
+        self.assertEqual(results[0].metadata["embedding_backend"], "local")
+        self.assertEqual(results[0].metadata["embedding_model"], "fake-local-model")
+        self.assertEqual(results[0].metadata["embedding_cache_version"], "v2")
+
+    def test_stale_cache_from_other_backend_is_rejected(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            client = NVIDIAEmbeddingClient(
+                backend="local",
+                local_model_name="fake-local-model",
+                cache_dir=tmpdir,
+            )
+            stale = EmbeddingResult(
+                id="old",
+                text="test text",
+                dense_vector=np.ones(1024, dtype=np.float32),
+                sparse_vector={1: 1.0},
+                colbert_vectors=np.zeros((128, 128), dtype=np.float32),
+                metadata={
+                    "embedding_cache_version": "v2",
+                    "embedding_backend": "nvidia",
+                    "embedding_model": "nvidia/nv-embedqa-e5-v5",
+                    "embedding_input_type": "query",
+                    "dense_dim": 1024,
+                },
+            )
+            cache_key = client._get_cache_key("test text", input_type="query")
+            client._save_to_cache(stale, cache_key)
+
+            self.assertIsNone(client._load_from_cache(cache_key, input_type="query"))
+
+    def test_local_colbert_path_does_not_call_nvidia(self):
+        client = NVIDIAEmbeddingClient(backend="local", local_model_name="fake-local-model")
+        client.session.post = Mock(side_effect=AssertionError("NVIDIA should not be called"))
+
+        colbert = client._get_colbert_embeddings(["dharma yoga"])
+
+        client.session.post.assert_not_called()
+        self.assertEqual(len(colbert), 1)
+        self.assertEqual(len(colbert[0]), 128)
+
     def test_embed_query_requests_query_embedding(self):
         client = NVIDIAEmbeddingClient()
         result = EmbeddingResult(
@@ -252,13 +318,20 @@ class TestEmbeddingCaching(unittest.TestCase):
                 dense_vector=np.ones(1024, dtype=np.float32),
                 sparse_vector={1: 0.5},
                 colbert_vectors=np.zeros((128, 128), dtype=np.float32),
-                metadata={}
+                metadata={
+                    "embedding_cache_version": "v2",
+                    "embedding_backend": client.backend,
+                    "embedding_model": client.model,
+                    "embedding_input_type": "passage",
+                    "normalize_embeddings": client.local_normalize_embeddings,
+                    "dense_dim": 1024,
+                }
             )
             
             cache_key = "test_key"
             client._save_to_cache(result, cache_key)
             
-            loaded = client._load_from_cache(cache_key)
+            loaded = client._load_from_cache(cache_key, input_type="passage")
             
             self.assertIsNotNone(loaded)
             self.assertEqual(loaded.id, "test")
