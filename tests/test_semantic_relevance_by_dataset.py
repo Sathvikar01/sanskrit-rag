@@ -6,10 +6,12 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from run_semantic_relevance_by_dataset import (
     load_eval_questions,
+    rrf_rank_ensemble,
     score_ranked_verses,
     strip_explicit_verse_references,
     unique_in_order,
 )
+from src.query_normalization import expand_semantic_query
 
 
 def test_strip_explicit_verse_references_removes_bg_ids():
@@ -33,6 +35,8 @@ def test_score_ranked_verses_combines_coverage_and_reciprocal_rank():
     assert metrics["first_expected_rank"] == 2
     assert metrics["reciprocal_rank"] == 0.5
     assert metrics["dense_semantic_quality"] == 0.875
+    assert "expected_verse_ids" not in metrics
+    assert "ranked_verse_ids" not in metrics
 
 
 def test_load_eval_questions_uses_tracked_result_fallback():
@@ -41,3 +45,23 @@ def test_load_eval_questions_uses_tracked_result_fallback():
     assert len(items) == 2
     assert items[0]["question"]
     assert items[0]["expected_verse_ids"]
+
+
+def test_expand_semantic_query_adds_domain_synonyms():
+    expanded = expand_semantic_query("What is Arjuna bow name?")
+
+    assert "gandiva" in expanded.lower()
+
+
+def test_rrf_rank_ensemble_combines_dataset_rankings():
+    ranked = rrf_rank_ensemble(
+        {
+            "raw": ["a", "b", "c"],
+            "seg_lemma": ["b", "a", "c"],
+        },
+        weights={"raw": 1.0, "seg_lemma": 1.0},
+        k=20,
+    )
+
+    assert ranked[0] in {"a", "b"}
+    assert set(ranked[:3]) == {"a", "b", "c"}

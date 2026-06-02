@@ -24,15 +24,20 @@ sys.path.insert(0, str(ROOT_DIR))
 from config.settings import COLLECTION_NAMES
 from src.embedding_client import NVIDIAEmbeddingClient
 from src.golden_qa import load_golden_chapter1_qa
+from src.query_normalization import expand_semantic_query
 from src.xml_parser import TEIXMLParser, TextChunk
 
 
 DEFAULT_OUTPUT = ROOT_DIR / "results" / "semantic_relevance_by_dataset_chapter1.json"
 QA_FALLBACK_PATHS = [
     ROOT_DIR / "test_qa" / "golden_chapter1_qa.json",
-    ROOT_DIR / "results" / "qa_retrieval_quality_chapter1.json",
-    ROOT_DIR / "results" / "qa_comparison_chapter1.json",
 ]
+DEFAULT_ENSEMBLE_WEIGHTS = {
+    "raw": 1.25,
+    "seg_lemma": 1.0,
+    "lemma_morph": 0.25,
+}
+DEFAULT_ENSEMBLE_RRF_K = 20
 
 
 def configure_utf8_stdio() -> None:
@@ -65,6 +70,22 @@ def parse_args() -> argparse.Namespace:
         default="verse",
         help="Evaluate each dataset as verse-aggregated text or individual chunks.",
     )
+    parser.add_argument(
+        "--no-query-expansion",
+        action="store_true",
+        help="Disable Sanskrit/domain query expansion.",
+    )
+    parser.add_argument(
+        "--include-details",
+        action="store_true",
+        help="Write per-question debug details. Default output is summary-only.",
+    )
+    parser.add_argument(
+        "--no-ensemble",
+        action="store_true",
+        help="Disable overall RRF ensemble across datasets.",
+    )
+    parser.add_argument("--ensemble-rrf-k", type=int, default=DEFAULT_ENSEMBLE_RRF_K)
     parser.add_argument(
         "--output",
         type=Path,
@@ -134,9 +155,6 @@ def score_ranked_verses(
         dense_quality = 0.75 * float(expected_coverage or 0.0) + 0.25 * reciprocal_rank
 
     return {
-        "expected_verse_ids": expected,
-        "ranked_verse_ids": ranked_top,
-        "matched_verse_ids": matched,
         "expected_coverage": round(expected_coverage, 4) if expected_coverage is not None else None,
         "first_expected_rank": first_rank,
         "reciprocal_rank": round(reciprocal_rank, 4),
@@ -146,6 +164,24 @@ def score_ranked_verses(
         "hit_at_5": bool(expected_set and set(ranked_top[:5]) & expected_set),
         "hit_at_k": bool(expected_set and set(ranked_top) & expected_set),
     }
+
+
+def rrf_rank_ensemble(
+    dataset_rankings: Dict[str, List[str]],
+    weights: Dict[str, float],
+    k: int = DEFAULT_ENSEMBLE_RRF_K,
+) -> List[str]:
+    scores: Dict[str, float] = {}
+    for dataset_type, ranked_ids in dataset_rankings.items():
+        weight = weights.get(dataset_type, 0.0)
+        if weight <= 0:
+            continue
+        for rank, candidate_id in enumerate(ranked_ids, 1):
+            scores[candidate_id] = scores.get(candidate_id, 0.0) + weight / (k + rank)
+    return [
+        candidate_id
+        for candidate_id, _ in sorted(scores.items(), key=lambda item: item[1], reverse=True)
+    ]
 
 
 def filter_chunks_for_chapter(chunks: List[TextChunk], chapter: int) -> List[TextChunk]:
@@ -250,6 +286,8 @@ def evaluate_dataset(
     embedder: NVIDIAEmbeddingClient,
     top_k: int,
     strip_refs: bool,
+    expand_queries: bool,
+    include_details: bool,
 ) -> Dict[str, Any]:
     if not chunks:
         return {
@@ -267,48 +305,74 @@ def evaluate_dataset(
     print(f"  Candidate embeddings ready in {elapsed:.1f}s")
 
     results = []
+    rankings = []
     for index, qa in enumerate(qa_items, 1):
         original_question = qa["question"]
         semantic_question = (
             strip_explicit_verse_references(original_question) if strip_refs else original_question
         )
+        semantic_question = expand_semantic_query(semantic_question) if expand_queries else semantic_question
         query_embedding = embedder.embed_query(semantic_question)
         if not (query_embedding.metadata or {}).get("dense_available", True):
             ranked_verse_ids = []
-            top_chunks = []
         else:
             query_vector = l2_normalize(np.asarray([query_embedding.dense_vector], dtype=np.float32))[0]
             scores = candidate_vectors @ query_vector
             ranked_indices = np.argsort(scores)[::-1]
             ranked_verse_ids = unique_in_order(chunks[i].verse_id for i in ranked_indices)
-            top_chunks = [
-                {
-                    "verse_id": chunks[i].verse_id,
-                    "score": round(float(scores[i]), 4),
-                    "text_preview": chunks[i].text[:180],
-                }
-                for i in ranked_indices[:top_k]
-            ]
 
         metrics = score_ranked_verses(
             ranked_verse_ids,
             qa.get("expected_verse_ids", []),
             top_k=top_k,
         )
-        results.append({
-            "question_number": qa.get("question_number", index),
-            "question": original_question,
-            "semantic_question": semantic_question,
-            "metrics": metrics,
-            "top_chunks": top_chunks,
-        })
+        rankings.append(ranked_verse_ids)
+        item = {"metrics": metrics}
+        if include_details:
+            item.update({
+                "question_number": qa.get("question_number", index),
+                "question": original_question,
+                "semantic_question": semantic_question,
+            })
+        results.append(item)
 
     return {
         "dataset_type": dataset_type,
         "candidate_chunks": len(chunks),
         "candidate_verses": len({chunk.verse_id for chunk in chunks if chunk.verse_id}),
         "summary": summarize_dataset(results),
-        "results": results,
+        "results": results if include_details else [],
+        "_rankings": rankings,
+    }
+
+
+def evaluate_ensemble(
+    qa_items: List[Dict[str, Any]],
+    dataset_rankings: Dict[str, List[List[str]]],
+    top_k: int,
+    weights: Dict[str, float] = DEFAULT_ENSEMBLE_WEIGHTS,
+    rrf_k: int = DEFAULT_ENSEMBLE_RRF_K,
+    include_details: bool = False,
+) -> Dict[str, Any]:
+    results = []
+    for index, qa in enumerate(qa_items):
+        rankings_for_question = {
+            dataset_type: rankings[index]
+            for dataset_type, rankings in dataset_rankings.items()
+            if index < len(rankings)
+        }
+        ranked = rrf_rank_ensemble(rankings_for_question, weights=weights, k=rrf_k)
+        metrics = score_ranked_verses(ranked, qa.get("expected_verse_ids", []), top_k=top_k)
+        item = {"metrics": metrics}
+        if include_details:
+            item["question_number"] = qa.get("question_number", index + 1)
+        results.append(item)
+
+    return {
+        "summary": summarize_dataset(results),
+        "weights": weights,
+        "rrf_k": rrf_k,
+        "results": results if include_details else [],
     }
 
 
@@ -338,10 +402,13 @@ def main() -> None:
         "top_k": args.top_k,
         "candidate_unit": args.candidate_unit,
         "question_mode": "with_verse_refs" if args.keep_verse_refs else "semantic_only_refs_stripped",
+        "query_expansion": not args.no_query_expansion,
         "embedding_backend": embedder.backend,
         "embedding_model": embedder.model,
         "datasets": {},
+        "overall": {},
     }
+    dataset_rankings: Dict[str, List[List[str]]] = {}
 
     for dataset_type in args.datasets:
         source_chunks = filter_chunks_for_chapter(all_chunks.get(dataset_type, []), args.chapter)
@@ -357,7 +424,10 @@ def main() -> None:
             embedder=embedder,
             top_k=args.top_k,
             strip_refs=not args.keep_verse_refs,
+            expand_queries=not args.no_query_expansion,
+            include_details=args.include_details,
         )
+        dataset_rankings[dataset_type] = dataset_result.pop("_rankings", [])
         dataset_result["source_chunks"] = len(source_chunks)
         dataset_result["candidate_unit"] = args.candidate_unit
         output["datasets"][dataset_type] = dataset_result
@@ -367,6 +437,23 @@ def main() -> None:
             f"MRR={summary['mean_reciprocal_rank']:.4f} "
             f"hit@{args.top_k}={summary['hit_at_k']:.2%} "
             f"chunks={dataset_result['candidate_chunks']}"
+        )
+
+    if not args.no_ensemble and len(dataset_rankings) > 1:
+        ensemble = evaluate_ensemble(
+            qa_items=qa_items,
+            dataset_rankings=dataset_rankings,
+            top_k=args.top_k,
+            weights=DEFAULT_ENSEMBLE_WEIGHTS,
+            rrf_k=args.ensemble_rrf_k,
+            include_details=args.include_details,
+        )
+        output["overall"] = ensemble
+        summary = ensemble["summary"]
+        print(
+            f"overall: quality={summary['dense_semantic_quality_percentage']:.2f}% "
+            f"MRR={summary['mean_reciprocal_rank']:.4f} "
+            f"hit@{args.top_k}={summary['hit_at_k']:.2%}"
         )
 
     args.output.parent.mkdir(exist_ok=True)

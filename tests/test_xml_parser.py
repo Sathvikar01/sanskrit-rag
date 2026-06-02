@@ -149,6 +149,27 @@ class TestTEIXMLParser(unittest.TestCase):
             element = etree.fromstring(f"<p>{label}</p>")
             self.assertEqual(self.parser._get_commentary_author(element), expected)
 
+    def test_parse_file_uses_div_verse_fallback_for_empty_markers(self):
+        sample_xml = """<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"><text><body>
+<div><p>BhG 1.1</p><lg><l>first verse</l></lg></div>
+<div><p /><lg><l>range verse text</l></lg></div>
+</body></text></TEI>"""
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.xml', delete=False, encoding='utf-8') as f:
+            f.write(sample_xml)
+            f.flush()
+            temp_path = f.name
+        try:
+            chunks = self.parser.parse_file(
+                temp_path,
+                "seg_lemma",
+                div_verse_ids=[["BhG 1.1"], ["BhG 1.4", "BhG 1.5", "BhG 1.6"]],
+            )
+            verse_ids = {c.verse_id for c in chunks}
+            self.assertTrue({"BhG 1.4", "BhG 1.5", "BhG 1.6"}.issubset(verse_ids))
+        finally:
+            os.unlink(temp_path)
+
 
 class TestParseSanskritText(unittest.TestCase):
     """Test cases for parse_sanskrit_text function."""

@@ -6,7 +6,6 @@ Combines all enhanced components:
 - Query Transformation
 - Cross-Encoder Re-ranking
 - Strict Grounding and Self-Correction
-- RAGAS Evaluation
 - GraphRAG Multi-hop Retrieval
 """
 import time
@@ -30,7 +29,6 @@ from src.grounding_reflection import (
     StrictGroundingEnforcer, SelfCorrectionReflection, 
     GroundedAnswerPipeline, HallucinationDetector
 )
-from src.ragas_evaluation import RAGASPipeline, RAGASTracker
 from src.commentary_manager import CommentaryManager
 
 
@@ -73,7 +71,7 @@ class AdvancedRAGPipeline:
         use_reranking: bool = True,
         use_grounding: bool = True,
         use_reflection: bool = True,
-        use_evaluation: bool = True
+        use_evaluation: bool = False
     ):
         self.embedding_client = embedding_client
         self.qdrant = qdrant_manager
@@ -85,7 +83,7 @@ class AdvancedRAGPipeline:
         self.use_reranking = use_reranking
         self.use_grounding = use_grounding
         self.use_reflection = use_reflection
-        self.use_evaluation = use_evaluation
+        self.use_evaluation = False
 
         self._init_components()
 
@@ -117,13 +115,6 @@ class AdvancedRAGPipeline:
                 api_key=self.llm_api_key,
                 embedding_client=self.embedding_client
             )
-
-        if self.use_evaluation:
-            self.ragas = RAGASPipeline(
-                api_key=self.llm_api_key,
-                embedding_client=self.embedding_client
-            )
-            self.ragas_tracker = RAGASTracker()
 
         self.hallucination_detector = HallucinationDetector()
 
@@ -159,7 +150,6 @@ class AdvancedRAGPipeline:
         6. Retrieve commentaries (if enabled)
         7. Generate grounded answer
         8. Self-correction and reflection (if enabled)
-        9. Evaluate with RAGAS (if enabled)
         """
         start_time = time.time()
 
@@ -258,14 +248,6 @@ class AdvancedRAGPipeline:
             verification["reflection_issues"] = reflection_result.issues_found
 
         metrics = {}
-        if self.use_evaluation:
-            eval_result = self.ragas.evaluate(
-                query=query,
-                answer=answer,
-                contexts=[c.get("text", "") for c in contexts]
-            )
-            metrics = eval_result.metrics.to_dict()
-            self.ragas_tracker.record_evaluation(eval_result)
 
         hallucination_risk = self.hallucination_detector.detect_hallucination_risk(answer)
         verification["hallucination_risk"] = hallucination_risk
@@ -352,15 +334,13 @@ if __name__ == "__main__":
     print(f"  - Cross-Encoder Re-ranking: {'Yes' if True else 'No'}")
     print(f"  - Strict Grounding: {'Yes' if True else 'No'}")
     print(f"  - Self-Correction: {'Yes' if True else 'No'}")
-    print(f"  - RAGAS Evaluation: {'Yes' if True else 'No'}")
 
     print("\nNew Modules Created:")
     print("  1. src/xml_parser.py - Enhanced with commentary extraction")
     print("  2. src/hyde_reranker.py - HyDE, Query Transform, Re-ranking")
     print("  3. src/commentary_manager.py - Commentary embedding/storage")
     print("  4. src/grounding_reflection.py - Grounding & Self-correction")
-    print("  5. src/ragas_evaluation.py - RAGAS metrics")
-    print("  6. src/advanced_rag_pipeline.py - Integrated pipeline")
+    print("  5. src/advanced_rag_pipeline.py - Integrated pipeline")
 
     print("\nEnhanced Files:")
     print("  1. src/neo4j_manager.py - Added GraphRAG methods")

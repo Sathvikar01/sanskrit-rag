@@ -240,7 +240,12 @@ class TEIXMLParser:
         self._current_verse_num = 0
         self._current_commentary_author = None
 
-    def parse_file(self, file_path: str, dataset_type: str) -> List[TextChunk]:
+    def parse_file(
+        self,
+        file_path: str,
+        dataset_type: str,
+        div_verse_ids: Optional[List[List[str]]] = None,
+    ) -> List[TextChunk]:
         path = Path(file_path)
         if not path.exists():
             raise FileNotFoundError(f"File not found: {file_path}")
@@ -253,8 +258,18 @@ class TEIXMLParser:
         current_verse_ids = []
         current_chapter = 0
         current_verse_num = 0
+        div_index = -1
 
         for element in root.iter():
+            tag = element.tag.split("}")[-1] if "}" in element.tag else element.tag
+            if tag == "div":
+                div_index += 1
+                if div_verse_ids and div_index < len(div_verse_ids) and div_verse_ids[div_index]:
+                    current_verse_ids = div_verse_ids[div_index]
+                    current_verse_id = current_verse_ids[0]
+                    current_chapter, current_verse_num = self._parse_verse_id(current_verse_id)
+                continue
+
             if self._is_verse_marker(element):
                 current_verse_ids = self._extract_verse_ids(element)
                 if current_verse_ids:
@@ -281,7 +296,8 @@ class TEIXMLParser:
     def parse_with_commentaries(
         self,
         file_path: str,
-        dataset_type: str
+        dataset_type: str,
+        div_verse_ids: Optional[List[List[str]]] = None,
     ) -> Tuple[List[TextChunk], Dict[str, List[CommentaryChunk]]]:
         """Parse file and extract both main text and commentaries separately.
 
@@ -308,8 +324,19 @@ class TEIXMLParser:
         current_chapter = 0
         current_verse_num = 0
         current_author = None
+        div_index = -1
 
         for element in root.iter():
+            tag = element.tag.split("}")[-1] if "}" in element.tag else element.tag
+            if tag == "div":
+                div_index += 1
+                if div_verse_ids and div_index < len(div_verse_ids) and div_verse_ids[div_index]:
+                    current_verse_ids = div_verse_ids[div_index]
+                    current_verse_id = current_verse_ids[0]
+                    current_chapter, current_verse_num = self._parse_verse_id(current_verse_id)
+                current_author = None
+                continue
+
             if self._is_verse_marker(element):
                 current_verse_ids = self._extract_verse_ids(element)
                 if current_verse_ids:
@@ -437,6 +464,32 @@ class TEIXMLParser:
         verse_str = verse_id.replace(" ", "_").replace(".", "-") if verse_id else "unknown"
         return f"{author}_{verse_str}_L{line_num}_{hashlib.md5(f'{author}{verse_id}{line_num}'.encode()).hexdigest()[:8]}"
 
+    def _build_div_verse_id_map(self, file_path: Path) -> List[List[str]]:
+        """Build a div-position verse map from the raw XML source.
+
+        The lemma/morph and segmentation/lemma XML files omit several range
+        markers by replacing them with empty ``<p />`` nodes. Their div order
+        still tracks the raw XML, so this map restores the missing verse ranges.
+        """
+        if not file_path.exists():
+            return []
+
+        tree = etree.parse(str(file_path), etree.XMLParser(remove_blank_text=True))
+        root = tree.getroot()
+        div_map: List[List[str]] = []
+        for div in root.iter():
+            tag = div.tag.split("}")[-1] if "}" in div.tag else div.tag
+            if tag != "div":
+                continue
+            verse_ids = []
+            for descendant in div.iter():
+                if self._is_verse_marker(descendant):
+                    verse_ids = self._extract_verse_ids(descendant)
+                    if verse_ids:
+                        break
+            div_map.append(verse_ids)
+        return div_map
+
     def parse_all_datasets(self, base_dir: str) -> Dict[str, List[TextChunk]]:
         base_path = Path(base_dir)
 
@@ -447,10 +500,15 @@ class TEIXMLParser:
         }
 
         results = {}
+        raw_div_verse_ids = self._build_div_verse_id_map(datasets["raw"])
         for dtype, filepath in datasets.items():
             if filepath.exists():
                 print(f"Parsing {filepath.name}...")
-                results[dtype] = self.parse_file(str(filepath), dtype)
+                results[dtype] = self.parse_file(
+                    str(filepath),
+                    dtype,
+                    div_verse_ids=None if dtype == "raw" else raw_div_verse_ids,
+                )
                 print(f" Extracted {len(results[dtype])} chunks")
             else:
                 print(f"Warning: {filepath} not found")
@@ -478,12 +536,15 @@ class TEIXMLParser:
 
         main_results = {}
         commentary_results = {}
+        raw_div_verse_ids = self._build_div_verse_id_map(datasets["raw"])
 
         for dtype, filepath in datasets.items():
             if filepath.exists():
                 print(f"Parsing {filepath.name} with commentary extraction...")
                 main_chunks, commentaries = self.parse_with_commentaries(
-                    str(filepath), dtype
+                    str(filepath),
+                    dtype,
+                    div_verse_ids=None if dtype == "raw" else raw_div_verse_ids,
                 )
                 main_results[dtype] = main_chunks
                 commentary_results[dtype] = commentaries
